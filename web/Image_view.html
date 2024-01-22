@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <script>
+        function loadImageGallery() {
+            console.log("Loading image gallery...");
+
+            fetch('/image-list')
+                .then(response => {
+                    console.log("Received response:", response);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(images => {
+                    console.log("Image list:", images);
+                    const gallery = document.getElementById('image-gallery');
+
+                    if(images.length === 0) {
+                        console.log("No images found.");
+                    }
+
+                    images.forEach(image => {
+                        console.log("Processing image:", image);
+                        const img = document.createElement('img');
+                        img.src = '/dir/' + image;
+                        img.alt = 'Image';
+                        gallery.appendChild(img);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading image gallery:', error);
+                });
+        }
+
+        window.onload = () => {
+            console.log("Window loaded, calling loadImageGallery.");
+            loadImageGallery();
+        };
+    </script>
+</head>
+<body>
+    <div id="image-gallery">
+        <!-- Images will be added here dynamically -->
+    </div>
+</body>
+</html>
