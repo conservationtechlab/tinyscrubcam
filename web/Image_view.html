@@ -11,9 +11,21 @@
                 .then(response => {
                     console.log("Received response:", response);
                     if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
+                        throw new Error('Network response was not ok. Status: ' + response.statusText + ', URL: ' + response.url);
                     }
-                    return response.json();
+                    return response.text() // Get the raw text from the response
+                    .catch(textError => {
+                        console.error('Error in converting response to text:', textError);
+                        throw textError;
+                    });
+                })
+                .then(text => {
+                    console.log("Raw response text:", text); // Log the raw text
+                    try {
+                        return JSON.parse(text); // Attempt to parse the text as JSON
+                    } catch (e) {
+                        throw new Error('Failed to parse JSON. Error: ' + e.message + ', Text: ' + text);
+                    }
                 })
                 .then(images => {
                     console.log("Image list:", images);
@@ -32,7 +44,7 @@
                     });
                 })
                 .catch(error => {
-                    console.error('Error loading image gallery:', error);
+                    console.error('Error in image gallery process:', error);
                 });
         }
 
@@ -40,6 +52,8 @@
             console.log("Window loaded, calling loadImageGallery.");
             loadImageGallery();
         };
+
+
     </script>
 </head>
 <body>

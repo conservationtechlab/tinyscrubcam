@@ -41,19 +41,19 @@
 // A lot of label losts
 const char* labels[] = {
     "person", "bicycle", "car", "motorcycle", "airplane",
-    "bus", "train", "truck", "boat", "traffic light",
-    "fire hydrant", "No matching result", "stop sign", "parking meter", "bench",
+    "bus", "train", "truck", "boat", "traffic_light",
+    "fire_hydrant", "No_matching_result", "stop_sign", "parking_meter", "bench",
     "bird", "cat", "dog", "horse", "sheep", "cow", "elephant",
-    "bear", "zebra", "giraffe", "No matching result", "backpack", "umbrella", 
-    "No matching result", "No matching result", "handbag",
-    "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball",
-    "kite", "baseball glove", "skateboard", "surfboard", "tennis racket",
-    "bottle", "No matching result", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana",
-    "apple", "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", 
-    "donut", "cake", "chair", "couch", "potted plant", "bed", "No matching result", "dining table",
-    "No matching result", "No matching result", "toilet", "No matching result", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone",
-    "microwave", "oven", "toaster", "sink", "refrigerator", "No matching result", "book", "clock",
-    "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush" // Last label
+    "bear", "zebra", "giraffe", "No_matching_result", "backpack", "umbrella", 
+    "No_matching_result", "No_matching_result", "handbag",
+    "tie", "suitcase", "frisbee", "skis", "snowboard", "sports_ball",
+    "kite", "baseball_glove", "skateboard", "surfboard", "tennis_racket",
+    "bottle", "No_matching_result", "wine_glass", "cup", "fork", "knife", "spoon", "bowl", "banana",
+    "apple", "sandwich", "orange", "broccoli", "carrot", "hot_dog", "pizza", 
+    "donut", "cake", "chair", "couch", "potted_plant", "bed", "No_matching_result", "dining_table",
+    "No_matching_result", "No_matching_result", "toilet", "No_matching_result", "tv", "laptop", "mouse", "remote", "keyboard", "cell_phone",
+    "microwave", "oven", "toaster", "sink", "refrigerator", "No_matching_result", "book", "clock",
+    "clock", "vase", "scissors", "teddy_bear", "hair_drier", "toothbrush" // Last label
 };
 
 namespace coralmicro {
@@ -176,6 +176,10 @@ HttpServer::Content ServeImageList() {
   printf("JSON Response: %s\r\n", jsonResponse.c_str());
 
   std::vector<uint8_t> responseData(jsonResponse.begin(), jsonResponse.end());
+  // debug
+  std::string responseStr(responseData.begin(), responseData.end());
+  printf("responseData as string: %s\r\n", responseStr.c_str());
+
   return responseData;
 }
 
@@ -330,20 +334,9 @@ int GetNextImageIndex(const std::string& baseFilename) {
     return maxIndex + 1;  // Return the next available index
 }
 
-// std::string GetTimestampedImageName() {
-//     std::time_t now = std::time(nullptr);
-//     char buffer[50];
-//     std::snprintf(buffer, sizeof(buffer), "/dir/image_%lld.jpg", now);
-//     return std::string(buffer);
-// }
 
 bool Record(const std::string& baseFilename) {
   lfs_info fileInfo;
-
-  // // write image file
-  // int index = GetNextImageIndex();
-  // char filePath[50];  // Buffer to hold the file path
-  // std::snprintf(filePath, sizeof(filePath), "/dir/image_%d.jpg", index);
 
   int index = GetNextImageIndex(baseFilename);
   char filePath[100]; 
@@ -412,6 +405,10 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
       vTaskDelay(pdMS_TO_TICKS(1000));
       PwmDisable(configs);
       vTaskDelay(pdMS_TO_TICKS(1000));
+
+      coralmicro::GpioSet(coralmicro::Gpio::kAA, true);
+      vTaskDelay(pdMS_TO_TICKS(10000));
+      coralmicro::GpioSet(coralmicro::Gpio::kAA, false);
     }
   } else {
     printf("Failed to detect image from camera.\r\n");
@@ -500,6 +497,9 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
   //   vTaskDelay(pdMS_TO_TICKS(1000));
   // }
 
+  // Initialize kAA (pin A1) as output to the amplifier
+  GpioSetMode(coralmicro::Gpio::kAA, coralmicro::GpioMode::kOutput);
+  coralmicro::GpioSet(coralmicro::Gpio::kAA, false);
   // Initialize kScl6 (pin D0) as input
   GpioSetMode(Gpio::kScl6, GpioMode::kInput);
   // Configure interrupt for kScl6 to trigger on rising edge
