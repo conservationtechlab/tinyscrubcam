@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Image Gallery</title>
@@ -14,10 +15,10 @@
                         throw new Error('Network response was not ok. Status: ' + response.statusText + ', URL: ' + response.url);
                     }
                     return response.text() // Get the raw text from the response
-                    .catch(textError => {
-                        console.error('Error in converting response to text:', textError);
-                        throw textError;
-                    });
+                        .catch(textError => {
+                            console.error('Error in converting response to text:', textError);
+                            throw textError;
+                        });
                 })
                 .then(text => {
                     console.log("Raw response text:", text); // Log the raw text
@@ -31,7 +32,7 @@
                     console.log("Image list:", images);
                     const gallery = document.getElementById('image-gallery');
 
-                    if(images.length === 0) {
+                    if (images.length === 0) {
                         console.log("No images found.");
                     }
 
@@ -48,6 +49,34 @@
                 });
         }
 
+        function deleteAllImagesOnServer() {
+            fetch('/delete-all-images')
+                .then(response =>{
+                    if (!response.ok) {
+                        console.log("Received response: "+response);
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                }) 
+                .then(result => {
+                    console.log("Server response: ", result);
+                    alert("ALL images have been successfully deleted");
+                })
+                .catch(error => {
+                    console.error("Error during image deletion: ", error);
+                });
+        }
+
+        function deleteAllImages() {
+            const userConfirmed = confirm("Are you sure you want to delete all images from memory?");
+            if (userConfirmed) {
+                // Clear the image gallery div
+                deleteAllImagesOnServer();
+                const gallery = document.getElementById('image-gallery');
+                gallery.innerHTML = '';
+            }
+        }
+
         window.onload = () => {
             console.log("Window loaded, calling loadImageGallery.");
             loadImageGallery();
@@ -56,9 +85,12 @@
 
     </script>
 </head>
+
 <body>
+    <button onclick="deleteAllImages()" style="margin: 20px;">Delete All Images from Memory</button>
     <div id="image-gallery">
         <!-- Images will be added here dynamically -->
     </div>
 </body>
+
 </html>

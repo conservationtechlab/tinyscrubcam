@@ -192,6 +192,46 @@ HttpServer::Content ServeImage(const char* uri) {
   return {};
 }
 
+HttpServer::Content DeleteAllImagesInDir() {
+  lfs_dir_t dir;
+  lfs_info info;
+
+  printf("Opening /dir to delete images... \r\n");
+
+  std::string success_response = "{\"status\":\"success\", \"message\":\"All images have been successfully deleted.\"}";
+  std::string fail_response = "{\"status\":\"error\", \"message\":\"Images failed to be successfully deleted.\"}";
+  // Open the directory
+  if (lfs_dir_open(Lfs(), &dir, "/dir") >= 0) {
+    printf("Directory /dir opened successfully! \r\n");
+
+    // Read directory entries
+    while (lfs_dir_read(Lfs(), &dir, &info) > 0) {
+      // Check if the entry is a file and delete it
+      if (info.type == LFS_TYPE_REG) {
+        char filePath[256];
+        snprintf(filePath, sizeof(filePath), "/dir/%s", info.name);
+        if (lfs_remove(Lfs(), filePath) == LFS_ERR_OK) {
+          printf("Deleted file: %s\r\n", filePath);
+        } else {
+          printf("Failed to delete file %s\r\n", filePath);
+          std::vector<uint8_t> fail_responseData(fail_response.begin(), fail_response.end());
+          return fail_responseData;
+        }
+      }
+    }
+
+    // Close the directory
+    lfs_dir_close(Lfs(), &dir);
+    printf("Directory /dir closed after deletion process. \r\n");
+    std::vector<uint8_t> success_responseData(success_response.begin(), success_response.end());
+    return success_responseData;
+  } else {
+    printf("Failed to open directory /dir\r\n");
+    std::vector<uint8_t> fail_responseData(fail_response.begin(), fail_response.end());
+    return fail_responseData;
+  }
+}
+
 constexpr char kIndexFileName[] = "/Image_view.html";
 constexpr char kCameraStreamUrlPrefix[] = "/dir/image.jpg";
 HttpServer::Content UriHandler(const char* uri) {
@@ -206,7 +246,9 @@ HttpServer::Content UriHandler(const char* uri) {
     return ServeImageList();
   } else if (StrStartsWith(uri, "/dir/")){
     return ServeImage(uri);
-  } else {
+  } else if (StrEndsWith(uri, "/delete-all-images")) {
+    return DeleteAllImagesInDir();
+  }else {
     printf("URI not recognitzed.\r\n");
   }
   return {};
@@ -399,12 +441,12 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
     if (results.size() == 0) {
       printf("No result detected!\r\n");
     } else{
-      // sound the pwm
       Record(namePrediction);
-      PwmEnable(configs);
-      vTaskDelay(pdMS_TO_TICKS(1000));
-      PwmDisable(configs);
-      vTaskDelay(pdMS_TO_TICKS(1000));
+      // // sound the pwm
+      // PwmEnable(configs);
+      // vTaskDelay(pdMS_TO_TICKS(1000));
+      // PwmDisable(configs);
+      // vTaskDelay(pdMS_TO_TICKS(1000));
 
       coralmicro::GpioSet(coralmicro::Gpio::kAA, true);
       vTaskDelay(pdMS_TO_TICKS(10000));
@@ -461,7 +503,7 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
   UseHttpServer(new JsonRpcHttpServer);
   printf("Detection server ready!\r\n");
 
-  PwmInit();
+  // PwmInit();
 
   // create the /dir directory for images
   printf("Checking if '/dir' directory exists. \r\n");
