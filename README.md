@@ -2,7 +2,7 @@
 
 TinyScrubCam is an innovative edge-AI device powered by Google Coral Micro, designed for wildlife detection. Leveraging advanced AI technology, it operates efficiently at the edge, making it an ideal solution for monitoring and studying wildlife in various environments.
 
-# Hardware wiring connection diagram
+# Hardware wiring diagram
 ![image](CircuitDiagram.jpg)
 
 ## Description
