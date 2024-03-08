@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 NXP
+
+This software is owned or controlled by NXP and may only be used
+strictly in accordance with the applicable license terms.  By expressly
+accepting such terms or by downloading, installing, activating and/or
+otherwise using the software, you are agreeing that you have read, and
+that you agree to comply with and are bound by, such license terms.  If
+you do not agree to be bound by the applicable license terms, then you
+may not retain, install, activate or otherwise use the software.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.6. I2CM / Secure Sensor &#8212; Plug &amp; Trust MW v03.00.05 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.7. Logging" href="logging.html" />
+    <link rel="prev" title="3.5. Parameter Check &amp; Conventions" href="param_checks.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../toc.html"><span><img src="../_static/NXP_logo_JPG.jpg"></span>
+          MW</a>
+        <span class="navbar-text navbar-version pull-left"><b>v03.00.05</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../toc.html">TOC <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organization-of-documentation.html">1.1. Organization of Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../folder-structure.html">1.2. Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sw-prerequisites.html">1.3. List of Platform Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html">2.1. Pending Refactoring items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html#known-limitations">2.2. Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_05.html">2.3. Release <code class="docutils literal notranslate"><span class="pre">v03.00.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_04.html">2.4. Release <code class="docutils literal notranslate"><span class="pre">v03.00.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_03.html">2.5. Release <code class="docutils literal notranslate"><span class="pre">v03.00.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_02.html">2.6. Release <code class="docutils literal notranslate"><span class="pre">v03.00.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_01.html">2.7. Release <code class="docutils literal notranslate"><span class="pre">v02.16.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_00.html">2.8. Release <code class="docutils literal notranslate"><span class="pre">v02.16.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_15_00.html">2.9. Release <code class="docutils literal notranslate"><span class="pre">v02.15.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_14_00.html">2.10. Release <code class="docutils literal notranslate"><span class="pre">v02.14.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html">2.11. Release <code class="docutils literal notranslate"><span class="pre">v02.12.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-04">2.12. Release <code class="docutils literal notranslate"><span class="pre">v02.12.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-03">2.13. Release <code class="docutils literal notranslate"><span class="pre">v02.12.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-02">2.14. Release <code class="docutils literal notranslate"><span class="pre">v02.12.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-01">2.15. Release <code class="docutils literal notranslate"><span class="pre">v02.12.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-00">2.16. Release <code class="docutils literal notranslate"><span class="pre">v02.12.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_03.html">2.17. Release <code class="docutils literal notranslate"><span class="pre">v02.11.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_01.html">2.18. Internal Release <code class="docutils literal notranslate"><span class="pre">v02.11.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_00.html">2.19. Release <code class="docutils literal notranslate"><span class="pre">v02.11.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_10_00.html">2.20. Release <code class="docutils literal notranslate"><span class="pre">v02.10.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_09_00.html">2.21. Release <code class="docutils literal notranslate"><span class="pre">v02.09.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_07_00.html">2.22. Release <code class="docutils literal notranslate"><span class="pre">v02.07.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_06_00.html">2.23. Release <code class="docutils literal notranslate"><span class="pre">v02.06.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html">2.24. Release <code class="docutils literal notranslate"><span class="pre">v02.05.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-v02-04-00">2.25. Release <code class="docutils literal notranslate"><span class="pre">v02.04.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-02-03-00">2.26. Release <code class="docutils literal notranslate"><span class="pre">02.03.00</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Plug &amp; Trust MW Stack</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.6. I2CM / Secure Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building/windows.html">4.1. Windows Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-sdk.html">4.2. Import MCUXPresso projects from SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-cmake.html">4.3. Freedom K64F Build (CMake - Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/imx6.html">4.4. i.MX Linux Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/rpi3.html">4.5. Raspberry Pi Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/cmake.html">4.6. CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/cmake_options.html">4.7. CMake Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#building-and-running-the-edgelock-2go-agent">6.2. Building and running the EdgeLock 2GO agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#datastore-keystore">6.3. Datastore / Keystore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#connection-to-the-edgelock-2go-cloud-service">6.4. Connection to the EdgeLock 2GO cloud service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#claim-codes">6.5. Claim Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/edgelock2go_agent_apis.html">6.6. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/readme_usage_examples.html">6.7. Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_overview.html">7.1. SEMS Lite Overview (Only for SE051)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_package.html">7.2. Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_usage.html">7.3. SEMS Lite Agent Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_mgmt_api.html">7.4. SEMS Lite management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_process.html">7.5. SEMS Lite Agent Package Load Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_api.html">7.6. APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_known_issue.html">7.7. SEMS Lite Known Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/demo_update.html">7.8. SEMS Lite DEMOs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/openssl/scripts/readme.html">8.1. Introduction on OpenSSL engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/mbedtls/scripts/readme.html">8.2. Introduction on mbedTLS ALT Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/psa/Readme.html">8.3. Platform Security Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/akm.html">8.4. Android Key master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/open62541/readme.html">8.5. Introduction on Open62541 (OPC UA stack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/wifiEAP/wifiEAP.html">8.6. WiFi EAP Demo with Raspberry Pi3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/pkcs11.html">8.7. PKCS#11 Standalone Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/introduction.html">9.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/block-diagram.html">9.2. Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/pre-steps.html">9.3. Steps needed before running <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/running.html">9.4. Running the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool - Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/Provisioning/readme.html">9.5. CLI Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/readme_usage_examples.html">9.6. Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_commands_list.html">9.7. List of <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_data_format.html">9.8. CLI Data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_object_policy.html">9.9. Object Policies Through ssscli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/upload_se05x_using_pycli.html">9.10. Upload keys and certificates to SE05X using ssscli tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../a71ch/a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../a71ch/a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../a71ch/a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../a71ch/a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../a71ch/a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/glossary.html">11.1. Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vcom.html">11.2. APDU Commands over VCOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vs2019-setup.html">11.3. Visual Studio 2019 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/ide_mcux.html">11.4. Setting up MCUXPresso IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-platforms.html">11.5. Development Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/se_uid.html">11.6. How to get SE Platform Information and UID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/version_info.html">11.7. Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/Certificate_Chains/Readme.html">11.8. Certificate Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/rjct_server.html">11.9. JRCP_v1 Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/platfscp.html">11.10. Using own Platform SCP03 Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/apdu_write_to_buffer.html">11.11. Write APDU to buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/api_list.html">11.12. Plug &amp; Trust MW APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">3.6. I2CM / Secure Sensor</a><ul>
+<li><a class="reference internal" href="#normal-read-write">3.6.1. Normal Read/Write</a></li>
+<li><a class="reference internal" href="#attested-read">3.6.2. Attested Read</a></li>
+<li><a class="reference internal" href="#transaction">3.6.3. Transaction</a></li>
+<li><a class="reference internal" href="#read-with-attestation">3.6.4. Read with Attestation</a></li>
+<li><a class="reference internal" href="#i2c-master-apis">3.6.5. I2C Master APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="param_checks.html" title="Previous Chapter: 3.5. Parameter Check & Conventions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 3.5. Paramete...</span>
+    </a>
+  </li>
+  <li>
+    <a href="logging.html" title="Next Chapter: 3.7. Logging"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">3.7. Logging &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+
+<div class="sidebar-header">
+    <h3>Plug &amp; Trust MW</h3>
+</div>
+
+<div class="row">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Plug &amp; Trust MW Stack</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.6. I2CM / Secure Sensor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#normal-read-write">3.6.1. Normal Read/Write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attested-read">3.6.2. Attested Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction">3.6.3. Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-with-attestation">3.6.4. Read with Attestation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i2c-master-apis">3.6.5. I2C Master APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a71ch.html">10. A71CH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a></li>
+</ul>
+
+</div>
+<div class="row">
+    <form class="form" action="../search.html" method="get">
+     <div class="form-group">
+      <label for="Search">Search:</label>
+      <input type="text" name="q" class="form-control" placeholder="Search" />
+     </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="i2cm-secure-sensor">
+<span id="se05x-stack-i2cm"></span><h1><span class="section-number">3.6. </span>I2CM / Secure Sensor<a class="headerlink" href="#i2cm-secure-sensor" title="Permalink to this headline">¶</a></h1>
+<p>For an example regarding this, see <a class="reference internal" href="../demos/se05x/se05x_I2cMaster/readme.html#ex-i2cmaster"><span class="std std-numref">Section 5.7.7</span></a> <a class="reference internal" href="../demos/se05x/se05x_I2cMaster/readme.html#ex-i2cmaster"><span class="std std-ref">I2C Master Example</span></a></p>
+<div class="section" id="normal-read-write">
+<h2><span class="section-number">3.6.1. </span>Normal Read/Write<a class="headerlink" href="#normal-read-write" title="Permalink to this headline">¶</a></h2>
+<p>The sequence to read from I2CM Sensor is as below:</p>
+<img alt="../_images/i2cm-config-read-write.png" src="../_images/i2cm-config-read-write.png" />
+</div>
+<div class="section" id="attested-read">
+<h2><span class="section-number">3.6.2. </span>Attested Read<a class="headerlink" href="#attested-read" title="Permalink to this headline">¶</a></h2>
+<p>The sequence to read with attestation from I2CM Sensor is as below:</p>
+<img alt="../_images/i2cm-config-attread.png" src="../_images/i2cm-config-attread.png" />
+</div>
+<div class="section" id="transaction">
+<h2><span class="section-number">3.6.3. </span>Transaction<a class="headerlink" href="#transaction" title="Permalink to this headline">¶</a></h2>
+<p>A sample I2CM Transaction can be performed as below:</p>
+<p>Code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>    <span class="n">FujAddr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x03</span><span class="p">;</span>
+    <span class="n">FujAddr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x00</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Configure</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">cfg</span><span class="p">.</span><span class="n">I2C_addr</span> <span class="o">=</span> <span class="n">FUJITSU_I2C_ADDR</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">cfg</span><span class="p">.</span><span class="n">I2C_baudRate</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Baud_Rate_100Khz</span><span class="p">;</span>
+
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Write</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">w</span><span class="p">.</span><span class="n">writeLength</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">FujAddr</span><span class="p">);</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">w</span><span class="p">.</span><span class="n">writebuf</span> <span class="o">=</span> <span class="n">FujAddr</span><span class="p">;</span>
+
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Read</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">rd</span><span class="p">.</span><span class="n">readLength</span> <span class="o">=</span> <span class="n">I2C_MAX_DATA</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">rd</span><span class="p">.</span><span class="n">rdBuf</span> <span class="o">=</span> <span class="n">pFujMemRead</span><span class="p">;</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="n">Se05x_i2c_master_txn</span><span class="p">(</span><span class="o">&amp;</span><span class="n">gtCtx</span><span class="p">.</span><span class="n">session</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-with-attestation">
+<h2><span class="section-number">3.6.4. </span>Read with Attestation<a class="headerlink" href="#read-with-attestation" title="Permalink to this headline">¶</a></h2>
+<p>A sample I2CM read with Attestation can be performed as below:</p>
+<p>Code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>    <span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Configure</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">cfg</span><span class="p">.</span><span class="n">I2C_addr</span> <span class="o">=</span> <span class="n">FUJITSU_I2C_ADDR</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">cfg</span><span class="p">.</span><span class="n">I2C_baudRate</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Baud_Rate_400Khz</span><span class="p">;</span>
+
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Write</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">w</span><span class="p">.</span><span class="n">writeLength</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">FujAddr</span><span class="p">);</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">w</span><span class="p">.</span><span class="n">writebuf</span> <span class="o">=</span> <span class="n">FujAddr</span><span class="p">;</span>
+
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">kSE05x_I2CM_Read</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">rd</span><span class="p">.</span><span class="n">readLength</span> <span class="o">=</span> <span class="n">I2C_MAX_DATA</span><span class="p">;</span>
+    <span class="n">TLV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">cmd</span><span class="p">.</span><span class="n">rd</span><span class="p">.</span><span class="n">rdBuf</span> <span class="o">=</span> <span class="n">pFujMemRead</span><span class="p">;</span>
+
+    <span class="n">signatureLen</span> <span class="o">=</span> <span class="n">MAX_SIGNATURE_LEN</span><span class="p">;</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">Se05x_i2c_master_attst_txn</span><span class="p">(</span><span class="o">&amp;</span><span class="n">gtCtx</span><span class="p">.</span><span class="n">session</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">gtCtx</span><span class="p">.</span><span class="n">key</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">TLV</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">random</span><span class="p">,</span>
+        <span class="k">sizeof</span><span class="p">(</span><span class="n">random</span><span class="p">),</span>
+        <span class="n">attest_algo</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">timeStamp</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">timeStampLen</span><span class="p">,</span>
+        <span class="n">outrandom</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">outrandomLen</span><span class="p">,</span>
+        <span class="n">chipId</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">chipIdLen</span><span class="p">,</span>
+        <span class="n">signature</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">signatureLen</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="i2c-master-apis">
+<h2><span class="section-number">3.6.5. </span>I2C Master APIs<a class="headerlink" href="#i2c-master-apis" title="Permalink to this headline">¶</a></h2>
+<dl class="group">
+<dt>
+<em>group</em> <code class="sig-name descname">se050_i2cm</code></dt>
+<dd><p>I2C Master APIs in SE050 for secure sensor. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="enum">
+<dt>
+<em class="property">enum </em><code class="sig-name descname">SE05x_I2CM_Baud_Rate_t</code><br /></dt>
+<dd><p>Configuration for I2CM </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Baud_Rate_100Khz</code> = 0<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Baud_Rate_400Khz</code><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<em class="property">enum </em><code class="sig-name descname">SE05x_I2CM_securityReq_t</code><br /></dt>
+<dd><p>Additional operation on data read by I2C </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_Security_None</code> = 0<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_Sign_Request</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_Sign_Enc_Request</code><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<em class="property">enum </em><code class="sig-name descname">SE05x_I2CM_status_t</code><br /></dt>
+<dd><p>Status of I2CM Transaction </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Success</code> = 0x5A<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_I2C_Nack_Fail</code> = 0x01<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_I2C_Write_Error</code> = 0x02<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_I2C_Read_Error</code> = 0x03<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_I2C_Time_Out_Error</code> = 0x05<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Invalid_Tag</code> = 0x11<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Invalid_Length</code> = 0x12<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Invalid_Length_Encode</code> = 0x13<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_I2C_Config</code> = 0x21<br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<em class="property">enum </em><code class="sig-name descname">SE05x_I2CM_TAG_t</code><br /></dt>
+<dd><p>I2C Master micro operation. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_TAG_I2CM_Config</code> = 0x01<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_TAG_I2CM_Write</code> = 0x03<br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_TAG_I2CM_Read</code> = 0x04<br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="enum">
+<dt>
+<em class="property">enum </em><code class="sig-name descname">SE05x_I2CM_TLV_type_t</code><br /></dt>
+<dd><p>Types of entries in an I2CM Transaction </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_None</code> = 0<br /></dt>
+<dd><p>Do nothing </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Configure</code><br /></dt>
+<dd><p>Configure the address, baudrate </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Write</code> = 3<br /></dt>
+<dd><p>Write to I2C Slave </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_Read</code><br /></dt>
+<dd><p>Read from I2C Slave </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt>
+<code class="sig-name descname">kSE05x_I2CM_StructuralIssue</code> = 0xFF<br /></dt>
+<dd><p>Response from SE05x that there is something wrong </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+smStatus_t <code class="sig-name descname">Se05x_i2c_master_attst_txn</code><span class="sig-paren">(</span><a class="reference internal" href="../api/structsss__session__t.html#_CPPv413sss_session_t" title="sss_session_t">sss_session_t</a> *<em>sess</em>, <a class="reference internal" href="../api/structsss__object__t.html#_CPPv412sss_object_t" title="sss_object_t">sss_object_t</a> *<em>keyObject</em>, <a class="reference internal" href="../api/struct_s_e05x___i2_c_m__cmd__t.html#_CPPv416SE05x_I2CM_cmd_t" title="SE05x_I2CM_cmd_t">SE05x_I2CM_cmd_t</a> *<em>p</em>, uint8_t *<em>random_attst</em>, size_t <em>random_attstLen</em>, <a class="reference internal" href="../api/enum_se05x__enums_8h_1aed5c24ee08d5987204c2d2c333cb0ebb.html#_CPPv423SE05x_AttestationAlgo_t" title="SE05x_AttestationAlgo_t">SE05x_AttestationAlgo_t</a> <em>attst_algo</em>, SE05x_TimeStamp_t *<em>ptimeStamp</em>, size_t *<em>timeStampLen</em>, uint8_t *<em>freshness</em>, size_t *<em>pfreshnessLen</em>, uint8_t *<em>chipId</em>, size_t *<em>pchipIdLen</em>, uint8_t *<em>signature</em>, size_t *<em>psignatureLen</em>, uint8_t <em>noOftags</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Se05x_i2c_master_attst_txn. </p>
+<p>I2CM Read With Attestation</p>
+<p><dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>p describes I2C master commands. </p>
+</dd>
+<dt><strong>Post</strong></dt><dd><p>p contains execution state of I2C master commands, the I2C master commands can be overwritten to report on execution failure. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sess</span></code>: session identifier </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyObject</span></code>: Keyobject which contains 4 byte attestaion KeyId </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">p</span></code>: Array of structure type capturing a sequence of i2c master cmd/rsp transactions. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">random_attst</span></code>: 16-byte freshness random </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">random_attstLen</span></code>: length of freshness random </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">attst_algo</span></code>: 1 byte attestationAlgo </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">ptimeStamp</span></code>: timestamp </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">timeStampLen</span></code>: Length for timestamp </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">freshness</span></code>: freshness (random) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pfreshnessLen</span></code>: Length for freshness </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">chipId</span></code>: unique chip Id </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pchipIdLen</span></code>: Length for chipId </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">signature</span></code>: signature </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">psignatureLen</span></code>: Length for signature </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">noOftags</span></code>: Amount of structures contained in <code class="docutils literal notranslate"><span class="pre">p</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+smStatus_t <code class="sig-name descname">Se05x_i2c_master_txn</code><span class="sig-paren">(</span><a class="reference internal" href="../api/structsss__session__t.html#_CPPv413sss_session_t" title="sss_session_t">sss_session_t</a> *<em>sess</em>, <a class="reference internal" href="../api/struct_s_e05x___i2_c_m__cmd__t.html#_CPPv416SE05x_I2CM_cmd_t" title="SE05x_I2CM_cmd_t">SE05x_I2CM_cmd_t</a> *<em>cmds</em>, uint8_t <em>cmdLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Se05x_i2c_master_txn. </p>
+<p>I2CM Transaction</p>
+<p><dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>p describes I2C master commands. </p>
+</dd>
+<dt><strong>Post</strong></dt><dd><p>p contains execution state of I2C master commands, the I2C master commands can be overwritten to report on execution failure. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sess</span></code>: session identifier </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">cmds</span></code>: Array of structure type capturing a sequence of i2c master cmd/rsp transactions. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmdLen</span></code>: Amount of structures contained in cmds</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt>
+<em class="property">struct </em><code class="sig-name descname">SE05x_I2CM_cmd_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Individual entry in array of TLV commands, with type</p>
+<p><a class="reference internal" href="../api/function_group__se050__i2cm_1ga5f08bc8f5e4dd4d96a1d50e60c901dfc.html#group__se050__i2cm_1ga5f08bc8f5e4dd4d96a1d50e60c901dfc"><span class="std std-ref">Se05x_i2c_master_txn</span></a> would expect an array of these. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/union_s_e05x___i2_c_m___i_n_s__type__t.html#_CPPv421SE05x_I2CM_INS_type_t" title="SE05x_I2CM_INS_type_t">SE05x_I2CM_INS_type_t</a> <code class="sig-name descname">cmd</code><br /></dt>
+<dd><p>Individual entry in array of TLV commands. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1ga2da896f13dd8ff9f191bbb0c8bcbdb27.html#_CPPv421SE05x_I2CM_TLV_type_t" title="SE05x_I2CM_TLV_type_t">SE05x_I2CM_TLV_type_t</a> <code class="sig-name descname">type</code><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">struct </em><code class="sig-name descname">SE05x_I2CM_configData_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Data Configuration for I2CM </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+uint8_t <code class="sig-name descname">I2C_addr</code><br /></dt>
+<dd><p>7 Bit address of I2C slave </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1gacf75bdfe3a44cf51d65cc017475c8649.html#_CPPv422SE05x_I2CM_Baud_Rate_t" title="SE05x_I2CM_Baud_Rate_t">SE05x_I2CM_Baud_Rate_t</a> <code class="sig-name descname">I2C_baudRate</code><br /></dt>
+<dd><p>What baud rate </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1ga9a7df53cfff2956a6e46233b831a3c35.html#_CPPv419SE05x_I2CM_status_t" title="SE05x_I2CM_status_t">SE05x_I2CM_status_t</a> <code class="sig-name descname">status</code><br /></dt>
+<dd><p>return status of the config operation </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="union">
+<dt>
+<em class="property">union </em><code class="sig-name descname">SE05x_I2CM_INS_type_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Individual entry in array of TLV commands. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/struct_s_e05x___i2_c_m__config_data__t.html#_CPPv423SE05x_I2CM_configData_t" title="SE05x_I2CM_configData_t">SE05x_I2CM_configData_t</a> <code class="sig-name descname">cfg</code><br /></dt>
+<dd><p>Data Configuration for I2CM </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/struct_s_e05x___i2_c_m__structural_issue__t.html#_CPPv428SE05x_I2CM_structuralIssue_t" title="SE05x_I2CM_structuralIssue_t">SE05x_I2CM_structuralIssue_t</a> <code class="sig-name descname">issue</code><br /></dt>
+<dd><p>Used to report error response, not for outgoing command </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/struct_s_e05x___i2_c_m__read_data__t.html#_CPPv421SE05x_I2CM_readData_t" title="SE05x_I2CM_readData_t">SE05x_I2CM_readData_t</a> <code class="sig-name descname">rd</code><br /></dt>
+<dd><p>Read to I2CM from I2C Slave </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/struct_s_e05x___i2_c_m__security_data__t.html#_CPPv425SE05x_I2CM_securityData_t" title="SE05x_I2CM_securityData_t">SE05x_I2CM_securityData_t</a> <code class="sig-name descname">sec</code><br /></dt>
+<dd><p>Security Configuration for I2CM. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/struct_s_e05x___i2_c_m__write_data__t.html#_CPPv422SE05x_I2CM_writeData_t" title="SE05x_I2CM_writeData_t">SE05x_I2CM_writeData_t</a> <code class="sig-name descname">w</code><br /></dt>
+<dd><p>Write From I2CM to I2C Slave. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">struct </em><code class="sig-name descname">SE05x_I2CM_readData_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Read to I2CM from I2C Slave </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+uint8_t *<code class="sig-name descname">rdBuf</code><br /></dt>
+<dd><p>Output. rdBuf will point to Host buffer. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1ga9a7df53cfff2956a6e46233b831a3c35.html#_CPPv419SE05x_I2CM_status_t" title="SE05x_I2CM_status_t">SE05x_I2CM_status_t</a> <code class="sig-name descname">rdStatus</code><br /></dt>
+<dd><p>[Out] status of the operation </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+uint16_t <code class="sig-name descname">readLength</code><br /></dt>
+<dd><p>How many bytes to read </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">struct </em><code class="sig-name descname">SE05x_I2CM_securityData_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Security Configuration for I2CM. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+uint32_t <code class="sig-name descname">keyObject</code><br /></dt>
+<dd><p>object used for the operation </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1ga579e016b8a81415282e7eef6f3c8d8dd.html#_CPPv424SE05x_I2CM_securityReq_t" title="SE05x_I2CM_securityReq_t">SE05x_I2CM_securityReq_t</a> <code class="sig-name descname">operation</code><br /></dt>
+<dd><p>Additional operation on data read by I2C </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">struct </em><code class="sig-name descname">SE05x_I2CM_structuralIssue_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Used to report error response, not for outgoing command </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1ga9a7df53cfff2956a6e46233b831a3c35.html#_CPPv419SE05x_I2CM_status_t" title="SE05x_I2CM_status_t">SE05x_I2CM_status_t</a> <code class="sig-name descname">issueStatus</code><br /></dt>
+<dd><p>[Out] In case there is any structural issue </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">struct </em><code class="sig-name descname">SE05x_I2CM_writeData_t</code><br /></dt>
+<dd><em>#include &lt;fsl_sss_se05x_types.h&gt;</em><p>Write From I2CM to I2C Slave. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt>
+uint8_t *<code class="sig-name descname">writebuf</code><br /></dt>
+<dd><p>Buffer to be written </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+uint8_t <code class="sig-name descname">writeLength</code><br /></dt>
+<dd><p>How many bytes to write </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<a class="reference internal" href="../api/enum_group__se050__i2cm_1ga9a7df53cfff2956a6e46233b831a3c35.html#_CPPv419SE05x_I2CM_status_t" title="SE05x_I2CM_status_t">SE05x_I2CM_status_t</a> <code class="sig-name descname">wrStatus</code><br /></dt>
+<dd><p>[Out] status of the operation </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018-2020, NXP.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

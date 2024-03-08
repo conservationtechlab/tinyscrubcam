@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 NXP
+
+This software is owned or controlled by NXP and may only be used
+strictly in accordance with the applicable license terms.  By expressly
+accepting such terms or by downloading, installing, activating and/or
+otherwise using the software, you are agreeing that you have read, and
+that you agree to comply with and are bound by, such license terms.  If
+you do not agree to be bound by the applicable license terms, then you
+may not retain, install, activate or otherwise use the software.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.3.5. IBM Watson Demo for KSDK &#8212; Plug &amp; Trust MW v03.00.05 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5.3.6. IBM Watson Demo for iMX Linux / Raspberry Pi" href="../../linux/ibm_watson_iot/readme.html" />
+    <link rel="prev" title="5.3.4. GCP Demo for iMX Linux / Raspberry Pi" href="../../linux/gcp/readme.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../toc.html"><span><img src="../../../_static/NXP_logo_JPG.jpg"></span>
+          MW</a>
+        <span class="navbar-text navbar-version pull-left"><b>v03.00.05</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../toc.html">TOC <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">1. NXP Plug &amp; Trust Middleware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../organization-of-documentation.html">1.1. Organization of Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../folder-structure.html">1.2. Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sw-prerequisites.html">1.3. List of Platform Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes/index.html">2. Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/pending.html">2.1. Pending Refactoring items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/pending.html#known-limitations">2.2. Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_05.html">2.3. Release <code class="docutils literal notranslate"><span class="pre">v03.00.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_04.html">2.4. Release <code class="docutils literal notranslate"><span class="pre">v03.00.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_03.html">2.5. Release <code class="docutils literal notranslate"><span class="pre">v03.00.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_02.html">2.6. Release <code class="docutils literal notranslate"><span class="pre">v03.00.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_16_01.html">2.7. Release <code class="docutils literal notranslate"><span class="pre">v02.16.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_16_00.html">2.8. Release <code class="docutils literal notranslate"><span class="pre">v02.16.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_15_00.html">2.9. Release <code class="docutils literal notranslate"><span class="pre">v02.15.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_14_00.html">2.10. Release <code class="docutils literal notranslate"><span class="pre">v02.14.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html">2.11. Release <code class="docutils literal notranslate"><span class="pre">v02.12.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-04">2.12. Release <code class="docutils literal notranslate"><span class="pre">v02.12.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-03">2.13. Release <code class="docutils literal notranslate"><span class="pre">v02.12.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-02">2.14. Release <code class="docutils literal notranslate"><span class="pre">v02.12.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-01">2.15. Release <code class="docutils literal notranslate"><span class="pre">v02.12.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-00">2.16. Release <code class="docutils literal notranslate"><span class="pre">v02.12.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_11_03.html">2.17. Release <code class="docutils literal notranslate"><span class="pre">v02.11.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_11_01.html">2.18. Internal Release <code class="docutils literal notranslate"><span class="pre">v02.11.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_11_00.html">2.19. Release <code class="docutils literal notranslate"><span class="pre">v02.11.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_10_00.html">2.20. Release <code class="docutils literal notranslate"><span class="pre">v02.10.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_09_00.html">2.21. Release <code class="docutils literal notranslate"><span class="pre">v02.09.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_07_00.html">2.22. Release <code class="docutils literal notranslate"><span class="pre">v02.07.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_06_00.html">2.23. Release <code class="docutils literal notranslate"><span class="pre">v02.06.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_05_00_to_v02_03_00.html">2.24. Release <code class="docutils literal notranslate"><span class="pre">v02.05.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_05_00_to_v02_03_00.html#release-v02-04-00">2.25. Release <code class="docutils literal notranslate"><span class="pre">v02.04.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_05_00_to_v02_03_00.html#release-02-03-00">2.26. Release <code class="docutils literal notranslate"><span class="pre">02.03.00</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stack/index.html">3. Plug &amp; Trust MW Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/i2cm.html">3.6. I2CM / Secure Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building/index.html">4. Building / Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/windows.html">4.1. Windows Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/frdm-k64f-sdk.html">4.2. Import MCUXPresso projects from SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/frdm-k64f-cmake.html">4.3. Freedom K64F Build (CMake - Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/imx6.html">4.4. i.MX Linux Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/rpi3.html">4.5. Raspberry Pi Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/cmake.html">4.6. CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../scripts/cmake_options.html">4.7. CMake Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">5. Demo and Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#building-and-running-the-edgelock-2go-agent">6.2. Building and running the EdgeLock 2GO agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#datastore-keystore">6.3. Datastore / Keystore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#connection-to-the-edgelock-2go-cloud-service">6.4. Connection to the EdgeLock 2GO cloud service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#claim-codes">6.5. Claim Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/edgelock2go_agent_apis.html">6.6. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/readme_usage_examples.html">6.7. Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../semslite/doc/index.html">7. SEMS Lite Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_overview.html">7.1. SEMS Lite Overview (Only for SE051)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_package.html">7.2. Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_usage.html">7.3. SEMS Lite Agent Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_mgmt_api.html">7.4. SEMS Lite management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_process.html">7.5. SEMS Lite Agent Package Load Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_api.html">7.6. APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_known_issue.html">7.7. SEMS Lite Known Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/demo_update.html">7.8. SEMS Lite DEMOs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">8. Plugins / Add-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/openssl/scripts/readme.html">8.1. Introduction on OpenSSL engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/mbedtls/scripts/readme.html">8.2. Introduction on mbedTLS ALT Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/psa/Readme.html">8.3. Platform Security Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugins/akm.html">8.4. Android Key master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/open62541/readme.html">8.5. Introduction on Open62541 (OPC UA stack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugins/wifiEAP/wifiEAP.html">8.6. WiFi EAP Demo with Raspberry Pi3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugins/pkcs11.html">8.7. PKCS#11 Standalone Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli-tool.html">9. CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/introduction.html">9.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/block-diagram.html">9.2. Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/pre-steps.html">9.3. Steps needed before running <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/running.html">9.4. Running the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool - Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/Provisioning/readme.html">9.5. CLI Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/readme_usage_examples.html">9.6. Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/cli_commands_list.html">9.7. List of <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/cli_data_format.html">9.8. CLI Data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/cli_object_policy.html">9.9. Object Policies Through ssscli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/upload_se05x_using_pycli.html">9.10. Upload keys and certificates to SE05X using ssscli tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../a71ch.html">10. A71CH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">11. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/glossary.html">11.1. Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/vcom.html">11.2. APDU Commands over VCOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/vs2019-setup.html">11.3. Visual Studio 2019 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/ide_mcux.html">11.4. Setting up MCUXPresso IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../dev-platforms.html">11.5. Development Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/se_uid.html">11.6. How to get SE Platform Information and UID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/version_info.html">11.7. Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Certificate_Chains/Readme.html">11.8. Certificate Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/rjct_server.html">11.9. JRCP_v1 Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/platfscp.html">11.10. Using own Platform SCP03 Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/apdu_write_to_buffer.html">11.11. Write APDU to buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/api_list.html">11.12. Plug &amp; Trust MW APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">5.3.5. IBM Watson Demo for KSDK</a><ul>
+<li><a class="reference internal" href="#prerequisites">5.3.5.1. Prerequisites</a></li>
+<li><a class="reference internal" href="#using-wifi-with-lpc55s">5.3.5.2. Using WiFi with LPC55S</a></li>
+<li><a class="reference internal" href="#setting-up-ibm-watson-iot-platform">5.3.5.3. Setting up IBM Watson IoT Platform</a></li>
+<li><a class="reference internal" href="#creating-and-updating-device-keys-and-certificates-to-se">5.3.5.4. Creating  and updating device keys and certificates to SE</a></li>
+<li><a class="reference internal" href="#running-the-demo">5.3.5.5. Running the Demo</a></li>
+<li><a class="reference internal" href="#appendix">5.3.5.6. Appendix</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../../linux/gcp/readme.html" title="Previous Chapter: 5.3.4. GCP Demo for iMX Linux / Raspberry Pi"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 5.3.4. GCP De...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../../linux/ibm_watson_iot/readme.html" title="Next Chapter: 5.3.6. IBM Watson Demo for iMX Linux / Raspberry Pi"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">5.3.6. IBM Wa... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+
+<div class="sidebar-header">
+    <h3>Plug &amp; Trust MW</h3>
+</div>
+
+<div class="row">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">1. NXP Plug &amp; Trust Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes/index.html">2. Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stack/index.html">3. Plug &amp; Trust MW Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building/index.html">4. Building / Compiling</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">5. Demo and Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#cloud-demos">5.3. Cloud Demos</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aws_jitr/readme.html">5.3.1. AWS Demo for KSDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux/aws/readme.html">5.3.2. AWS Demo for iMX Linux / RaspberryPi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gcp/readme.html">5.3.3. GCP Demo for KSDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux/gcp/readme.html">5.3.4. GCP Demo for iMX Linux / Raspberry Pi</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.3.5. IBM Watson Demo for KSDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux/ibm_watson_iot/readme.html">5.3.6. IBM Watson Demo for iMX Linux / Raspberry Pi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../azure/Readme.html">5.3.7. Azure Demo for KSDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux/azure/readme.html">5.3.8. Azure Demo for iMX Linux / Raspberry Pi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../semslite/doc/index.html">7. SEMS Lite Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">8. Plugins / Add-ins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli-tool.html">9. CLI Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../a71ch.html">10. A71CH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">11. Appendix</a></li>
+</ul>
+
+</div>
+<div class="row">
+    <form class="form" action="../../../search.html" method="get">
+     <div class="form-group">
+      <label for="Search">Search:</label>
+      <input type="text" name="q" class="form-control" placeholder="Search" />
+     </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="ibm-watson-demo-for-ksdk">
+<span id="ksdk-demos-ibm-watson"></span><h1><span class="section-number">5.3.5. </span>IBM Watson Demo for KSDK<a class="headerlink" href="#ibm-watson-demo-for-ksdk" title="Permalink to this headline">¶</a></h1>
+<p>This demo demonstrates connection to IBM Watson IoT platform
+using pre-provisioned device credentials and publish/subscribe
+procedure using MQTT</p>
+<div class="section" id="prerequisites">
+<h2><span class="section-number">5.3.5.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Active IBM Watson account</p></li>
+<li><p>MCUXpresso  installed (for running azure demo on k64)</p></li>
+<li><p>Any Serial communicator</p></li>
+<li><p>Flash VCOM binary on the device. VCOM binary can found under <code class="file docutils literal notranslate"><span class="pre">&lt;PROJECT&gt;binaries</span></code> folder.</p></li>
+<li><p>Refer to <a class="reference internal" href="../../../cli-tool.html#cli-tool"><span class="std std-ref">CLI Tool</span></a> for ssscli tool setup</p></li>
+</ul>
+</div>
+<div class="section" id="using-wifi-with-lpc55s">
+<h2><span class="section-number">5.3.5.2. </span>Using WiFi with LPC55S<a class="headerlink" href="#using-wifi-with-lpc55s" title="Permalink to this headline">¶</a></h2>
+<p>WiFi shield Silex-2401 is supported with LPCS55S. Mount the WiFi shield on to the
+arduino stackable headers.</p>
+</div>
+<div class="section" id="setting-up-ibm-watson-iot-platform">
+<span id="prepare-ibm-cloud"></span><h2><span class="section-number">5.3.5.3. </span>Setting up IBM Watson IoT Platform<a class="headerlink" href="#setting-up-ibm-watson-iot-platform" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Create an IBM ID which enables you to create an service instance for
+the Watson IoT platform (<a class="reference external" href="https://idaas.iam.ibm.com/idaas/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser">https://idaas.iam.ibm.com/idaas/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser</a>)</p></li>
+<li><p>Create an instance of Internet of Things Platform in the Watson IoT after logging in.</p></li>
+<li><p>Register the Root CA certificate (and Intermediate CA certificates if applicable) by following the below link
+<a class="reference external" href="https://console.bluemix.net/docs/services/IoT/reference/security/set_up_certificates.html#set_up_certificates">https://console.bluemix.net/docs/services/IoT/reference/security/set_up_certificates.html#set_up_certificates</a></p>
+<ol class="lowerroman simple">
+<li><p>Click on ‘Launch’ button to access to the IoT dashboard</p></li>
+<li><p>Click on ‘Settings’ tab</p></li>
+<li><p>Click on ‘CA Certificates’</p></li>
+<li><p>Click on ‘Add Certificate’</p></li>
+<li><p>A new pop-up appears. Click on ‘Select a file’ option and select the certificate</p></li>
+<li><p>Click on ‘Save’</p></li>
+</ol>
+</li>
+<li><p>Configure the security policies of the service by following steps</p>
+<ol class="lowerroman simple">
+<li><p>Click on ‘Security’ tab</p></li>
+<li><p>Click on the pencil of ‘Connection Security’ to edit the preferences</p></li>
+<li><p>A new window is loaded, ‘Connection Security’. In the Security Level field, select ‘TLS with Client Certificate Authentication’.</p></li>
+<li><p>click on ‘Save’</p></li>
+</ol>
+</li>
+<li><p>Register Device type</p>
+<ol class="lowerroman simple">
+<li><p>In the service, Click on ‘Devices’ tab and ‘Device Types’</p></li>
+<li><p>Click on ‘Add device type.</p></li>
+<li><p>Select the ‘Device’ type and write a name. Device type shall be registered
+as ‘NXP-SE050-EC-D’ and Optionally, add a description.</p></li>
+<li><p>Click ‘Next’</p></li>
+<li><p>Optionally, add information to the rest of the fields.
+In this guide all the fields have been intentionally left empty. Finally, click ‘Done’.</p></li>
+<li><p>For more information, refer to <a class="reference external" href="https://console.bluemix.net/docs/services/IoT/">https://console.bluemix.net/docs/services/IoT/</a>
+iotplatform_task.html#iotplatform_task</p></li>
+</ol>
+</li>
+<li><p>Register device</p>
+<ol class="lowerroman simple">
+<li><p>Click on ‘Devices’ tab.</p></li>
+<li><p>Click on ‘Add Device’</p></li>
+<li><p>In the ‘Identity’ tab, select as ‘Device Type’ the one created in ‘Register Device type’ and
+the ‘Device ID’ the one retrieved using the pycli tool (UID of the device)</p></li>
+<li><p>Click on ‘Next’ button</p></li>
+<li><p>Click Done button to create the device</p></li>
+</ol>
+</li>
+<li><p>Configure the application.</p>
+<ol class="lowerroman simple">
+<li><p>In the ‘watson_iot_config.h’ file, update the org details in the macro
+“WATSONIOT_MQTT_BROKER_ENDPOINT” which we get from the URL of the dashboard
+<a class="reference external" href="https://org_id.internetofthings.ibmcloud.com/dashboard/#/overview">https://org_id.internetofthings.ibmcloud.com/dashboard/#/overview</a></p></li>
+<li><p>update the org details and UID of the device in the macro ‘WatsonechoCLIENT_ID’
+which is available in ‘watson_iot_config.h’</p></li>
+</ol>
+</li>
+<li><p>Configuring the publish application</p>
+<p>Create API key and authentication pair token</p>
+<ol class="lowerroman">
+<li><p>In the Watson IoT Platform dashboard, go to Apps &gt; API Keys.</p></li>
+<li><p>Click Generate API Key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Important: Make a note of the API key and token pair. Authentication tokens are non-recoverable. If you lose or forget this token, you will need to re-register the API key to generate a new authentication token.</p>
+</div>
+<p>An example of an API key is <code class="docutils literal notranslate"><span class="pre">a-organization_id-a84ps90Ajs</span></code></p>
+<p>An example of a token is <code class="docutils literal notranslate"><span class="pre">MP$08VKz!8rXwnR-Q*</span></code></p>
+</li>
+<li><p>Add a comment to identify the API key in the dashboard, for example: Key to
+connect my application.</p></li>
+<li><p>Click Finish</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="creating-and-updating-device-keys-and-certificates-to-se">
+<h2><span class="section-number">5.3.5.4. </span>Creating  and updating device keys and certificates to SE<a class="headerlink" href="#creating-and-updating-device-keys-and-certificates-to-se" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Complete <a class="reference internal" href="../../../pycli/doc/pre-steps.html#cli-doc-pre-steps"><span class="std std-numref">Section 9.3</span></a> <a class="reference internal" href="../../../pycli/doc/pre-steps.html#cli-doc-pre-steps"><span class="std std-ref">Steps needed before running ssscli tool</span></a></p></li>
+<li><p>Check the vcom port number</p></li>
+<li><p>To create certificates on windows and provision, go to <code class="docutils literal notranslate"><span class="pre">simw-top/pycli</span></code> directory and call:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">call</span> venv\Scripts\activate.bat
+<span class="k">cd</span> Provisioning
+python GenerateIBMCredentials.py <span class="p">&lt;</span>COM_PORT&gt;
+python ResetAndUpdate_IBM.py <span class="p">&lt;</span>COM_PORT&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Certificates and Keys are generated at <code class="docutils literal notranslate"><span class="pre">simw-top/pycli/Provisioning/ibm</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="running-the-demo">
+<h2><span class="section-number">5.3.5.5. </span>Running the Demo<a class="headerlink" href="#running-the-demo" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Open &lt;board&gt;_mbedtls_sss_watson_demo project found under <code class="file docutils literal notranslate"><span class="pre">&lt;PROJECT&gt;/projects</span></code> in MCUXPRESSO IDE</p></li>
+<li><p>In the ‘watson_iot_config.h’ file, update the org details in the
+macro “WATSONIOT_MQTT_BROKER_ENDPOINT” which we get from the URL of the dashboard
+<a class="reference external" href="https://org_id.internetofthings.ibmcloud.com/dashboard/#/overview">https://org_id.internetofthings.ibmcloud.com/dashboard/#/overview</a></p></li>
+<li><p>Update the org details and UID of the device in the macro ‘WatsonechoCLIENT_ID’ which is
+available in ‘watson_iot_config.h’</p></li>
+<li><p>In OrgDetails.cfg file, update the Org details which we got from the previous step in the ‘org’ section</p></li>
+<li><p>In OrgDetails.cfg file, update the auth-key which we got from the
+above sections in to the ‘auth-key’ section</p></li>
+<li><p>Upate the UID of the device in the application test.py (at Line 40)</p></li>
+<li><p>Build the project and flash the binary on FRDM-K64F board</p></li>
+<li><p>Connect your board to open network</p></li>
+<li><dl class="simple">
+<dt>Open a serial terminal on PC for OpenSDA serial device with these settings:</dt><dd><ul class="simple">
+<li><p>115200 baud rate</p></li>
+<li><p>8 data bits</p></li>
+<li><p>No parity</p></li>
+<li><p>One stop bit</p></li>
+<li><p>No flow control</p></li>
+<li><p>change Setup–&gt;Terminal–&gt;New-line–&gt;Receive–&gt;AUTO</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Press reset button on the board</p></li>
+<li><p>To see the event coming in to device and event going out of the device, login to
+the Watson IoT platform and launch the service:
+i) Click ‘Devices’
+#) Click the registered device id
+#) Click ‘Recent Events’
+#) Events will be displayed in portal</p></li>
+<li><p>Persistent RED LED ON indicates error</p></li>
+<li><p>All lights off along with the following message indicates readiness to
+subscribe messages fromAWS:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>Subscribing...
+--<span class="p">&gt;</span>sleep
+--<span class="p">&gt;</span>sleep
+Publish done
+</pre></div>
+</div>
+</li>
+<li><p>Run the Publish application to publish events to the device.</p>
+<p>To do that, run:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>python test.py OrgDetails.cfg GREEN ON
+</pre></div>
+</div>
+<p>The above command ensures that the green LED is turned ON. Similarly RED and BLUE LED can be turned ON and OFF</p>
+</li>
+<li><p>Events that are published shall be verified in the Watson Platform Dashboard(Refer to section 15)</p></li>
+</ol>
+</div>
+<div class="section" id="appendix">
+<h2><span class="section-number">5.3.5.6. </span>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>For more information, refer to <a class="reference external" href="https://cloud.ibm.com/docs/services/IoT?topic=iot-platform-about_iotplatform">https://cloud.ibm.com/docs/services/IoT?topic=iot-platform-about_iotplatform</a></p></li>
+</ol>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018-2020, NXP.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

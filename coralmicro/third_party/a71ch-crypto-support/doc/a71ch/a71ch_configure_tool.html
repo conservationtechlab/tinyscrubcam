@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 NXP
+
+This software is owned or controlled by NXP and may only be used
+strictly in accordance with the applicable license terms.  By expressly
+accepting such terms or by downloading, installing, activating and/or
+otherwise using the software, you are agreeing that you have read, and
+that you agree to comply with and are bound by, such license terms.  If
+you do not agree to be bound by the applicable license terms, then you
+may not retain, install, activate or otherwise use the software.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>10.5. A71CH Legacy Configure Tool &#8212; Plug &amp; Trust MW v03.00.05 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Appendix" href="../appendix.html" />
+    <link rel="prev" title="10.4. A71CH Legacy HLSE (Generic) API" href="a71ch_legacy_hlse_api.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../toc.html"><span><img src="../_static/NXP_logo_JPG.jpg"></span>
+          MW</a>
+        <span class="navbar-text navbar-version pull-left"><b>v03.00.05</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../toc.html">TOC <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organization-of-documentation.html">1.1. Organization of Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../folder-structure.html">1.2. Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sw-prerequisites.html">1.3. List of Platform Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html">2.1. Pending Refactoring items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html#known-limitations">2.2. Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_05.html">2.3. Release <code class="docutils literal notranslate"><span class="pre">v03.00.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_04.html">2.4. Release <code class="docutils literal notranslate"><span class="pre">v03.00.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_03.html">2.5. Release <code class="docutils literal notranslate"><span class="pre">v03.00.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_02.html">2.6. Release <code class="docutils literal notranslate"><span class="pre">v03.00.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_01.html">2.7. Release <code class="docutils literal notranslate"><span class="pre">v02.16.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_00.html">2.8. Release <code class="docutils literal notranslate"><span class="pre">v02.16.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_15_00.html">2.9. Release <code class="docutils literal notranslate"><span class="pre">v02.15.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_14_00.html">2.10. Release <code class="docutils literal notranslate"><span class="pre">v02.14.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html">2.11. Release <code class="docutils literal notranslate"><span class="pre">v02.12.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-04">2.12. Release <code class="docutils literal notranslate"><span class="pre">v02.12.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-03">2.13. Release <code class="docutils literal notranslate"><span class="pre">v02.12.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-02">2.14. Release <code class="docutils literal notranslate"><span class="pre">v02.12.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-01">2.15. Release <code class="docutils literal notranslate"><span class="pre">v02.12.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-00">2.16. Release <code class="docutils literal notranslate"><span class="pre">v02.12.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_03.html">2.17. Release <code class="docutils literal notranslate"><span class="pre">v02.11.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_01.html">2.18. Internal Release <code class="docutils literal notranslate"><span class="pre">v02.11.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_00.html">2.19. Release <code class="docutils literal notranslate"><span class="pre">v02.11.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_10_00.html">2.20. Release <code class="docutils literal notranslate"><span class="pre">v02.10.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_09_00.html">2.21. Release <code class="docutils literal notranslate"><span class="pre">v02.09.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_07_00.html">2.22. Release <code class="docutils literal notranslate"><span class="pre">v02.07.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_06_00.html">2.23. Release <code class="docutils literal notranslate"><span class="pre">v02.06.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html">2.24. Release <code class="docutils literal notranslate"><span class="pre">v02.05.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-v02-04-00">2.25. Release <code class="docutils literal notranslate"><span class="pre">v02.04.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-02-03-00">2.26. Release <code class="docutils literal notranslate"><span class="pre">02.03.00</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stack/index.html">3. Plug &amp; Trust MW Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stack/features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/i2cm.html">3.6. I2CM / Secure Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building/windows.html">4.1. Windows Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-sdk.html">4.2. Import MCUXPresso projects from SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-cmake.html">4.3. Freedom K64F Build (CMake - Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/imx6.html">4.4. i.MX Linux Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/rpi3.html">4.5. Raspberry Pi Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/cmake.html">4.6. CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/cmake_options.html">4.7. CMake Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#building-and-running-the-edgelock-2go-agent">6.2. Building and running the EdgeLock 2GO agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#datastore-keystore">6.3. Datastore / Keystore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#connection-to-the-edgelock-2go-cloud-service">6.4. Connection to the EdgeLock 2GO cloud service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#claim-codes">6.5. Claim Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/edgelock2go_agent_apis.html">6.6. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/readme_usage_examples.html">6.7. Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_overview.html">7.1. SEMS Lite Overview (Only for SE051)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_package.html">7.2. Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_usage.html">7.3. SEMS Lite Agent Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_mgmt_api.html">7.4. SEMS Lite management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_process.html">7.5. SEMS Lite Agent Package Load Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_api.html">7.6. APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_known_issue.html">7.7. SEMS Lite Known Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/demo_update.html">7.8. SEMS Lite DEMOs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/openssl/scripts/readme.html">8.1. Introduction on OpenSSL engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/mbedtls/scripts/readme.html">8.2. Introduction on mbedTLS ALT Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/psa/Readme.html">8.3. Platform Security Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/akm.html">8.4. Android Key master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/open62541/readme.html">8.5. Introduction on Open62541 (OPC UA stack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/wifiEAP/wifiEAP.html">8.6. WiFi EAP Demo with Raspberry Pi3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/pkcs11.html">8.7. PKCS#11 Standalone Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/introduction.html">9.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/block-diagram.html">9.2. Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/pre-steps.html">9.3. Steps needed before running <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/running.html">9.4. Running the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool - Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/Provisioning/readme.html">9.5. CLI Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/readme_usage_examples.html">9.6. Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_commands_list.html">9.7. List of <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_data_format.html">9.8. CLI Data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_object_policy.html">9.9. Object Policies Through ssscli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/upload_se05x_using_pycli.html">9.10. Upload keys and certificates to SE05X using ssscli tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/glossary.html">11.1. Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vcom.html">11.2. APDU Commands over VCOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vs2019-setup.html">11.3. Visual Studio 2019 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/ide_mcux.html">11.4. Setting up MCUXPresso IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-platforms.html">11.5. Development Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/se_uid.html">11.6. How to get SE Platform Information and UID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/version_info.html">11.7. Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/Certificate_Chains/Readme.html">11.8. Certificate Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/rjct_server.html">11.9. JRCP_v1 Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/platfscp.html">11.10. Using own Platform SCP03 Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/apdu_write_to_buffer.html">11.11. Write APDU to buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/api_list.html">11.12. Plug &amp; Trust MW APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">10.5. A71CH Legacy Configure Tool</a><ul>
+<li><a class="reference internal" href="#introduction">10.5.1. Introduction</a></li>
+<li><a class="reference internal" href="#usage-modes">10.5.2. Usage modes</a></li>
+<li><a class="reference internal" href="#tool-deployment">10.5.3. Tool deployment</a><ul>
+<li><a class="reference internal" href="#hw-setup-for-imx">10.5.3.1. HW Setup for iMX</a></li>
+<li><a class="reference internal" href="#hw-setup-for-kinetis">10.5.3.2. HW Setup for Kinetis</a></li>
+<li><a class="reference internal" href="#sw-layers-and-communication-for-imx">10.5.3.3. SW layers and communication for iMX</a></li>
+<li><a class="reference internal" href="#sw-layers-and-communication-for-kinetis">10.5.3.4. SW layers and communication for Kinetis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-reference">10.5.4. Command reference</a><ul>
+<li><a class="reference internal" href="#overall-introduction">10.5.4.1. Overall introduction</a></li>
+<li><a class="reference internal" href="#apdu">10.5.4.2. apdu</a></li>
+<li><a class="reference internal" href="#connect">10.5.4.3. connect</a></li>
+<li><a class="reference internal" href="#debug">10.5.4.4. debug</a></li>
+<li><a class="reference internal" href="#ecrt">10.5.4.5. ecrt</a></li>
+<li><a class="reference internal" href="#erase">10.5.4.6. erase</a></li>
+<li><a class="reference internal" href="#gen">10.5.4.7. gen</a></li>
+<li><a class="reference internal" href="#get">10.5.4.8. get</a></li>
+<li><a class="reference internal" href="#info">10.5.4.9. info</a></li>
+<li><a class="reference internal" href="#interactive">10.5.4.10. interactive</a></li>
+<li><a class="reference internal" href="#lock">10.5.4.11. lock</a></li>
+<li><a class="reference internal" href="#obj-erase">10.5.4.12. obj erase</a></li>
+<li><a class="reference internal" href="#obj-get">10.5.4.13. obj get</a></li>
+<li><a class="reference internal" href="#obj-update">10.5.4.14. obj update</a></li>
+<li><a class="reference internal" href="#obj-write">10.5.4.15. obj write</a></li>
+<li><a class="reference internal" href="#rcrt">10.5.4.16. rcrt</a></li>
+<li><a class="reference internal" href="#refpem">10.5.4.17. refpem</a></li>
+<li><a class="reference internal" href="#script">10.5.4.18. script</a></li>
+<li><a class="reference internal" href="#scp">10.5.4.19. scp</a></li>
+<li><a class="reference internal" href="#set">10.5.4.20. set</a></li>
+<li><a class="reference internal" href="#transport">10.5.4.21. transport</a></li>
+<li><a class="reference internal" href="#ucrt">10.5.4.22. ucrt</a></li>
+<li><a class="reference internal" href="#wcrt">10.5.4.23. wcrt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#not-connected-mode">10.5.5. Not connected mode</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="a71ch_legacy_hlse_api.html" title="Previous Chapter: 10.4. A71CH Legacy HLSE (Generic) API"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 10.4. A71CH L...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../appendix.html" title="Next Chapter: 11. Appendix"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">11. Appendix &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+
+<div class="sidebar-header">
+    <h3>Plug &amp; Trust MW</h3>
+</div>
+
+<div class="row">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stack/index.html">3. Plug &amp; Trust MW Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10.5. A71CH Legacy Configure Tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">10.5.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage-modes">10.5.2. Usage modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tool-deployment">10.5.3. Tool deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-reference">10.5.4. Command reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#not-connected-mode">10.5.5. Not connected mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a></li>
+</ul>
+
+</div>
+<div class="row">
+    <form class="form" action="../search.html" method="get">
+     <div class="form-group">
+      <label for="Search">Search:</label>
+      <input type="text" name="q" class="form-control" placeholder="Search" />
+     </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="a71ch-legacy-configure-tool">
+<span id="se05x-legacy-cfg-tool"></span><h1><span class="section-number">10.5. </span>A71CH Legacy Configure Tool<a class="headerlink" href="#a71ch-legacy-configure-tool" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><span class="section-number">10.5.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The A71CH Configure Tool is a command line tool that supports the
+insertion of credentials into the A71CH.
+It can also report on the value and status of the stored credentials and on the status of the device.
+The tool is provided in source code (<code class="docutils literal notranslate"><span class="pre">.../hostlib/a71ch/app</span></code>) and can be deployed in one of the following configurations:</p>
+<ul class="simple">
+<li><p>Installed on a development PC communicating over TCP/IP with the embedded target</p></li>
+<li><p>Standalone on an embedded target</p></li>
+</ul>
+<p>In <a class="reference internal" href="#se05x-legacy-cfg-tool-deploy"><span class="std std-ref">Tool deployment</span></a> we go into more detail on this.</p>
+<p>Simply invoking the tool in standalone mode on an MCIMX6UL-EVKB board results in the following output (some output edited away):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>root@imx6ulevk:~# ./a71chConfig_i2c_imx
+a71chConfig (Rev 1.00) .. connect to A71CH. Chunksize at link layer = 256.
+...
+Applet-Rev:SecureBox-Rev   : 0x0131:0x0000
+****************************
+Usage: a71chConfig [apdu|debug|erase|gen|info|interactive|lock|rcrt|scp|set|wcrt|help] &lt;OptArg&gt;
+    apdu -cmd &lt;hexval&gt; -sw &lt;hexval&gt;
+    debug [permanently_disable_debug|reset]
+    ecrt -x &lt;int&gt;
+    erase [cnt|pair|pub|sym] -x &lt;int&gt;
+    gen pair -x &lt;int&gt;
+    get pub -c &lt;hex_value&gt; -x &lt;int&gt; -k &lt;keyfile.pem&gt;
+    info [all|cnt|device|objects|pair|pub|status]
+    info gp -h &lt;hexvalue_offset&gt; -n &lt;segments&gt;
+    interactive
+    lock [pair|pub] -x &lt;int&gt;
+    lock gp -h &lt;hexvalue_offset&gt; -n &lt;segments&gt;
+    lock inject_plain
+    obj erase -x &lt;int&gt;
+    obj get -x &lt;int&gt; [-h &lt;hexvalue_offset&gt;] [-s &lt;hexvalue_size&gt;] [-f &lt;data.txt&gt; -t [hex_16|hex_32]]
+    obj update -x &lt;int&gt; -h &lt;hexvalue_offset&gt; [-f &lt;data.txt&gt; -t [hex_16|hex_32] | -h &lt;hexvalue_data&gt;]
+    obj write -x &lt;int&gt; [-f &lt;data.txt&gt; -t [hex_16|hex_32] | -h &lt;hexvalue_data&gt; | -n &lt;segments&gt;]
+    rcrt -x &lt;int&gt; [-c &lt;certfile.crt&gt;]
+    refpem -c &lt;hex_value&gt; -x &lt;int&gt; [-k &lt;keyfile.pem&gt;] -r &lt;ref_keyfile.pem&gt;
+    script -f &lt;script.txt&gt;
+    scp [put|auth] -h &lt;hexvalue_keyversion&gt; -k &lt;keyfile&gt;
+    set gp -h &lt;hexvalue_offset&gt; -h &lt;hexvalue_data&gt;
+    set pair -x &lt;int&gt; [-k &lt;keyfile.pem&gt; | -h &lt;hexvalue_pub&gt; -h &lt;hexvalue_priv&gt;] [-w &lt;hexvalue_wrap_key&gt;]
+    set pub  -x &lt;int&gt; [-k &lt;keyfile.pem&gt; | -h &lt;hexvalue&gt;] [-w &lt;hexvalue_wrap_key&gt;]
+    set [cfg|cnt|sym]  -x &lt;int&gt; -h &lt;hexvalue&gt; [-w &lt;hexvalue_wrap_key&gt;]
+    transport [lock|unlock -h &lt;hexvalue_tpkey&gt;]
+    ucrt -x &lt;int&gt; [-c &lt;certfile.crt&gt; | -h &lt;hexvalue_data&gt; | -p &lt;certfile.pem&gt;]
+    wcrt -x &lt;int&gt; [-c &lt;certfile.crt&gt; | -h &lt;hexvalue_data&gt; | -p &lt;certfile.pem&gt;] [-n &lt;padding-segments&gt;]
+****************************
+</pre></div>
+</div>
+<p>The tool provides an overview of the available command line options.
+We’ll go into more detail on the syntax in <a class="reference internal" href="#se05x-legacy-cfg-tool-command"><span class="std std-ref">Command reference</span></a>.</p>
+<p>The easiest way to get familiar with the A71CH configure tool is to open
+it in interactive mode. Be sure to connect to an A71CH with the Debug
+Mode still available so you can easily revert to the initial state of
+the component. The following captures a session with a brand new A71CH
+with the Debug Mode active:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>root@imx6ulevk:~/axHostSw/linux# ./a71chConfig_i2c_imx interactive
+a71chConfig (Rev 1.00) .. connect to A71CH. Chunksize at link layer = 256.
+I2CInit: opening /dev/i2c-1
+I2C driver: PEC flag cleared
+I2C driver supports plain i2c-level commands.
+I2C driver supports Read Block.
+SCI2C_ATR=0xB8.03.11.01.05.B9.02.01.01.BA.01.01.BB.0C.41.37.30.30.35.43.47.32.34.32.52.31.BC.00.
+HostLib Version            : 0x0130
+Applet-Rev:SecureBox-Rev   : 0x0131:0x0000
+&gt;&gt;&gt; info device
+A71CH in Debug Mode Version (SCP03 is not set up)
+selectResponse:   0x0131
+transportLockState: 0x03 (Transport Lock NOT YET set)
+injectLockState:    0x02 (Unlocked)
+gpStorageSize:      4096
+uid (LEN=18):
+47:90:51:68:47:91:12:10:23:41:00:53:66:96:47:51:48:12
+&gt;&gt;&gt; info pair
+Public Keys from ECC key pairs:
+    idx=0x00 n.a.
+    idx=0x01 n.a.
+    idx=0x02 n.a.
+    idx=0x03 n.a.
+&gt;&gt;&gt; gen pair -x 0
+&gt;&gt;&gt; info pair
+Public Keys from ECC key pairs:
+    idx=0x00 ECC_PUB (LEN=65):
+04:0A:81:86:1D:0C:E6:F6:E4:57:65:8B:51:92:E9:D1:CB:AF:96:12:C6:71:FB:79:F1:3D:C9:64:4D:56:CC:87:
+2E:8C:32:9B:0A:F8:BB:4B:79:56:7D:F0:9D:C2:D2:B8:96:E0:04:B7:D9:50:F5:EC:C2:50:99:25:6B:5B:4B:E1:
+3B
+    idx=0x01 n.a.
+    idx=0x02 n.a.
+    idx=0x03 n.a.
+&gt;&gt;&gt; quit
+root@imx6ulevk:~/axHostSw/linux#
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-modes">
+<h2><span class="section-number">10.5.2. </span>Usage modes<a class="headerlink" href="#usage-modes" title="Permalink to this headline">¶</a></h2>
+<p>The A71CH Configure Tool can be used in:</p>
+<ul class="simple">
+<li><p>Interactive mode. The tool opens a communication session with the A71CH, the user can issue
+configure commands in this session. The syntax to be used is identical to the syntax used in the command line mode.</p></li>
+<li><p>Command line mode: passing parameters as command line arguments. Each invocation of the
+tool establishes a new communication session between Host and A71CH.</p></li>
+<li><p>Batch file mode: this is a special variant of the command line mode
+where multiple configure commands are bundled in a file that is passed
+as a command line argument. All commands contained in the file are
+handled in the same communication session between Host and A71CH.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On POSIX platforms like LINUX or Cygwin the
+interactive mode supports simple command line completion and command
+history (navigateable with the up and down arrows). It also stores a
+list of executed commands in a file called ‘a71chConfigCmdHistory.txt’.</p>
+</div>
+</div>
+<div class="section" id="tool-deployment">
+<span id="se05x-legacy-cfg-tool-deploy"></span><h2><span class="section-number">10.5.3. </span>Tool deployment<a class="headerlink" href="#tool-deployment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hw-setup-for-imx">
+<h3><span class="section-number">10.5.3.1. </span>HW Setup for iMX<a class="headerlink" href="#hw-setup-for-imx" title="Permalink to this headline">¶</a></h3>
+<p>The HW setup, when using the Configure tool is illustrated the following
+figure. In case (1) the A71CH has not been integrated into an end-device
+yet. In case (2) the A71CH is already integrated into the end-device
+(e.g. an IoT Appliance) <img alt="HW Set-up" src="../_images/A71CH_PersoDevHw_iMX.svg" /></p>
+</div>
+<div class="section" id="hw-setup-for-kinetis">
+<h3><span class="section-number">10.5.3.2. </span>HW Setup for Kinetis<a class="headerlink" href="#hw-setup-for-kinetis" title="Permalink to this headline">¶</a></h3>
+<p>For running the configure tool with a Kinetis system, USB-VCOM Interface
+to PC is used. In this combination the VCOM
+Application needs to be running on kinetis. For more information, see
+<a class="reference internal" href="#se05x-legacy-cfg-tool-deploy-sw-kinetis"><span class="std std-ref">SW layers and communication for Kinetis</span></a>.</p>
+</div>
+<div class="section" id="sw-layers-and-communication-for-imx">
+<h3><span class="section-number">10.5.3.3. </span>SW layers and communication for iMX<a class="headerlink" href="#sw-layers-and-communication-for-imx" title="Permalink to this headline">¶</a></h3>
+<p>In case the Configure Tool is installed on a development PC, the iMX6UL
+must run an RJCT-server process that will deal with the unpacking of the
+incoming commands and the communication over SCI2C with the A71CH.
+<img alt="Configure Tool installed on PC" src="../_images/A71CH_PersoDevSW_PC_iMX.svg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Refer to <a class="reference internal" href="../appendix/rjct_server.html#se05x-rjct-server"><span class="std std-ref">JRCP_v1 Server</span></a> for
+more information on the RJCT server.</p>
+</div>
+<p>In case the Configure Tool is installed on the embedded target, a
+development PC will typically be used to run a console that provides
+access via SSH to the embedded target. <img alt="Standalone Configure Tool on Embedded Target" src="../_images/A71CH_PersoDevSW_iMXOnly.svg" /></p>
+</div>
+<div class="section" id="sw-layers-and-communication-for-kinetis">
+<span id="se05x-legacy-cfg-tool-deploy-sw-kinetis"></span><h3><span class="section-number">10.5.3.4. </span>SW layers and communication for Kinetis<a class="headerlink" href="#sw-layers-and-communication-for-kinetis" title="Permalink to this headline">¶</a></h3>
+<p>For Kinetis based embedded systems, the configuration tool can only be
+run from the PC. Also, the configuration tool is only compiled with
+OpenSSL (not with mbedTLS). VCOM needs to be
+running on the Kinetis platform and the communication between HostPC and
+Kinetis happens over USB VCOM.</p>
+<p>The Kinetis platform will that care of SCI2C protocol communication with
+the A71CH. <img alt="Configure Tool installed on PC for Kinetis" src="../_images/A71CH_Kinetis_OpenSSLConfig.jpg" /></p>
+</div>
+</div>
+<div class="section" id="command-reference">
+<span id="se05x-legacy-cfg-tool-command"></span><h2><span class="section-number">10.5.4. </span>Command reference<a class="headerlink" href="#command-reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overall-introduction">
+<h3><span class="section-number">10.5.4.1. </span>Overall introduction<a class="headerlink" href="#overall-introduction" title="Permalink to this headline">¶</a></h3>
+<p>A command has the following general structure: a mandatory command name
+<code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span></code> is followed by an optional command qualifier <code class="docutils literal notranslate"><span class="pre">&lt;cmd-q&gt;</span></code>, followed by ‘0 to n’ (option, value) pairs.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;cmd-n&gt; [&lt;cmd-q&gt;] [-option &lt;option-value&gt;]*
+</pre></div>
+</div>
+<p>The command names <code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span></code> are further listed and explained in
+detail in the remainder of this section.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;cmd-n&gt; = {apdu, debug, erase, gen, info, ...}
+</pre></div>
+</div>
+<p>Legal values for command qualifiers <code class="docutils literal notranslate"><span class="pre">&lt;cmd-q&gt;</span></code> depend on the
+actual command name <code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;cmd-q&gt; = {cnt, gp, pair, pub, sym, ...}
+    cfg = configure key
+    cnt = monotonic counter
+    gp = general purpose data
+    pair = ECC key pair
+    pub = ECC public key
+    sym = Symmetric secret
+
+&lt;cmd-q&gt; = {permanently_disable_debug, reset, all, ...}
+</pre></div>
+</div>
+<p>Legal (option, value) pairs again depend on the preceding <code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span> <span class="pre">&lt;cmd-q&gt;</span></code>.
+The order of the (option, value) pairs after the <code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;cmd-n&gt;</span> <span class="pre">&lt;cmd-q&gt;</span></code> needs
+to be strictly respected. The type of the value, can be any of the following</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;hexvalue&gt; = [0-9A-F][0-9A-F]([0-9A-F][0-9A-F])*
+    examples of legal hexvalue&#39;s are
+        0A0B0C0D
+        00112233445566778899AABBCCDDEEFF
+    the following hexvalue&#39;s are not allowed
+        0x0A0B0C0D # leading &#39;0x&#39; decorator is not supported
+        0A1        # odd number of ascii characters is not supported
+
+&lt;int&gt; = integer (currently only positive integers are supported)
+
+&lt;filename&gt; = further explained with the individual commands
+</pre></div>
+</div>
+</div>
+<div class="section" id="apdu">
+<h3><span class="section-number">10.5.4.2. </span>apdu<a class="headerlink" href="#apdu" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>apdu -cmd &lt;hexvalue&gt; -sw &lt;hexvalue&gt;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">apdu</span></code> command allows to exchange an APDU (in ‘raw’
+format) between the Host and the A71CH. It’s mandatory to specify the
+expected status word that will be returned by the A71CH, if the actual
+returned status word is different this will be flagged as an execution
+error.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This low level command can be used to extend the
+functionality of the Config Tool. In order to use this command one needs
+to consult the A71CH APDU specification. This command is not required
+for normal provisioning use cases.</p>
+</div>
+<p>In the following example the host requests the A71CH the SHA256 value of
+“F0F1F2F3”. The APDU command and response are printed on the console.
+The last two byte contained in the response</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; apdu -cmd 8096000004F0F1F2F300 -sw 9000
+cmd (LEN=10):
+8096000004F0F1F2F300
+rsp (LEN=34):
+FEA4CE6719F1FDB6D2E30CFB86C2E797DBD4A3247FF2B0EFC15A814C5B25C75E9000
+</pre></div>
+</div>
+</div>
+<div class="section" id="connect">
+<h3><span class="section-number">10.5.4.3. </span>connect<a class="headerlink" href="#connect" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>connect [close|open]
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">connect</span></code> command allows to close or re-open the
+connection with an attached secure element. This command can be used in
+an interactive workflow where several instance of an A71CH are being
+configured. Before detaching a configured A71CH one calls
+<code class="docutils literal notranslate"><span class="pre">connect</span> <span class="pre">close</span></code>; after attaching another
+A71CH one calls <code class="docutils literal notranslate"><span class="pre">connect</span> <span class="pre">open</span></code>.</p>
+<p>In the following example a connection is opened.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; connect open
+I2CInit: opening /dev/i2c-1
+I2C driver: PEC flag cleared
+I2C driver supports plain i2c-level commands.
+I2C driver supports Read Block.
+</pre></div>
+</div>
+</div>
+<div class="section" id="debug">
+<h3><span class="section-number">10.5.4.4. </span>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>debug [permanently_disable_debug|reset]
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">debug</span></code> command can be used to permanently switch of
+the Debug Mode of the A71CH (the Debug Mode of the A71CH is a convience
+mode that can be used during product development). It can also be used -
+assuming the Debug Mode is still on - to bring the A71CH back to its
+initial state.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Issuing a debug reset also erases all stored
+credentials.</p>
+</div>
+<p>In the following example a debug reset is issued.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; debug reset
+</pre></div>
+</div>
+</div>
+<div class="section" id="ecrt">
+<h3><span class="section-number">10.5.4.5. </span>ecrt<a class="headerlink" href="#ecrt" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ecrt</span></code> command erases a certificate
+from the GP storage area by index.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ecrt -x &lt;int&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The valid index range for certificates is is limited
+only by memory size.</p>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">ecrt</span></code> example the
+certificate at index 3 is erased from the A71CH.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ecrt -x 3
+</pre></div>
+</div>
+</div>
+<div class="section" id="erase">
+<h3><span class="section-number">10.5.4.6. </span>erase<a class="headerlink" href="#erase" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">erase</span></code> command erases (deletes the value) of the
+specified stored credential. A locked credential can not be erased.
+Erasing a monotonic counter value is only possible when the Debug Mode
+of the A71CH is available.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>erase [cnt|pair|pub|sym] -x &lt;int&gt;
+</pre></div>
+</div>
+<p>In the following example the ECC key pair stored on index 0 is erased.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>erase pair -x 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="gen">
+<h3><span class="section-number">10.5.4.7. </span>gen<a class="headerlink" href="#gen" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">gen</span></code> command makes the A71CH create a valid ECC key
+pair on the indicated index.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gen pair -x &lt;int&gt;
+</pre></div>
+</div>
+<p>In the following example a new ECC keypair is created and stored on
+index 1</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gen pair -x 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="get">
+<h3><span class="section-number">10.5.4.8. </span>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">get</span></code> command retrieves the public key value from
+either a public key or key pair at the index passed as argument and
+stores it - in pem format - in a file provided as argument.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The parameter passed after the c option represents
+the key type and can be either 0x10 for public pair or 0x20 for public
+key.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>get pub -c &lt;hex_value&gt; -x &lt;int&gt; -k &lt;keyfile.pem&gt;
+</pre></div>
+</div>
+<p>In the following example the ECC public key stored at index 0 is stored
+to PEM file keyfile.pem</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>get pub -c 20 -x 0 -k keyfile.pem
+</pre></div>
+</div>
+</div>
+<div class="section" id="info">
+<h3><span class="section-number">10.5.4.9. </span>info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">info</span></code> command can be used to echo the value and/or
+status of the A71CH or its stored credentials to the console. Issuing an
+‘info all’ will echo the same information as issuing ‘info device’,
+‘info cnt’, ‘info pair’, ‘info pub’, ‘info gp -h 0000 -n &lt;all&gt;’ in
+sequence. The value of secret credentials like the private part of a
+keypair, a symmetric key or a configuration key can not be retrieved
+from the A71CH. The ‘info status’ command will report on the
+Initialized/Empty and Locked/Open status of all credentials. It’s
+possible to echo the value of consecutive 32 byte data segments from
+general purpose data storage by specifying the hexadecimal offset
+(specified with 4 hexadecimal digits) into the data store and the amount
+of segments to display.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>info [all|device|cnt|pair|pub|sym|status]
+info gp -h &lt;hexvalue_offset&gt; -n &lt;segments&gt;
+</pre></div>
+</div>
+<p>In the following example the credential status is requested. The output
+corresponds to the status of a new device.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info status
+SCP03 is Not enabled
+Key Pair status:
+        Index=0: Empty Open
+        Index=1: Empty Open
+        Index=2: Empty Open
+        Index=3: Empty Open
+Public Key status:
+        Index=0: Empty Open
+        Index=1: Empty Open
+        Index=2: Empty Open
+Config Key status:
+        Index=0: Empty Open
+        Index=1: Empty Open
+        Index=2: Empty Open
+Sym Secret status:
+        Index=0: Empty Open
+        Index=1: Empty Open
+        Index=2: Empty Open
+        Index=3: Empty Open
+Counter status:
+        Index=0: Initialized Open
+        Index=1: Initialized Open
+Certificate Objects:
+        0 Absolute offset = 0x00 Actual Size = 0x313
+        1 Absolute offset = 0x320 Actual Size = 0x313
+Data Objects:
+    0 Absolute offset = 0x640 Actual Size = 0x09
+    1 Absolute offset = 0x660 Actual Size = 0x09
+General Purpose Storage status:
+        Offset=0x0000: Open     Offset=0x0020: Open     Offset=0x0040: Open     Offset=0x0060: Open
+        Offset=0x0080: Open     Offset=0x00A0: Open     Offset=0x00C0: Open     Offset=0x00E0: Open
+        Offset=0x0100: Open     Offset=0x0120: Open     Offset=0x0140: Open     Offset=0x0160: Open
+        Offset=0x0180: Open     Offset=0x01A0: Open     Offset=0x01C0: Open     Offset=0x01E0: Open
+        Offset=0x0200: Open     Offset=0x0220: Open     Offset=0x0240: Open     Offset=0x0260: Open
+        Offset=0x0280: Open     Offset=0x02A0: Open     Offset=0x02C0: Open     Offset=0x02E0: Open
+        Offset=0x0300: Open     Offset=0x0320: Open     Offset=0x0340: Open     Offset=0x0360: Open
+        Offset=0x0380: Open     Offset=0x03A0: Open     Offset=0x03C0: Open     Offset=0x03E0: Open
+</pre></div>
+</div>
+<p>In the following example the contents from two 32 byte data segments is
+requested starting from general purpose storage offset 0x0010:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info gp -h 0010 -n 2
+GP Storage Data (2 segments from offset 0x0010):
+        0x0010 (LEN=32): 0000000000000000000000000000000000000000000000000000000000000000
+        0x0030 (LEN=32): 0000000000000000000000000000000000000000000000000000000000000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="interactive">
+<h3><span class="section-number">10.5.4.10. </span>interactive<a class="headerlink" href="#interactive" title="Permalink to this headline">¶</a></h3>
+<p>Used to start the interactive mode from the command line</p>
+</div>
+<div class="section" id="lock">
+<h3><span class="section-number">10.5.4.11. </span>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">lock</span></code> commands allows to lock individual credentials
+(ECC public keys and ECC key pairs). It allows to lock data segments of
+32 byte in general purpose storage (on offsets that are multiples of
+0x0020). It’s also possible to forbid the injection of unwrapped ECC
+public keys, ECC key pairs and symmetric secrets at the device level.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lock [pair|pub] -x &lt;int&gt;
+lock gp -h &lt;hexvalue_offset&gt; -n &lt;segments&gt;
+lock inject_plain
+</pre></div>
+</div>
+<p>The following example locks the ECC key pair at index 0</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; lock pair -x 0
+</pre></div>
+</div>
+<p>The following example locks 2 data segments of 32 byte in general
+purpose data storage starting from offset 0x0060</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; lock gp -h 0060 -n 2
+</pre></div>
+</div>
+</div>
+<div class="section" id="obj-erase">
+<h3><span class="section-number">10.5.4.12. </span>obj erase<a class="headerlink" href="#obj-erase" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">erase</span></code> command erases the object
+at the provided index.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>obj erase -x &lt;int&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Upon erasing an object it cannot be reconstructed.</p>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">erase</span></code> example the
+object at index 0 is erased.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; obj erase -x 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="obj-get">
+<h3><span class="section-number">10.5.4.13. </span>obj get<a class="headerlink" href="#obj-get" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">get</span></code> command gets the value of a
+data object, it retrieves the data from a specific offset within the
+data object (fetching the specified amount of byte). Optionally, the
+data is written to file. The type file could be 16 or 32 bytes at a
+line. If no type is specified the default would be 32 bytes.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>obj get -x &lt;int&gt; [-h &lt;hexvalue_offset&gt;] [-s &lt;hexvalue_size&gt;] [-f &lt;data.txt&gt; -t [hex_16|hex_32]]
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The offset is relative to the start location of the
+object and must be specified as a 4 digit hexadecimal value.</p>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">get</span></code> example the
+value of the object at index 0 is read out.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; obj get -x 0 -h 0000 -s 0009
+&gt;&gt;&gt; 112233445566778899
+</pre></div>
+</div>
+</div>
+<div class="section" id="obj-update">
+<h3><span class="section-number">10.5.4.14. </span>obj update<a class="headerlink" href="#obj-update" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">update</span></code> command updates the value
+of a data object. It updates the data relative to an internal offset
+passed as a parameter. The data can be passed on the command line or be
+contained in a file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>obj update -x &lt;int&gt; -h &lt;hexvalue_offset&gt; [-f &lt;data.txt&gt; -t [hex_16|hex_32] | -h &lt;hexvalue_data&gt;]
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The data in the file must be binary and not textual.
+An object must already exist at the specified index. If data is read
+from file it can be set with lines in length of 16 or 32 bytes (i.e.
+hex_16 or hex_32). The default value is lines of 32 bytes.</p>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">update</span></code> example the
+value of the object at index 0 is updated.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; obj update -x 0 -h 0000 -h 998877665544332211
+</pre></div>
+</div>
+</div>
+<div class="section" id="obj-write">
+<h3><span class="section-number">10.5.4.15. </span>obj write<a class="headerlink" href="#obj-write" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">write</span></code> command creates an object.
+The value of the object to be created can be passed on the command line
+or contained in a file. When using the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option the
+requested segments will be reserved for the data object and filled with
+zeros. If data is read from file it can be set with lines in length of
+16 or 32 bytes (i.e. hex_16 or hex_32). The default value is lines of
+32 bytes.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>obj write -x &lt;int&gt; [-f &lt;data.txt&gt; -t [hex_16|hex_32] | -h &lt;hexvalue_data&gt; | -n &lt;segments&gt;]
+</pre></div>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">write</span></code> example an
+zero filled object is created at index 0 with a size of 5 segments.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; obj write -x 0 -n 5
+</pre></div>
+</div>
+</div>
+<div class="section" id="rcrt">
+<h3><span class="section-number">10.5.4.16. </span>rcrt<a class="headerlink" href="#rcrt" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">rcrt</span></code> command reads a certificate
+from the GP storage area by index. Optionally, the command can save the
+certificate read to a CRT file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rcrt -x &lt;int&gt; [-c &lt;certfile.crt&gt;]
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The certificate data will be presented whether it was
+written to a file or not. The valid index range for certificates is is
+limited only by memory size.</p>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">rcrt</span></code> example the
+certificate at index 3 is read from the A71CH, upon success it is also
+written to a CRT file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; rcrt -x 3 -c certificate.crt
+CER_DATA (LEN=520):
+30820204308201A9020900CFD5820FFEC40937300A06082A8648CE3D04030230
+8189310B30090603550406130242453116301406035504080C0D566C61616D73
+42726162616E74310F300D06035504070C064C657576656E3111300F06035504
+0A0C084E58502D44656D6F31163014060355040B0C0D4E58502D44656D6F2D55
+6E6974310D300B06035504030C0464656D6F3117301506092A864886F70D0109
+01160864656D6F406E7870301E170D3135313230373130353132395A170D3136
+313230363130353132395A308188310B30090603550406130242453116301406
+035504080C0D566C61616D7342726162616E74310F300D06035504070C064C65
+7576656E310E300C060355040A0C05697063616D31123010060355040B0C0969
+7063616D556E69743112301006035504030C09697063616D44656D6F31183016
+06092A864886F70D0109011609697063616D406E78703059301306072A8648CE
+3D020106082A8648CE3D03010703420004DB4CDB6C5A96C1615895095222AA0E
+A3BC6F9E714D6438F0B120D691F18D7E7410EE04BE71D33A2D8B2D3B66F7174A
+9654536965AFD2ABADB55269C6A6C0085E300A06082A8648CE3D040302034900
+304602210083AA91AE33396825D560390952AEE91C64814C7CA681BA50589558
+D681F974270221009BA1CF31A823B96C391E3C4F839666AECE9949639D796B24
+A5B987A92E6F1CFA
+</pre></div>
+</div>
+</div>
+<div class="section" id="refpem">
+<h3><span class="section-number">10.5.4.17. </span>refpem<a class="headerlink" href="#refpem" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reference keys created by the <code class="docutils literal notranslate"><span class="pre">refpem</span></code> command are <strong>only</strong> compatible with the
+A71CH OpenSSL Engine based upon the A71CH Legacy API. The A71CH OpenSSL Engine based
+upon the SSS API use a different reference key format, these keys must be created with
+the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">refpem</span></code> command allows to create A71CH OpenSSL Engine
+specific reference pem files. It can be used in a mode that fetches the
+public key value from the attached A71CH:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>refpem -c &lt;hex_value&gt; -x &lt;int&gt; -r &lt;ref_keyfile.pem&gt;
+</pre></div>
+</div>
+<p>Or it can be used in a ‘not-connected’ mode that fetches the public key
+value from a pem file (containing an EC key pair) supplied as an
+argument.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>refpem -c &lt;hex_value&gt; -x &lt;int&gt; -k &lt;keyfile.pem&gt; -r &lt;ref_keyfile.pem&gt;
+</pre></div>
+</div>
+<p>The value following the <code class="docutils literal notranslate"><span class="pre">-c</span></code> switch must be either 10
+(create a reference to a key pair) or 20 (create a reference to a public
+key). The value following the <code class="docutils literal notranslate"><span class="pre">-x</span></code> switch is the storage
+index of either key pair or public key.</p>
+<p>The following command creates a reference pem file
+‘my_ref_keyfile.pem’ referring to a keypair stored at index 1.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>refpem -c 10 -x 1 -r my_ref_keyfile.pem
+</pre></div>
+</div>
+</div>
+<div class="section" id="script">
+<h3><span class="section-number">10.5.4.18. </span>script<a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">script</span></code> command can be used to issue the Configure
+tool commands contained in a file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>script -f &lt;script.txt&gt;
+</pre></div>
+</div>
+<p>An example of script file (script_example.txt)</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>root@imx6ulevk:~# cat script_example.txt
+# Simple example script
+info pair
+gen pair -x 0
+info pair       # This will illustrate a key pair was created
+</pre></div>
+</div>
+<p>The following example issues the commands contained in the script file
+above (script_example.txt)</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; script -f script_example.txt
+&gt;&gt; # Simple example script
+
+&gt;&gt; info pair
+
+Public Keys from ECC key pairs:
+        idx=0x00 n.a.
+        idx=0x01 n.a.
+&gt;&gt; gen pair -x 0
+
+&gt;&gt; info pair       # This will illustrate a key pair was created
+
+Public Keys from ECC key pairs:
+        idx=0x00 ECC_PUB (LEN=65):
+04:A4:B3:3B:A3:D4:23:BD:19:C3:CB:20:DB:6F:D3:80:46:73:06:56:2F:83:B2:B1:AE:86:9A:EF:E9:7A:62:A3:
+04:E7:C1:42:31:97:D5:19:5A:80:27:74:DC:20:EC:B7:93:9B:E5:C1:22:22:6B:E3:49:A4:FB:3A:5C:26:08:85:
+B5
+        idx=0x01 n.a.
+</pre></div>
+</div>
+</div>
+<div class="section" id="scp">
+<h3><span class="section-number">10.5.4.19. </span>scp<a class="headerlink" href="#scp" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">scp</span></code> command can be used to write a set of SCP03 keys
+to the A71CH (‘scp put …’) or to establish an active SCP03 channel
+between Host and A71CH (‘scp auth …’). The ‘scp clear_host’ command
+will force the Host to issue commands in the clear again.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scp [put|auth] -h &lt;hexvalue_keyversion&gt; -k &lt;keyfile&gt;
+scp clear_host
+</pre></div>
+</div>
+<p>An example of a keyfile containing a set of SCP03 keys:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>root@imx6ulevk:~# cat scp_keyfile_example.txt
+# This is a comment, empty lines and comment lines allowed.
+ENC AA112233445566778899AABBCCDDEEFF # Trailing comment
+MAC BB112233445566778899AABBCCDDEEFF # Optional trailing comment
+DEK CC112233445566778899AABBCCDDEEFF # Optional trailing comment
+</pre></div>
+</div>
+</div>
+<div class="section" id="set">
+<h3><span class="section-number">10.5.4.20. </span>set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">set</span></code> command can be used to set a credential stored
+on the A71CH to a specific value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">gp</span></code> command
+can only be used to set a maximum of 32 byte of data at a time.</p>
+<p>The value of a key pair or public key can either be
+passed as command line parameters or be contained in a pem-file
+(containing an EC key pair).</p>
+<p>The command line value
+of the private key (set by the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">pair</span></code>
+command) can be either in the clear or wrapped with the Configuration
+key stored at index 1. Wrapping is according to
+<a class="reference external" href="https://tools.ietf.org/html/rfc3394">RFC3394</a>.</p>
+<p>The command line value of the public key (set by the
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">pub</span></code> command) can be either in the
+clear or wrapped with the Configuration key stored at index 2. In case
+<a class="reference external" href="https://tools.ietf.org/html/rfc3394">RFC3394</a> wrapping is applied
+the first byte of the public key (the one indicating the public key
+format) is removed before applying wrapping.</p>
+<p>The
+value of the configure key, the monotonic counter or the symmetric
+secret can only be passed explicitly as a command line parameter. The
+configure and symmetric keys can also be set wrapped (with the stored
+value of the key) according to
+<a class="reference external" href="https://tools.ietf.org/html/rfc3394">RFC3394</a>.</p>
+<p>Whether an argument is wrapped is implicit in the
+lenght of the provided argument.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>set gp -h &lt;hexvalue_offset&gt; -h &lt;hexvalue_data&gt;
+set pair -x &lt;int&gt; [-k &lt;keyfile.pem&gt; | -h &lt;hexvalue_pub&gt; -h &lt;hexvalue_priv&gt;]
+set pub  -x &lt;int&gt; [-k &lt;keyfile.pem&gt; | -h &lt;hexvalue&gt;]
+set [cfg|cnt|sym]  -x &lt;int&gt; -h &lt;hexvalue&gt;
+</pre></div>
+</div>
+<p>The following example writes 5 byte of data at offset 0004 into the
+General Purpose data store. The data written (4137314348) is the
+equivalent of the ASCII encoding of the string ‘A71CH’. The command
+itself is preceded and followed by an info statement covering the
+general purpose storage segment of interest.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info gp -h 0000 -n 1
+GP Storage Data (1 segments from offset 0x0000):
+        0x0000 (LEN=32): 0000000000000000000000000000000000000000000000000000000000000000
+&gt;&gt;&gt; set gp -h 0004 -h 4137314348
+&gt;&gt;&gt; info gp -h 0000 -n 1
+GP Storage Data (1 segments from offset 0x0000):
+        0x0000 (LEN=32): 0000000041373143480000000000000000000000000000000000000000000000
+</pre></div>
+</div>
+<p>The following example set the key pair at index 1 from the value
+contained in file keyfile_ecc_nist_256_1.pem. The command itself is
+preceded and followed by an info statement on the stored key pairs.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info pair
+Public Keys from ECC key pairs:
+        idx=0x00 n.a.
+        idx=0x01 n.a.
+&gt;&gt;&gt; set pair -x 1 -k keyfile_ecc_nist_256_1.pem
+ECCPrivateKey (LEN=32):
+21:AF:C1:1E:F5:64:61:3D:2E:96:4D:8B:93:19:CC:AB:38:E0:7A:6E:35:3A:21:A3:D1:69:8B:19:13:DF:1D:FF
+
+ECCPublicKey (LEN=65):
+04:74:E2:1E:54:6C:C1:9E:31:58:55:B6:D5:45:D3:0D:3F:48:79:D4:64:5D:3F:67:73:75:FB:0B:2C:80:43:1E:
+8D:34:95:71:0E:71:E1:E3:F8:93:62:75:B4:AC:F1:52:E3:DE:55:CC:1D:86:5E:B0:D1:22:A8:CF:35:EC:47:31:
+F8
+&gt;&gt;&gt; info pair
+Public Keys from ECC key pairs:
+        idx=0x00 n.a.
+        idx=0x01 ECC_PUB (LEN=65):
+04:74:E2:1E:54:6C:C1:9E:31:58:55:B6:D5:45:D3:0D:3F:48:79:D4:64:5D:3F:67:73:75:FB:0B:2C:80:43:1E:
+8D:34:95:71:0E:71:E1:E3:F8:93:62:75:B4:AC:F1:52:E3:DE:55:CC:1D:86:5E:B0:D1:22:A8:CF:35:EC:47:31:
+F8
+
+The value contained in file keyfile\_ecc\_nist\_256\_1.pem is
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ cat keyfile_ecc_nist_256_1.pem
+-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEICGvwR71ZGE9LpZNi5MZzKs44HpuNToho9FpixkT3x3/oAoGCCqGSM49
+AwEHoUQDQgAEdOIeVGzBnjFYVbbVRdMNP0h51GRdP2dzdfsLLIBDHo00lXEOceHj
++JNidbSs8VLj3lXMHYZesNEiqM817Ecx+A==
+-----END EC PRIVATE KEY-----
+</pre></div>
+</div>
+<p>The following example sets the public key at index 0 to the provided
+public key value (in the clear, ANSI X9.62 uncompressed format). The
+command itself is preceded and followed by an info statement on the
+stored public key.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info pub
+Public Keys:
+        idx=0x00 n.a.
+        idx=0x01 n.a.
+&gt;&gt;&gt; set pub -x 0 -h 043802B1164C30860AC913F5F997B84158C40CFFCC1D3A4359BC22574A4FC95E628933A9E95820AD6B96A1DA106BDD5D6A8E556A78AE959C59336FE53E3A1D9ED4
+&gt;&gt;&gt; info pub
+Public Keys:
+        idx=0x00 ECC_PUB (LEN=65):
+04:38:02:B1:16:4C:30:86:0A:C9:13:F5:F9:97:B8:41:58:C4:0C:FF:CC:1D:3A:43:59:BC:22:57:4A:4F:C9:5E:
+62:89:33:A9:E9:58:20:AD:6B:96:A1:DA:10:6B:DD:5D:6A:8E:55:6A:78:AE:95:9C:59:33:6F:E5:3E:3A:1D:9E:
+D4
+        idx=0x01 n.a.
+</pre></div>
+</div>
+<p>The following example sets the monotonic counter at index 0 to 00E0. The
+command itself is preceded and followed by an info statement on the
+stored monotonic counters.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info cnt
+Monotonic counter values:
+        idx=0x00 0x00000000
+        idx=0x01 0x00000000
+&gt;&gt;&gt; set cnt -x 0 -h 000000E0
+&gt;&gt;&gt; info cnt
+Monotonic counter values:
+        idx=0x00 0x000000E0
+        idx=0x01 0x00000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="transport">
+<h3><span class="section-number">10.5.4.21. </span>transport<a class="headerlink" href="#transport" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">transport</span> <span class="pre">lock</span></code> command can be used
+to enable the transport lock on the A71CH. To disable the transport lock
+one needs to pass the transport key as an option value to the
+<code class="docutils literal notranslate"><span class="pre">transport</span> <span class="pre">unlock</span></code> command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A precondition to enable the transport lock is that
+the Transport Configuration key has been set: use ‘set cfg -x 0 -h
+&lt;hexvalue_tpkey&gt;’ to achieve this. Furthermore the transport lock /
+unlock cycle can only be initiated once.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>transport [lock|unlock -h &lt;hexvalue_tpkey&gt;]
+</pre></div>
+</div>
+<p>The following example sets the Transport Configuration key, locks the
+device and finally unlocks the device. The <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">device</span></code> command is used to illustrate the value of the
+transportLockState of the device.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; info device
+...
+transportLockState: 0x03 (Transport Lock NOT YET set)
+...
+&gt;&gt;&gt; set cfg -x 0 -h AA112233445566778899AABBCCDDEEFF
+&gt;&gt;&gt; transport lock
+&gt;&gt;&gt; info device
+...
+transportLockState: 0x01 (Transport Lock is set)
+...
+&gt;&gt;&gt; transport unlock -h AA112233445566778899AABBCCDDEEFF
+&gt;&gt;&gt; info device
+A71CH in Debug Mode Version (SCP03 is not set up)
+selectResponse:   0x0111
+transportLockState: 0x02 (Open device, Transport Lock can no longer be set)
+injectLockState:    0x02 (Unlocked)
+gpStorageSize:      1024
+uid (LEN=18):
+47:90:70:02:47:91:12:10:20:89:00:50:36:91:64:23:00:00
+</pre></div>
+</div>
+</div>
+<div class="section" id="ucrt">
+<h3><span class="section-number">10.5.4.22. </span>ucrt<a class="headerlink" href="#ucrt" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ucrt</span></code> command updates a certificate
+to the GP storage area by index. The certificate can be provided as raw
+data (-h option), as a file in PEM format (-p option) or as a file in
+DER format (-c option).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ucrt -x &lt;int&gt; [-c &lt;certfile.crt&gt; | -h &lt;hexvalue_data&gt; | -p &lt;certfile.pem&gt;]
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case the certificate to be written is in PEM
+format it will be stored into the A71CH in DER format. The valid index
+range for certificates is is limited only by memory size.</p>
+</div>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">ucrt</span></code> example a certificate contained in
+a PEM file (c:\certificate.pem) is stored into the A71CH at index 3.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ucrt -x 3 -p c:\certificate.pem
+Filename: c:\certificate.pem
+Certificate Size (DER format) = 493 byte
+</pre></div>
+</div>
+</div>
+<div class="section" id="wcrt">
+<h3><span class="section-number">10.5.4.23. </span>wcrt<a class="headerlink" href="#wcrt" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">wcrt</span></code> command writes a certificate to
+the GP storage area by index. The certificate can be provided as raw
+data (-h option), as a file in PEM format (-p option) or as a file in
+DER format (-c option).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>wcrt -x &lt;int&gt; [-c &lt;certfile.crt&gt; | -h &lt;hexvalue_data&gt; | -p &lt;certfile.pem&gt;] [-n &lt;padding-segments&gt;]
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Writing to an existing index will fail. Use the
+<code class="docutils literal notranslate"><span class="pre">ucrt</span></code> command to update the certificate
+(taking into account certificate size constraints) or use the
+<code class="docutils literal notranslate"><span class="pre">ecrt</span></code> command to erase and then write the
+new certificate. The valid index range for certificates is is limited
+only by memory size. Using padding segments parameter creates an extra
+place holder for future updates with larger certificates at the same
+index without the need for erasing it first.</p>
+<p>In case the certificate to be written is in PEM
+format it will be stored into the A71CH in DER format.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rcrt</span></code> command
+allows to read out a certificate by index.</p>
+<p>In the following <code class="docutils literal notranslate"><span class="pre">wcrt</span></code> example a certificate contained in
+a PEM file (c:\certificate.pem) is stored into the A71CH at index 3.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; wcrt -x 3 -p c:\certificate.pem
+Filename: c:\certificate.pem
+Certificate Size (DER format) = 493 byte
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="not-connected-mode">
+<h2><span class="section-number">10.5.5. </span>Not connected mode<a class="headerlink" href="#not-connected-mode" title="Permalink to this headline">¶</a></h2>
+<p>When starting up the A71CH Configure Tool it is possible to indicate no
+attached A71CH device is required. This is achieved by preceding the
+command (on the command line only) by the keyword <code class="docutils literal notranslate"><span class="pre">nc</span></code>
+(not connected).</p>
+<p>Currently the only application of this feature is the creation of
+Reference Pem files where the public key value is contained in a Pem
+file (containing an EC key pair) passed as argument.</p>
+<p>The following command creates a reference pem file
+‘my_ref_keyfile.pem’ referring to a public key (stored or to be
+stored) at index 0 whose value is contained in ‘kp_keyfile.pem’</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>root@imx6ulevk:~# ./a71chConfig_i2c_imx nc refpem -c 20 -x 0 -k kp_keyfile.pem -r my_ref_keyfile.pem
+a71chConfig (Rev 0.94) .. NOT connecting to A71CH.
+ECCPublicKey (LEN=65):
+04:7C:59:16:D4:F5:46:B3:D3:17:20:78:F8:AD:41:84:9A:79:46:6B:5B:0B:FC:39:3D:4C:E1:A8:53:F5:4F:8D:
+C2:98:65:F8:84:E9:9E:28:38:09:FF:29:34:B6:97:27:DB:6C:0A:F3:79:B0:D7:2C:16:25:B5:CB:B8:A2:CB:70:
+89
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018-2020, NXP.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 NXP
+
+This software is owned or controlled by NXP and may only be used
+strictly in accordance with the applicable license terms.  By expressly
+accepting such terms or by downloading, installing, activating and/or
+otherwise using the software, you are agreeing that you have read, and
+that you agree to comply with and are bound by, such license terms.  If
+you do not agree to be bound by the applicable license terms, then you
+may not retain, install, activate or otherwise use the software.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>10.4. A71CH Legacy HLSE (Generic) API &#8212; Plug &amp; Trust MW v03.00.05 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.5. A71CH Legacy Configure Tool" href="a71ch_configure_tool.html" />
+    <link rel="prev" title="10.3. A71CH Legacy API" href="a71ch_legacy_host_api.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../toc.html"><span><img src="../_static/NXP_logo_JPG.jpg"></span>
+          MW</a>
+        <span class="navbar-text navbar-version pull-left"><b>v03.00.05</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../toc.html">TOC <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organization-of-documentation.html">1.1. Organization of Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../folder-structure.html">1.2. Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sw-prerequisites.html">1.3. List of Platform Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html">2.1. Pending Refactoring items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html#known-limitations">2.2. Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_05.html">2.3. Release <code class="docutils literal notranslate"><span class="pre">v03.00.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_04.html">2.4. Release <code class="docutils literal notranslate"><span class="pre">v03.00.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_03.html">2.5. Release <code class="docutils literal notranslate"><span class="pre">v03.00.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_02.html">2.6. Release <code class="docutils literal notranslate"><span class="pre">v03.00.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_01.html">2.7. Release <code class="docutils literal notranslate"><span class="pre">v02.16.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_00.html">2.8. Release <code class="docutils literal notranslate"><span class="pre">v02.16.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_15_00.html">2.9. Release <code class="docutils literal notranslate"><span class="pre">v02.15.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_14_00.html">2.10. Release <code class="docutils literal notranslate"><span class="pre">v02.14.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html">2.11. Release <code class="docutils literal notranslate"><span class="pre">v02.12.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-04">2.12. Release <code class="docutils literal notranslate"><span class="pre">v02.12.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-03">2.13. Release <code class="docutils literal notranslate"><span class="pre">v02.12.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-02">2.14. Release <code class="docutils literal notranslate"><span class="pre">v02.12.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-01">2.15. Release <code class="docutils literal notranslate"><span class="pre">v02.12.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-00">2.16. Release <code class="docutils literal notranslate"><span class="pre">v02.12.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_03.html">2.17. Release <code class="docutils literal notranslate"><span class="pre">v02.11.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_01.html">2.18. Internal Release <code class="docutils literal notranslate"><span class="pre">v02.11.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_00.html">2.19. Release <code class="docutils literal notranslate"><span class="pre">v02.11.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_10_00.html">2.20. Release <code class="docutils literal notranslate"><span class="pre">v02.10.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_09_00.html">2.21. Release <code class="docutils literal notranslate"><span class="pre">v02.09.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_07_00.html">2.22. Release <code class="docutils literal notranslate"><span class="pre">v02.07.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_06_00.html">2.23. Release <code class="docutils literal notranslate"><span class="pre">v02.06.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html">2.24. Release <code class="docutils literal notranslate"><span class="pre">v02.05.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-v02-04-00">2.25. Release <code class="docutils literal notranslate"><span class="pre">v02.04.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-02-03-00">2.26. Release <code class="docutils literal notranslate"><span class="pre">02.03.00</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stack/index.html">3. Plug &amp; Trust MW Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stack/features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/i2cm.html">3.6. I2CM / Secure Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building/windows.html">4.1. Windows Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-sdk.html">4.2. Import MCUXPresso projects from SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-cmake.html">4.3. Freedom K64F Build (CMake - Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/imx6.html">4.4. i.MX Linux Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/rpi3.html">4.5. Raspberry Pi Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/cmake.html">4.6. CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/cmake_options.html">4.7. CMake Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#building-and-running-the-edgelock-2go-agent">6.2. Building and running the EdgeLock 2GO agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#datastore-keystore">6.3. Datastore / Keystore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#connection-to-the-edgelock-2go-cloud-service">6.4. Connection to the EdgeLock 2GO cloud service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#claim-codes">6.5. Claim Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/edgelock2go_agent_apis.html">6.6. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/readme_usage_examples.html">6.7. Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_overview.html">7.1. SEMS Lite Overview (Only for SE051)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_package.html">7.2. Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_usage.html">7.3. SEMS Lite Agent Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_mgmt_api.html">7.4. SEMS Lite management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_process.html">7.5. SEMS Lite Agent Package Load Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_api.html">7.6. APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_known_issue.html">7.7. SEMS Lite Known Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/demo_update.html">7.8. SEMS Lite DEMOs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/openssl/scripts/readme.html">8.1. Introduction on OpenSSL engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/mbedtls/scripts/readme.html">8.2. Introduction on mbedTLS ALT Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/psa/Readme.html">8.3. Platform Security Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/akm.html">8.4. Android Key master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/open62541/readme.html">8.5. Introduction on Open62541 (OPC UA stack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/wifiEAP/wifiEAP.html">8.6. WiFi EAP Demo with Raspberry Pi3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/pkcs11.html">8.7. PKCS#11 Standalone Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/introduction.html">9.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/block-diagram.html">9.2. Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/pre-steps.html">9.3. Steps needed before running <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/running.html">9.4. Running the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool - Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/Provisioning/readme.html">9.5. CLI Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/readme_usage_examples.html">9.6. Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_commands_list.html">9.7. List of <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_data_format.html">9.8. CLI Data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_object_policy.html">9.9. Object Policies Through ssscli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/upload_se05x_using_pycli.html">9.10. Upload keys and certificates to SE05X using ssscli tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/glossary.html">11.1. Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vcom.html">11.2. APDU Commands over VCOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vs2019-setup.html">11.3. Visual Studio 2019 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/ide_mcux.html">11.4. Setting up MCUXPresso IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-platforms.html">11.5. Development Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/se_uid.html">11.6. How to get SE Platform Information and UID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/version_info.html">11.7. Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/Certificate_Chains/Readme.html">11.8. Certificate Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/rjct_server.html">11.9. JRCP_v1 Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/platfscp.html">11.10. Using own Platform SCP03 Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/apdu_write_to_buffer.html">11.11. Write APDU to buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/api_list.html">11.12. Plug &amp; Trust MW APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">10.4. A71CH Legacy HLSE (Generic) API</a><ul>
+<li><a class="reference internal" href="#hlse-api">10.4.1. HLSE API</a></li>
+<li><a class="reference internal" href="#logical-objects">10.4.2. Logical objects</a><ul>
+<li><a class="reference internal" href="#object-creation">10.4.2.1. Object creation</a></li>
+<li><a class="reference internal" href="#value-update">10.4.2.2. Value Update</a></li>
+<li><a class="reference internal" href="#direct-access-value-update">10.4.2.3. Direct Access Value Update</a></li>
+<li><a class="reference internal" href="#erasing-an-object">10.4.2.4. Erasing an object</a></li>
+<li><a class="reference internal" href="#interoperability-of-object-storage-and-locked-chunks">10.4.2.5. Interoperability of Object storage and locked chunks</a></li>
+<li><a class="reference internal" href="#notes">10.4.2.6. Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-details">10.4.3. API details</a><ul>
+<li><a class="reference internal" href="#hlseobjects-h">10.4.3.1. HLSEObjects.h</a></li>
+<li><a class="reference internal" href="#hlsecrypto-h">10.4.3.2. HLSECrypto.h</a></li>
+<li><a class="reference internal" href="#hlsecomm-h">10.4.3.3. HLSEComm.h</a></li>
+<li><a class="reference internal" href="#hlsemisc-h">10.4.3.4. HLSEMisc.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="a71ch_legacy_host_api.html" title="Previous Chapter: 10.3. A71CH Legacy API"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 10.3. A71CH L...</span>
+    </a>
+  </li>
+  <li>
+    <a href="a71ch_configure_tool.html" title="Next Chapter: 10.5. A71CH Legacy Configure Tool"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">10.5. A71CH L... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+
+<div class="sidebar-header">
+    <h3>Plug &amp; Trust MW</h3>
+</div>
+
+<div class="row">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stack/index.html">3. Plug &amp; Trust MW Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10.4. A71CH Legacy HLSE (Generic) API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hlse-api">10.4.1. HLSE API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logical-objects">10.4.2. Logical objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-details">10.4.3. API details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a></li>
+</ul>
+
+</div>
+<div class="row">
+    <form class="form" action="../search.html" method="get">
+     <div class="form-group">
+      <label for="Search">Search:</label>
+      <input type="text" name="q" class="form-control" placeholder="Search" />
+     </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="a71ch-legacy-hlse-generic-api">
+<span id="se05x-legacy-hlse-api"></span><h1><span class="section-number">10.4. </span>A71CH Legacy HLSE (Generic) API<a class="headerlink" href="#a71ch-legacy-hlse-generic-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hlse-api">
+<h2><span class="section-number">10.4.1. </span>HLSE API<a class="headerlink" href="#hlse-api" title="Permalink to this headline">¶</a></h2>
+<p>The API is designed to be generic for Secure Elements that hold cryptographic information and perform cryptographic functions.
+It isolates an application from the details of the cryptographic device such that it does not have to change to interface to a different type of cryptographic device.</p>
+<p>This generic layer intends to abstract both the different APDU specs of applets, and the ?file system? details, i.e., how each ?object? is stored on the SE.
+For example, in order to enumerate the certificate objects on the card, the implementation should know where the objects are located, how many there are,
+what their type is, etc.
+This abstract layer is important for, e.g. a PKCS#11 layer, and for TLS engines that will have to access objects on the Secure Element.</p>
+<p>The HLSE API is written in <strong>C</strong> allowing maximal portability across different platforms.</p>
+<p>Each typedef, enum and function starts with the HLSE (=Host Library Secure Element) prefix.</p>
+<p>The various Secure Element entities are referred to as Objects. Every Object (e.g. Key) has a unique handle (HLSE_OBJECT_HANDLE)
+and a set of attributes (HLSE_ATTRIBUTE) whose values can be retrieved (Get) and Set.
+An HLSE_OBJECT_HANDLE can be obtained in two ways: Either returned by HLSE_EnumerateObjects() if the Object exists on the Secure Element,
+or returned by HLSE_CreateObject() for a new Object. This is an abstraction of the actual way in which the API implements these handles.</p>
+<p>An HLSE_ATTRIBUTE is defined as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>typedef struct HLSE_ATTRIBUTE {
+    HLSE_ATTRIBUTE_TYPE     type;
+    void*                   value;
+    U16                     valueLen;
+} HLSE_ATTRIBUTE;
+</pre></div>
+</div>
+<p>For example, a Private RSA key may have the HLSE_ATTR_RSA_MODULUS and HLSE_ATTR_RSA_PUBLIC_EXPONENT attributes, and their values can be extracted or set.</p>
+<p>Key Generation can be obtained by passing a NULL parameter in the HLSE_ATTR_OBJECT_VALUE attribute. This enables to create the key with a generated random data,
+or to re-generate an existing key by passing NULL in this attribute’s parameter.</p>
+<p>A set of functions is responsible for performing cryptographic operations:</p>
+<ul class="simple">
+<li><p>HLSE_Digest()</p></li>
+<li><p>HLSE_Sign()</p></li>
+<li><p>HLSE_VerifySignature()</p></li>
+<li><p>HLSE_DeriveKey()</p></li>
+<li><p>HLSE_Encrypt()</p></li>
+<li><p>HLSE_Decrypt()</p></li>
+</ul>
+<p>The cryptographic algorithm is controlled by a HLSE_MECHANISM_INFO, defined as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>typedef struct HLSE_MECHANISM_INFO {
+    HLSE_MECHANISM_TYPE    mechanism;
+    void*                  pParameter;
+    U16                    ulParameterLen;
+} HLSE_MECHANISM_INFO;
+</pre></div>
+</div>
+<p>A list of the supported mechanisms, either by the library or by a specific key, can be obtained by calling HLSE_GetSupportedMechanisms()
+or HLSE_GetSupportedMechanismsForObject(), respectively.</p>
+<p>The HLSE API is made up of four parts:</p>
+<ul class="simple">
+<li><p>Operations on Objects (<a class="reference internal" href="#se05x-legacy-hlse-api-objects"><span class="std std-ref">HLSEObjects.h</span></a>)</p></li>
+<li><p>Cryptographic operations (<a class="reference internal" href="#se05x-legacy-hlse-api-crypto"><span class="std std-ref">HLSECrypto.h</span></a>)</p></li>
+<li><p>Secure Element Communication and Secure Channel management functions (<a class="reference internal" href="#se05x-legacy-hlse-api-comm"><span class="std std-ref">HLSEComm.h</span></a>)</p></li>
+<li><p>Debug Mode variant and miscellaneous functionality (<a class="reference internal" href="#se05x-legacy-hlse-api-misc"><span class="std std-ref">HLSEMisc.h</span></a>)</p></li>
+</ul>
+<p>An additional file <code class="docutils literal notranslate"><span class="pre">.../hostLib/inc/HLSEAPI.h</span></code> serves as an entry point to the full API.
+The implementation of the API dealing with A71CH specific functionality is in <code class="docutils literal notranslate"><span class="pre">.../hostLib/api/src/A71HLSEWrapper.c</span></code>.</p>
+</div>
+<div class="section" id="logical-objects">
+<h2><span class="section-number">10.4.2. </span>Logical objects<a class="headerlink" href="#logical-objects" title="Permalink to this headline">¶</a></h2>
+<p>The HLSE API allows to create logical objects in the GP Storage. They can be of  HLSE_CERTIFICATE or HLSE_DATA object type.
+The abstraction for various objects that reside in the GP Storage area is achieved by maintaining a lookup table (mapping) at the end of the GP Storage area to hold information about the logical objects that exist in the GP Storage.
+The structure of the table is as follows:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Notes:
+    X+1 is the address of the last byte of the GP Storage.
+    N is the object number from 1 to N
+
+Address     Value
+-------     ----------------------
+X-N*6+0     N&#39;th Object Class       - 1 byte
+X-N*6+1     N&#39;th Object Index       - 1 byte
+X-N*6+2     N&#39;th Object Length MSB  - 1 byte
+X-N*6+3     N&#39;th Object Length LSB  - 1 byte
+X-N*6+4     N&#39;th Object Offset MSB  - 1 byte
+X-N*6+5     N&#39;th Object Offset LSB  - 1 byte
+            ?
+X-1*6+0     First Object Class      - 1 byte
+X-1*6+1     First Object Index      - 1 byte
+X-1*6+2     First Object Length MSB - 1 byte
+X-1*6+3     First Object Length LSB - 1 byte
+X-1*6+4     First Object Offset MSB - 1 byte
+X-1*6+5     First Object Offset LSB - 1 byte
+
+X           Update Counter          - 1 byte
+X+1         Number of table entries - 1 byte
+End of GP Storage
+</pre></div>
+</div>
+<p>The table will be written so that the ‘Number of table entries’ byte is the last byte of the GP Data (to allow the map to grow dynamically as long as there is enough free space), preceded by one byte of the Update Counter and then preceded by 6-tuples of entries.</p>
+<p>The Class byte is equivalent to the object type using a single byte (0x09 for Certificate, 0x0A for Data).</p>
+<p>The order of the 6-tuple entries is not important, as each object is identified by its Class and Index.
+In cases where the length of an object is not known at the time the lookup table entry is created, the MSBit (0x8000) can be set in the length as an indicator that the data is in TLV format and that the actual length must be obtained by reading the first bytes of the object’s data.</p>
+<p>For objects of type ‘Certificate’ the provisioned ‘Object Length’ value must be one of the following:</p>
+<ul class="simple">
+<li><p>The reserved object storage length (allowing for a possible increase in size of the certificate or for die-individual variance of the certificate size).</p></li>
+<li><p>The actual certificate length</p></li>
+<li><p>In the exceptional case neither a reserved certificate object storage length nor the effective certificate length can be determined one can use the value ‘0x8000’ to indicate the ‘Object Size’ is unknown at the time of provisioning.</p></li>
+</ul>
+<p>When reading a certificate from GP storage with the HLSE API, the size of the certificate is always determined by the length value of the certificate’s initial TL(V) header.</p>
+<p>The host library reads the total number of entries in the table from the last byte of the GP Data, followed by parsing/reading the 6-tuple entries. Up to 254 (0xFE) objects are assumed. A value of 0xFF in the number of entries indicates that the table is absent (uninitialized) or invalid.</p>
+<p>Class and Index value of 0xFF indicates an invalid entry (i.e. of a deleted object).</p>
+<p>The Update Counter is initially set to 0 and it is incremented on each table update. This serves as an indication to a GP Storage’s change when there is more than one application updating the SE concurrently.</p>
+<p>The value of ‘object offset’ must be a multiple of 32.</p>
+<p>It is not allowed to create a data object of size 0.</p>
+<div class="section" id="object-creation">
+<h3><span class="section-number">10.4.2.1. </span>Object creation<a class="headerlink" href="#object-creation" title="Permalink to this headline">¶</a></h3>
+<p>The library supports a dynamic number of objects in the GP Storage, according to the memory availability.</p>
+<p>Creating an object through HLSE_CreateObject() requires the following attributes to be passed:</p>
+<ol class="arabic simple">
+<li><p>HLSE_ATTR_OBJECT_TYPE ? currently HLSE_CERTIFICATE or HLSE_DATA;</p></li>
+<li><p>HLSE_ATTR_OBJECT_INDEX ? will be the Tag of the object, 1 byte;</p></li>
+<li><p>HLSE_ATTR_OBJECT_VALUE ? the object’s value.</p></li>
+</ol>
+<p>An additional attribute that can only be passed in Create is HLSE_ATTR_READ_ONLY. Setting this value to 1 will lock (‘freeze’) the memory associated with the object (once it has been created) so it cannot be modified. The HLSE_ATTR_READ_ONLY attribute is not explicitly stored in the GP Storage lookup table.</p>
+<p>Note that this attribute cannot be set after object creation. If not passed, it has a default value of 0 (can be modified).</p>
+<p>Creation fails if there is not enough continuous unlocked space for the new object’s value.</p>
+</div>
+<div class="section" id="value-update">
+<h3><span class="section-number">10.4.2.2. </span>Value Update<a class="headerlink" href="#value-update" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to change the object’s value by calling HLSE_SetObjectAttribute() with HLSE_ATTR_OBJECT_VALUE. If the object needs to be enlarged, it is only permitted if enough memory is available for the object to grow, case as follows:</p>
+<p>1. Within the same GP Storage’s chunk size (32 bytes), so that the same amount of storage chunks will be used -
+For example, if the size was originally 21 bytes then the object occupies 1 chunk, and it is possible to enlarge it up to 32 bytes.
+2. Up to the offset of the next allocated object in the GP memory.</p>
+<p>If a larger size is required, the object must first be erased and then re-created  (assuming a sufficiently large continuous unlocked space is available in GP memory).</p>
+</div>
+<div class="section" id="direct-access-value-update">
+<h3><span class="section-number">10.4.2.3. </span>Direct Access Value Update<a class="headerlink" href="#direct-access-value-update" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to change a sub section of a Data object’s value by calling HLSE_SetObjectAttribute()
+with HLSE_ATTR_DIRECT_ACCESS_OBJECT_VALUE, where the value should point to a HLSE_DIRECT_ACCESS_ATTRIBUTE_VALUE
+structure that passes the offset, number of bytes to read and the buffer.
+The update is only permitted within the object’s GP Storage’s chunk boundary.</p>
+</div>
+<div class="section" id="erasing-an-object">
+<h3><span class="section-number">10.4.2.4. </span>Erasing an object<a class="headerlink" href="#erasing-an-object" title="Permalink to this headline">¶</a></h3>
+<p>To erase an object first fetch its handle with HLSE_EnumerateObjects() and call HLSE_EraseObject(). Erasing an object only invalidates its lookup table entry, it does not erase its value contents in the GP Storage, due to performance reasons.</p>
+</div>
+<div class="section" id="interoperability-of-object-storage-and-locked-chunks">
+<h3><span class="section-number">10.4.2.5. </span>Interoperability of Object storage and locked chunks<a class="headerlink" href="#interoperability-of-object-storage-and-locked-chunks" title="Permalink to this headline">¶</a></h3>
+<p>The following defines the behavior of the HLSE API when updating (full/partial) or erasing partially locked objects stored in GP memory:</p>
+<ol class="arabic simple">
+<li><p>When updating an object (by definition this concerns the complete object) the HLSE API first checks that no chunk of the object is locked before updating the object.</p></li>
+<li><p>When doing a partial update of an object the HLSE API does not check whether the affected memory chunks(s) are locked or unlocked. The partial update will fail or succeed accordingly. Consequently one must only issue a partial update of an object for chunks that are unlocked.</p></li>
+<li><p>When erasing an object, the HLSE_EnumerateObjects() API checks whether the first chunk of the object is locked. If the first chunk is not locked the entry corresponding to the object is removed from the GP lookup table. If the first chunk is locked, the object is considered ‘read-only’ and the object is not removed from the GP lookup table. As explained above, erasing an object does not erase the value associated with the object.</p></li>
+<li><p>Locking the GP storage chunks containing the lookup table (even a partial lock) will make it impossible to remove, add or update objects.</p></li>
+</ol>
+</div>
+<div class="section" id="notes">
+<h3><span class="section-number">10.4.2.6. </span>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>If the applet is Trust Provisioned prior to being shipped to the user, with e.g. one or more certificate(s), then the lookup table is expected to be in the GP Data.</p></li>
+<li><p>If the lookup table is missing (invalid value), then it is automatically created by the host library upon the first call to CreateObject of such an object.</p></li>
+<li><p>When reading a certificate, the response omits any trailing padding at the end of the certificate. The size of the certificate is determined by the length value of the certificates initial TL(V) header.</p></li>
+<li><p>When updating an Object - the length in the GP table will be kept as the maximum size of the existing and new the object. As a consequence, it’s not possible to shrink the size of an object by updating it.</p></li>
+<li><p>Don’t use direct A71CH API access in combination with the HLSE Object API as one can damage the lookup table or the value of stored objects.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="api-details">
+<h2><span class="section-number">10.4.3. </span>API details<a class="headerlink" href="#api-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hlseobjects-h">
+<span id="se05x-legacy-hlse-api-objects"></span><h3><span class="section-number">10.4.3.1. </span>HLSEObjects.h<a class="headerlink" href="#hlseobjects-h" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Host Lib wrapper API: Object Operations </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_EnumerateObjects</code><span class="sig-paren">(</span>HLSE_OBJECT_TYPE <em>objectType</em>, HLSE_OBJECT_HANDLE *<em>objectHandles</em>, U16 *<em>objectHandlesLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Enumerates all the Objects that currently exist on the Secure Element and have <code class="docutils literal notranslate"><span class="pre">objectType</span></code> type. A list of object handles is returned in <code class="docutils literal notranslate"><span class="pre">objectsHandles</span></code>.</p>
+<p>In order to enumerate all the Objects, set HLSE_ANY_TYPE in <code class="docutils literal notranslate"><span class="pre">objectType</span></code>.</p>
+<p>Each object has a unique HLSE_OBJECT_HANDLE value - this value depends on the library implementation.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">objectHandles</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*objectHandlesLen</span></code>) a number of HLSE_OBJECT_HANDLE which would suffice to hold the returned list. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">objectHandles</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*objectHandlesLen</span></code> must contain the number of handles in the buffer <code class="docutils literal notranslate"><span class="pre">objectHandles</span></code>. If that buffer is large enough to hold number of handles to be returned, then the handles are copied to <code class="docutils literal notranslate"><span class="pre">objectHandles</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*objectHandlesLen</span></code> is set to hold the exact number of handles to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">objectType</span></code>: The type of the Objects to be enumerated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">objectHandles</span></code>: IN: caller passes a buffer of at least *objectHandlesLen; OUT: contains the handles of the objects </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">objectHandlesLen</span></code>: IN: number of handles in objectHandles. OUT: set to hold the exact number of handles in objectHandles.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: Buffer is too small to return the handles </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_CreateObject</code><span class="sig-paren">(</span>HLSE_ATTRIBUTE *<em>attributes</em>, U16 <em>attributesNum</em>, HLSE_OBJECT_HANDLE *<em>hObject</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Creates or Generates an Object on the Secure Element, and returns a handle to it.</p>
+<p>If the object already exists, it depends on the Secure Element behavior whether this function succeeds (e.g. set a new value) or fail with an error.</p>
+<p><code class="docutils literal notranslate"><span class="pre">attributes</span></code> is an array of attributes that the object should be created with. Some of the attributes may be mandatory, such as HLSE_ATTR_OBJECT_TYPE and HLSE_ATTR_OBJECT_INDEX (the id of the object), and some are optional.</p>
+<p>In case there is a conflict in the attribute list (e.g. 2 differnt object types) it is the responsibility of the library to detect it and return an error.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">attributes</span></code>: The attributes to be used in creating the Object </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">attributesNum</span></code>: The number of attributes in <code class="docutils literal notranslate"><span class="pre">attributes</span></code> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hObject</span></code>: IN: A pointer to a handle (must not be NULL); OUT: The handle of the created Object</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_EraseObject</code><span class="sig-paren">(</span>HLSE_OBJECT_HANDLE <em>hObject</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an object from the Secure Element.</p>
+<p>This means the object with the specified handle can no longer be used.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object to be erased</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_SetObjectAttribute</code><span class="sig-paren">(</span>HLSE_OBJECT_HANDLE <em>hObject</em>, HLSE_ATTRIBUTE *<em>attribute</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets the requested Attribute of the Object.</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">attribute</span></code> may convey additinal information (e.g. a key value), in addition to the attribute’s type.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object that its attribute should be set </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">attribute</span></code>: The attribute to be Set</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_GetObjectAttribute</code><span class="sig-paren">(</span>HLSE_OBJECT_HANDLE <em>hObject</em>, HLSE_ATTRIBUTE *<em>attribute</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Obtains the value of the Object’s requested Attribute.</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">attribute</span></code> specifies the Type of the attribute to be returned, and the data is returned in the attribute’s value and valueLen members.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">attribute-&gt;value</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*attribute-&gt;valueLen</span></code>) a number of bytes which would suffice to hold the value to be returned. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">attribute-&gt;value</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*attribute-&gt;valueLen</span></code> must contain the number of bytes in the buffer <code class="docutils literal notranslate"><span class="pre">attribute-&gt;value</span></code>. If that buffer is large enough to hold the value be returned, then the data is copied to <code class="docutils literal notranslate"><span class="pre">attribute-&gt;value</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*attribute-&gt;valueLen</span></code> is set to hold the exact number of bytes to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object that its attribute’s value should be obtained </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">attribute</span></code>: The attribute to be obtained</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">attribute-&gt;value</span></code> is too small to return the data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">Debug_ForceReadGPDataTable</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Debug Utility</p>
+<p>Force Read of GPDataTable from gp storage even if already in global memory variable</p>
+<p><em>NOTE!! : To be used only for internal testing and Debugging </em></p>
+<p>currently used to test the GP Table manipulation</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="hlsecrypto-h">
+<span id="se05x-legacy-hlse-api-crypto"></span><h3><span class="section-number">10.4.3.2. </span>HLSECrypto.h<a class="headerlink" href="#hlsecrypto-h" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Host Lib wrapper API: Cryptographic functions </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_GetSupportedMechanisms</code><span class="sig-paren">(</span>HLSE_MECHANISM_TYPE *<em>mechanisms</em>, U16 *<em>mechanismNum</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Enumerates all the Cryptographic Mechanisms that are supported by the library. A list of mechanisms is returned in <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*mechanismNum</span></code>) the number of HLSE_MECHANISM_TYPE which would suffice to hold the returned list. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*mechanismNum</span></code> must contain the number of mechanisms in the buffer <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code>. If that buffer is large enough to hold number of mechanisms to be returned, then the mechanisms are copied to <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*mechanismNum</span></code> is set to hold the exact number of mechanisms to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">mechanisms</span></code>: IN: caller passes a buffer of at least *mechanismNum; OUT: contains the mechanisms supported </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">mechanismNum</span></code>: IN: number of mechanisms in mechanisms; OUT: set to hold the exact number of mechanisms</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: Buffer is too small to return the mechanisms </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_GetSupportedMechanismsForObject</code><span class="sig-paren">(</span>HLSE_OBJECT_HANDLE <em>hObject</em>, HLSE_MECHANISM_TYPE *<em>mechanism</em>, U16 *<em>mechanismLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Enumerates all the Cryptographic Mechanisms that are supported by the Object. A list of mechanisms is returned in <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mechanism</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*mechanismLen</span></code>) the number of HLSE_MECHANISM_TYPE which would suffice to hold the returned list. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mechanism</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*mechanismLen</span></code> must contain the number of mechanisms in the buffer <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code>. If that buffer is large enough to hold number of mechanisms to be returned, then the mechanisms are copied to <code class="docutils literal notranslate"><span class="pre">mechanisms</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*mechanismLen</span></code> is set to hold the exact number of mechanisms to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object that the Mechanisms it supports should be returned </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">mechanism</span></code>: IN: caller passes a buffer of at least *mechanismNum; OUT: contains the mechanisms supported </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">mechanismLen</span></code>: IN: number of mechanisms in mechanisms. OUT: set to hold the exact number of mechanisms</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: Buffer is too small to return the mechanisms </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_Digest</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>outDigest</em>, U16 *<em>outDigestLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Calculates the Digest (e.g. Sha256) value of the data provided as input.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter.</p>
+<p>If additional information is required by the specific digest mechanism, is will be conveyed in <code class="docutils literal notranslate"><span class="pre">pMechanismType-&gt;pParameter</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outDigest</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*outDigestLen</span></code>) a number of bytes which would suffice to hold the digest value. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outDigest</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*outDigestLen</span></code> must contain the number of bytes in the buffer <code class="docutils literal notranslate"><span class="pre">outDigest</span></code>. If that buffer is large enough to hold the digest value be returned, then the data is copied to <code class="docutils literal notranslate"><span class="pre">outDigest</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*outDigestLen</span></code> is set to hold the exact number of bytes to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The Digest Cryptographic Mechanism to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: Data buffer for which the digest must be calculated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDigest</span></code>: IN: caller passes a buffer to hold the digest value; OUT: contains the calculated digest </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDigestLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outDigest</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outDigest</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">outDigest</span></code> is too small to return the digest </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_Sign</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, HLSE_OBJECT_HANDLE <em>hObject</em>, U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>outSignature</em>, U16 *<em>outSignatureLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Signs the data provided using the Object key and the requested mechanism.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter. A handle to the key to sign the data with is provided by <code class="docutils literal notranslate"><span class="pre">hObject</span></code>.</p>
+<p>If additional information is required by the specific signing mechanism, is will be conveyed in <code class="docutils literal notranslate"><span class="pre">pMechanismType-&gt;pParameter</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outSignature</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*outSignatureLen</span></code>) a number of bytes which would suffice to hold the signature. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outSignature</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*outSignatureLen</span></code> must contain the number of bytes in the buffer <code class="docutils literal notranslate"><span class="pre">outSignature</span></code>. If that buffer is large enough to hold the signature be returned, then the data is copied to <code class="docutils literal notranslate"><span class="pre">outSignature</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*outSignatureLen</span></code> is set to hold the exact number of bytes to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The signing Cryptographic Mechanism to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object key to sign with </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: Data buffer for that should be signed (e.g. a digest) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outSignature</span></code>: IN: caller passes a buffer to hold the signature; OUT: contains the calculated signature </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outSignatureLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outSignature</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outSignature</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">outSignature</span></code> is too small to return the signature </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_VerifySignature</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, HLSE_OBJECT_HANDLE <em>hObject</em>, U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>inSignature</em>, U16 <em>inSignatureLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Verifies whether <code class="docutils literal notranslate"><span class="pre">inSignature</span></code> is the signature of <code class="docutils literal notranslate"><span class="pre">inData</span></code> using the public key object referenced by <code class="docutils literal notranslate"><span class="pre">hObject</span></code> as the verifying public key.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The signing Cryptographic Mechanism that was used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object public key to verify with </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: The data that was signed (e.g. a digest) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inSignature</span></code>: Pointer to the provided signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inSignatureLen</span></code>: Length of the provided signature (<code class="docutils literal notranslate"><span class="pre">pSignature</span></code>)</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_GENERAL_ERROR</span></code>: if the verification fails </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_VerifySignatureWithExternalKey</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, U8 *<em>inExtKey</em>, U16 <em>inExtKeyLen</em>, U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>inSignature</em>, U16 <em>inSignatureLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Verifies whether <code class="docutils literal notranslate"><span class="pre">inSignature</span></code> is the signature of <code class="docutils literal notranslate"><span class="pre">inData</span></code> using an external public key object as the verifying public key.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The signing Cryptographic Mechanism that was used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inExtKey</span></code>: The value of the external public key to verify with </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inExtKeyLen</span></code>: The length in bytes of the external key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: The data that was signed (e.g. a digest) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inSignature</span></code>: Pointer to the provided signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inSignatureLen</span></code>: Length of the provided signature (<code class="docutils literal notranslate"><span class="pre">pSignature</span></code>)</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_GENERAL_ERROR</span></code>: if the verification fails </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_DeriveKey</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, HLSE_OBJECT_HANDLE <em>hObject</em>, U8 *<em>outDerivedKey</em>, U16 *<em>outDerivedKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Derives the key referenced by the <code class="docutils literal notranslate"><span class="pre">hObject</span></code> handle using the requested mechanism and return the derived key in <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code>.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter.</p>
+<p>If additional information is required by the specific signing mechanism, is will be conveyed in <code class="docutils literal notranslate"><span class="pre">pMechanismType-&gt;pParameter</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*outDerivedKeyLen</span></code>) a number of bytes which would suffice to hold the derived key. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*outDerivedKeyLen</span></code> must contain the number of bytes in the buffer <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code>. If that buffer is large enough to hold the derived key, then the data is copied to <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*outDerivedKeyLen</span></code> is set to hold the exact number of bytes of the derived key.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The signing Cryptographic Mechanism to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object key to be derived </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDerivedKey</span></code>: IN: caller passes a buffer to hold the derived key; OUT: contains the derived key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDerivedKeyLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">outDerivedKey</span></code> is too small to return the derived key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_Encrypt</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, HLSE_OBJECT_HANDLE <em>hObject</em>, U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>outData</em>, U16 *<em>outDataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Encrypts the data provided using the Object key and the requested mechanism.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter. A handle to the key to encrypt the data with is provided by <code class="docutils literal notranslate"><span class="pre">hObject</span></code>.</p>
+<p>If additional information is required by the specific encryption mechanism, is will be conveyed in <code class="docutils literal notranslate"><span class="pre">pMechanismType-&gt;pParameter</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outData</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*outDataLen</span></code>) a number of bytes which would suffice to hold the return value. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outData</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*outDataLen</span></code> must contain the number of bytes in the buffer <code class="docutils literal notranslate"><span class="pre">outData</span></code>. If that buffer is large enough to hold the data be returned, then the data is copied to <code class="docutils literal notranslate"><span class="pre">outData</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*outDataLen</span></code> is set to hold the exact number of bytes to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The encryption Cryptographic Mechanism to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object key to encrypt with </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: Data buffer for that should be encrypted </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outData</span></code>: IN: caller passes a buffer to hold the data to be returned; OUT: contains the encrypted data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDataLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outData</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outData</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">outData</span></code> is too small to return the data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_Decrypt</code><span class="sig-paren">(</span>HLSE_MECHANISM_INFO *<em>pMechanismType</em>, HLSE_OBJECT_HANDLE <em>hObject</em>, U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>outData</em>, U16 *<em>outDataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Decrypts the data provided using the Object key and the requested mechanism.</p>
+<p>The Cryptographic Mechanism to be used is passed in the <code class="docutils literal notranslate"><span class="pre">type</span></code> member of the <code class="docutils literal notranslate"><span class="pre">pMechanismType</span></code> parameter. A handle to the key to decrypt the data with is provided by <code class="docutils literal notranslate"><span class="pre">hObject</span></code>.</p>
+<p>If additional information is required by the specific decryption mechanism, is will be conveyed in <code class="docutils literal notranslate"><span class="pre">pMechanismType-&gt;pParameter</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outData</span></code> is NULL, then all that the function does is return (in <code class="docutils literal notranslate"><span class="pre">*outDataLen</span></code>) a number of bytes which would suffice to hold the return value. HLSE_SW_OK is returned by the function.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">outData</span></code> is not NULL, then <code class="docutils literal notranslate"><span class="pre">*outDataLen</span></code> must contain the number of bytes in the buffer <code class="docutils literal notranslate"><span class="pre">outData</span></code>. If that buffer is large enough to hold the data be returned, then the data is copied to <code class="docutils literal notranslate"><span class="pre">outData</span></code>, and HLSE_SW_OK is returned by the function. If the buffer is not large enough, then HLSE_ERR_BUF_TOO_SMALL is returned. In either case, <code class="docutils literal notranslate"><span class="pre">*outDataLen</span></code> is set to hold the exact number of bytes to be returned.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pMechanismType</span></code>: The decryption Cryptographic Mechanism to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hObject</span></code>: The handle of the Object key to decrypt with </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: Data buffer for that should be decrypted </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outData</span></code>: IN: caller passes a buffer to hold the data to be returned; OUT: contains the decrypted data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDataLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outData</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outData</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">outData</span></code> is too small to return the data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="hlsecomm-h">
+<span id="se05x-legacy-hlse-api-comm"></span><h3><span class="section-number">10.4.3.3. </span>HLSEComm.h<a class="headerlink" href="#hlsecomm-h" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Host Lib wrapper API: Communication and Secure Channel functions </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_Connect</code><span class="sig-paren">(</span>HLSE_CONNECTION_PARAMS *<em>params</em>, HLSE_COMMUNICATION_STATE *<em>commState</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Establishes the communication with the Secure Element accroding to the requested <code class="docutils literal notranslate"><span class="pre">type</span></code>. Additional parameters required for establishing the communication are passed in <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
+<p>The physical communication layer used (e.g. SCI2C) is determined at compilation time.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">params</span></code>: Additional parameters for opening the commuication </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">commState</span></code>: Points to a HLSE_COMMUNICATION_STATE which returns the communication state (e.g. ATR)</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_CloseConnection</code><span class="sig-paren">(</span>HLSE_CLOSE_CONNECTION_MODE <em>mode</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Closes the communication with the Secure Element.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mode</span></code>: Specific information that may be required on the link layer</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_ResumeConnection</code><span class="sig-paren">(</span>HLSE_COMMUNICATION_STATE *<em>commState</em>, HLSE_SECURE_CHANNEL_SESSION_STATE *<em>smState</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Resumes the communication with the Secure Element including the secure channel from the previously retrieved communication state and secure channel session state.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">commState</span></code>: communication state </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">smState</span></code>: secure channel session state</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_SendAPDU</code><span class="sig-paren">(</span>U8 *<em>cmd</em>, U16 <em>cmdLen</em>, U8 *<em>resp</em>, U16 *<em>respLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sends the command APDU to the Secure Element and retrieves the response APDU. The latter consists of the concatenation of the response data (possibly none) and the status word (2 bytes).</p>
+<p>The command APDU and response APDU are not interpreted by the host library.</p>
+<p>The command/response APDU sizes must lay within the APDU size limitations</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmd</span></code>: command APDU </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmdLen</span></code>: length (in byte) of <code class="docutils literal notranslate"><span class="pre">cmd</span></code> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">resp</span></code>: response APDU (response data || response status word) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">respLen</span></code>: IN: Length of resp buffer (<code class="docutils literal notranslate"><span class="pre">resp</span></code>) provided; OUT: effective length of response retrieved.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_SCP_Subscribe</code><span class="sig-paren">(</span>HLSE_SCP_SignalFunction <em>callback</em>, void *<em>context</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Subscribe a HLSE_SCP_SignalFunction function to receive messages from the Secure Channel.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">callback</span></code>: The function </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">context</span></code>: Optional context information that the function is subsrcibed with and called with</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_SMChannelAuthenticate</code><span class="sig-paren">(</span>HLSE_SECURE_CHANNEL_ESTABLISH_PARAMS *<em>params</em>, HLSE_SECURE_CHANNEL_STATE *<em>channelState</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Establishes a Secure Channel with the Secure Element, and when successful initializes the current Session Channel state.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">params</span></code>: Data required to establish the Secure Channel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">channelState</span></code>: Returns the Secure Channel state</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_SMChannelGetScpSessionState</code><span class="sig-paren">(</span>HLSE_SECURE_CHANNEL_SESSION_STATE *<em>channelSessionState</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieve the Secure Channel Session state from the Host Library.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">channelSessionState</span></code>: IN: pointer to allocated structure; OUT: contains the session state</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_SMChannelSetScpSessionState</code><span class="sig-paren">(</span>HLSE_SECURE_CHANNEL_SESSION_STATE *<em>channelSessionState</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets the Secure Channel Session state of the Host Library. Can be used in a scenario where e.g. the bootloader has established the Secure Channel link between host and secure element and the Host OS must re-establish the communication with the secure element without breaking the session.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">channelSessionState</span></code>: Contains the session state information</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="hlsemisc-h">
+<span id="se05x-legacy-hlse-api-misc"></span><h3><span class="section-number">10.4.3.4. </span>HLSEMisc.h<a class="headerlink" href="#hlsemisc-h" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Host Lib wrapper API: Miscellaneous functions </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_DisablePlainInjectionMode</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Permanently disables the Plain Injection mode</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_ResetContents</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Clears all user data.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_DbgDisableDebug</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Permanently disables the Debug API.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_DbgReflect</code><span class="sig-paren">(</span>U8 *<em>inData</em>, U16 <em>inDataLen</em>, U8 *<em>outData</em>, U16 *<em>outDataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Invokes data reflection APDU (facilitates link testing). No check of data payload returned</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inData</span></code>: The data to be sent to the Secure Element </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inDataLen</span></code>: The length of <code class="docutils literal notranslate"><span class="pre">inData</span></code> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outData</span></code>: IN: caller passes a buffer to hold the data to be returned; OUT: contains the retruend data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">outDataLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outData</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outData</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_DbgReset</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Resets the Secure Module to the initial state.</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+HLSE_RET_CODE <code class="sig-name descname">HLSE_NormalizeECCSignature</code><span class="sig-paren">(</span>U8 *<em>signature</em>, U16 <em>signatureLen</em>, U8 *<em>normalizedSignature</em>, U16 *<em>normalizedSignatureLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>The purpose of this function is to turn the proprietary ECDSA signature format - that may be returned by the applet - into a normalized ASN.1 format.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">signature</span></code>: buffer containing the ECDSA signature in the applet specific format; OUT: Signature compliant to ASN.1 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">signatureLen</span></code>: length of ECDSA signature length </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">normalizedSignature</span></code>: IN: caller passes a buffer to hold the data to be returned; OUT: contains the retruend data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">normalizedSignatureLen</span></code>: IN: length of the <code class="docutils literal notranslate"><span class="pre">outData</span></code> buffer passed; OUT: the number of bytes returned in <code class="docutils literal notranslate"><span class="pre">outData</span></code> </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_SW_OK</span></code>: upon successfull execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HLSE_ERR_API_ERROR</span></code>: Invalid function arguments </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018-2020, NXP.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

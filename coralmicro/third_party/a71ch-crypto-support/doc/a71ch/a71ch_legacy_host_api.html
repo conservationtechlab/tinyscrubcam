@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 NXP
+
+This software is owned or controlled by NXP and may only be used
+strictly in accordance with the applicable license terms.  By expressly
+accepting such terms or by downloading, installing, activating and/or
+otherwise using the software, you are agreeing that you have read, and
+that you agree to comply with and are bound by, such license terms.  If
+you do not agree to be bound by the applicable license terms, then you
+may not retain, install, activate or otherwise use the software.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>10.3. A71CH Legacy API &#8212; Plug &amp; Trust MW v03.00.05 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.4. A71CH Legacy HLSE (Generic) API" href="a71ch_legacy_hlse_api.html" />
+    <link rel="prev" title="10.2. Miscellaneous" href="a71ch_miscellaneous.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../toc.html"><span><img src="../_static/NXP_logo_JPG.jpg"></span>
+          MW</a>
+        <span class="navbar-text navbar-version pull-left"><b>v03.00.05</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../toc.html">TOC <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organization-of-documentation.html">1.1. Organization of Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../folder-structure.html">1.2. Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sw-prerequisites.html">1.3. List of Platform Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html">2.1. Pending Refactoring items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/pending.html#known-limitations">2.2. Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_05.html">2.3. Release <code class="docutils literal notranslate"><span class="pre">v03.00.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_04.html">2.4. Release <code class="docutils literal notranslate"><span class="pre">v03.00.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_03.html">2.5. Release <code class="docutils literal notranslate"><span class="pre">v03.00.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v03_00_02.html">2.6. Release <code class="docutils literal notranslate"><span class="pre">v03.00.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_01.html">2.7. Release <code class="docutils literal notranslate"><span class="pre">v02.16.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_16_00.html">2.8. Release <code class="docutils literal notranslate"><span class="pre">v02.16.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_15_00.html">2.9. Release <code class="docutils literal notranslate"><span class="pre">v02.15.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_14_00.html">2.10. Release <code class="docutils literal notranslate"><span class="pre">v02.14.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html">2.11. Release <code class="docutils literal notranslate"><span class="pre">v02.12.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-04">2.12. Release <code class="docutils literal notranslate"><span class="pre">v02.12.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-03">2.13. Release <code class="docutils literal notranslate"><span class="pre">v02.12.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-02">2.14. Release <code class="docutils literal notranslate"><span class="pre">v02.12.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-01">2.15. Release <code class="docutils literal notranslate"><span class="pre">v02.12.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_12_00.html#release-v02-12-00">2.16. Release <code class="docutils literal notranslate"><span class="pre">v02.12.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_03.html">2.17. Release <code class="docutils literal notranslate"><span class="pre">v02.11.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_01.html">2.18. Internal Release <code class="docutils literal notranslate"><span class="pre">v02.11.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_11_00.html">2.19. Release <code class="docutils literal notranslate"><span class="pre">v02.11.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_10_00.html">2.20. Release <code class="docutils literal notranslate"><span class="pre">v02.10.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_09_00.html">2.21. Release <code class="docutils literal notranslate"><span class="pre">v02.09.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_07_00.html">2.22. Release <code class="docutils literal notranslate"><span class="pre">v02.07.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_06_00.html">2.23. Release <code class="docutils literal notranslate"><span class="pre">v02.06.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html">2.24. Release <code class="docutils literal notranslate"><span class="pre">v02.05.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-v02-04-00">2.25. Release <code class="docutils literal notranslate"><span class="pre">v02.04.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes/v02_05_00_to_v02_03_00.html#release-02-03-00">2.26. Release <code class="docutils literal notranslate"><span class="pre">02.03.00</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../stack/index.html">3. Plug &amp; Trust MW Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../stack/features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/i2cm.html">3.6. I2CM / Secure Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building/windows.html">4.1. Windows Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-sdk.html">4.2. Import MCUXPresso projects from SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/frdm-k64f-cmake.html">4.3. Freedom K64F Build (CMake - Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/imx6.html">4.4. i.MX Linux Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/rpi3.html">4.5. Raspberry Pi Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building/cmake.html">4.6. CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scripts/cmake_options.html">4.7. CMake Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#building-and-running-the-edgelock-2go-agent">6.2. Building and running the EdgeLock 2GO agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#datastore-keystore">6.3. Datastore / Keystore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#connection-to-the-edgelock-2go-cloud-service">6.4. Connection to the EdgeLock 2GO cloud service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/introduction.html#claim-codes">6.5. Claim Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/edgelock2go_agent_apis.html">6.6. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nxp_iot_agent/doc/readme_usage_examples.html">6.7. Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_overview.html">7.1. SEMS Lite Overview (Only for SE051)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_package.html">7.2. Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_usage.html">7.3. SEMS Lite Agent Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_mgmt_api.html">7.4. SEMS Lite management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_process.html">7.5. SEMS Lite Agent Package Load Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_api.html">7.6. APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/sems_lite_known_issue.html">7.7. SEMS Lite Known Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../semslite/doc/demo_update.html">7.8. SEMS Lite DEMOs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/openssl/scripts/readme.html">8.1. Introduction on OpenSSL engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/mbedtls/scripts/readme.html">8.2. Introduction on mbedTLS ALT Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/psa/Readme.html">8.3. Platform Security Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/akm.html">8.4. Android Key master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sss/plugin/open62541/readme.html">8.5. Introduction on Open62541 (OPC UA stack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/wifiEAP/wifiEAP.html">8.6. WiFi EAP Demo with Raspberry Pi3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/pkcs11.html">8.7. PKCS#11 Standalone Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/introduction.html">9.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/block-diagram.html">9.2. Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/pre-steps.html">9.3. Steps needed before running <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/running.html">9.4. Running the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool - Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/Provisioning/readme.html">9.5. CLI Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/readme_usage_examples.html">9.6. Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_commands_list.html">9.7. List of <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_data_format.html">9.8. CLI Data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pycli/doc/cli_object_policy.html">9.9. Object Policies Through ssscli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/upload_se05x_using_pycli.html">9.10. Upload keys and certificates to SE05X using ssscli tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/glossary.html">11.1. Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vcom.html">11.2. APDU Commands over VCOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/vs2019-setup.html">11.3. Visual Studio 2019 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/ide_mcux.html">11.4. Setting up MCUXPresso IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-platforms.html">11.5. Development Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/se_uid.html">11.6. How to get SE Platform Information and UID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/version_info.html">11.7. Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../demos/Certificate_Chains/Readme.html">11.8. Certificate Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/rjct_server.html">11.9. JRCP_v1 Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/platfscp.html">11.10. Using own Platform SCP03 Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/apdu_write_to_buffer.html">11.11. Write APDU to buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/api_list.html">11.12. Plug &amp; Trust MW APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">10.3. A71CH Legacy API</a><ul>
+<li><a class="reference internal" href="#introduction">10.3.1. Introduction</a></li>
+<li><a class="reference internal" href="#a71ch-api">10.3.2. A71CH API</a></li>
+<li><a class="reference internal" href="#sw-structure">10.3.3. SW structure</a><ul>
+<li><a class="reference internal" href="#openssl">10.3.3.1. OpenSSL</a></li>
+<li><a class="reference internal" href="#mbed-tls">10.3.3.2. mbed TLS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-details">10.3.4. API details</a><ul>
+<li><a class="reference internal" href="#module-api">10.3.4.1. Module API</a></li>
+<li><a class="reference internal" href="#ecc-key-api">10.3.4.2. Ecc Key API</a></li>
+<li><a class="reference internal" href="#crypto-derive-api">10.3.4.3. Crypto Derive API</a></li>
+<li><a class="reference internal" href="#secure-storage-sst-api">10.3.4.4. Secure Storage (SST) API</a></li>
+<li><a class="reference internal" href="#sm-connect-c">10.3.4.5. sm_connect.c</a></li>
+<li><a class="reference internal" href="#ax-scp-c">10.3.4.6. ax_scp.c</a></li>
+<li><a class="reference internal" href="#scp-a7x-c">10.3.4.7. scp_a7x.c</a></li>
+<li><a class="reference internal" href="#a71-debug-c">10.3.4.8. a71_debug.c</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="a71ch_miscellaneous.html" title="Previous Chapter: 10.2. Miscellaneous"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 10.2. Miscellaneous</span>
+    </a>
+  </li>
+  <li>
+    <a href="a71ch_legacy_hlse_api.html" title="Next Chapter: 10.4. A71CH Legacy HLSE (Generic) API"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">10.4. A71CH L... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+
+<div class="sidebar-header">
+    <h3>Plug &amp; Trust MW</h3>
+</div>
+
+<div class="row">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">1. NXP Plug &amp; Trust Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes/index.html">2. Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stack/index.html">3. Plug &amp; Trust MW Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building/index.html">4. Building / Compiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/index.html">5. Demo and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../semslite/doc/index.html">7. SEMS Lite Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">8. Plugins / Add-ins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-tool.html">9. CLI Tool</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../a71ch.html">10. A71CH</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10.3. A71CH Legacy API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">10.3.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a71ch-api">10.3.2. A71CH API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sw-structure">10.3.3. SW structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-details">10.3.4. API details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">11. Appendix</a></li>
+</ul>
+
+</div>
+<div class="row">
+    <form class="form" action="../search.html" method="get">
+     <div class="form-group">
+      <label for="Search">Search:</label>
+      <input type="text" name="q" class="form-control" placeholder="Search" />
+     </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="a71ch-legacy-api">
+<span id="se05x-legacy-host-api"></span><h1><span class="section-number">10.3. </span>A71CH Legacy API<a class="headerlink" href="#a71ch-legacy-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><span class="section-number">10.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The A71CH Legacy API encapsulates the APDU calls supported by the A71CH security module.
+The standard A71CH security module supports the following functionality:</p>
+<ul class="simple">
+<li><p>Secure storage, generation, insertion or deletion of ECC key pairs (ECC NIST P-256).</p></li>
+<li><p>Secure storage, insertion or deletion of ECC public keys.</p></li>
+<li><p>Signature generation and verification (ECDSA)</p></li>
+<li><p>Shared secret calculation for Key Agreement (ECDH or ECDH-E)</p></li>
+<li><p>Secure storage and use of monotonic counters (32 bits each)</p></li>
+<li><p>Secure storage, insertion or deletion of symmetric keys (128 bits);
+symmetric keys can be concatenated to form longer keys</p></li>
+<li><p>Retrieval of unique chip ID.</p></li>
+<li><p>HKDF using the symmetric secrets as key, Extract &amp; Expand or Expand only.</p></li>
+<li><p>HMAC SHA256 calculation</p></li>
+<li><p>Freezing of credentials (= OTP behavior)</p></li>
+<li><p>An optional secure channel with the host MCU (conform Global Platform SCP03).</p></li>
+</ul>
+<p>The Debug Mode variant of the A71CH security module, which can be ordered on evaluation kits, supports
+the following additional functionality:</p>
+<ul class="simple">
+<li><p>A set of debug commands to facilitate integration of the A71CH in a host application.</p></li>
+<li><p>Possibility to permanently disable these debug commands</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the remainder of this document the A71CH Legacy API is simply called A71CH API</p>
+</div>
+</div>
+<div class="section" id="a71ch-api">
+<h2><span class="section-number">10.3.2. </span>A71CH API<a class="headerlink" href="#a71ch-api" title="Permalink to this headline">¶</a></h2>
+<p>The A71CH API is made up of four parts:</p>
+<ul class="simple">
+<li><p>A71CH specific functionality (<code class="docutils literal notranslate"><span class="pre">.../hostlib/inc/a71ch_api.h</span></code>)</p>
+<ul>
+<li><p><a class="reference internal" href="#se05x-legacy-host-api-derive"><span class="std std-ref">Crypto Derive API</span></a> deals with deriving secrets, hmacs etc. from stored secrets</p></li>
+<li><p><a class="reference internal" href="#se05x-legacy-host-api-ecc"><span class="std std-ref">Ecc Key API</span></a> deals with ECC crypto building blocks as ECDSA signing and verification and ECDH</p></li>
+<li><p><a class="reference internal" href="#se05x-legacy-host-api-module"><span class="std std-ref">Module API</span></a> deals with functions not related to stored crypto credentials</p></li>
+<li><p><a class="reference internal" href="#se05x-legacy-host-api-sst"><span class="std std-ref">Secure Storage (SST) API</span></a> deals with storing, retrieving, erasing and locking credentials</p></li>
+</ul>
+</li>
+<li><p>Data link communication functionality (<a class="reference internal" href="#se05x-legacy-host-api-connect"><span class="std std-ref">sm_connect.c</span></a>)</p></li>
+<li><p>Secure channel functionality (ax_scp.h). The implementation resides in <a class="reference internal" href="#se05x-legacy-host-api-ax-scp"><span class="std std-ref">ax_scp.c</span></a> and <a class="reference internal" href="#se05x-legacy-host-api-scp-a7x"><span class="std std-ref">scp_a7x.c</span></a>.</p></li>
+<li><p>A71CH Debug Mode variant functionality (<a class="reference internal" href="#se05x-legacy-host-api-debug"><span class="std std-ref">a71_debug.c</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="sw-structure">
+<h2><span class="section-number">10.3.3. </span>SW structure<a class="headerlink" href="#sw-structure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="openssl">
+<h3><span class="section-number">10.3.3.1. </span>OpenSSL<a class="headerlink" href="#openssl" title="Permalink to this headline">¶</a></h3>
+<p>The following picture illustrates the Host Library in the context of the Host SW with OpenSSL</p>
+<img alt="../_images/A71CH_HostLib_SW_Layers_OpenSSL.svg" src="../_images/A71CH_HostLib_SW_Layers_OpenSSL.svg" /></div>
+<div class="section" id="mbed-tls">
+<h3><span class="section-number">10.3.3.2. </span>mbed TLS<a class="headerlink" href="#mbed-tls" title="Permalink to this headline">¶</a></h3>
+<p>The following picture illustrates the Host Library in the context of the Host SW with mbed TLS</p>
+<img alt="../_images/A71CH_HostLib_SW_Layers_mbedTLS.svg" src="../_images/A71CH_HostLib_SW_Layers_mbedTLS.svg" /></div>
+</div>
+<div class="section" id="api-details">
+<h2><span class="section-number">10.3.4. </span>API details<a class="headerlink" href="#api-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-api">
+<span id="se05x-legacy-host-api-module"></span><h3><span class="section-number">10.3.4.1. </span>Module API<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Wrap module centric APDU functionality of the A71CH </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetCredentialInfo</code><span class="sig-paren">(</span>U8 *<em>map</em>, U16 *<em>mapLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get credential info from Module (in raw format) <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">map</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">mapLen</span></code>: </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetModuleInfo</code><span class="sig-paren">(</span>U16 *<em>selectResponse</em>, U8 *<em>debugOn</em>, U8 *<em>restrictedKpIdx</em>, U8 *<em>transportLockState</em>, U8 *<em>scpState</em>, U8 *<em>injectLockState</em>, U16 *<em>gpStorageSize</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get info on Module <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">selectResponse</span></code>: Encodes applet revision and whether Debug Mode is available </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">debugOn</span></code>: Equals 0x01 when the Debug Mode is available </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">restrictedKpIdx</span></code>: Either the index of the restricted keypair or A71CH_NO_RESTRICTED_KP </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transportLockState</span></code>: The value retieved is one of A71CH_TRANSPORT_LOCK_STATE_LOCKED, A71CH_TRANSPORT_LOCK_STATE_UNLOCKED or A71CH_TRANSPORT_LOCK_STATE_ALLOW_LOCK </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">scpState</span></code>: The value retrieved is on of A71CH_SCP_MANDATORY, A71CH_SCP_NOT_SET_UP or A71CH_SCP_KEYS_SET </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">injectLockState</span></code>: The value retrieved is one of A71CH_INJECT_LOCK_STATE_LOCKED or A71CH_INJECT_LOCK_STATE_UNLOCKED </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">gpStorageSize</span></code>: Total storage size (in byte) of the General Purpose data store </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetUniqueID</code><span class="sig-paren">(</span>U8 *<em>uid</em>, U16 *<em>uidLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get Unique Identifier from the Secure Module <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">uid</span></code>: IN: buffer to contain uid; OUT: uid retrieved from Secure Module </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">uidLen</span></code>: IN: Size of buffer provided (at least A71CH_MODULE_UNIQUE_ID_LEN byte); OUT: length of retrieved unique identifier (expected to be A71CH_MODULE_UNIQUE_ID_LEN byte) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_WRONG_RESPONSE</span></code>: In case an identifier with a length different from A71CH_MODULE_UNIQUE_ID_LEN was retrieved </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetCertUid</code><span class="sig-paren">(</span>U8 *<em>certUid</em>, U16 *<em>certUidLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get cert uid from the Secure Module. The cert uid is a subset of the Secure Module Unique Identifier <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">certUid</span></code>: IN: buffer to contain cert uid; OUT: cert uid retrieved from Secure Module </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">certUidLen</span></code>: IN: Size of buffer provided (at least A71CH_MODULE_CERT_UID_LEN byte); OUT: length of retrieved unique identifier (expected to be A71CH_MODULE_CERT_UID_LEN byte)</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_WRONG_RESPONSE</span></code>: In case the Secure Module Unique Identifier (i.e. the base uid) did not have the expected length </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetUnlockChallenge</code><span class="sig-paren">(</span>U8 *<em>challenge</em>, U16 *<em>challengeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get Unlock challenge from the Secure Module <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">challenge</span></code>: IN: buffer to contain challenge; OUT: challenge retrieved from Secure Module </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">challengeLen</span></code>: IN: Size of buffer provided (at least A71CH_MODULE_UNLOCK_CHALLENGE_LEN byte); OUT: length of retrieved unique identifier (must be A71CH_MODULE_UNLOCK_CHALLENGE_LEN byte) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_WRONG_RESPONSE</span></code>: In case an identifier with a length different from A71CH_MODULE_UNLOCK_CHALLENGE_LEN was retrieved </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetKeyPairChallenge</code><span class="sig-paren">(</span>U8 *<em>challenge</em>, U16 *<em>challengeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get Unlock challenge for a Keypair <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">challenge</span></code>: IN: buffer to contain challenge; OUT: challenge retrieved from Secure Module </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">challengeLen</span></code>: IN: Size of buffer provided (at least A71CH_MODULE_UNLOCK_CHALLENGE_LEN byte); OUT: length of retrieved unique identifier (must be A71CH_MODULE_UNLOCK_CHALLENGE_LEN byte) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_WRONG_RESPONSE</span></code>: In case an identifier with a length different from A71CH_MODULE_UNLOCK_CHALLENGE_LEN was retrieved </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetPublicKeyChallenge</code><span class="sig-paren">(</span>U8 *<em>challenge</em>, U16 *<em>challengeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get Unlock challenge for a Public Key <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">challenge</span></code>: IN: buffer to contain challenge; OUT: challenge retrieved from Secure Module </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">challengeLen</span></code>: IN: Size of buffer provided (at least A71CH_MODULE_UNLOCK_CHALLENGE_LEN byte); OUT: length of retrieved unique identifier (must be A71CH_MODULE_UNLOCK_CHALLENGE_LEN byte) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_WRONG_RESPONSE</span></code>: In case an identifier with a length different from A71CH_MODULE_UNLOCK_CHALLENGE_LEN was retrieved </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetRandom</code><span class="sig-paren">(</span>U8 *<em>random</em>, U8 <em>randomLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieves a random byte array of size randomLen from the Secure Module. The maximum amount of data that can be retrieved depends on whether an authenticated channel (SCP03) has been set up. In case SCP03 has been set up, this (worst-case) maximum is A71CH_SCP03_MAX_PAYLOAD_SIZE <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">random</span></code>: IN: buffer to contain random value (at least of size randomLen); OUT: retrieved random data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">randomLen</span></code>: Amount of byte to retrieve </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_CreateClientHelloRandom</code><span class="sig-paren">(</span>U8 *<em>clientHello</em>, U8 <em>clientHelloLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Updates a 32 byte random value inside the A71CH and returns this value to the caller. <dl class="simple">
+<dt><strong>Post</strong></dt><dd><p>A71CH is in a state it will accept A71_PskDeriveMasterSecret or A71_EcdhPskDeriveMasterSecret as an API call.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">clientHello</span></code>: IN: buffer to contain random value (at least of size randomLen); OUT: retrieved random data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">clientHelloLen</span></code>: Amount of byte to retrieve (must be equal to AX_TLS_PSK_HELLO_RANDOM_LEN) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetRestrictedKeyPairInfo</code><span class="sig-paren">(</span>U8 *<em>idx</em>, U16 *<em>nBlocks</em>, U8 *<em>blockInfo</em>, U16 *<em>blockInfoLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get the index of the restricted key pair (<code class="docutils literal notranslate"><span class="pre">idx</span></code>) together with the number of modifiable blocks (<code class="docutils literal notranslate"><span class="pre">nBlocks</span></code>) in the locked GP storage area that is associated with the restricted key pair. Detailed info on block offset and block length is contained in the <code class="docutils literal notranslate"><span class="pre">blockInfo</span></code> byte array. Per block 2 bytes indicate the offset into GP storage and two bytes indicate the length of the modifiable block.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">idx</span></code>: Index of restricted key pair. A71CH_NO_RESTRICTED_KP in case there is no restricted key pair </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">nBlocks</span></code>: Number of modifiable blocks </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">blockInfo</span></code>: IN: Storage to contain blockInfo; OUT: Raw info on block offset and block lenght per block. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">blockInfoLen</span></code>: IN: Size of blockInfo (in byte); OUT: effective size of blockInfo </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetSha256</code><span class="sig-paren">(</span>U8 *<em>data</em>, U16 <em>dataLen</em>, U8 *<em>sha</em>, U16 *<em>shaLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Calculates the SHA256 value of the data provided as input. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: Data buffer for which the SHA256 must be calculated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">sha</span></code>: IN: caller passes a buffer of at least 32 byte; OUT: contains the calculated SHA256 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">shaLen</span></code>: IN: length of the sha buffer passed; OUT: because SHA256 is used this is 32 byte exact </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_Sha256Init</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Initialise multistep SHA256. <dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_Sha256Update</code><span class="sig-paren">(</span>U8 *<em>data</em>, U16 <em>dataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Update the data for calulating SHA256 value (in multistep). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: Data buffer for which the SHA256 must be calculated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: The length of data passed as argument </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_Sha256Final</code><span class="sig-paren">(</span>U8 *<em>sha</em>, U16 *<em>shaLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>calulating SHA256 value (in multistep). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">sha</span></code>: IN: caller passes a buffer of at least 32 byte; OUT: contains the calculated SHA256 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">shaLen</span></code>: IN: length of the sha buffer passed; OUT: because SHA256 is used this is 32 byte exact </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_InjectLock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>This function disables - at device level - the ability to<ul class="simple">
+<li><p>Set symmetric keys without prior wrapping</p></li>
+<li><p>Erase symmetric keys</p></li>
+<li><p>Set ECC key pairs (private key part) without prior wrapping</p></li>
+<li><p>Set ECC public key without prior wrapping</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_LockModule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>This function locks the module (typically to protect the module during transport to production facilities). When the A71CH is locked the functionality is reduced to the following subset:<ul class="simple">
+<li><p>A71_GetUniqueID</p></li>
+<li><p>A71_GetUnlockChallenge</p></li>
+<li><p>A71_UnlockModule</p></li>
+<li><p>A71_GetModuleInfo</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_UnlockModule</code><span class="sig-paren">(</span>U8 *<em>code</em>, U16 <em>codeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>This function unlocks the module provided the correct code is provided as input argument. The A71CH can only be unlocked once: if the device is already unlocked, the device cannot be locked or unlocked again (it will remain unlocked).</p>
+<p>The unlock code is calculated as follows:<ul class="simple">
+<li><p>Request a challenge from A71CH using A71_GetUnlockChallenge.</p></li>
+<li><p>Decrypt the challenge in ECB mode using the appropriate configuration key value (the same as stored at index A71CH_CFG_KEY_IDX_MODULE_LOCK).</p></li>
+<li><p>The decrypted value is the unlock <code class="docutils literal notranslate"><span class="pre">code</span></code> <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">code</span></code>: Value of unlock code </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">codeLen</span></code>: Length of unlock code (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetTlsLabel</code><span class="sig-paren">(</span><em class="property">const</em> U8 *<em>label</em>, U16 <em>labelLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets the label that is used when calling A71_EcdhPskDeriveMasterSecret or A71_PskDeriveMasterSecret. Calling this function is optional. By default the label used by the A71CH is <code class="docutils literal notranslate"><span class="pre">'master</span></code> secret’ (no quotes) as applicable for TLS 1.2. The maximum size of the label that can be set is 24 byte. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">label</span></code>: Value to be stored and used as ‘label’ in TLS 1.2 protocol </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">labelLen</span></code>: Length of label (less than or equal to A71CH_TLS_MAX_LABEL) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EccVerifyWithKey</code><span class="sig-paren">(</span><em class="property">const</em> U8 *<em>pKeyData</em>, U16 <em>keyDataLen</em>, <em class="property">const</em> U8 *<em>pHash</em>, U16 <em>hashLen</em>, <em class="property">const</em> U8 *<em>pSignature</em>, U16 <em>signatureLen</em>, U8 *<em>pResult</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Verifies whether <code class="docutils literal notranslate"><span class="pre">pSignature</span></code> is the signature of <code class="docutils literal notranslate"><span class="pre">pHash</span></code> using <code class="docutils literal notranslate"><span class="pre">pKeyData</span></code> as the verifying public key.</p>
+<p>As opposed to function A71_EccVerify the public key value is passed as an argument to the A71CH.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pKeyData</span></code>: Public key passed as byte array in ANSI X9.62 uncompressed format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyDataLen</span></code>: Length of public key passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pHash</span></code>: Pointer to the provided hash (or any other bytestring). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hashLen</span></code>: Length of the provided hash. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pSignature</span></code>: Pointer to the provided signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">signatureLen</span></code>: Length of the provided signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pResult</span></code>: Pointer to the computed result of the verification. Points to a value of 0x01 in case of successful verification </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="ecc-key-api">
+<span id="se05x-legacy-host-api-ecc"></span><h3><span class="section-number">10.3.4.2. </span>Ecc Key API<a class="headerlink" href="#ecc-key-api" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Wrap the ECC cryptographic functionality of the A71CH. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GenerateEccKeyPair</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Generates an ECC keypair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. <dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>INJECTION_LOCKED has not been set </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair to be created. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GenerateEccKeyPairWithChallenge</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>configKey</em>, U16 <em>configKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Generates an ECC keypair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This function must be called instead of A71_GenerateEccKeyPair in case INJECTION_LOCKED was set.</p>
+<p>To use this function the value of the Key Pair configuration key must be known on the host. If this is not the case use A71_GenerateEccKeyPairWithCode instead.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair to be created. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKey</span></code>: Value of Key Pair configuration key. This value has a high level of confidentiality and may not be available to the Host. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKeyLen</span></code>: Length of Key Pair configuration key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GenerateEccKeyPairWithCode</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>code</em>, U16 <em>codeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Generates an ECC keypair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This function must be called instead of A71_GenerateEccKeyPair in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Key Pair configuration key is not known on the host. If this does not apply use A71_GenerateEccKeyPairWithChallenge instead.</p>
+<p>The code is calculated as follows:<ul class="simple">
+<li><p>Request a challenge from A71CH using A71_GetUnlockChallenge.</p></li>
+<li><p>Decrypt the challenge in ECB mode using the appropriate configuration key value (the same as stored at index ::A71XX_CFG_KEY_IDX_PRIVATE_KEYS).</p></li>
+<li><p>The decrypted value is the value of <code class="docutils literal notranslate"><span class="pre">code</span></code> </p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair to be created. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">code</span></code>: Value of unlock code. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">codeLen</span></code>: Length of unlock code (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EccSign</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>pHash</em>, U16 <em>hashLen</em>, U8 *<em>pSignature</em>, U16 *<em>pSignatureLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Signs the hash <code class="docutils literal notranslate"><span class="pre">pHash</span></code> using the keypair at the indicated index. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair (private key) to be used. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pHash</span></code>: Pointer to the provided hash (or any other bytestring). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hashLen</span></code>: Length of the provided hash. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSignature</span></code>: Pointer to the computed signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSignatureLen</span></code>: Pointer to the length of the computed signature. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EccNormalizedAsnSign</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>pHash</em>, U16 <em>hashLen</em>, U8 *<em>pSignature</em>, U16 *<em>pSignatureLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Signs the hash <code class="docutils literal notranslate"><span class="pre">pHash</span></code> using the keypair at the indicated index.</p>
+<p>The integer representation of the ECDSA signatures’ r and s component is modified to be in line with ASN.1 (Ensuring an integer value is always encoded in the smallest possible number of octets) <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair (private key) to be used. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pHash</span></code>: Pointer to the provided hash (or any other bytestring). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hashLen</span></code>: Length of the provided hash. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSignature</span></code>: Pointer to the computed signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSignatureLen</span></code>: Pointer to the length of the computed signature. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EccRestrictedSign</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>updateBytes</em>, U16 <em>updateBytesLen</em>, U8 *<em>invocationCount</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Patches a predetermined fixed size memory region in GP storage with the byte array <code class="docutils literal notranslate"><span class="pre">updateBytes</span></code> Creates a signed certificate - in place in GP storage - using a predetermined block of GP storage data</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair (private key) to be used. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">updateBytes</span></code>: Byte array to be written into GP storage </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">updateBytesLen</span></code>: Length of the provided byte array (<code class="docutils literal notranslate"><span class="pre">updateBytes</span></code>). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">invocationCount</span></code>: Amount of times the underlying APDU has been called succesfully. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EccVerify</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>pHash</em>, U16 <em>hashLen</em>, <em class="property">const</em> U8 *<em>pSignature</em>, U16 <em>signatureLen</em>, U8 *<em>pResult</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Verifies whether <code class="docutils literal notranslate"><span class="pre">pSignature</span></code> is the signature of <code class="docutils literal notranslate"><span class="pre">pHash</span></code> using the public key stored under <code class="docutils literal notranslate"><span class="pre">index</span></code> as the verifying public key.</p>
+<p>The index refers to an instance of the PUBLIC_KEY secure storage class on the A71CH. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The public key of an ECC key pair cannot be used for a verify operation. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>A71_EccVerifyWithKey allows to pass the value of the public key rather than use a stored public key.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key used for the verification. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pHash</span></code>: Pointer to the provided hash (or any other bytestring). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hashLen</span></code>: Length of the provided hash (<code class="docutils literal notranslate"><span class="pre">pHash</span></code>). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pSignature</span></code>: Pointer to the provided signature. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">signatureLen</span></code>: Length of the provided signature (<code class="docutils literal notranslate"><span class="pre">pSignature</span></code>) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pResult</span></code>: Pointer to the computed result of the verification. Points to a value of 0x01 in case of successful verification </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EcdhGetSharedSecret</code><span class="sig-paren">(</span>U8 <em>index</em>, <em class="property">const</em> U8 *<em>pOtherPublicKey</em>, U16 <em>otherPublicKeyLen</em>, U8 *<em>pSharedSecret</em>, U16 *<em>pSharedSecretLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Generates and retrieves a shared secret ECC point <code class="docutils literal notranslate"><span class="pre">pSharedSecret</span></code> using the private key stored at <code class="docutils literal notranslate"><span class="pre">index</span></code> and a public key <code class="docutils literal notranslate"><span class="pre">pOtherPublicKey</span></code> passed as argument. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: to the key pair (private key to be used) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pOtherPublicKey</span></code>: Pointer to the given public key. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">otherPublicKeyLen</span></code>: Length of the given public key. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSharedSecret</span></code>: Pointer to the computed shared secret. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSharedSecretLen</span></code>: Pointer to the length of the computed shared secret. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="crypto-derive-api">
+<span id="se05x-legacy-host-api-derive"></span><h3><span class="section-number">10.3.4.3. </span>Crypto Derive API<a class="headerlink" href="#crypto-derive-api" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Wrap the key derivation functionality of the A71CH. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_HkdfExpandSymKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em>, <em class="property">const</em> U8 *<em>info</em>, U16 <em>infoLen</em>, U8 *<em>derivedData</em>, U16 <em>derivedDataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>The HMAC Key Derivation function derives a key from a stored secret using SHA256 as hash function according to [RFC5869]. Only the expand step will be executed.</p>
+<p>The secret is stored in the SYM key store. It can be either 16, 32, 48 or 64 byte long. The Most Significant part of the secret resides in the storage location with the lowest index. The subsequent parts reside in the next storage locations. The nBlock parameter is equal to the length of the secret divided by 16. A secret with length 64 can only start at Index 0 of the SYM key store: a secret can not be stored wrapped around in the SYM key store.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>infoLen must be smaller than 254 byte.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">info</span></code>: Context and application specific information used in expand step </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">infoLen</span></code>: The length of the info data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">derivedData</span></code>: IN: caller passes a buffer of at least derivedDataLen; OUT: contains the calculated derived data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">derivedDataLen</span></code>: IN: length of the requested derivedData. Must be smaller than 256 byte.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_HkdfSymKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em>, <em class="property">const</em> U8 *<em>salt</em>, U16 <em>saltLen</em>, <em class="property">const</em> U8 *<em>info</em>, U16 <em>infoLen</em>, U8 *<em>derivedData</em>, U16 <em>derivedDataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>The HMAC Key Derivation function derives a key from a stored secret using SHA256 as hash function according to [RFC5869]. Both the extract and expand steps will be executed.</p>
+<p>In case a zero length salt value is passed as argument, this function is equivalent to A71_HkdfExpandSymKey: i.e. the extract step is skipped. To enforce the usage of the default salt value (a Bytestring of 32 zeroes) the caller must explicitly pass this default salt value as argument to this function.</p>
+<p>The secret is stored in the SYM key store. It can be either 16, 32, 48 or 64 byte long. The Most Significant part of the secret resides in the storage location with the lowest index. The subsequent parts reside in the next storage locations. The nBlock parameter is equal to the length of the secret divided by 16. A secret with length 64 can only start at Index 0 of the SYM key store: a secret can not be stored wrapped around in the SYM key store.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The sum of saltLen and infoLen must be smaller than 254 byte.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">salt</span></code>: Salt data used in extract step </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">saltLen</span></code>: The length of the salt data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">info</span></code>: Context and application specific information used in expand step </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">infoLen</span></code>: The length of the info data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">derivedData</span></code>: IN: caller passes a buffer of at least derivedDataLen; OUT: contains the calculated derived data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">derivedDataLen</span></code>: IN: length of the requested derivedData. Must be smaller than 256 byte.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_PskDeriveMasterSecret</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em>, <em class="property">const</em> U8 *<em>serverHelloRnd</em>, U16 <em>serverHelloRndLen</em>, U8 *<em>masterSecret</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>This function calculates the PRF according to TLS1.2 [RFC5246]. The pre-master secret is formed - based upon a pre-shared secret (PSK) stored in the secure module - according to [RFC4279].</p>
+<p>The pre-shared secret is stored in the SYM key store. It can be either 16, 32, 48 or 64 byte long. The Most Significant part of the pre-shared secret resides in the storage location with the lowest index. The subsequent parts reside in the next storage locations. The nBlock parameter is equal to the length of the PSK divided by 16.</p>
+<p>A PSK cannot be stored wrapped around in the SYM key store.</p>
+<p>The PRF creating the masterSecret also takes as parameter the concatentation of label (“master_secret”), ClientHello.random and ServerHello.random. This function only takes ServerHello.random as parameter: ClientHello.random has already been set by a call to A71_CreateClientHelloRandom, the value of the label (default is “master_secret”) can be overruled by a call to A71_SetTlsLabel.</p>
+<p><dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>This call must be preceded by a call to A71_CreateClientHelloRandom, no other A71CH API call (implying an APDU exchange between Host and A71CH) may be executed in between the invocation of A71_CreateClientHelloRandom and A71_PskDeriveMasterSecret</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">serverHelloRnd</span></code>: ServerHello.random (concatenated with values already contained in A71CH) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">serverHelloRndLen</span></code>: The length of serverHelloRnd passed as an argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">masterSecret</span></code>: IN: caller passes a buffer of at least 48 byte; OUT: contains the calculated master Secret, TLS 1.2 mandates this to be 48 byte exact</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EcdhPskDeriveMasterSecret</code><span class="sig-paren">(</span>SST_Index_t <em>indexKp</em>, <em class="property">const</em> U8 *<em>publicKey</em>, U16 <em>publicKeyLen</em>, SST_Index_t <em>index</em>, U8 <em>nBlock</em>, <em class="property">const</em> U8 *<em>serverHelloRnd</em>, U16 <em>serverHelloRndLen</em>, U8 *<em>masterSecret</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>This function calculates the PRF according to TLS1.2 [RFC5246]. The pre-master secret is formed - based upon a pre-shared secret (PSK) stored in the secure module and on an ECDH calculation - according to [RFC5489].</p>
+<p>The pre-shared secret is stored in the SYM key store. It can be either 16, 32, 48 or 64 byte long. The Most Significant part of the pre-shared secret resides in the storage location with the lowest index. The subsequent parts reside in the next storage locations. The nBlock parameter is equal to the length of the PSK divided by 16.</p>
+<p>A PSK cannot be stored wrapped around in the SYM key store.</p>
+<p>The PRF creating the masterSecret also takes as parameter the concatentation of label (“master_secret”), ClientHello.random and ServerHello.random. This function only takes ServerHello.random as parameter: ClientHello.random has already been set by a call to A71_CreateClientHelloRandom, the value of the label (default is “master_secret”) can be overruled by a call to A71_SetTlsLabel.</p>
+<p><dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>This call must be preceded by a call to A71_CreateClientHelloRandom, no other A71CH API call (implying an APDU exchange between Host and A71CH) may be executed in between the invocation of A71_CreateClientHelloRandom and A71_EcdhPskDeriveMasterSecret</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indexKp</span></code>: Index of the ECC keypair whose private key is used in the ECDH operation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">publicKey</span></code>: Value of the public key to be used in ECDH operation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">publicKeyLen</span></code>: Length of publicKey in byte </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">serverHelloRnd</span></code>: ServerHello.random (concatenated with values already contained in A71CH) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">serverHelloRndLen</span></code>: The length of serverHelloRnd passed as an argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">masterSecret</span></code>: IN: caller passes a buffer of at least 48 byte; OUT: contains the calculated master Secret, TLS 1.2 mandates this to be 48 byte exact</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetHmacSha256</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em>, <em class="property">const</em> U8 *<em>data</em>, U16 <em>dataLen</em>, U8 *<em>hmac</em>, U16 *<em>hmacLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Calculates the HMAC on <code class="docutils literal notranslate"><span class="pre">data</span></code> using SHA256 as Hash Function according to [RFC2104]. The secret is stored in the SYM key store. It can be either 16, 32, 48 or 64 byte long. The Most Significant part of the secret resides in the storage location with the lowest index. The subsequent parts reside in the next storage locations. The nBlock parameter is equal to the length of the secret divided by 16. A secret with length 64 can only start at Index 0 of the SYM key store: a secret can not be stored wrapped around in the SYM key store. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: Data buffer for which the HMAC-SHA256 must be calculated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: The length of data passed as argument </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hmac</span></code>: IN: caller passes a buffer of at least 32 byte; OUT: contains the calculated hmac </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hmacLen</span></code>: IN: length of the hmac buffer passed; OUT: because SHA256 is used this is 32 byte exact</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Successfull execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_HmacSha256Init</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Initialise multistep HMACSHA256. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_HmacSha256Update</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em>, U8 *<em>data</em>, U16 <em>dataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Update the data for calulating HMACSHA256 value (in multistep). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: Data buffer for which the HMACSHA256 must be calculated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: The length of data passed as argument </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_HmacSha256Final</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 <em>nBlock</em>, U8 *<em>hmac</em>, U16 *<em>hmacLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>calulating HMACSHA256 value (in multistep). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Index of the SYM key store containing the MSB part of the pre-shared secret </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nBlock</span></code>: Amount of blocks, equivalent to the pre-shared secret length when multiplied by 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hmac</span></code>: IN: caller passes a buffer of at least 32 byte; OUT: contains the calculated HMACSHA256 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hmacLen</span></code>: IN: length of the sha buffer passed; OUT: because HMACSHA256 is used this is 32 byte exact </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="secure-storage-sst-api">
+<span id="se05x-legacy-host-api-sst"></span><h3><span class="section-number">10.3.4.4. </span>Secure Storage (SST) API<a class="headerlink" href="#secure-storage-sst-api" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p><strong>Wrap the secure storage functionality of the A71CH.</strong> </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetEccKeyPair</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>publicKey</em>, U16 <em>publicKeyLen</em>, <em class="property">const</em> U8 *<em>privateKey</em>, U16 <em>privateKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets an ECC Key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> with the provided values for public and private key. The private key can optionally be RFC3944 wrapped. Whether wrapping is applied or not is implicit in the length of the private key. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the keypair to be created. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">publicKey</span></code>: Pointer to the byte array containing the public key. The public key must be in ANSI X9.62 uncompressed format (including the leading 0x04 byte). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">publicKeyLen</span></code>: Length of the public key (65 byte) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">privateKey</span></code>: Pointer to the byte array containing the private key. The private key may be RFC3394 wrapped using the config key stored at index A71CH_CFG_KEY_IDX_PRIVATE_KEYS </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">privateKeyLen</span></code>: Length of the private key (either 32 byte for keys in plain format or 40 byte for keys in RFC3944 wrapped format) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetPublicKeyEccKeyPair</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>publicKey</em>, U16 *<em>publicKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieves the ECC Public Key - from a key pair - from the storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> into the provided buffer. The public key retrieved is in ANSI X9.62 uncompressed format (including the leading 0x04 byte).</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">publicKey</span></code>: IN: buffer to contain public key byte array; OUT: public key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">publicKeyLen</span></code>: IN: size of provided buffer; OUT: Length of the retrieved public key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">publicKey</span></code> buffer is too small </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetEccKeyPairUsage</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>restricted</em>, U16 *<em>usedCnt</em>, U16 *<em>maxUseCnt</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieve the usage counter (i.e. how much times the key pair has been used so far to sign) and the maximum usage counter. If the key pair is NOT restricted, usage counter and maximum usage counter will be set to 0 and the restricted parameter will be 0 (otherwise it is 1)</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">restricted</span></code>: 0 when the key pair on <code class="docutils literal notranslate"><span class="pre">index</span></code> is not restricted; 1 if it is restricted. A restricted key pair is a key pair that can only be used to sign a dedicated area in GP storage. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">usedCnt</span></code>: Number of times the key pair on <code class="docutils literal notranslate"><span class="pre">index</span></code> has been used to sign (assuming it is a restricted key pair) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">maxUseCnt</span></code>: Indicates the maximum amount of signing operations associated with the key pair at <code class="docutils literal notranslate"><span class="pre">index</span></code>. In case the value is zero, there is no limit on the amount of signing operations. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeEccKeyPair</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes an ECC key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the key pair can no longer be erased or its value changed. <dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>INJECTION_LOCKED has not been set </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeEccKeyPairWithChallenge</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>configKey</em>, U16 <em>configKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes an ECC key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the key pair can no longer be erased or its value changed. This function must be called instead of A71_FreezeEccKeyPair in case INJECTION_LOCKED was set</p>
+<p>The assumption is the value of the Key Pair configuration key is known on the host. If this does not apply use A71_FreezeEccKeyPairWithCode instead. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKey</span></code>: Value of Key Pair configuration key. This value has a high level of confidentiality and may not be available to the Host. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKeyLen</span></code>: Length of Key Pair configuration key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeEccKeyPairWithCode</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>code</em>, U16 <em>codeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes an ECC key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> provided the correct code value is passed as argument. Freezing the key pair means that it can no longer be erased or its value changed. This function must be called instead of A71_FreezeEccKeyPair in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Key Pair configuration key is not known on the host. If this does not apply use A71_FreezeEccKeyPairWithChallenge instead.</p>
+<p>The code is calculated as follows:<ul class="simple">
+<li><p>Request a challenge from A71CH using A71_GetUnlockChallenge.</p></li>
+<li><p>Decrypt the challenge in ECB mode using the appropriate configuration key value (the same as stored at index A71CH_CFG_KEY_IDX_PRIVATE_KEYS).</p></li>
+<li><p>The decrypted value is the value of <code class="docutils literal notranslate"><span class="pre">code</span></code> <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">code</span></code>: Value of unlock code </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">codeLen</span></code>: Length of unlock code (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseEccKeyPair</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an ECC key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the key pair can no longer be used before a new value is set. <dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>INJECTION_LOCKED has not been set </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseEccKeyPairWithChallenge</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>configKey</em>, U16 <em>configKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an ECC key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the key pair can no longer be used before a new value is set. This function must be called instead of A71_EraseEccKeyPair in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Key Pair configuration key is known on the host. If this does not apply use A71_EraseEccKeyPairWithCode instead. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKey</span></code>: Value of Key Pair configuration key. This value has a high level of confidentiality and may not be available to the Host. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKeyLen</span></code>: Length of Key Pair configuration key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseEccKeyPairWithCode</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>code</em>, U16 <em>codeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an ECC key pair at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the key pair can no longer be used before a new value is set. This function must be called instead of A71_EraseEccKeyPair in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Key Pair configuration key is not known on the host. If this does not apply use A71_EraseEccKeyPairWithChallenge instead.</p>
+<p>The code is calculated as follows:<ul class="simple">
+<li><p>Request a challenge from A71CH using A71_GetUnlockChallenge.</p></li>
+<li><p>Decrypt the challenge in ECB mode using the appropriate configuration key value (the same as stored at index A71CH_CFG_KEY_IDX_PRIVATE_KEYS).</p></li>
+<li><p>The decrypted value is the value of <code class="docutils literal notranslate"><span class="pre">code</span></code> <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">code</span></code>: Value of unlock code </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">codeLen</span></code>: Length of unlock code (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetEccPublicKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>publicKey</em>, U16 <em>publicKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets an ECC Public Key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> with the provided value for public key either in plain ANSI X9.62 uncompressed format or wrapped. Whether RFC3944 wrapping is applied or not is implicit in the length of the public key. In case RFC3944 wrapping is applied the first byte of the public key (the one indicating the public key format) is removed before applying wrapping. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the public key to be set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">publicKey</span></code>: Pointer to the byte array containing the public key. The public key may be RFC3394 wrapped using the config key stored at index A71CH_CFG_KEY_IDX_PUBLIC_KEYS </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">publicKeyLen</span></code>: Length of the public key (either 65 byte for keys in plain format or 72 byte for keys in RFC3944 wrapped format) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetEccPublicKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>publicKey</em>, U16 *<em>publicKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieves the ECC Public Key from the storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> into the provided buffer. The public key is in ANSI X9.62 uncompressed format (including the leading 0x04 byte). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the public key to be retrieved. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">publicKey</span></code>: IN: buffer to contain public key byte array; OUT: public key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">publicKeyLen</span></code>: IN: size of provided buffer; OUT: Length of the retrieved public key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::ERR_BUF_TOO_SMALL</span></code>: <code class="docutils literal notranslate"><span class="pre">publicKey</span></code> buffer is too small </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeEccPublicKeyWithChallenge</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>configKey</em>, U16 <em>configKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes an ECC public key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the public key can no longer be erased or its value changed. This function must be called instead of A71_FreezeEccPublicKey in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Public Key configuration key is known on the host. If this does not apply use A71_FreezeEccPublicKeyWithCode instead. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the public key to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKey</span></code>: Value of Public Key Pair key. This value has a high level of confidentiality and may not be available to the Host. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKeyLen</span></code>: Length of Public Key configuration key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeEccPublicKeyWithCode</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>code</em>, U16 <em>codeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes an ECC public key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> provided the correct code value is passed as argument. Freezing the public key means that it can no longer be erased or its value changed. This function must be called instead of A71_FreezeEccPublicKey in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Public Key configuration key is not known on the host. If this does not apply use A71_FreezeEccPublicKeyWithChallenge instead.</p>
+<p>The code is calculated as follows:<ul class="simple">
+<li><p>Request a challenge from A71CH using A71_GetUnlockChallenge.</p></li>
+<li><p>Decrypt the challenge in ECB mode using the appropriate configuration key value (the same as stored at index A71CH_CFG_KEY_IDX_PUBLIC_KEYS).</p></li>
+<li><p>The decrypted value is the value of <code class="docutils literal notranslate"><span class="pre">code</span></code> <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">code</span></code>: Value of unlock code </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">codeLen</span></code>: Length of unlock code (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeEccPublicKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes an ECC public key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the public key can no longer be erased or its value changed.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the public key to be frozen. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseEccPublicKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an ECC public key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the public key can no longer be used before a new value is set. <dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>INJECTION_LOCKED has not been set </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the public key to be frozen. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseEccPublicKeyWithChallenge</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>configKey</em>, U16 <em>configKeyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an ECC public key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the public key can no longer be used before a new value is set. This function must be called instead of A71_EraseEccPublicKey in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Public Key configuration key is known on the host. If this does not apply use A71_EraseEccPublicKeyWithCode instead. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the public key to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKey</span></code>: Value of Public Key Pair key. This value has a high level of confidentiality and may not be available to the Host. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">configKeyLen</span></code>: Length of Public Key configuration key </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseEccPublicKeyWithCode</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U8 *<em>code</em>, U16 <em>codeLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases an ECC public key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means that the public key can no longer be used before a new value is set. This function must be called instead of A71_EraseEccPublicKey in case INJECTION_LOCKED was set.</p>
+<p>The assumption is the value of the Public Key configuration key is not known on the host. If this does not apply use A71_EraseEccPublicKeyWithChallenge instead.</p>
+<p>The code is calculated as follows:<ul class="simple">
+<li><p>Request a challenge from A71CH using A71_GetUnlockChallenge.</p></li>
+<li><p>Decrypt the challenge in ECB mode using the appropriate configuration key value (the same as stored at index A71CH_CFG_KEY_IDX_PUBLIC_KEYS).</p></li>
+<li><p>The decrypted value is the value of <code class="docutils literal notranslate"><span class="pre">code</span></code> <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the key pair to be frozen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">code</span></code>: Value of unlock code </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">codeLen</span></code>: Length of unlock code (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetSymKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>key</em>, U16 <em>keyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets a symmetric key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> with the key value. The key locations indexed are the same as the one referenced by A71_SetRfc3394WrappedAesKey <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the symmetric key to be set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: Pointer to the byte array containing the symmetric key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyLen</span></code>: Length of the symmetric key (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetRfc3394WrappedAesKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>key</em>, U16 <em>keyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets an RFC3394 wrapped AES key in secure storage. The key value being set, must be wrapped with the value already stored at <code class="docutils literal notranslate"><span class="pre">index</span></code>. The key locations indexed are the same as the one referenced by A71_SetSymKey <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: index of the key to be set. At the same time the index of the wrapping key. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: Pointer to the supplied key data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyLen</span></code>: Length of the supplied key data. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeSymKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Freezes a symmetric key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means the value of the key at the specified index can no longer be changed.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the symmetric key to be frozen. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_EraseSymKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Erases the symmetric key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code>. This means the value of the key at the specified index is cleared. The value must be set anew before the key can be used.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the symmetric key to be set. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_IncrementCounter</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Increments the monotonic counter at storage location index by one.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the counter. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetCounter</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U32 <em>value</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets the value of the monotonic counter at storage location ‘index’ with the value passed as parameter.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the counter. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: Counter value to be set </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetCounter</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, U32 *<em>pValue</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Gets the value of the monotonic counter at storage location ‘index’.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the counter. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pValue</span></code>: Counter value retrieved </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_DbgEraseCounter</code><span class="sig-paren">(</span>SST_Index_t <em>index</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets the value of the monotonic counter at storage location ‘index’ to zero.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only available when the applet is in Debug Mode.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the counter. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetGpData</code><span class="sig-paren">(</span>U16 <em>dataOffset</em>, <em class="property">const</em> U8 *<em>data</em>, U16 <em>dataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets a data chunk of General Purpose storage in the security module. Depending on the size of the chunk, this requires one or more APDU exchanges with the security module. <dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>The addressed General Purpose storage is not locked. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>In case part of the addressed General Purpose storage is locked, only part of the provided data will have been written most likely leading to an inconsistent data set stored in General Purpose storage.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataOffset</span></code>: Offset for the data in the GP Storage. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: IN: buffer containing data to write </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: Amount of data to write </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetGpDataWithLockCheck</code><span class="sig-paren">(</span>U16 <em>dataOffset</em>, <em class="property">const</em> U8 *<em>data</em>, U16 <em>dataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets a data chunk of General Purpose storage in the security module. Depending on the size of the chunk, this requires one or more APDU exchanges with the security module. <dl class="simple">
+<dt><strong>Pre</strong></dt><dd><p>The addressed General Purpose storage is not locked. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>In case more than one apdu is required, this function first validates that each of the chunks of the addressed General Purpose storage is not locked, and only in that case try to write the provided data using A71_SetGpData()</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataOffset</span></code>: Offset for the data in the GP Storage. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: IN: buffer containing data to write </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: Amount of data to write </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_GetGpData</code><span class="sig-paren">(</span>U16 <em>dataOffset</em>, U8 *<em>data</em>, U16 <em>dataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieve a chunk of data from general purpose (GP) storage. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataOffset</span></code>: Offset for the data in the GP Storage. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">data</span></code>: IN: buffer to contain data; OUT: retrieved data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: Amount of data to retrieve </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_FreezeGpData</code><span class="sig-paren">(</span>U16 <em>dataOffset</em>, U16 <em>dataLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Mark a chunk in GP storage as frozen (meaning further modification of the GP storage area is disallowed). Both the <code class="docutils literal notranslate"><span class="pre">dataOffset</span></code> and <code class="docutils literal notranslate"><span class="pre">dataLen</span></code> must be aligned on A71CH_GP_STORAGE_GRANULARITY</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataOffset</span></code>: Offset for the data in the GP Storage. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dataLen</span></code>: Amount of data to freeze </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetConfigKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>key</em>, U16 <em>keyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets a config key at storage location <code class="docutils literal notranslate"><span class="pre">index</span></code> with the key value. The key locations indexed are the same as the one referenced by A71_SetRfc3394WrappedConfigKey <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: Storage index of the config key to be set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: Pointer to the byte array containing the config key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyLen</span></code>: Length of the config key (must be 16) </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_SetRfc3394WrappedConfigKey</code><span class="sig-paren">(</span>SST_Index_t <em>index</em>, <em class="property">const</em> U8 *<em>key</em>, U16 <em>keyLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets an RFC3394 wrapped config key in secure storage. The key value being set, must be wrapped with the value already stored at the <code class="docutils literal notranslate"><span class="pre">index</span></code>. The key locations indexed are the same as the one referenced by A71_SetConfigKey <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: index of the key to be set. At the same time the index of the wrapping key. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: Pointer to the supplied key data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyLen</span></code>: Length of the supplied key data. </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="sm-connect-c">
+<span id="se05x-legacy-host-api-connect"></span><h3><span class="section-number">10.3.4.5. </span>sm_connect.c<a class="headerlink" href="#sm-connect-c" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Implementation of basic communication functionality between Host and A71CH. (This file was renamed from <code class="docutils literal notranslate"><span class="pre">a71ch_com.c</span></code> into <code class="docutils literal notranslate"><span class="pre">sm_connect.c</span></code>.) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SM_RjctConnect</code><span class="sig-paren">(</span>void **<em>conn_ctx</em>, <em class="property">const</em> char *<em>connectString</em>, SmCommState_t *<em>commState</em>, U8 *<em>atr</em>, U16 *<em>atrLen</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SM_I2CConnect</code><span class="sig-paren">(</span>void **<em>conn_ctx</em>, SmCommState_t *<em>commState</em>, U8 *<em>atr</em>, U16 *<em>atrLen</em>, <em class="property">const</em> char *<em>pConnString</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SM_Connect</code><span class="sig-paren">(</span>void *<em>conn_ctx</em>, SmCommState_t *<em>commState</em>, U8 *<em>atr</em>, U16 *<em>atrLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Establishes the communication with the Security Module (SM) at the link level and selects the A71CH applet on the SM. The physical communication layer used (e.g. I2C) is determined at compilation time.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">commState</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">atr</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">atrLen</span></code>: </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SM_Close</code><span class="sig-paren">(</span>void *<em>conn_ctx</em>, U8 <em>mode</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Closes the communication with the Security Module A new connection can be established by calling SM_Connect</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mode</span></code>: Specific information that may be required on the link layer</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SM_SendAPDU</code><span class="sig-paren">(</span>U8 *<em>cmd</em>, U16 <em>cmdLen</em>, U8 *<em>resp</em>, U16 *<em>respLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sends the command APDU to the Secure Module and retrieves the response APDU. The latter consists of the concatenation of the response data (possibly none) and the status word (2 bytes).</p>
+<p>The command APDU and response APDU are not interpreted by the host library.</p>
+<p>The command/response APDU sizes must lay within the APDU size limitations</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmd</span></code>: command APDU </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cmdLen</span></code>: length (in byte) of <code class="docutils literal notranslate"><span class="pre">cmd</span></code> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">resp</span></code>: response APDU (response data || response status word) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">respLen</span></code>: IN: Length of resp buffer (<code class="docutils literal notranslate"><span class="pre">resp</span></code>) provided; OUT: effective length of response retrieved.</p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="ax-scp-c">
+<span id="se05x-legacy-host-api-ax-scp"></span><h3><span class="section-number">10.3.4.6. </span>ax_scp.c<a class="headerlink" href="#ax-scp-c" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Set up the SCP03 communication channel. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SCP_HostLocal_GetSessionState</code><span class="sig-paren">(</span>ChannelId_t <em>channelId</em>, Scp03SessionState_t *<em>pSession</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Copy the session state into <code class="docutils literal notranslate"><span class="pre">pSession</span></code>. Caller must allocate memory of <code class="docutils literal notranslate"><span class="pre">pSession</span></code>. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">channelId</span></code>: Either ::AX_HOST_CHANNEL or ::AX_ADMIN_CHANNEL. Must be ::AX_HOST_CHANNEL in case of A71CH. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">pSession</span></code>: IN: pointer to allocated ::Scp03SessionState_t structure; OUT: retrieved state </p></li>
+</ul>
+</dd>
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::SCP_UNDEFINED_CHANNEL_ID</span></code>: In case an undefined ::ChannelId_t type was passed as parameter </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SCP_GetScpSessionState</code><span class="sig-paren">(</span>Scp03SessionState_t *<em>scp03state</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieve the SCP03 session state of the host - secure module channel from the Host Library.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>::SW_OK </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">scp03state</span></code>: IN: pointer to allocated structure; OUT: datastructure contains SCP03 session state </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+void <code class="sig-name descname">SCP_SetScpSessionState</code><span class="sig-paren">(</span>Scp03SessionState_t *<em>scp03state</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets SCP03 session state of the host - secure module channel of the Host Library. Can be used in a scenario where e.g. the bootloader has established the SCP03 link between host and secure module and the Host OS must re-establish the communication with the secure module without breaking the SCP03 session.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">scp03state</span></code>: IN: SCP03 session state </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SCP_GP_ExternalAuthenticate</code><span class="sig-paren">(</span>ChannelId_t <em>channelId</em>, U8 *<em>hostCryptogram</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SCP_GP_InitializeUpdate</code><span class="sig-paren">(</span>ChannelId_t <em>channelId</em>, U8 *<em>hostChallenge</em>, U16 <em>hostChallengeLen</em>, U8 *<em>keyDivData</em>, U16 *<em>pKeyDivDataLen</em>, U8 *<em>keyInfo</em>, U16 *<em>pKeyInfoLen</em>, U8 *<em>cardChallenge</em>, U16 *<em>pCardChallengeLen</em>, U8 *<em>cardCryptoGram</em>, U16 *<em>pCardCryptoGramLen</em>, U8 *<em>seqCounter</em>, U16 *<em>pSeqCounterLen</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SCP_GP_PutKeys</code><span class="sig-paren">(</span>U8 <em>keyVersion</em>, U8 *<em>keyEnc</em>, U8 *<em>keyMac</em>, U8 *<em>keyDek</em>, U8 *<em>currentKeyDek</em>, U16 <em>keyBytes</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Persistently stores the provided SCP03 base key set in the security module.</p>
+<p>This method must be called once before the Host - Secure Module SCP channel can be established.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>::SW_OK upon success </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyVersion</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyEnc</span></code>: SCP03 channel encryption base key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyMac</span></code>: SCP03 authentication base key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyDek</span></code>: SCP03 data encryption base key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">currentKeyDek</span></code>: Value of the data encryption base key already stored in secure module, may be NULL in case no key is currently stored. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyBytes</span></code>: Length (in byte) of the keys being set. Typically 16 (corresponding to 128 bits) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">SCP_Authenticate</code><span class="sig-paren">(</span>U8 *<em>keyEnc</em>, U8 *<em>keyMac</em>, U8 *<em>keyDek</em>, U16 <em>keyBytes</em>, U8 *<em>sCounter</em>, U16 *<em>sCounterLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Performs an SCP03 authentication with the SM and - when successful - computes the SCP03 session keys and initializes the current Session state.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyEnc</span></code>: SCP03 channel encryption base key (aka static key) (16 bytes) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyMac</span></code>: SCP03 authentication base key (aka static key) (16 bytes) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyDek</span></code>: SCP03 data encryption base key (aka static key) (16 bytes) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">keyBytes</span></code>: Must be 16 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">sCounter</span></code>: SCP03 sequence counter (3 bytes) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">sCounterLen</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="scp-a7x-c">
+<span id="se05x-legacy-host-api-scp-a7x"></span><h3><span class="section-number">10.3.4.7. </span>scp_a7x.c<a class="headerlink" href="#scp-a7x-c" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Conditionally apply SCP03 channel encryption (This file was renamed from <code class="docutils literal notranslate"><span class="pre">scp.c</span></code> into <code class="docutils literal notranslate"><span class="pre">scp_a7x.c</span></code>.) </p>
+</dd>
+</dl>
+</p>
+</div>
+<div class="section" id="a71-debug-c">
+<span id="se05x-legacy-host-api-debug"></span><h3><span class="section-number">10.3.4.8. </span>a71_debug.c<a class="headerlink" href="#a71-debug-c" title="Permalink to this headline">¶</a></h3>
+<p><dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Wrap Debug Mode specific APDU’s of A71CH. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_DbgReset</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Resets the Secure Module to the initial state. <dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_DbgDisableDebug</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><br /></dt>
+<dd><p>Permanently disables the Debug API. <dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_DbgGetFreePersistentMemory</code><span class="sig-paren">(</span>S16 *<em>freeMem</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Reports the available persistent memory in the Security Module. <dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_DbgGetFreeTransientMemory</code><span class="sig-paren">(</span>S16 *<em>freeMem</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Reports the available transient memory in the Security Module. <dl class="simple">
+<dt><strong>Return Value</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">::SW_OK</span></code>: Upon successful execution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+U16 <code class="sig-name descname">A71_DbgReflect</code><span class="sig-paren">(</span>U8 *<em>sndBuf</em>, U16 <em>sndBufLen</em>, U8 *<em>rcvBuf</em>, U16 *<em>rcvBufLen</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Invokes data reflection APDU (facilitates link testing). No check of data payload returned <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p></p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sndBuf</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sndBufLen</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">rcvBuf</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">rcvBufLen</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018-2020, NXP.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

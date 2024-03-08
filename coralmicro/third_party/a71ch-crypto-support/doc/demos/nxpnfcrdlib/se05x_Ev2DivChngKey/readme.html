@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 NXP
+
+This software is owned or controlled by NXP and may only be used
+strictly in accordance with the applicable license terms.  By expressly
+accepting such terms or by downloading, installing, activating and/or
+otherwise using the software, you are agreeing that you have read, and
+that you agree to comply with and are bound by, such license terms.  If
+you do not agree to be bound by the applicable license terms, then you
+may not retain, install, activate or otherwise use the software.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5.10.5. MIFARE DESFire EV2 : Diversified Change Key &#8212; Plug &amp; Trust MW v03.00.05 documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5.11.1. Ease of Use configuration - IBM Watson" href="../../eou_config_ibm.html" />
+    <link rel="prev" title="5.10.4. MIFARE DESFire EV2 : Change Key" href="../se05x_Ev2ChangeKey/readme.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../toc.html"><span><img src="../../../_static/NXP_logo_JPG.jpg"></span>
+          MW</a>
+        <span class="navbar-text navbar-version pull-left"><b>v03.00.05</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../toc.html">TOC <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">1. NXP Plug &amp; Trust Middleware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../organization-of-documentation.html">1.1. Organization of Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../folder-structure.html">1.2. Folder Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sw-prerequisites.html">1.3. List of Platform Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes/index.html">2. Changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/pending.html">2.1. Pending Refactoring items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/pending.html#known-limitations">2.2. Known limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_05.html">2.3. Release <code class="docutils literal notranslate"><span class="pre">v03.00.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_04.html">2.4. Release <code class="docutils literal notranslate"><span class="pre">v03.00.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_03.html">2.5. Release <code class="docutils literal notranslate"><span class="pre">v03.00.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v03_00_02.html">2.6. Release <code class="docutils literal notranslate"><span class="pre">v03.00.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_16_01.html">2.7. Release <code class="docutils literal notranslate"><span class="pre">v02.16.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_16_00.html">2.8. Release <code class="docutils literal notranslate"><span class="pre">v02.16.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_15_00.html">2.9. Release <code class="docutils literal notranslate"><span class="pre">v02.15.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_14_00.html">2.10. Release <code class="docutils literal notranslate"><span class="pre">v02.14.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html">2.11. Release <code class="docutils literal notranslate"><span class="pre">v02.12.05</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-04">2.12. Release <code class="docutils literal notranslate"><span class="pre">v02.12.04</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-03">2.13. Release <code class="docutils literal notranslate"><span class="pre">v02.12.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-02">2.14. Release <code class="docutils literal notranslate"><span class="pre">v02.12.02</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-01">2.15. Release <code class="docutils literal notranslate"><span class="pre">v02.12.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_12_00.html#release-v02-12-00">2.16. Release <code class="docutils literal notranslate"><span class="pre">v02.12.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_11_03.html">2.17. Release <code class="docutils literal notranslate"><span class="pre">v02.11.03</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_11_01.html">2.18. Internal Release <code class="docutils literal notranslate"><span class="pre">v02.11.01</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_11_00.html">2.19. Release <code class="docutils literal notranslate"><span class="pre">v02.11.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_10_00.html">2.20. Release <code class="docutils literal notranslate"><span class="pre">v02.10.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_09_00.html">2.21. Release <code class="docutils literal notranslate"><span class="pre">v02.09.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_07_00.html">2.22. Release <code class="docutils literal notranslate"><span class="pre">v02.07.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_06_00.html">2.23. Release <code class="docutils literal notranslate"><span class="pre">v02.06.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_05_00_to_v02_03_00.html">2.24. Release <code class="docutils literal notranslate"><span class="pre">v02.05.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_05_00_to_v02_03_00.html#release-v02-04-00">2.25. Release <code class="docutils literal notranslate"><span class="pre">v02.04.00</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes/v02_05_00_to_v02_03_00.html#release-02-03-00">2.26. Release <code class="docutils literal notranslate"><span class="pre">02.03.00</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stack/index.html">3. Plug &amp; Trust MW Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/features.html">3.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/features.html#plug-trust-mw-block-diagram">3.2. Plug &amp; Trust MW : Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss-apis.html">3.3. SSS APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/se05xfeatures.html">3.4. SSS APIs: SE051 vs SE050</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/param_checks.html">3.5. Parameter Check &amp; Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/i2cm.html">3.6. I2CM / Secure Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/logging.html">3.7. Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/feature-file.html">3.8. Feature File - <code class="docutils literal notranslate"><span class="pre">fsl_sss_ftr.h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/platf-scp-from-fs.html">3.9. Using Platform SCP Keys from File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects.html">3.10. Auth Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects-userid.html">3.11. Auth Objects : UserID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects-aeskey.html">3.12. Auth Objects : AESKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/auth/auth-objects-eckey.html">3.13. Auth Objects : ECKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/key-id-range.html">3.14. Key Id Range and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/key-id-range.html#authentication-keys">3.15. Authentication Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../stack/key-id-range.html#trust-provisioned-keyids">3.16. Trust provisioned KeyIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/ex/doc/puf-scp03.html">3.17. SCP03 with PUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/doc/sss_heap_management.html">3.18. SSS Heap Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building/index.html">4. Building / Compiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/windows.html">4.1. Windows Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/frdm-k64f-sdk.html">4.2. Import MCUXPresso projects from SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/frdm-k64f-cmake.html">4.3. Freedom K64F Build (CMake - Advanced)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/imx6.html">4.4. i.MX Linux Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/rpi3.html">4.5. Raspberry Pi Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building/cmake.html">4.6. CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../scripts/cmake_options.html">4.7. CMake Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">5. Demo and Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html">6.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#building-and-running-the-edgelock-2go-agent">6.2. Building and running the EdgeLock 2GO agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#datastore-keystore">6.3. Datastore / Keystore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#connection-to-the-edgelock-2go-cloud-service">6.4. Connection to the EdgeLock 2GO cloud service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/introduction.html#claim-codes">6.5. Claim Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/edgelock2go_agent_apis.html">6.6. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nxp_iot_agent/doc/readme_usage_examples.html">6.7. Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../semslite/doc/index.html">7. SEMS Lite Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_overview.html">7.1. SEMS Lite Overview (Only for SE051)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_package.html">7.2. Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_usage.html">7.3. SEMS Lite Agent Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_mgmt_api.html">7.4. SEMS Lite management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_process.html">7.5. SEMS Lite Agent Package Load Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_api.html">7.6. APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/sems_lite_known_issue.html">7.7. SEMS Lite Known Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../semslite/doc/demo_update.html">7.8. SEMS Lite DEMOs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">8. Plugins / Add-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/openssl/scripts/readme.html">8.1. Introduction on OpenSSL engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/mbedtls/scripts/readme.html">8.2. Introduction on mbedTLS ALT Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/psa/Readme.html">8.3. Platform Security Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugins/akm.html">8.4. Android Key master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sss/plugin/open62541/readme.html">8.5. Introduction on Open62541 (OPC UA stack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugins/wifiEAP/wifiEAP.html">8.6. WiFi EAP Demo with Raspberry Pi3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plugins/pkcs11.html">8.7. PKCS#11 Standalone Library</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli-tool.html">9. CLI Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/introduction.html">9.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/block-diagram.html">9.2. Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/pre-steps.html">9.3. Steps needed before running <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/running.html">9.4. Running the <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> tool - Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/Provisioning/readme.html">9.5. CLI Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/readme_usage_examples.html">9.6. Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/cli_commands_list.html">9.7. List of <code class="docutils literal notranslate"><span class="pre">ssscli</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/cli_data_format.html">9.8. CLI Data formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pycli/doc/cli_object_policy.html">9.9. Object Policies Through ssscli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/upload_se05x_using_pycli.html">9.10. Upload keys and certificates to SE05X using ssscli tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../a71ch.html">10. A71CH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_sss.html">10.1. A71CH and SSS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_miscellaneous.html">10.2. Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_legacy_host_api.html">10.3. A71CH Legacy API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_legacy_hlse_api.html">10.4. A71CH Legacy HLSE (Generic) API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../a71ch/a71ch_configure_tool.html">10.5. A71CH Legacy Configure Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">11. Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/glossary.html">11.1. Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/vcom.html">11.2. APDU Commands over VCOM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/vs2019-setup.html">11.3. Visual Studio 2019 Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/ide_mcux.html">11.4. Setting up MCUXPresso IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../dev-platforms.html">11.5. Development Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/se_uid.html">11.6. How to get SE Platform Information and UID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/version_info.html">11.7. Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Certificate_Chains/Readme.html">11.8. Certificate Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/rjct_server.html">11.9. JRCP_v1 Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/platfscp.html">11.10. Using own Platform SCP03 Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../appendix/apdu_write_to_buffer.html">11.11. Write APDU to buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/api_list.html">11.12. Plug &amp; Trust MW APIs</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">5.10.5. MIFARE DESFire EV2 : Diversified Change Key</a><ul>
+<li><a class="reference internal" href="#prerequisites">5.10.5.1. Prerequisites</a></li>
+<li><a class="reference internal" href="#about-the-example">5.10.5.2. About the Example</a></li>
+<li><a class="reference internal" href="#running-the-demo">5.10.5.3. Running the Demo</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../se05x_Ev2ChangeKey/readme.html" title="Previous Chapter: 5.10.4. MIFARE DESFire EV2 : Change Key"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 5.10.4. MIFAR...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../../eou_config_ibm.html" title="Next Chapter: 5.11.1. Ease of Use configuration - IBM Watson"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">5.11.1. Ease ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+
+<div class="sidebar-header">
+    <h3>Plug &amp; Trust MW</h3>
+</div>
+
+<div class="row">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">1. NXP Plug &amp; Trust Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes/index.html">2. Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stack/index.html">3. Plug &amp; Trust MW Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../building/index.html">4. Building / Compiling</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">5. Demo and Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#demo-list">5.1. Demo List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#sss-api-examples">5.2. SSS API Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#cloud-demos">5.3. Cloud Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#linux-specific-demos">5.4. Linux Specific Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#opc-ua-example">5.5. OPC-UA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#arm-psa-example">5.6. ARM PSA Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#se05x-examples">5.7. SE05X Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#openssl-examples">5.8. OpenSSL Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tests-for-user-crypto">5.9. Tests for User Crypto</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#nxpnfcrdlib-examples">5.10. NXPNFCRDLIB examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../se05x_Ev2PrepareSE/readme.html">5.10.1. MIFARE DESFire EV2 : Prepare Secure Element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../se05x_Ev2PrepareCard/readme.html">5.10.2. MIFARE DESFire EV2 : Prepare MFDFEV2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../se05x_Ev2Auth/readme.html">5.10.3. MIFARE DESFire EV2 : Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../se05x_Ev2ChangeKey/readme.html">5.10.4. MIFARE DESFire EV2 : Change Key</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.10.5. MIFARE DESFire EV2 : Diversified Change Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#ease-of-use-examples">5.11. Ease-of-Use examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#semslite-examples">5.12. Semslite examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#puf-examples">5.13. PUF examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../edgelock2go-agent.html">6. NXP EdgeLock 2GO Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../semslite/doc/index.html">7. SEMS Lite Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins/index.html">8. Plugins / Add-ins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli-tool.html">9. CLI Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../a71ch.html">10. A71CH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">11. Appendix</a></li>
+</ul>
+
+</div>
+<div class="row">
+    <form class="form" action="../../../search.html" method="get">
+     <div class="form-group">
+      <label for="Search">Search:</label>
+      <input type="text" name="q" class="form-control" placeholder="Search" />
+     </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="mifare-desfire-ev2-diversified-change-key">
+<span id="ex-ev2divchngkey-se05x"></span><h1><span class="section-number">5.10.5. </span>MIFARE DESFire EV2 : Diversified Change Key<a class="headerlink" href="#mifare-desfire-ev2-diversified-change-key" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To run this example, you would need the nxpnfcrdlib component for which a Non-Disclosure Agreement(NDA) needs to be signed. Please contact your FAE for additional details.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2><span class="section-number">5.10.5.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../se05x_Ev2PrepareCard/readme.html#se05x-ev2preparecard"><span class="std std-ref">MIFARE DESFire EV2 : Prepare MFDFEV2</span></a> must have been executed, so that the MIFARE DESFire EV2 card has the required credentials. For relevant platforms, a KSDK package is available.  Please import and execute the example <a class="reference internal" href="../se05x_Ev2PrepareCard/readme.html#se05x-ev2preparecard"><span class="std std-ref">MIFARE DESFire EV2 : Prepare MFDFEV2</span></a>.</p></li>
+<li><p><a class="reference internal" href="../se05x_Ev2PrepareSE/readme.html#se05x-ev2preparese"><span class="std std-ref">MIFARE DESFire EV2 : Prepare Secure Element</span></a> must have been executed, so that the Secure element has the required credentials. For relevant platforms, a KSDK package is available.  Please import and execute the example <a class="reference internal" href="../se05x_Ev2PrepareSE/readme.html#se05x-ev2preparese"><span class="std std-ref">MIFARE DESFire EV2 : Prepare Secure Element</span></a>.</p></li>
+<li><p>Bring Up Hardware. (Refer <a class="reference internal" href="../../../dev-platforms.html#dev-platforms"><span class="std std-ref">Development Platforms</span></a>)</p></li>
+<li><p>Connect RC663 to your microcontroller. (Refer <a class="reference internal" href="../common/doc/mifarekdf_rc663.html#mifarekdf-rc663"><span class="std std-ref">mifarekdf-rc663</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="about-the-example">
+<h2><span class="section-number">5.10.5.2. </span>About the Example<a class="headerlink" href="#about-the-example" title="Permalink to this headline">¶</a></h2>
+<p>This project demonstrates the Mifare Desfire EV2 Diversified
+ChangeKeyEv2 using Seo50. The Key is diversified using the card UID After
+changing Keys, it performs encrypted communication with the desfire EV2
+card using the diversified changed key. If enabled, It also reverts back
+the changed key.</p>
+<p>It uses the following APIs and data types:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1a01e2c452ac977166ece9a243ad9f4a6d.html#_CPPv424Se05x_API_DFDiversifyKey15pSe05xSession_t8uint32_t8uint32_tPK7uint8_t6size_t" title="Se05x_API_DFDiversifyKey"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFDiversifyKey()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1a020220c67014d977d7ae1914049d7761.html#_CPPv426Se05x_API_DFChangeKeyPart115pSe05xSession_t8uint32_t8uint32_t7uint8_t7uint8_t7uint8_tP7uint8_tP6size_t" title="Se05x_API_DFChangeKeyPart1"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFChangeKeyPart1()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1a706e5158d964c0705ab4ff07f525b231.html#_CPPv426Se05x_API_DFChangeKeyPart215pSe05xSession_tPK7uint8_t6size_tP7uint8_t" title="Se05x_API_DFChangeKeyPart2"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFChangeKeyPart2()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1a1a7eebb773a11680803d9b7d0afd3504.html#_CPPv434Se05x_API_DFAuthenticateFirstPart115pSe05xSession_t8uint32_tPK7uint8_t6size_tP7uint8_tP6size_t" title="Se05x_API_DFAuthenticateFirstPart1"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFAuthenticateFirstPart1()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1aba79e505fe4ecec93d85fbc991434163.html#_CPPv437Se05x_API_DFAuthenticateNonFirstPart115pSe05xSession_t8uint32_tPK7uint8_t6size_tP7uint8_tP6size_t" title="Se05x_API_DFAuthenticateNonFirstPart1"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFAuthenticateNonFirstPart1()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1a363fe318e56d5571032a6bc3c663cfc4.html#_CPPv434Se05x_API_DFAuthenticateFirstPart215pSe05xSession_tPK7uint8_t6size_tP7uint8_tP6size_t" title="Se05x_API_DFAuthenticateFirstPart2"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFAuthenticateFirstPart2()</span></code></a></p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFAuthenticateNonFirstPart2()</span></code></p></li>
+<li><p><a class="reference internal" href="../../../api/function_se05x___a_p_d_u__apis_8h_1a7a349cefce392c63402a8a3bfc0fab73.html#_CPPv430Se05x_API_DFKillAuthentication15pSe05xSession_t" title="Se05x_API_DFKillAuthentication"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Se05x_API_DFKillAuthentication()</span></code></a></p></li>
+</ul>
+</div>
+<div class="section" id="running-the-demo">
+<h2><span class="section-number">5.10.5.3. </span>Running the Demo<a class="headerlink" href="#running-the-demo" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Either press the reset button on your board or launch the debugger in your IDE to begin running the demo</p></li>
+</ol>
+<p>If everything is setup correctly the output would be as follows:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>       App:INFO :PlugAndTrust_v02.09.00_20190607
+       sss:INFO :atr (Len=35)
+      00 A0 00 00     03 96 04 03     E8 00 FE 02     0B 03 E8 08
+      01 00 00 00     00 64 00 00     0A 4A 43 4F     50 34 20 41
+      54 50 4F
+       sss:WA       App:INFO :PlugAndTrust_v02.09.00_20190607
+       sss:INFO :atr (Len=35)
+      00 A0 00 00     03 96 04 03     E8 00 FE 02     0B 03 E8 08
+      01 00 00 00     00 64 00 00     0A 4A 43 4F     50 34 20 41
+      54 50 4F
+       sss:WARN :Communication channel is Plain.
+       sss:WARN :!!!Not recommended for production use.!!!
+Tx<span class="p">&gt;</span> 26
+Rx<span class="p">&lt;</span> 04 03
+Tx<span class="p">&gt;</span> 93 20
+Rx<span class="p">&lt;</span> 08 04 4D 8D CC
+Tx<span class="p">&gt;</span> 93 70 08 04 4D 8D CC
+Rx<span class="p">&lt;</span> 20
+UID after L3 Activation 08 04 4D 8D 00 00 00 00 00 00
+Tx<span class="p">&gt;</span> E0 80
+Rx<span class="p">&lt;</span> 06 75 77 81 02 80
+ATS after L4 Activation 06 75 77 81 02 80
+       App:INFO :Auth with the  cardkey 0 and getting the card UID for diversification
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0A 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 0 and Se0Obj ID = 2103308288
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 71 00 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0B 00 AF CB 39 4E 26 F8 1E 1D CE 4B 66 2B E7 64 2D 5D 89
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      CB 39 4E 26     F8 1E 1D CE     4B 66 2B E7     64 2D 5D 89
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      9A 2F 8D 8C     2F 4E 1B C3     F3 D0 ED 84     36 9E DC 03
+      79 A5 27 2A     66 91 F0 6D     EC 4F 90 C7     E5 25 EA 51
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> AF 9A 2F 8D 8C 2F 4E 1B C3 F3 D0 ED 84 36 9E DC 03 79 A5 27 2A 66 91 F0 6D EC 4F 90 C7 E5 25 EA 51
+Rx<span class="p">&lt;</span> 0A 00 00 A1 F9 0D 31 3A 6F 32 F2 06 69 25 1A E7 4E 3F 8C 20 EF B3 14 C5 0F DD A1 80 E3 13 43 C1 18 14 5D
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      A1 F9 0D 31     3A 6F 32 F2     06 69 25 1A     E7 4E 3F 8C
+      20 EF B3 14     C5 0F DD A1     80 E3 13 43     C1 18 14 5D
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      4E 55 15 1D     F5 6C F5 B4     27 2E D1 4E     50 5C C7 22
+       App:INFO :Dumped Session Mac is (Len=16)
+      36 5C C9 22     F2 F7 67 7A     47 71 12 5E     79 3F D5 43
+       App:INFO :Dumped TI is (Len=4)
+      1F C1 6F CF
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 77 00
+Rx<span class="p">&lt;</span> 0B 00 AF 87 4A 81 2F 50 F1 44 55 5F E6 B0 31 AB AD 3B B0
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      87 4A 81 2F     50 F1 44 55     5F E6 B0 31     AB AD 3B B0
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      0D D4 AA 86     A4 CA 79 9B     F3 9D 2E 1F     C1 64 F9 3F
+      47 EF 29 F9     0E 6F F1 C0     1E 0F E4 4E     BB 2D D0 1F
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> AF 0D D4 AA 86 A4 CA 79 9B F3 9D 2E 1F C1 64 F9 3F 47 EF 29 F9 0E 6F F1 C0 1E 0F E4 4E BB 2D D0 1F
+Rx<span class="p">&lt;</span> 0A 00 00 CE 33 17 C3 41 7A 8F DF 04 F9 04 E3 CB 2D 2E BC
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      CE 33 17 C3     41 7A 8F DF     04 F9 04 E3     CB 2D 2E BC
+       App:INFO :Dumped Session Key is (Len=16)
+      38 54 53 76     E8 15 A5 DD     32 28 EB D5     1F 15 87 25
+       App:INFO :Dumped Session Mac is (Len=16)
+      1C A4 94 0C     63 4C E6 63     FB F3 48 A1     8D D9 34 9B
+       App:INFO :Dumped TI is (Len=4)
+      1F C1 6F CF
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 0 and Se0Obj ID = 2103308288
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 51 61 14 F1 85 4C 47 DE 42
+Rx<span class="p">&lt;</span> 0B 00 00 25 D5 5B 00 6B F0 5D A9 C5 15 26 DF C2 96 D3 F3 A6 6B 4C 8E 80 E1 3D 24
+       App:INFO :CARD UID will be used for diversification
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0A 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 0 and Se0Obj ID = 2103308288
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 71 00 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0B 00 AF 6A E9 E5 F3 4C E3 58 E5 DB 1A DE 6B A7 C6 79 68
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      6A E9 E5 F3     4C E3 58 E5     DB 1A DE 6B     A7 C6 79 68
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      54 6B B9 B4     41 F0 3D E6     37 40 28 DA     61 ED 81 97
+      37 50 E0 F2     86 5D E7 E5     A2 F5 1F B5     0B 1A E7 7C
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> AF 54 6B B9 B4 41 F0 3D E6 37 40 28 DA 61 ED 81 97 37 50 E0 F2 86 5D E7 E5 A2 F5 1F B5 0B 1A E7 7C
+Rx<span class="p">&lt;</span> 0A 00 00 46 24 4B 15 7C 8F D5 19 56 32 6F 11 F1 77 4B 91 59 4D CB 02 26 42 49 22 C0 77 8F 67 15 68 74 D4
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      46 24 4B 15     7C 8F D5 19     56 32 6F 11     F1 77 4B 91
+      59 4D CB 02     26 42 49 22     C0 77 8F 67     15 68 74 D4
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      73 DE FB 5D     7C 78 E3 1A     BF 97 53 35     C9 2F F4 12
+       App:INFO :Dumped Session Mac is (Len=16)
+      CB B3 14 4E     D8 15 4E 7D     A2 A1 F9 B4     35 ED E2 4C
+       App:INFO :Dumped TI is (Len=4)
+      8D 19 52 6A
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 77 00
+Rx<span class="p">&lt;</span> 0B 00 AF 6C 35 C4 E2 0D C8 CC 44 69 7C 75 44 7B CA 3F 36
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      6C 35 C4 E2     0D C8 CC 44     69 7C 75 44     7B CA 3F 36
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      42 96 EF CB     C9 41 DD B2     F8 D5 4B 36     7F 7E F1 F0
+      A5 BD E7 FB     46 D1 39 EF     1F 91 61 F4     71 B0 2D BE
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> AF 42 96 EF CB C9 41 DD B2 F8 D5 4B 36 7F 7E F1 F0 A5 BD E7 FB 46 D1 39 EF 1F 91 61 F4 71 B0 2D BE
+Rx<span class="p">&lt;</span> 0A 00 00 3F 69 5E 84 B8 F5 04 F9 3B C3 63 07 67 BE 07 9E
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      3F 69 5E 84     B8 F5 04 F9     3B C3 63 07     67 BE 07 9E
+       App:INFO :Dumped Session Key is (Len=16)
+      4D 43 63 4D     95 98 F9 92     EB F5 AA 3C     7C 42 EE 4C
+       App:INFO :Dumped Session Mac is (Len=16)
+      10 91 B7 3A     B1 B4 2C 74     A2 71 EE 4B     C8 45 94 74
+       App:INFO :Dumped TI is (Len=4)
+      8D 19 52 6A
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 0 and Se0Obj ID = 2103308288
+       App:INFO :attempting to change cardkey = 2 from  Old Se050ObjID= 2103308288 to new Se050ObjID= 2103308289
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> C6 00 02 9A 7A DA 24 18 56 CB C8 65 92 52 07 AF 5C 31 19 EB AF BF 06 CA 98 41 94 9F EE A5 C8 60 86 D5 67 FD 22 6D 6B 75 E4 56 5B
+Rx<span class="p">&lt;</span> 0B 00 00 CA 57 0A F4 56 2C F9 7F
+       App:INFO : Change Key for card key 2 is Successful to Se050ObjID= 2103308289
+
+       App:INFO :Checking that the previous auth session is still valid by trying an encrypted communication
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 51 CA 0E C5 B7 E8 4D BA ED
+Rx<span class="p">&lt;</span> 0A 00 00 CF 11 48 4D 32 34 D9 FE BF B9 F4 24 65 7B EC BC AD 65 93 C8 03 B7 AE 95
+       App:INFO :CARD UID is as below  (Len=7)
+      04 40 40 42     4D 4D 80
+       App:INFO :Previous auth session is still valid
+       App:INFO :Auth with the changed cardkey 2
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0B 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 2 and Se0Obj ID = 2103308289
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 71 02 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0A 00 AF 75 51 82 DB 46 CA A3 B5 C8 1C 3F 16 50 46 0A D4
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      75 51 82 DB     46 CA A3 B5     C8 1C 3F 16     50 46 0A D4
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      6F F3 1E C6     D4 B9 A6 72     DB C6 98 54     6B E8 F4 7F
+      38 E3 CC 2A     34 D2 51 96     B0 D7 D4 A8     A3 30 76 4B
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF 6F F3 1E C6 D4 B9 A6 72 DB C6 98 54 6B E8 F4 7F 38 E3 CC 2A 34 D2 51 96 B0 D7 D4 A8 A3 30 76 4B
+Rx<span class="p">&lt;</span> 0B 00 00 40 93 D2 A1 6B DD B2 1F 6E F4 FA 75 15 28 22 62 18 FD 68 CF AF 1C EC B0 41 4D 08 2E E8 13 4B A1
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      40 93 D2 A1     6B DD B2 1F     6E F4 FA 75     15 28 22 62
+      18 FD 68 CF     AF 1C EC B0     41 4D 08 2E     E8 13 4B A1
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      4A 69 72 BB     62 62 06 2F     02 7E 53 C2     B8 E9 F5 ED
+       App:INFO :Dumped Session Mac is (Len=16)
+      47 AA 13 45     A4 6C 6F 5B     D0 D8 22 C4     F2 75 DD 2C
+       App:INFO :Dumped TI is (Len=4)
+      19 3D B7 F6
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 77 02
+Rx<span class="p">&lt;</span> 0A 00 AF C3 38 BF 4F E5 13 7E 02 2B 8E 21 34 2F 6C 7F 6D
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      C3 38 BF 4F     E5 13 7E 02     2B 8E 21 34     2F 6C 7F 6D
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      42 76 C2 05     F8 D5 37 1D     38 9C B3 95     A9 2A 19 5D
+      75 81 7C 66     7A 53 E0 6D     3C 25 B7 3D     FD C7 38 16
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF 42 76 C2 05 F8 D5 37 1D 38 9C B3 95 A9 2A 19 5D 75 81 7C 66 7A 53 E0 6D 3C 25 B7 3D FD C7 38 16
+Rx<span class="p">&lt;</span> 0B 00 00 12 CA C1 C4 BB B7 23 74 36 D4 17 00 4B FB 44 1F
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      12 CA C1 C4     BB B7 23 74     36 D4 17 00     4B FB 44 1F
+       App:INFO :Dumped Session Key is (Len=16)
+      A2 46 74 CE     9C 90 99 2F     60 04 07 FC     9C B7 E5 3A
+       App:INFO :Dumped Session Mac is (Len=16)
+      1F D2 94 A3     9F AC E6 57     51 9F C1 BC     84 B9 FA 99
+       App:INFO :Dumped TI is (Len=4)
+      19 3D B7 F6
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 2 and Se0Obj ID = 2103308289
+       App:INFO :Checking that the auth session with changed key is valid by trying an encrypted communication
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 51 87 B0 70 A8 75 FC FA 04
+Rx<span class="p">&lt;</span> 0A 00 00 0A 31 4B 0C 44 BB 70 EA 61 31 00 E3 A3 E6 4E 1C 8E 6D 70 2F 86 08 A0 CD
+       App:INFO :CARD UID is as below  (Len=7)
+      04 40 40 42     4D 4D 80
+       App:INFO :Encrypted communication with changed key successful
+       App:INFO :Reverting the changed cardkey 2
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0B 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 0 and Se0Obj ID = 2103308288
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 71 00 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0A 00 AF 95 85 6E 37 62 3C C5 16 A4 C7 A8 D2 6D A5 08 09
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      95 85 6E 37     62 3C C5 16     A4 C7 A8 D2     6D A5 08 09
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      9A C1 0D 08     D6 7F FC 05     3C 2E 7B 9B     5B 8B 98 36
+      29 0E 57 8D     A7 BF 17 61     EB 81 CD 5C     79 2D 98 7B
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF 9A C1 0D 08 D6 7F FC 05 3C 2E 7B 9B 5B 8B 98 36 29 0E 57 8D A7 BF 17 61 EB 81 CD 5C 79 2D 98 7B
+Rx<span class="p">&lt;</span> 0B 00 00 CF 77 E6 A9 D0 03 A7 C5 C2 D1 26 20 17 0C 05 8F E0 65 3D AA 3C F6 5D 5C A2 8E 06 97 0B E6 73 BB
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      CF 77 E6 A9     D0 03 A7 C5     C2 D1 26 20     17 0C 05 8F
+      E0 65 3D AA     3C F6 5D 5C     A2 8E 06 97     0B E6 73 BB
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      B5 0C 47 C4     C4 86 DA EC     E7 D4 C1 9C     09 92 C5 86
+       App:INFO :Dumped Session Mac is (Len=16)
+      C0 36 09 35     9E 9D 00 C5     CC CF 8C 0A     C6 AA 84 93
+       App:INFO :Dumped TI is (Len=4)
+      EE 5C D1 02
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 77 00
+Rx<span class="p">&lt;</span> 0A 00 AF 47 D5 AD E6 D8 9F 13 06 2C F8 32 CE A3 68 61 3A
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      47 D5 AD E6     D8 9F 13 06     2C F8 32 CE     A3 68 61 3A
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      71 83 22 6F     AD FC F8 89     F5 7F 63 15     85 87 EB 29
+      7A 24 30 7F     C7 D1 03 27     0A 93 EE 3F     40 68 A3 1D
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF 71 83 22 6F AD FC F8 89 F5 7F 63 15 85 87 EB 29 7A 24 30 7F C7 D1 03 27 0A 93 EE 3F 40 68 A3 1D
+Rx<span class="p">&lt;</span> 0B 00 00 FF 26 85 C1 A3 96 A2 92 F5 D8 D2 98 A3 56 09 44
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      FF 26 85 C1     A3 96 A2 92     F5 D8 D2 98     A3 56 09 44
+       App:INFO :Dumped Session Key is (Len=16)
+      6A E0 C5 B9     C6 4F C2 75     C9 65 49 D8     91 FC A6 78
+       App:INFO :Dumped Session Mac is (Len=16)
+      A3 1F 10 92     43 D9 D2 63     1E 0C 7C A3     DC 3C 26 EC
+       App:INFO :Dumped TI is (Len=4)
+      EE 5C D1 02
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 0 and Se0Obj ID = 2103308288
+       App:INFO :attempting to change cardkey = 2 from  Old Se050ObjID= 2103308289 to new Se050ObjID= 2103308288
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> C6 00 02 E4 9B D3 FD 14 74 15 DC B2 D9 28 3A C5 9F BD 77 8B 12 78 3E CB 0D 4C 92 66 84 C8 EB 91 0E BA A2 E0 6F 53 AC 51 FC 42 A1
+Rx<span class="p">&lt;</span> 0A 00 00 37 FD 0F 81 21 25 CB 3C
+       App:INFO : Change Key for card key 2 is Successful to Se050ObjID= 2103308288
+
+       App:INFO :Reverting Successful
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0B 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 0 and Se0Obj ID = 2103308288
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 71 00 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0A 00 AF A0 64 12 F1 64 01 26 09 9B 74 F6 84 4E AA DA B1
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      A0 64 12 F1     64 01 26 09     9B 74 F6 84     4E AA DA B1
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      B7 19 71 EE     F0 43 C8 CF     93 C2 9A 9A     E2 22 E3 6C
+      00 93 7E 42     C0 25 16 55     86 78 30 A5     83 DE EB 88
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF B7 19 71 EE F0 43 C8 CF 93 C2 9A 9A E2 22 E3 6C 00 93 7E 42 C0 25 16 55 86 78 30 A5 83 DE EB 88
+Rx<span class="p">&lt;</span> 0B 00 00 06 EF 22 A6 93 17 9D 14 50 C0 B9 34 E7 EA B5 16 3F 2E 8C FE CB 4D 49 1A C5 93 A6 42 6A 01 14 16
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      06 EF 22 A6     93 17 9D 14     50 C0 B9 34     E7 EA B5 16
+      3F 2E 8C FE     CB 4D 49 1A     C5 93 A6 42     6A 01 14 16
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      07 25 BD 23     62 1F B6 B4     AC 19 EF AC     19 BD DA C1
+       App:INFO :Dumped Session Mac is (Len=16)
+      3B 7F 15 CD     91 9C 11 A6     79 E0 34 FC     78 E1 62 89
+       App:INFO :Dumped TI is (Len=4)
+      03 55 8B AB
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 77 00
+Rx<span class="p">&lt;</span> 0A 00 AF F8 AF 69 A2 31 62 00 75 FB 3F 80 DF AE 3C 2E 4C
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      F8 AF 69 A2     31 62 00 75     FB 3F 80 DF     AE 3C 2E 4C
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      CB 08 4D F4     AA D1 42 AB     89 12 22 CA     C4 50 26 39
+      C5 AA 0C 0B     22 46 34 02     BE 41 26 07     A1 26 3A AB
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF CB 08 4D F4 AA D1 42 AB 89 12 22 CA C4 50 26 39 C5 AA 0C 0B 22 46 34 02 BE 41 26 07 A1 26 3A AB
+Rx<span class="p">&lt;</span> 0B 00 00 23 D9 43 F1 D1 3D 8C B0 24 C4 1C EC E1 5F B4 CC
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      23 D9 43 F1     D1 3D 8C B0     24 C4 1C EC     E1 5F B4 CC
+       App:INFO :Dumped Session Key is (Len=16)
+      3C DB CC D7     9F A1 EB BD     A7 79 A7 5C     20 53 B8 E0
+       App:INFO :Dumped Session Mac is (Len=16)
+      98 CF 64 9A     98 09 5B D4     E3 1E 1B D8     D6 E3 A9 34
+       App:INFO :Dumped TI is (Len=4)
+      03 55 8B AB
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 0 and Se0Obj ID = 2103308288
+       App:INFO :attempting to change cardkey = 0 from  Old Se050ObjID= 2103308288 to new Se050ObjID= 2103308289
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> C6 00 00 C0 A4 C0 2A 1C 5E 6C 81 EB 86 97 E6 ED EA A4 56 00 30 3F 72 3E 87 7F 1B E7 05 8E 5C 83 A3 42 8F B0 2A 05 5C C2 1F F5 95
+Rx<span class="p">&lt;</span> 0A 00 00
+       App:INFO : Change Key for card key 0 is Successful to Se050ObjID= 2103308289
+
+       App:INFO :The previous auth session is not valid anymore.
+       App:INFO :So.....
+       App:INFO :Auth with the changed cardkey 0
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0B 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 0 and Se0Obj ID = 2103308289
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 71 00 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0A 00 AF 2C 85 14 8C FB B8 77 28 04 40 21 3B FA F3 4A A9
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      2C 85 14 8C     FB B8 77 28     04 40 21 3B     FA F3 4A A9
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      96 70 F8 24     67 30 ED 30     98 AF 2A EC     3F A1 23 32
+      37 B4 03 7D     E9 A3 8D 3E     E2 46 91 04     26 CD A0 26
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF 96 70 F8 24 67 30 ED 30 98 AF 2A EC 3F A1 23 32 37 B4 03 7D E9 A3 8D 3E E2 46 91 04 26 CD A0 26
+Rx<span class="p">&lt;</span> 0B 00 00 6B 86 58 E8 EA 62 B8 FC 13 7F 05 CC 57 38 5B 4E 2F D0 A7 DF 45 02 29 96 42 2C 07 D3 E1 F6 B8 3D
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      6B 86 58 E8     EA 62 B8 FC     13 7F 05 CC     57 38 5B 4E
+      2F D0 A7 DF     45 02 29 96     42 2C 07 D3     E1 F6 B8 3D
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      C7 98 D4 C6     89 4A CB 9C     7C 7E 4C 2C     3B 19 D5 D1
+       App:INFO :Dumped Session Mac is (Len=16)
+      7D 9A F9 AA     DB A2 BC 68     4F 98 A6 92     7D 92 C4 0C
+       App:INFO :Dumped TI is (Len=4)
+      17 33 24 D0
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 77 00
+Rx<span class="p">&lt;</span> 0A 00 AF CF C0 D0 8F CE C0 26 BE 40 31 0B 0E 3F C2 18 B6
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      CF C0 D0 8F     CE C0 26 BE     40 31 0B 0E     3F C2 18 B6
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      D5 47 2E 21     4A CD 7F 95     A9 0E 82 E1     34 AB 30 3E
+      96 B6 4D 0A     32 B2 9C 7D     DB 83 07 7D     74 E8 11 20
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF D5 47 2E 21 4A CD 7F 95 A9 0E 82 E1 34 AB 30 3E 96 B6 4D 0A 32 B2 9C 7D DB 83 07 7D 74 E8 11 20
+Rx<span class="p">&lt;</span> 0B 00 00 49 CF 34 0C 90 9D 1A 8D FF 2C 73 48 2A 41 88 19
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      49 CF 34 0C     90 9D 1A 8D     FF 2C 73 48     2A 41 88 19
+       App:INFO :Dumped Session Key is (Len=16)
+      34 40 1C 99     E3 5A 4E CD     1A CF 7A 92     4D 73 F6 28
+       App:INFO :Dumped Session Mac is (Len=16)
+      D3 48 4D 4B     17 4E C0 20     D3 6A 24 7C     FC E3 42 DF
+       App:INFO :Dumped TI is (Len=4)
+      17 33 24 D0
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 0 and Se0Obj ID = 2103308289
+       App:INFO :Checking that the auth session with changed key is valid by trying an encrypted communication
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 51 D6 09 AF C6 31 06 8A 65
+Rx<span class="p">&lt;</span> 0A 00 00 98 2B 05 82 82 E6 B4 BB E2 84 13 93 84 EF A7 68 F3 AA D6 08 8E E4 EA 93
+       App:INFO :CARD UID is as below  (Len=7)
+      04 40 40 42     4D 4D 80
+       App:INFO :Encrypted communication with changed key successful
+       App:INFO :Reverting the changed cardkey 0
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> 5A 11 22 33
+Rx<span class="p">&lt;</span> 0B 00 00
+       App:INFO :Select the AFC Application Successful
+
+       App:INFO :attempting to authenticate with cardkey = 0 and Se0Obj ID = 2103308289
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 71 00 06 00 00 00 00 00 00
+Rx<span class="p">&lt;</span> 0A 00 AF 1B 65 22 92 28 22 2E 39 FB BB AF 5F 92 02 0B 48
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      1B 65 22 92     28 22 2E 39     FB BB AF 5F     92 02 0B 48
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      05 FF AE E6     71 6B 12 CF     7A FF B1 AB     7A B0 CF F0
+      14 0D A2 CD     70 74 04 09     B8 EB EF 7F     3C 3E 5E FC
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF 05 FF AE E6 71 6B 12 CF 7A FF B1 AB 7A B0 CF F0 14 0D A2 CD 70 74 04 09 B8 EB EF 7F 3C 3E 5E FC
+Rx<span class="p">&lt;</span> 0B 00 00 BE 19 7B F2 D4 16 7B 3F 6A D3 9B 8A 6A E4 61 D5 BE BE 49 8B 52 56 CA ED FA 4C 43 4D CE 68 ED 62
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      BE 19 7B F2     D4 16 7B 3F     6A D3 9B 8A     6A E4 61 D5
+      BE BE 49 8B     52 56 CA ED     FA 4C 43 4D     CE 68 ED 62
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=12<span class="p">)</span>
+      00 00 00 00     00 00 00 00     00 00 00 00
+       App:INFO :Dumped Session Key is (Len=16)
+      B9 A0 DF 3F     F5 AF 09 AB     DB E5 F2 8C     95 D6 B3 02
+       App:INFO :Dumped Session Mac is (Len=16)
+      BC BE C7 49     26 D2 C2 0D     12 2B A9 D9     8C 86 44 76
+       App:INFO :Dumped TI is (Len=4)
+      3D 06 B4 0F
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 First Authenticate  Successful
+
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> 77 00
+Rx<span class="p">&lt;</span> 0A 00 AF A9 AA 26 E3 BE 9E 1F 08 05 18 F2 18 BB BC C8 8C
+       App:INFO :
+ CARD =====<span class="p">&gt;</span> SE050   16-byte Ek(RndB)  =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      A9 AA 26 E3     BE 9E 1F 08     05 18 F2 18     BB BC C8 8C
+       App:INFO :
+  CARD <span class="p">&lt;</span>====== SE050  E(Kx, RandA <span class="p">||</span> RandB&#39;) =
+ <span class="p">(</span>Len=32<span class="p">)</span>
+      C6 7D DD FE     93 2C 1B 1D     AE 73 E9 55     57 21 5B 67
+      EB 77 CC CB     88 BD FD C2     D1 C6 63 79     8F 56 D6 C1
+Tx<span class="p">&gt;</span> 0B 00
+Tx<span class="p">&gt;</span> AF C6 7D DD FE 93 2C 1B 1D AE 73 E9 55 57 21 5B 67 EB 77 CC CB 88 BD FD C2 D1 C6 63 79 8F 56 D6 C1
+Rx<span class="p">&lt;</span> 0B 00 00 50 1F 48 BB 26 A9 33 96 F8 F0 F6 34 63 83 FE 0A
+       App:INFO :
+  CARD ======<span class="p">&gt;</span> SE050  32-byte E(Kx, TI<span class="p">||</span>RndA&#39;<span class="p">||</span>PDCap2<span class="p">||</span>PCDcap2) =
+ <span class="p">(</span>Len=16<span class="p">)</span>
+      50 1F 48 BB     26 A9 33 96     F8 F0 F6 34     63 83 FE 0A
+       App:INFO :Dumped Session Key is (Len=16)
+      08 C2 12 46     4F 51 3C A9     15 36 9F 4A     61 97 BA C2
+       App:INFO :Dumped Session Mac is (Len=16)
+      91 1E E8 D8     88 58 E4 0A     BB F6 93 B5     FA B5 C9 0B
+       App:INFO :Dumped TI is (Len=4)
+      3D 06 B4 0F
+       App:INFO :pDataParams-<span class="p">&gt;</span>wCmdCtr=0
+       App:INFO : EV2 Following Authenticate  Successful
+
+       App:INFO :Authenticated with cardkey = 0 and Se0Obj ID = 2103308289
+       App:INFO :attempting to change cardkey = 0 from  Old Se050ObjID= 2103308289 to new Se050ObjID= 2103308288
+Tx<span class="p">&gt;</span> 0A 00
+Tx<span class="p">&gt;</span> C6 00 00 42 A7 99 85 84 E2 CA 46 3F D0 E5 12 59 62 F3 17 5E D6 C4 16 E5 09 49 8B 0D AD AD 73 75 20 A1 E7 43 06 EC 4D BC 1A 07 D1
+Rx<span class="p">&lt;</span> 0A 00 00
+       App:INFO : Change Key for card key 0 is Successful to Se050ObjID= 2103308288
+
+       App:INFO :Reverting Successful
+       App:INFO : Auth session is reset in software
+       App:INFO : Auth session is killed in SE
+       App:INFO :ex_sss Finished
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018-2020, NXP.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

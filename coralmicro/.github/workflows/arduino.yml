@@ -1,0 +1,220 @@
+name: CoralMicro Arduino Builder
+
+on:
+  push:
+    branches:
+      - 'main'
+    tags:
+      - 'arduino-*'
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+
+  build-core:
+    strategy:
+      matrix:
+        include:
+          - name: "Ubuntu 20.04"
+            runner: ubuntu-20.04
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          submodules: recursive
+
+      - name: Setup Environment
+        run: bash setup.sh
+
+      - name: Build
+        run: bash build.sh -c -a -f -i
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coral-micro-${{ github.sha }}.tar.bz2
+          path: ${{ github.workspace }}/build/coral-micro-${{ github.sha }}.tar.bz2
+          if-no-files-found: error
+
+  build-linux-flashtool:
+    strategy:
+      matrix:
+        include:
+          - name: "Ubuntu 20.04"
+            runner: ubuntu-20.04
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          submodules: recursive
+
+      - name: Setup Environment
+        run: bash setup.sh
+
+      - name: Build
+        run: bash build.sh -c -a -g -i
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coral-flashtool-linux64-${{ github.sha }}.tar.bz2
+          path: ${{ github.workspace }}/build/coral-flashtool-linux64-${{ github.sha }}.tar.bz2
+          if-no-files-found: error
+
+  build-macos-flashtool:
+    strategy:
+      matrix:
+        include:
+          - name: "macOS Big Sur"
+            runner: macos-11
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          submodules: recursive
+
+      - name: Setup Environment
+        run: bash setup.sh
+
+      - name: Build
+        run: bash build.sh -c -a -g -i
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coral-flashtool-osx-${{ github.sha }}.tar.bz2
+          path: ${{ github.workspace }}/build/coral-flashtool-osx-${{ github.sha }}.tar.bz2
+          if-no-files-found: error
+
+  build-windows-flashtool:
+    strategy:
+      matrix:
+        include:
+          - name: "Windows Server 2019"
+            runner: windows-2019
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
+      - name: Update Submodules
+        run: |
+          git config --system core.longpaths true # Circumvent msys path length limits.
+          git submodule update --init --recursive
+
+      - name: Setup Environment
+        run: |
+          choco upgrade cmake
+          choco upgrade ninja -y
+
+      - name: Build
+        run: |
+          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -G Ninja .
+          python.exe -m pip install -r ${{github.workspace}}/arduino/requirements.txt
+          python.exe ${{github.workspace}}/arduino/package.py --output_dir ${{github.workspace}}/build --flashtool
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coral-flashtool-windows-${{ github.sha }}.tar.bz2
+          path: ${{ github.workspace }}/build/coral-flashtool-windows-${{ github.sha }}.tar.bz2
+          if-no-files-found: error
+
+  create-manifest:
+    needs: [build-core, build-linux-flashtool, build-macos-flashtool, build-windows-flashtool]
+    strategy:
+      matrix:
+        include:
+          - name: "Ubuntu 20.04"
+            runner: ubuntu-20.04
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
+      - uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Start Webserver
+        run: python -m http.server --directory artifacts &
+
+      - name: Setup Environment
+        run: |
+          python -m pip install -r ${{ github.workspace }}/arduino/requirements.txt
+
+      - name: Build
+        run: |
+          python ${{ github.workspace }}/arduino/package.py --output_dir ${{ github.workspace }}/build --manifest \
+            --manifest_revision=9.9.9 \
+            --core_url=http://localhost:8000/coral-micro-${{ github.sha }}.tar.bz2/coral-micro-${{ github.sha }}.tar.bz2 \
+            --linux_flashtool_url=http://localhost:8000/coral-flashtool-linux64-${{ github.sha }}.tar.bz2/coral-flashtool-linux64-${{ github.sha }}.tar.bz2 \
+            --mac_flashtool_url=http://localhost:8000/coral-flashtool-osx-${{ github.sha }}.tar.bz2/coral-flashtool-osx-${{ github.sha }}.tar.bz2 \
+            --win_flashtool_url=http://localhost:8000/coral-flashtool-windows-${{ github.sha }}.tar.bz2/coral-flashtool-windows-${{ github.sha }}.tar.bz2
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: package_coral_index.json
+          path: ${{ github.workspace }}/build/package_coral_index.json
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: 99-coral-micro.rules
+          path: ${{ github.workspace }}/scripts/99-coral-micro.rules
+          if-no-files-found: error
+
+  release:
+    needs: [create-manifest]
+    strategy:
+      matrix:
+        include:
+          - name: "Ubuntu 20.04"
+            runner: ubuntu-20.04
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    if: startsWith(github.ref, 'refs/tags/arduino-')
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Modify Manifest
+        run: |
+          sed -i -e 's#http://localhost:8000#https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}#g' artifacts/package_coral_index.json/package_coral_index.json
+          sed -i -e 's#"version": "9.9.9"#"version": "${{ github.ref_name }}"#g' artifacts/package_coral_index.json/package_coral_index.json
+          sed -i -e 's#"version": "arduino-#"version": "#g' artifacts/package_coral_index.json/package_coral_index.json
+          sed -i -e 's#/coral-micro-${{ github.sha }}.tar.bz2/#/#g' artifacts/package_coral_index.json/package_coral_index.json
+          sed -i -e 's#/coral-flashtool-linux64-${{ github.sha }}.tar.bz2/#/#g' artifacts/package_coral_index.json/package_coral_index.json
+          sed -i -e 's#/coral-flashtool-osx-${{ github.sha }}.tar.bz2/#/#g' artifacts/package_coral_index.json/package_coral_index.json
+          sed -i -e 's#/coral-flashtool-windows-${{ github.sha }}.tar.bz2/#/#g' artifacts/package_coral_index.json/package_coral_index.json
+
+      - uses: softprops/action-gh-release@v1
+        with:
+          prerelease: ${{ contains(github.ref_name, '-pre') }}
+          fail_on_unmatched_files: true
+          files: |
+            artifacts/99-coral-micro.rules/99-coral-micro.rules
+            artifacts/package_coral_index.json/package_coral_index.json
+            artifacts/coral-micro-${{ github.sha }}.tar.bz2/coral-micro-${{ github.sha }}.tar.bz2
+            artifacts/coral-flashtool-linux64-${{ github.sha }}.tar.bz2/coral-flashtool-linux64-${{ github.sha }}.tar.bz2
+            artifacts/coral-flashtool-osx-${{ github.sha }}.tar.bz2/coral-flashtool-osx-${{ github.sha }}.tar.bz2
+            artifacts/coral-flashtool-windows-${{ github.sha }}.tar.bz2/coral-flashtool-windows-${{ github.sha }}.tar.bz2

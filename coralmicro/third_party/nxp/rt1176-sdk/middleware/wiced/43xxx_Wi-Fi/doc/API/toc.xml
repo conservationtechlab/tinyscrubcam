@@ -1,0 +1,1633 @@
+<toc label="Cypress WICED API Reference Guide" topic="index.html">
+  <topic label="WICED Documentation" href="index.html#wiced_docs"/>
+  <topic label="Third Party Documentation" href="index.html#third_party_docs"/>
+  <topic label="WICED Website" href="index.html#wiced_web"/>
+  <topic label="WICED Community Site" href="index.html#wiced_forum"/>
+  <topic label="WICED SDK with PSoC6 Support Licensing Information" href="index.html#wiced_license"/>
+  <topic label="Components" href="modules.html">
+    <topic label="WICED Application Framework" href="group__framework.html">
+      <topic label="DCT" href="group__dct.html">
+        <topic label="wiced_dct_read_lock" href="group__dct.html#ga8a48c1c9301b78369ee89536f0e654d8"/>
+        <topic label="wiced_dct_read_unlock" href="group__dct.html#gadb26e486e7e6fb53d9b0109c5114562d"/>
+        <topic label="wiced_dct_write" href="group__dct.html#ga3fe20b47c74d1c5688c7456296f46a6b"/>
+        <topic label="wiced_dct_write_app_location" href="group__dct.html#gaa367d7b708dc68abc5b3b5285eed6cb0"/>
+        <topic label="wiced_dct_write_boot_details" href="group__dct.html#gac0dffc73914944ea04fcec71d87cb1f2"/>
+      </topic>
+      <topic label="App management" href="group__app.html">
+        <topic label="wiced_framework_app_close" href="group__app.html#ga61c80615415a104cfa899a9c2811d0db"/>
+        <topic label="wiced_framework_app_erase" href="group__app.html#ga2e975758307e13a5297e91ba87be92ef"/>
+        <topic label="wiced_framework_app_get_size" href="group__app.html#gab7940077b147ac7875d9834f3333677b"/>
+        <topic label="wiced_framework_app_open" href="group__app.html#ga6b20da66498ce13984c692ebd70e7704"/>
+        <topic label="wiced_framework_app_read_chunk" href="group__app.html#gae251f144632899c82ebce44fc2c9ff99"/>
+        <topic label="wiced_framework_app_set_size" href="group__app.html#ga66021535bbccf1c6df861b1ec48eb6b5"/>
+        <topic label="wiced_framework_app_write_chunk" href="group__app.html#gae460a0df103eeae9eeeb62dabcc8d3d2"/>
+        <topic label="wiced_framework_reboot" href="group__app.html#gade37a0d63e9ac0c24aeadc184deb0d35"/>
+        <topic label="wiced_framework_set_boot" href="group__app.html#gad2aa8bd6d3c472971da6c58a9106039a"/>
+      </topic>
+      <topic label="Wiced Resource Management API&apos;s" href="group__resourceapi.html">
+        <topic label="resource_free_readonly_buffer" href="group__resourceapi.html#ga1e93d3d2c7e34ad252616ebd196a6326"/>
+        <topic label="resource_get_readonly_buffer" href="group__resourceapi.html#ga37c6b70a3ab4d9c441e885194daf9396"/>
+        <topic label="resource_read" href="group__resourceapi.html#ga547d3e631b3eb8457943092e699b6ff8"/>
+      </topic>
+    </topic>
+    <topic label="Management" href="group__mgmt.html">
+      <topic label="System Monitor" href="group__sysmon.html">
+        <topic label="wiced_register_system_monitor" href="group__sysmon.html#ga1d6e19375f4e9da2b4e75e3e3da74086"/>
+        <topic label="wiced_update_system_monitor" href="group__sysmon.html#ga0f547b69a5fbfc1e4fcc4f77159f3689"/>
+        <topic label="wiced_wakeup_system_monitor_thread" href="group__sysmon.html#ga637930d901fba0cbc807b25b299a1789"/>
+      </topic>
+      <topic label="Initialization &amp; configuration" href="group__wicedcore.html">
+        <topic label="wiced_configure_device" href="group__wicedcore.html#ga32793f5aa7031cc847da6f3bc86a71b3"/>
+        <topic label="wiced_core_deinit" href="group__wicedcore.html#gaf6e09916e2bed788ffa2f03405df8a8d"/>
+        <topic label="wiced_core_init" href="group__wicedcore.html#ga7c502ac66f7cb06ac5b1b0adca7918b5"/>
+        <topic label="wiced_deinit" href="group__wicedcore.html#ga557bc9c1960a7d582de843f6d36ce74f"/>
+        <topic label="wiced_disable_powersave" href="group__wicedcore.html#ga2fcc0c1e885e02196923bc0db960e907"/>
+        <topic label="wiced_enable_powersave" href="group__wicedcore.html#ga88388340a11ffee5b585e4bf4fb2380f"/>
+        <topic label="wiced_init" href="group__wicedcore.html#ga38bda185853db494b36b8ee62e55ff94"/>
+        <topic label="wiced_network_deinit" href="group__wicedcore.html#gafe7cdf40521e868e5870fdb2691eab7f"/>
+        <topic label="wiced_network_init" href="group__wicedcore.html#gac7a082e930f9960db097b7a57f9e82ee"/>
+        <topic label="wiced_reconfigure_device" href="group__wicedcore.html#gad1614760e47a5fb4d009f3f3a5223827"/>
+      </topic>
+      <topic label="Network management" href="group__netmgmt.html">
+        <topic label="wiced_deep_sleep_disable_packet_buffering" href="group__netmgmt.html#ga59aeaf6816897b8823293be8908a27a9"/>
+        <topic label="wiced_deep_sleep_is_networking_idle" href="group__netmgmt.html#gad97e17fe49bcf40fec0e7e4a73e4cc72"/>
+        <topic label="wiced_deep_sleep_save_packet" href="group__netmgmt.html#gaa810fdd4f3e8bffacdb82d0ca8d038ea"/>
+        <topic label="wiced_deep_sleep_set_networking_ready" href="group__netmgmt.html#gada7321ed1ea449a817aa636fd5f7f00e"/>
+        <topic label="wiced_get_default_ready_interface" href="group__netmgmt.html#gaf964beb411fc9086456eed2210c6d4c5"/>
+        <topic label="wiced_get_interface" href="group__netmgmt.html#ga8f2e1de9e5712e4f821635d26ef64562"/>
+        <topic label="wiced_network_create_packet_pool" href="group__netmgmt.html#ga6563f22f3024392f6f6f3343ceb76aea"/>
+        <topic label="wiced_network_deregister_link_callback" href="group__netmgmt.html#ga1ea5ccd750a94af07bf7a9c320119333"/>
+        <topic label="wiced_network_down" href="group__netmgmt.html#gac3f82d2e522c0942442faa03826b6c73"/>
+        <topic label="wiced_network_get_clients_ip_address_list" href="group__netmgmt.html#ga4e4576f0180fce069d5dcfa0c3620b50"/>
+        <topic label="wiced_network_get_hostname" href="group__netmgmt.html#gaaab856c09152a0752530f64bd4e1670d"/>
+        <topic label="wiced_network_is_ip_up" href="group__netmgmt.html#gaafbb771fbfd039eecd97a16cc6ad95fd"/>
+        <topic label="wiced_network_is_up" href="group__netmgmt.html#gaca929d3bfdf44a893d602a278bec8778"/>
+        <topic label="wiced_network_register_link_callback" href="group__netmgmt.html#gadac312c7883c8a1017b57cdb5a65ca23"/>
+        <topic label="wiced_network_resume" href="group__netmgmt.html#gae54d29ef91d77056ae80bc99bdb99482"/>
+        <topic label="wiced_network_resume_after_deep_sleep" href="group__netmgmt.html#gae6e682b1da7fe3a858c17fc05c6c6599"/>
+        <topic label="wiced_network_set_hostname" href="group__netmgmt.html#ga223a6ad985d7ef93e47c4a7fc0ae8763"/>
+        <topic label="wiced_network_suspend" href="group__netmgmt.html#ga7b13df70fb50cdc0fea212bf4cb95434"/>
+        <topic label="wiced_network_up" href="group__netmgmt.html#ga28338e9fcdecb5787a014b990efb2a77"/>
+        <topic label="wiced_network_up_default" href="group__netmgmt.html#ga0cefb1cd81c473b6c8748f11da54d5d7"/>
+        <topic label="wiced_set_interface" href="group__netmgmt.html#ga80709e98bb0b30cf6e902dca5a7e8554"/>
+      </topic>
+    </topic>
+    <topic label="Platform functions" href="group__platform.html">
+      <topic label="UART" href="group__uart.html">
+        <topic label="wiced_uart_deinit" href="group__uart.html#gab916427fb00829178e498ccc191ccdff"/>
+        <topic label="wiced_uart_init" href="group__uart.html#ga9add595d868ba68d535019e58bc06dfe"/>
+        <topic label="wiced_uart_receive_bytes" href="group__uart.html#gaba8af40a3674c81ffc8b9f14deaddfb7"/>
+        <topic label="wiced_uart_transmit_bytes" href="group__uart.html#ga96f97701025ff8b85a4ab6ef799d481b"/>
+      </topic>
+      <topic label="SPI" href="group__spi.html">
+        <topic label="wiced_spi_deinit" href="group__spi.html#gaf7917bb47d3702b60af17512b02f9e27"/>
+        <topic label="wiced_spi_init" href="group__spi.html#gaac38d8f5e97c6505a72b3e6ae1a7dd83"/>
+        <topic label="wiced_spi_slave_deinit" href="group__spi.html#gaf56514aef2976e6f374c19c5c8b0867a"/>
+        <topic label="wiced_spi_slave_generate_interrupt" href="group__spi.html#ga3ee9efc49d468431fc6ba06ec34ae937"/>
+        <topic label="wiced_spi_slave_init" href="group__spi.html#gae5336959b654c023e4b13e8379f17f36"/>
+        <topic label="wiced_spi_slave_receive_command" href="group__spi.html#gaafd1c0838c54a4e616a22d44946b66bd"/>
+        <topic label="wiced_spi_slave_send_error_status" href="group__spi.html#gac370c4eb9eb7b775d31aa3affd9cb961"/>
+        <topic label="wiced_spi_slave_transfer_data" href="group__spi.html#ga7f91105c8a20b848ab91c1b1c1d4d7ab"/>
+        <topic label="wiced_spi_transfer" href="group__spi.html#ga61b905d6302aa06a2636a107784b6fa2"/>
+        <topic label="wiced_spi_transmit" href="group__spi.html#ga99dfccf8f97b047e9e0100dd24ebbc03"/>
+      </topic>
+      <topic label="I2C" href="group__i2c.html">
+        <topic label="wiced_i2c_deinit" href="group__i2c.html#ga854fb719049d8fddcdde687a07eab8f1"/>
+        <topic label="wiced_i2c_init" href="group__i2c.html#ga51b3b880f1a42ec764357feea278684e"/>
+        <topic label="wiced_i2c_init_combined_message" href="group__i2c.html#gae888303b8c4d4c6f3f0bb2c740cec958"/>
+        <topic label="wiced_i2c_init_rx_message" href="group__i2c.html#ga2bd4747bc05e6ac9f4cf44ec062155cd"/>
+        <topic label="wiced_i2c_init_tx_message" href="group__i2c.html#ga9f676926390ac2dd6d6b4cb354ba9e86"/>
+        <topic label="wiced_i2c_probe_device" href="group__i2c.html#gaafc8d59589b28976d6cff7de98604fb6"/>
+        <topic label="wiced_i2c_read" href="group__i2c.html#gae01a1bbd3b3140f6bb30d57a53d739b7"/>
+        <topic label="wiced_i2c_transfer" href="group__i2c.html#ga0ac8529f2da107d9760ad7f8f42360e8"/>
+        <topic label="wiced_i2c_write" href="group__i2c.html#gacb82cdc7e60d1199f880ac08a14e4e76"/>
+      </topic>
+      <topic label="ADC" href="group__adc.html">
+        <topic label="wiced_adc_deinit" href="group__adc.html#ga1b9aded5dac0d4db8753b738a15678d2"/>
+        <topic label="wiced_adc_init" href="group__adc.html#ga9830e0bea7631819438237a1ea020945"/>
+        <topic label="wiced_adc_take_sample" href="group__adc.html#ga47d872d4dd49dd529c7a4fb7873ea536"/>
+        <topic label="wiced_adc_take_sample_stream" href="group__adc.html#gae84442ff3ef9ce681b5f4cd30d224c28"/>
+      </topic>
+      <topic label="GPIO" href="group__gpio.html">
+        <topic label="wiced_gpio_deepsleep_wakeup_enable" href="group__gpio.html#ga1f56230f2590218ddfe82330fefd8530"/>
+        <topic label="wiced_gpio_deinit" href="group__gpio.html#gac9f5c28543c38eed07aa32dc85420a5f"/>
+        <topic label="wiced_gpio_init" href="group__gpio.html#gaa992110378e9a13dba05af1193d716a2"/>
+        <topic label="wiced_gpio_input_get" href="group__gpio.html#ga90d878967b87a7570d03b61a653ea5ff"/>
+        <topic label="wiced_gpio_input_get_bool" href="group__gpio.html#gac3fe56bd81501e4b25e8e643481e61ca"/>
+        <topic label="wiced_gpio_input_irq_disable" href="group__gpio.html#gaaf58cf0e6039af7830ad3fc18125d37a"/>
+        <topic label="wiced_gpio_input_irq_enable" href="group__gpio.html#gaed7ee9b6296f13c5040dbb3aacc90942"/>
+        <topic label="wiced_gpio_output_high" href="group__gpio.html#gae68b81b15db81b3ce1479161631ed238"/>
+        <topic label="wiced_gpio_output_low" href="group__gpio.html#ga62d304818814ac7226e83a969cad8416"/>
+        <topic label="wiced_led_set_state" href="group__gpio.html#ga2f3d94404987acbfcc3c9010058c449f"/>
+      </topic>
+      <topic label="PWM" href="group__pwm.html">
+        <topic label="wiced_pwm_init" href="group__pwm.html#ga4760fa0c7dbd9fd6a9e2db9c772de7de"/>
+        <topic label="wiced_pwm_start" href="group__pwm.html#ga81d6e172aff83d9b28908f37bea2b259"/>
+        <topic label="wiced_pwm_stop" href="group__pwm.html#ga7f2115a5748e029441421cfedefb6bb1"/>
+      </topic>
+      <topic label="Watchdog" href="group__watchdog.html">
+        <topic label="wiced_watchdog_kick" href="group__watchdog.html#gab90c07f9172545d761b3d3bb624da337"/>
+      </topic>
+    </topic>
+    <topic label="CyPE" href="group__wpl.html">
+      <topic label="CyPE Power Event" href="group__wpl__event.html">
+        <topic label="cpl_event_bt_power_state_t" href="group__wpl__event.html#gad188658f896faab5c88049e633bbeb7d">
+          <topic label="EVENT_DESC_BT_POWER_OFF" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7da6c0f904e6312328c2b501fbf6311eb12"/>
+          <topic label="EVENT_DESC_BT_POWER_IDLE" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7da206758883ae2920fc530f095384ddfd4"/>
+          <topic label="EVENT_DESC_BT_POWER_TX" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7da2082a5ae4d3853ad22218456441d8159"/>
+          <topic label="EVENT_DESC_BT_POWER_RX" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7da53cf9bdc85314d0bbb973d8076510935"/>
+          <topic label="EVENT_DESC_BT_POWER_TX_PDS" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7daf8d1f97eedab9a5c6223c29214d9a79c"/>
+          <topic label="EVENT_DESC_BT_POWER_RX_PDS" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7da8e54deac98fe61e7b01efa861e671c57"/>
+          <topic label="EVENT_DESC_BT_POWER_DEEP_SLEEP" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7daa3804180879c042b98bf15c3dcff9bc6"/>
+          <topic label="EVENT_DESC_BT_MAX" href="group__wpl__event.html#ggad188658f896faab5c88049e633bbeb7dabaa48f08ea8fb102216bc7eec4613fd1"/>
+        </topic>
+        <topic label="cpl_event_i2c_state_t" href="group__wpl__event.html#gae766e9fb426c1aadf363097beec1b2fa">
+          <topic label="EVENT_DESC_I2C_IDLE" href="group__wpl__event.html#ggae766e9fb426c1aadf363097beec1b2faad4cf2de61634e2f368772440c0b6d521"/>
+          <topic label="EVENT_DESC_I2C_TX" href="group__wpl__event.html#ggae766e9fb426c1aadf363097beec1b2faa0f9c60e0a7ad5b25423264400e5c17ba"/>
+          <topic label="EVENT_DESC_I2C_RX" href="group__wpl__event.html#ggae766e9fb426c1aadf363097beec1b2faa8af81d927353a28dc26be65a87135bc9"/>
+          <topic label="EVENT_DESC_I2C_MAX" href="group__wpl__event.html#ggae766e9fb426c1aadf363097beec1b2faaeceaf8aed263d76b4267a281c66bbe87"/>
+        </topic>
+        <topic label="cpl_event_id_t" href="group__wpl__event.html#gaf7dda817dced930b804235a29067fb1a">
+          <topic label="EVENT_ID_POWERSTATE" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa285aebb209f78f3c6d9066cb8ad1c265"/>
+          <topic label="EVENT_ID_FLASH" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aab840cac471ab9d7527aa9dcb05fe4162"/>
+          <topic label="EVENT_ID_UART" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa3c7a2bad41028339de227528d339cc5a"/>
+          <topic label="EVENT_ID_WIFI_DATA" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa5e706fa337a1980e0c86c29144a5a4cc"/>
+          <topic label="EVENT_ID_I2S" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa684e91b5352c3365a8026a987a6e82ed"/>
+          <topic label="EVENT_ID_PROFILING" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa47dffacb80b66712e6431185fba30bcc"/>
+          <topic label="EVENT_ID_BT_DATA" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa336d18e5ed28c4c744a670d48e423799"/>
+          <topic label="EVENT_ID_I2C" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aacd0e8b1bb1ca116ca358f9e3c2d5e7e9"/>
+          <topic label="EVENT_ID_SPI_SFLASH" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aaabce82e06ada40dcfee08c2ffb0b6ec4"/>
+          <topic label="EVENT_ID_SDIO" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa26177cd83e62571e4c042abdabe23884"/>
+          <topic label="EVENT_ID_SPI_1" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa6b360e3b425ff4ff1684e16ff957c97e"/>
+          <topic label="EVENT_ID_MAX" href="group__wpl__event.html#ggaf7dda817dced930b804235a29067fb1aa54471df8966564b16aca326f0ab20b59"/>
+        </topic>
+        <topic label="cpl_event_power_state_t" href="group__wpl__event.html#ga3842bf2f72d9720728f5c1c67067644d">
+          <topic label="EVENT_DESC_POWER_ACTIVE1" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644dad8a28382b0cf9e57ba98251ba23fa1c4"/>
+          <topic label="EVENT_DESC_POWER_ACTIVE2" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644da10ae47dc3d06b03b61986176d686a7ee"/>
+          <topic label="EVENT_DESC_POWER_SLEEP" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644daba5da4848badd1460c0ec419d8d42056"/>
+          <topic label="EVENT_DESC_POWER_DEEPSLEEP" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644da03faa12fe36ac5019d90743906d03b72"/>
+          <topic label="EVENT_DESC_POWER_OFF" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644dad95faddfdde7bde9250006ff32037502"/>
+          <topic label="EVENT_DESC_POWER_HIBERNATE" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644da7383cd329bf7f21e55d15d8f17540104"/>
+          <topic label="EVENT_DESC_POWER_PDS" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644da6fedd62559c5d552324afd33df1e660a"/>
+          <topic label="EVENT_DESC_MAX" href="group__wpl__event.html#gga3842bf2f72d9720728f5c1c67067644dac0dc4b54d380f249ed4293ed3c1aee74"/>
+        </topic>
+        <topic label="cpl_event_profiling_state_t" href="group__wpl__event.html#ga83a36894fbdd9a61da4b78210484145e">
+          <topic label="EVENT_DESC_FUNC_IDLE" href="group__wpl__event.html#gga83a36894fbdd9a61da4b78210484145eaffc5834d49bb2355dc9045757a631ee9"/>
+          <topic label="EVENT_DESC_FUNC_TIME" href="group__wpl__event.html#gga83a36894fbdd9a61da4b78210484145ea1f198aec560a4752250cb5897041e8f5"/>
+        </topic>
+        <topic label="cpl_event_sdio_state_t" href="group__wpl__event.html#ga20fb23d6fbdc7f5b6a8d891fb6e171f7">
+          <topic label="EVENT_DESC_SDIO_IDLE" href="group__wpl__event.html#gga20fb23d6fbdc7f5b6a8d891fb6e171f7a4ec5a7f9f0c3ca5e94b28ae7c15caf8d"/>
+          <topic label="EVENT_DESC_SDIO_READ" href="group__wpl__event.html#gga20fb23d6fbdc7f5b6a8d891fb6e171f7a422cb6c622037bfa0b8d0af0554f9ef7"/>
+          <topic label="EVENT_DESC_SDIO_WRITE" href="group__wpl__event.html#gga20fb23d6fbdc7f5b6a8d891fb6e171f7a7d03c73b205a291de79dd1c1f01159f6"/>
+          <topic label="EVENT_DESC_SDIO_MAX" href="group__wpl__event.html#gga20fb23d6fbdc7f5b6a8d891fb6e171f7ae7c103f1bc7d21f25924a461ce7550e3"/>
+        </topic>
+        <topic label="cpl_event_spi_sflash_state_t" href="group__wpl__event.html#gacfbdf923f6a16d72d5c92269a0aeabe0">
+          <topic label="EVENT_DESC_SPI_SFLASH_IDLE" href="group__wpl__event.html#ggacfbdf923f6a16d72d5c92269a0aeabe0a41986fe880fbc7317b3c4ebfa3fc3876"/>
+          <topic label="EVENT_DESC_SPI_SFLASH_READ" href="group__wpl__event.html#ggacfbdf923f6a16d72d5c92269a0aeabe0a992d83c07d9e8f7607bb6ff8b65b5b4c"/>
+          <topic label="EVENT_DESC_SPI_SFLASH_WRITE" href="group__wpl__event.html#ggacfbdf923f6a16d72d5c92269a0aeabe0a09c2e543801d9baa3068863edba1e260"/>
+          <topic label="EVENT_DESC_SPI_SFLASH_ERASE" href="group__wpl__event.html#ggacfbdf923f6a16d72d5c92269a0aeabe0aabcf85ec9bdbd690c2ebe1b6af89a6c3"/>
+          <topic label="EVENT_DESC_SPI_SFLASH_MAX" href="group__wpl__event.html#ggacfbdf923f6a16d72d5c92269a0aeabe0adafe1c19f9943c6006589b2673ca32d6"/>
+        </topic>
+        <topic label="cpl_event_spi_state_t" href="group__wpl__event.html#gabf597cc7a68a42ad6909cd0be3f2a61b">
+          <topic label="EVENT_DESC_SPI_OFF" href="group__wpl__event.html#ggabf597cc7a68a42ad6909cd0be3f2a61ba30a22f1ab9dae5f76acc147db46457a6"/>
+          <topic label="EVENT_DESC_SPI_IDLE" href="group__wpl__event.html#ggabf597cc7a68a42ad6909cd0be3f2a61bab93d22a8a0526b919a0677ec54a9e859"/>
+          <topic label="EVENT_DESC_SPI_READ" href="group__wpl__event.html#ggabf597cc7a68a42ad6909cd0be3f2a61ba54e7e66161e6eecdf9def900cdef6f17"/>
+          <topic label="EVENT_DESC_SPI_WRITE" href="group__wpl__event.html#ggabf597cc7a68a42ad6909cd0be3f2a61bad90cdb768d2a26d6b3e609264161d8e4"/>
+          <topic label="EVENT_DESC_SPI_MAX" href="group__wpl__event.html#ggabf597cc7a68a42ad6909cd0be3f2a61baf5299312160cc886edecfe0b3c3a3d4c"/>
+        </topic>
+        <topic label="cpl_event_uart_state_t" href="group__wpl__event.html#gab258d4bd72991292c8d0daa660a54681">
+          <topic label="EVENT_DESC_UART_IDLE" href="group__wpl__event.html#ggab258d4bd72991292c8d0daa660a54681a875320fd76e0e530dccf79d35da42d97"/>
+          <topic label="EVENT_DESC_UART_TX" href="group__wpl__event.html#ggab258d4bd72991292c8d0daa660a54681a1ca5148c09e79affcb5581069b4dcc27"/>
+          <topic label="EVENT_DESC_UART_RX" href="group__wpl__event.html#ggab258d4bd72991292c8d0daa660a54681a4d1f51c3a48805be7f31d7c6f24ab301"/>
+          <topic label="EVENT_DESC_UART_MAX" href="group__wpl__event.html#ggab258d4bd72991292c8d0daa660a54681acfbea09b03dd341ba87e4cbe9a69cd05"/>
+        </topic>
+        <topic label="cpl_event_wifi_rate_type_t" href="group__wpl__event.html#ga4d2db9adf2546c451dd3d2cfab90db66">
+          <topic label="EVENT_DESC_WIFI_MCS_RATE" href="group__wpl__event.html#gga4d2db9adf2546c451dd3d2cfab90db66a19a1c05aaef13773299010d29563bcbb"/>
+          <topic label="EVENT_DESC_WIFI_VHT_RATE" href="group__wpl__event.html#gga4d2db9adf2546c451dd3d2cfab90db66a989a8a9f05065467d3e8cc9980bd5106"/>
+        </topic>
+        <topic label="cpl_event_wifi_state_t" href="group__wpl__event.html#gaf55ac90b85f2b92e3c853ba4e29cf77d">
+          <topic label="EVENT_DESC_WIFI_IDLE" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da3dfce709f650ff97c9dab25997743e02"/>
+          <topic label="EVENT_DESC_WIFI_BAND" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da5d0ddaef4c6c832d96ee15faafb4d048"/>
+          <topic label="EVENT_DESC_WIFI_BW" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da7dfb2f029cc3ea8230871471f332b29c"/>
+          <topic label="EVENT_DESC_WIFI_PMMODE" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da4ac0d87851cbbe9eb9e2acc30858d172"/>
+          <topic label="EVENT_DESC_WIFI_RATE_TYPE" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77dae22735ef73fdd63b9b9b09a0789bd243"/>
+          <topic label="EVENT_DESC_WIFI_UP_STATUS" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da08fc34d2d8c345aa34dad1235f6bda1f"/>
+          <topic label="EVENT_DESC_WIFI_TXRX_FRAG" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77dace88bcf14ea0fda521ade7e94a946855"/>
+          <topic label="EVENT_DESC_WIFI_SCAN_TIME" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da6b5a52ae9a6f629a41d496837baca4be"/>
+          <topic label="EVENT_DESC_WIFI_JOIN_TIME" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da01b5fdf416178d152fe7dd77c2ced3d8"/>
+          <topic label="EVENT_DESC_WIFI_RATE0" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da1c3ee68a45263d8129d74f45a07ba4c8"/>
+          <topic label="EVENT_DESC_WIFI_RATE1" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da95cd4700054becc49f39a8d4518121f5"/>
+          <topic label="EVENT_DESC_WIFI_RATE2" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77dae0f1959ec1ec8e89ec16daf943319a36"/>
+          <topic label="EVENT_DESC_WIFI_RATE3" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da09ee9caa5e38947fd1e44161464ba0c1"/>
+          <topic label="EVENT_DESC_WIFI_RATE4" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da49f05a931f9c5e40b0cd7478002c97b8"/>
+          <topic label="EVENT_DESC_WIFI_RATE5" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da35779c2630fa533ba6f1c3d59cb82341"/>
+          <topic label="EVENT_DESC_WIFI_RATE6" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da914407033df70d677d9d38e55304bc96"/>
+          <topic label="EVENT_DESC_WIFI_RATE7" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77dad485898f40f90d9b47d6301d4610edf5"/>
+          <topic label="EVENT_DESC_WIFI_RATE8" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77da372025dc51d93baf4f6f80371c142213"/>
+          <topic label="EVENT_DESC_WIFI_RATE9" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77daee58ddbb88909cf1f841a4b9e1c712a3"/>
+          <topic label="EVENT_DESC_WIFI_MAX" href="group__wpl__event.html#ggaf55ac90b85f2b92e3c853ba4e29cf77daa5f35b186b6cfbb4646a24f46119b181"/>
+        </topic>
+        <topic label="cpl_procid_t" href="group__wpl__event.html#gaf1c716d8b62763b0dc37aeae1d81435c">
+          <topic label="EVENT_PROC_ID_MCU" href="group__wpl__event.html#ggaf1c716d8b62763b0dc37aeae1d81435ca1e7c1857210ad7e29d6cbafab318d5e8"/>
+          <topic label="EVENT_PROC_ID_WIFI" href="group__wpl__event.html#ggaf1c716d8b62763b0dc37aeae1d81435cafeaefa7ed4738b9770e4302e5e3a30ec"/>
+          <topic label="EVENT_PROC_ID_BT" href="group__wpl__event.html#ggaf1c716d8b62763b0dc37aeae1d81435ca3314b2a21510c8982a6d00b1f8f21d6b"/>
+          <topic label="EVENT_PROC_ID_MAX" href="group__wpl__event.html#ggaf1c716d8b62763b0dc37aeae1d81435ca643d9ed8bd096f6fde118480571227d7"/>
+        </topic>
+      </topic>
+      <topic label="CyPE Functions" href="group__wpl__api.html">
+        <topic label="WICED_POWER_LOGGER" href="group__wpl__api.html#ga7ccde9388248fd52b0c6054ef088d8f7"/>
+        <topic label="WICED_POWER_LOGGER_DATA" href="group__wpl__api.html#ga35f164705e912de7b83d833f74781f71"/>
+        <topic label="WPL_START" href="group__wpl__api.html#gabc81c4aa12c064cd8af9f98a90031d01"/>
+      </topic>
+    </topic>
+    <topic label="RTOS" href="group__rtos.html">
+      <topic label="Threads" href="group__threads.html">
+        <topic label="wiced_rtos_check_stack" href="group__threads.html#ga62323073bab8a346f505b92f31c1c031"/>
+        <topic label="wiced_rtos_create_thread" href="group__threads.html#gad10b5745c972ab9ba39ec3321604be2b"/>
+        <topic label="wiced_rtos_create_thread_with_stack" href="group__threads.html#ga9218c6488d2f78dc4b51a56d6f64e3bc"/>
+        <topic label="wiced_rtos_delay_microseconds" href="group__threads.html#gae41ed6a8aec436bb76711831dccf9224"/>
+        <topic label="wiced_rtos_delay_milliseconds" href="group__threads.html#ga47998e0aee7aff280ac3bbfb7234e1e5"/>
+        <topic label="wiced_rtos_delete_thread" href="group__threads.html#ga23484d9c0c0b723c13eb05ff94ec0884"/>
+        <topic label="wiced_rtos_is_current_thread" href="group__threads.html#ga4064584fed8765160ed2f6fa941b32d9"/>
+        <topic label="wiced_rtos_thread_force_awake" href="group__threads.html#gaba4ab4de1a97530b90dfce90869fd2b3"/>
+        <topic label="wiced_rtos_thread_join" href="group__threads.html#gab808616a6761482cf2462029617d9377"/>
+        <topic label="wiced_rtos_thread_yield" href="group__threads.html#ga82597baf5e1c7f972fcf9686026ccb6e"/>
+      </topic>
+      <topic label="Semaphores" href="group__semaphores.html">
+        <topic label="wiced_rtos_deinit_semaphore" href="group__semaphores.html#ga12e5ee1736da2e2d50588abb54289a0c"/>
+        <topic label="wiced_rtos_get_semaphore" href="group__semaphores.html#ga88c25e34eaa5e105c0f7e523324cc21b"/>
+        <topic label="wiced_rtos_init_semaphore" href="group__semaphores.html#ga86a735aedb9979dd5e411ddb88ade867"/>
+        <topic label="wiced_rtos_set_semaphore" href="group__semaphores.html#gaa97450c418dc6bab5d42a09caa0c862d"/>
+      </topic>
+      <topic label="Mutexes" href="group__mutexes.html">
+        <topic label="wiced_rtos_deinit_mutex" href="group__mutexes.html#gaf2a7aae4fc108c8cff63397a16967724"/>
+        <topic label="wiced_rtos_init_mutex" href="group__mutexes.html#ga081e5859dcf5719eb734e622f858fbe6"/>
+        <topic label="wiced_rtos_lock_mutex" href="group__mutexes.html#ga1da1dcd1b52dd251f955a0b70c285736"/>
+        <topic label="wiced_rtos_unlock_mutex" href="group__mutexes.html#gaf26c5eebb920a389bdda5765c7383145"/>
+      </topic>
+      <topic label="Queues" href="group__queues.html">
+        <topic label="wiced_rtos_deinit_queue" href="group__queues.html#ga4241e95121350d26f72b8af575ad549b"/>
+        <topic label="wiced_rtos_get_queue_occupancy" href="group__queues.html#ga69ea6db3327987f55f50f4b1461ceeb2"/>
+        <topic label="wiced_rtos_init_queue" href="group__queues.html#ga5a1885df28aa1e146ca1e334f4997787"/>
+        <topic label="wiced_rtos_is_queue_empty" href="group__queues.html#gaa25255f93948bba8dec1cd74ad875000"/>
+        <topic label="wiced_rtos_is_queue_full" href="group__queues.html#gae24567ea636395b9c7de6d7923e3a97d"/>
+        <topic label="wiced_rtos_pop_from_queue" href="group__queues.html#ga199073726dff5306e1344c1b92818216"/>
+        <topic label="wiced_rtos_push_to_queue" href="group__queues.html#ga6237b01c648e5025cff6e59e3c78292b"/>
+      </topic>
+      <topic label="RTOS timers" href="group__rtostmr.html">
+        <topic label="wiced_rtos_deinit_timer" href="group__rtostmr.html#ga9bf23b8ad6c2a4c0fe22223fea835bd7"/>
+        <topic label="wiced_rtos_init_timer" href="group__rtostmr.html#ga286ce2bb2e2be4c138267b01c7345060"/>
+        <topic label="wiced_rtos_is_timer_running" href="group__rtostmr.html#gaa904eafdf60fc232d0cbeb280a954eda"/>
+        <topic label="wiced_rtos_start_timer" href="group__rtostmr.html#ga979c9b7fd218deed02b2176abfa11df7"/>
+        <topic label="wiced_rtos_stop_timer" href="group__rtostmr.html#ga03a49a8efa4003c39c61905c1847e559"/>
+      </topic>
+      <topic label="Worker Threads" href="group__worker.html">
+        <topic label="wiced_rtos_create_worker_thread" href="group__worker.html#gaf63122ce49af8be44b0220a09f123a29"/>
+        <topic label="wiced_rtos_delete_worker_thread" href="group__worker.html#gaa67abe57b37257a9b037d8b96464e226"/>
+      </topic>
+      <topic label="Events" href="group__events.html">
+        <topic label="wiced_rtos_deregister_timed_event" href="group__events.html#ga2ab1054524338dcd4c89893760b36c03"/>
+        <topic label="wiced_rtos_register_timed_event" href="group__events.html#gae4a50af644873c65ad3c73b19b7e5bf8"/>
+        <topic label="wiced_rtos_send_asynchronous_event" href="group__events.html#ga1ef76a6565d173a60637146fd073aa93"/>
+      </topic>
+      <topic label="Event Flags" href="group__eventflags.html">
+        <topic label="wiced_rtos_deinit_event_flags" href="group__eventflags.html#ga689517e95093a9d76ac01635bff0f766"/>
+        <topic label="wiced_rtos_init_event_flags" href="group__eventflags.html#gab3c048d1ada42601b7e0532a68d87692"/>
+        <topic label="wiced_rtos_set_event_flags" href="group__eventflags.html#gaa43000da1e8402b4e427f13cb416c1a6"/>
+        <topic label="wiced_rtos_wait_for_event_flags" href="group__eventflags.html#gae84b75998da2d72e3c03eeceb1a0e2e9"/>
+      </topic>
+    </topic>
+    <topic label="IP Communication" href="group__ipcoms.html">
+      <topic label="SSDP" href="group__ssdp.html">
+        <topic label="wiced_ssdp_notify_callback_t" href="group__ssdp.html#gae0307d99d5ba8a389feda1654cd874c0"/>
+        <topic label="wiced_ssdp_deinit" href="group__ssdp.html#gad6f5491545caf47bd30fb397da6e1700"/>
+        <topic label="wiced_ssdp_dump_debug_info" href="group__ssdp.html#ga6ea0079c8c134e6eaf3ebb68d6f9cddf"/>
+        <topic label="wiced_ssdp_init" href="group__ssdp.html#ga209a522a70ca09c5abc95e2465f740e4"/>
+        <topic label="wiced_ssdp_notify_register_callback" href="group__ssdp.html#ga531b7b395ef6ad0d3e8317149521f11b"/>
+        <topic label="wiced_ssdp_send_msearch_wait_for_results" href="group__ssdp.html#ga63b51f63ade71418f541fd6ee09998df"/>
+        <topic label="wiced_ssdp_set_log_level" href="group__ssdp.html#gab95e617ed0b0d112d76378bdd254e4c8"/>
+      </topic>
+      <topic label="DHCP Server" href="group__dhcp.html">
+        <topic label="wiced_get_clients_ip_address_list_dhcp_server" href="group__dhcp.html#ga7bb6deae8fc02a0ec18ea6af469dec02"/>
+        <topic label="wiced_start_dhcp_server" href="group__dhcp.html#gaa17a077e9b812e3e545d8115b9fd94c0"/>
+        <topic label="wiced_stop_dhcp_server" href="group__dhcp.html#ga4e4bd703ea6eda5e776bcb5ffa1dd1ed"/>
+      </topic>
+      <topic label="WebSocket" href="group__websocket.html">
+        <topic label="wiced_websocket_close" href="group__websocket.html#ga094527ae5be34863ae04c24fb0c08f7f"/>
+        <topic label="wiced_websocket_connect" href="group__websocket.html#ga826f76f0db6effd334b48698cb997730"/>
+        <topic label="wiced_websocket_initialise" href="group__websocket.html#ga8c96a2e886004cf947efac4a6747f0cc"/>
+        <topic label="wiced_websocket_register_callbacks" href="group__websocket.html#gaa46888c30d1dba7e55c4e8747b7186a3"/>
+        <topic label="wiced_websocket_secure_connect" href="group__websocket.html#gad262d0e0f539df63b1ee6414ac9f4d34"/>
+        <topic label="wiced_websocket_send" href="group__websocket.html#ga77b61800b5be8da3841eff13f59d18cf"/>
+        <topic label="wiced_websocket_server_start" href="group__websocket.html#ga345a44a4542f77c850a5d3e05a5528fb"/>
+        <topic label="wiced_websocket_server_stop" href="group__websocket.html#gaa23ff6160d661cf8341a61837dd40000"/>
+        <topic label="wiced_websocket_uninitialise" href="group__websocket.html#ga2eff68b2047ac78121632d6094d158de"/>
+        <topic label="wiced_websocket_unregister_callbacks" href="group__websocket.html#gaa7fbf72fb2560352d523e00ea54befbe"/>
+      </topic>
+      <topic label="MQTT" href="group__mqtt.html">
+        <topic label="wiced_mqtt_connect" href="group__mqtt.html#ga92fc1cd19bfa3c61c528f7ae5f426cf8"/>
+        <topic label="wiced_mqtt_deinit" href="group__mqtt.html#ga8fd495cd9cc157ab05cddf963634582e"/>
+        <topic label="wiced_mqtt_disconnect" href="group__mqtt.html#ga7902d9933a6caea01d13720b2d9e3fbe"/>
+        <topic label="wiced_mqtt_init" href="group__mqtt.html#ga123c4da48e5fdae776ec9b92d4c2f604"/>
+        <topic label="wiced_mqtt_publish" href="group__mqtt.html#ga3bc2fb95c7e731b18efcfed44618c434"/>
+        <topic label="wiced_mqtt_subscribe" href="group__mqtt.html#gab5aed6668c3496496dcb245116d90e93"/>
+        <topic label="wiced_mqtt_unsubscribe" href="group__mqtt.html#ga12755a2c37084d67cb68b6c9b17c1d54"/>
+      </topic>
+      <topic label="DTLS Security" href="group__dtls.html">
+        <topic label="wiced_dtls_add_psk_identity" href="group__dtls.html#ga31383cb27dcb100c89dcfba442aab140"/>
+        <topic label="wiced_dtls_deinit_context" href="group__dtls.html#ga9ee332f24124133bd4dd56d84b8dad06"/>
+        <topic label="wiced_dtls_deinit_identity" href="group__dtls.html#ga501da3696e9f1263c1779be229d3c397"/>
+        <topic label="wiced_dtls_init_context" href="group__dtls.html#ga17df0d81f6b67dbd138b40d4fc66cff8"/>
+        <topic label="wiced_dtls_init_identity" href="group__dtls.html#gafb2e05c5233acf05eb2d4006880d25ac"/>
+        <topic label="wiced_dtls_remove_psk_identity" href="group__dtls.html#ga20a20c78e4a1efc45648d5380bb59bcd"/>
+      </topic>
+      <topic label="TCP" href="group__tcp.html">
+        <topic label="TCP packet comms" href="group__tcppkt.html">
+          <topic label="wiced_tcp_receive" href="group__tcppkt.html#gacd9f6570935e98f4602d93789404cf76"/>
+          <topic label="wiced_tcp_send_packet" href="group__tcppkt.html#ga315986990c1f41f01663f1a70efdd57f"/>
+        </topic>
+        <topic label="TCP buffer comms" href="group__tcpbfr.html">
+          <topic label="wiced_tcp_send_buffer" href="group__tcpbfr.html#gac118584f39c77af43c973b02e7053f3b"/>
+        </topic>
+        <topic label="TCP stream comms" href="group__tcpstream.html">
+          <topic label="wiced_tcp_stream_deinit" href="group__tcpstream.html#gab8f2b05f971383716de4c3a8574527d0"/>
+          <topic label="wiced_tcp_stream_flush" href="group__tcpstream.html#gadf92a6022a1e9f4746e118cd96e9535c"/>
+          <topic label="wiced_tcp_stream_init" href="group__tcpstream.html#ga7146259d95dfd9306e6da7ddfaa7d149"/>
+          <topic label="wiced_tcp_stream_read" href="group__tcpstream.html#ga09011836235ae4399bb0eb3c70d81a52"/>
+          <topic label="wiced_tcp_stream_read_with_count" href="group__tcpstream.html#ga7b793b7284df46a614777377f3ee58af"/>
+          <topic label="wiced_tcp_stream_write" href="group__tcpstream.html#gafbeb9596e08351b93a806a7666ac7920"/>
+          <topic label="wiced_tcp_stream_write_resource" href="group__tcpstream.html#ga9976a9f3b92b36b76f86e1bd2611c8e7"/>
+        </topic>
+        <topic label="TCP server comms" href="group__tcpserver.html">
+          <topic label="wiced_tcp_get_socket_state" href="group__tcpserver.html#ga3ce78fae4d6b1c477f17c732f5b0ca8d"/>
+          <topic label="wiced_tcp_server_accept" href="group__tcpserver.html#ga5bf07938926f80ddbb81651d0a022cc8"/>
+          <topic label="wiced_tcp_server_disconnect_socket" href="group__tcpserver.html#ga56ed625caf314c000bc5ad327fc906e4"/>
+          <topic label="wiced_tcp_server_disconnect_socket_with_timeout" href="group__tcpserver.html#gabba71aa31c8530d604b93a195c6a93f8"/>
+          <topic label="wiced_tcp_server_enable_tls" href="group__tcpserver.html#gabb2e994ff2ba0979de1cca43dab2a2b3"/>
+          <topic label="wiced_tcp_server_start" href="group__tcpserver.html#ga5fe9c620a48b4f5957f18ed7b141f8c8"/>
+          <topic label="wiced_tcp_server_stop" href="group__tcpserver.html#gaf7c249ae3118f43841cd3858142212f1"/>
+        </topic>
+        <topic label="wiced_generic_start_tls_with_ciphers" href="group__tcp.html#ga8d04f457900e81e7c3ddd7afac1fb4ff"/>
+        <topic label="wiced_tcp_accept" href="group__tcp.html#gaf0328a5cb53fde8d32ec0341271b3ef6"/>
+        <topic label="wiced_tcp_bind" href="group__tcp.html#gaca7d00f4aad7cf2c47cf32996803def1"/>
+        <topic label="wiced_tcp_client_peer" href="group__tcp.html#ga26c1d41b7dfd5bf27aaf756e5807bc87"/>
+        <topic label="wiced_tcp_connect" href="group__tcp.html#ga51aa9df02b62a94edad1643e635e42a3"/>
+        <topic label="wiced_tcp_create_socket" href="group__tcp.html#ga7e872af55b2a7a3bdf84bf0dfcae19d2"/>
+        <topic label="wiced_tcp_delete_socket" href="group__tcp.html#gadbf49726f7962e9b5142f9a9d9a50229"/>
+        <topic label="wiced_tcp_disconnect" href="group__tcp.html#ga2c022288f4f412250189eb73f4591e78"/>
+        <topic label="wiced_tcp_disconnect_with_timeout" href="group__tcp.html#gac9475e2548a3f254e8e2c8fc074e64fd"/>
+        <topic label="wiced_tcp_enable_tls" href="group__tcp.html#gaa8bbc73b48f9fd23bf92324e83dbe655"/>
+        <topic label="wiced_tcp_listen" href="group__tcp.html#ga6954d52ed68db6db3df9872926ff301c"/>
+        <topic label="wiced_tcp_register_callbacks" href="group__tcp.html#ga21113b13cce1f934ac7d3700278f8145"/>
+        <topic label="wiced_tcp_server_peer" href="group__tcp.html#ga77cc2a7ed9597cba008cdf178b9703df"/>
+        <topic label="wiced_tcp_set_type_of_service" href="group__tcp.html#gabc1d17812921dd8428b05985c462b258"/>
+        <topic label="wiced_tcp_start_tls" href="group__tcp.html#gae25065d3b56d32fef81c175babc2274a"/>
+        <topic label="wiced_tcp_unregister_callbacks" href="group__tcp.html#ga08122f98b9c9d2d9ccb0e41d6f067e05"/>
+      </topic>
+      <topic label="UDP" href="group__udp.html">
+        <topic label="wiced_generic_start_dtls_with_ciphers" href="group__udp.html#gabec73948158297ec421874f49c1dc526"/>
+        <topic label="wiced_udp_create_socket" href="group__udp.html#ga91f141d16dd4371c738ec6d4e056b90e"/>
+        <topic label="wiced_udp_delete_socket" href="group__udp.html#gac8925684b2552bab1094b8a4e2fb9529"/>
+        <topic label="wiced_udp_enable_dtls" href="group__udp.html#gaf4d2b262c80f126446dcedfdd733f98f"/>
+        <topic label="wiced_udp_packet_get_info" href="group__udp.html#ga6995d9295319bd3d437c94ab542bb3db"/>
+        <topic label="wiced_udp_packet_get_info_ext" href="group__udp.html#ga5797720b4c914a7131082597f2b1c145"/>
+        <topic label="wiced_udp_receive" href="group__udp.html#gac29e6ccc1296ead553d2b86f1cb10991"/>
+        <topic label="wiced_udp_register_callbacks" href="group__udp.html#ga6f4bddba82c727e3e760e88e76dfafb9"/>
+        <topic label="wiced_udp_reply" href="group__udp.html#ga59bb6811d33e724c3803720907eb61eb"/>
+        <topic label="wiced_udp_send" href="group__udp.html#gaee1f49b3a33811a21c74a2b2897ef2aa"/>
+        <topic label="wiced_udp_set_type_of_service" href="group__udp.html#gaecb61aeda480e7d7e29f308219031f06"/>
+        <topic label="wiced_udp_start_dtls" href="group__udp.html#gacfbe3afd7f7b4c256206d591867027d1"/>
+        <topic label="wiced_udp_unregister_callbacks" href="group__udp.html#gafa88e1a07129c9a687bfb33c5f042de0"/>
+        <topic label="wiced_udp_update_socket_backlog" href="group__udp.html#gab6de552dc71db3d70969dcfdbfe2005e"/>
+      </topic>
+      <topic label="ICMP ping" href="group__icmp.html">
+        <topic label="wiced_ping" href="group__icmp.html#gaac1e5d1d0c6b64efedafbddd032693d3"/>
+      </topic>
+      <topic label="DNS lookup" href="group__dns.html">
+        <topic label="wiced_hostname_lookup" href="group__dns.html#ga295c9fd74f01f1583ebe4faa8bd39df5"/>
+        <topic label="wiced_hostname_lookup_list" href="group__dns.html#gaac2d540d29adaaea795b8ec611c76dd9"/>
+      </topic>
+      <topic label="IGMP multicast" href="group__igmp.html">
+        <topic label="wiced_multicast_join" href="group__igmp.html#ga1b48c587304201165b0a12204f3ce733"/>
+        <topic label="wiced_multicast_leave" href="group__igmp.html#gadf6b2e1e7f68da5a29cbe7628e995141"/>
+      </topic>
+      <topic label="Packet management" href="group__pktmgmt.html">
+        <topic label="wiced_buffer_eap_set_data_end" href="group__pktmgmt.html#ga011068000799403b6fcae5b1e09a82db"/>
+        <topic label="wiced_buffer_eap_set_data_start" href="group__pktmgmt.html#ga182f943434ce36e0c78fc9788a913e76"/>
+        <topic label="wiced_packet_create" href="group__pktmgmt.html#gac0d6189d631dacbf84e81f5087e58a83"/>
+        <topic label="wiced_packet_create_tcp" href="group__pktmgmt.html#gac9246577619e490acc21e31d4fae00db"/>
+        <topic label="wiced_packet_create_udp" href="group__pktmgmt.html#ga29aab3857f1332ba62442028f17853f5"/>
+        <topic label="wiced_packet_create_udp_no_wait" href="group__pktmgmt.html#gac998c16efb22dedc7479fbeca59ae530"/>
+        <topic label="wiced_packet_delete" href="group__pktmgmt.html#ga222f3c583dd6df5cc017d27c6de2b2df"/>
+        <topic label="wiced_packet_get_data" href="group__pktmgmt.html#gad10f67f5acdd3dadfbc7bdffdf1eecb7"/>
+        <topic label="wiced_packet_get_next_fragment" href="group__pktmgmt.html#ga778a1c9f2c0715fb6ac4486ecead404b"/>
+        <topic label="wiced_packet_pool_allocate_packet" href="group__pktmgmt.html#ga20986ef1e4fbbfb2951d9fcc71809273"/>
+        <topic label="wiced_packet_pool_deinit" href="group__pktmgmt.html#ga8eb5edd4ca45cb20db20acaae52af8fb"/>
+        <topic label="wiced_packet_pool_init" href="group__pktmgmt.html#ga28b571ceabc6bb1e0ca10d33d21971cf"/>
+        <topic label="wiced_packet_set_data_end" href="group__pktmgmt.html#gae38feb55ef8dc5fd171ae7ae3d87a549"/>
+        <topic label="wiced_packet_set_data_start" href="group__pktmgmt.html#gaf11d7ed01c8e2f6da748eddf7bd3c267"/>
+      </topic>
+      <topic label="Raw IP" href="group__rawip.html">
+        <topic label="wiced_ip_deregister_address_change_callback" href="group__rawip.html#ga5bd7e82bc238a3a9048d7b5314015c55"/>
+        <topic label="wiced_ip_get_gateway_address" href="group__rawip.html#gae40843c1dbb897d35facbb26b862abbe"/>
+        <topic label="wiced_ip_get_ipv4_address" href="group__rawip.html#gaa366a2944c92c44bbec110415619ab66"/>
+        <topic label="wiced_ip_get_ipv6_address" href="group__rawip.html#gafa8986c1596f2b9842d606afa2af3c6d"/>
+        <topic label="wiced_ip_get_netmask" href="group__rawip.html#ga58707d9da9e84d14ae405c52288bb934"/>
+        <topic label="wiced_ip_is_any_pending_packets" href="group__rawip.html#ga44ed4780b27ca7d2a5746cb57c3b71e5"/>
+        <topic label="wiced_ip_register_address_change_callback" href="group__rawip.html#gabb2bcdbf780f039b0207429c1afb808f"/>
+      </topic>
+      <topic label="TLS Security" href="group__tls.html">
+        <topic label="wiced_tls_add_extension" href="group__tls.html#ga77d71cb0e97edc2fd48684fc11c9ad25"/>
+        <topic label="wiced_tls_add_identity" href="group__tls.html#gaeadab834e8df4ef8e68dbbfa3c12361e"/>
+        <topic label="wiced_tls_deinit_context" href="group__tls.html#ga70cda0260b8048f70f7945002d802896"/>
+        <topic label="wiced_tls_deinit_identity" href="group__tls.html#ga7c25e8ac85489de549ae0cc0e52bc756"/>
+        <topic label="wiced_tls_deinit_root_ca_certificates" href="group__tls.html#ga90fd357c126fcc84afb2ffe2e84a8414"/>
+        <topic label="wiced_tls_init_context" href="group__tls.html#ga81e0573be70fbe5eb8812266dca92116"/>
+        <topic label="wiced_tls_init_identity" href="group__tls.html#ga9e4d5f7873ab6989096b9728cb43a63f"/>
+        <topic label="wiced_tls_init_root_ca_certificates" href="group__tls.html#ga12c70e7d1ae64c92afb16b503352e4a3"/>
+        <topic label="wiced_tls_remove_identity" href="group__tls.html#ga6ceffa40521214af2acfa85eebac5c52"/>
+        <topic label="wiced_tls_set_context_root_ca_certificates" href="group__tls.html#ga713384b9ac2071e0e7d19428a69a790e"/>
+        <topic label="wiced_tls_set_extension" href="group__tls.html#ga9d106651a97fdafa88d6b6210ff64385"/>
+      </topic>
+      <topic label="HTTP" href="group__http.html">
+        <topic label="HTTP Client" href="group__http__client.html">
+          <topic label="HTTP client helper" href="group__http__helper.html">
+            <topic label="http_get_host" href="group__http__helper.html#ga66969e85be47cdef658fa5a0535a82d5"/>
+            <topic label="http_get_line_length" href="group__http__helper.html#ga8b85aa8a7a9a85355b62ad75092b6256"/>
+            <topic label="http_get_next_line" href="group__http__helper.html#gae7b86e4a7606c9076bf4e4297473c446"/>
+            <topic label="http_get_next_line_with_length" href="group__http__helper.html#gac70b81b019d6703cccdd9978e4f06704"/>
+            <topic label="http_get_next_string_token" href="group__http__helper.html#ga28d93443299ae212308604c3e0b73f67"/>
+            <topic label="http_get_status_line" href="group__http__helper.html#ga712aa1b5a17f16cee512849e5ad77305"/>
+            <topic label="http_parse_header" href="group__http__helper.html#gad2093b561bec3238cb0eec6c1b1a9020"/>
+            <topic label="http_split_line" href="group__http__helper.html#ga8bbb6ed9bc44eeb8222a2017cb821959"/>
+          </topic>
+          <topic label="http_event_handler_t" href="group__http__client.html#gac53dd5ee3e1e691cfe199f1cd14d63b9"/>
+          <topic label="http_client_configure" href="group__http__client.html#gaa8c3c7b630abab64735436259ef777e3"/>
+          <topic label="http_client_connect" href="group__http__client.html#gae12a7b93a9dadfc7a0f1944cc8929a6e"/>
+          <topic label="http_client_deinit" href="group__http__client.html#gac164eda6854663c9907dce77b92bb355"/>
+          <topic label="http_client_disconnect" href="group__http__client.html#gaa2c86936149835a88af4b1809fd8d5da"/>
+          <topic label="http_client_init" href="group__http__client.html#ga0d431f79e54947a29fe270375839386b"/>
+          <topic label="http_request_deinit" href="group__http__client.html#ga3a5793f3fbc36f84141a5bfb51b73ae5"/>
+          <topic label="http_request_flush" href="group__http__client.html#ga9800adf71454dae965c0c53f3afcfef6"/>
+          <topic label="http_request_init" href="group__http__client.html#ga7ab589a437ffeec355d7ea1ae3ea94e5"/>
+          <topic label="http_request_write" href="group__http__client.html#ga80097bb9b72eaf796f953d093110858c"/>
+          <topic label="http_request_write_end_header" href="group__http__client.html#gaa4e6ce55a1798331cab8d7ad0763c303"/>
+          <topic label="http_request_write_header" href="group__http__client.html#ga7e413fba3f51bdb687352d087955ea60"/>
+        </topic>
+        <topic label="HTTP Server" href="group__http__server.html">
+          <topic label="wiced_http_disconnect_all_response_stream" href="group__http__server.html#ga4e8865b809bf4024dd1107dfbbc209e1"/>
+          <topic label="wiced_http_get_query_parameter_count" href="group__http__server.html#gab2b8dbba6123174ac6d5a9d057a4a0b4"/>
+          <topic label="wiced_http_get_query_parameter_value" href="group__http__server.html#ga77163ae2ffd9abe247fc52c1a593712f"/>
+          <topic label="wiced_http_match_query_parameter" href="group__http__server.html#ga495fd7de81eff2257a064eb24ec04089"/>
+          <topic label="wiced_http_response_stream_deinit" href="group__http__server.html#ga6236e992777fec222d607a96c9519c34"/>
+          <topic label="wiced_http_response_stream_disable_chunked_transfer" href="group__http__server.html#ga985c4a993f06f298f770562155b9bc78"/>
+          <topic label="wiced_http_response_stream_disconnect" href="group__http__server.html#ga7761297c0f224c90c7e810cf0a84113c"/>
+          <topic label="wiced_http_response_stream_enable_chunked_transfer" href="group__http__server.html#gacda70960530f66aaad4314340ed26cf7"/>
+          <topic label="wiced_http_response_stream_flush" href="group__http__server.html#gaaa05eb550415aab40d0cbf8ae95f7200"/>
+          <topic label="wiced_http_response_stream_init" href="group__http__server.html#ga0ba7facfd912e123bbef41e3a9ef971b"/>
+          <topic label="wiced_http_response_stream_write" href="group__http__server.html#gabc8fb1526bcb29982b46ab2fbcb47c62"/>
+          <topic label="wiced_http_response_stream_write_header" href="group__http__server.html#gad66c47217c39fba0e4603a4b911b77a0"/>
+          <topic label="wiced_http_response_stream_write_resource" href="group__http__server.html#ga3a26ab66133ec152b51b831ce14d1495"/>
+          <topic label="wiced_http_server_deregister_callbacks" href="group__http__server.html#ga737c25bbed6e4f9104c8f69e20f8e2b9"/>
+          <topic label="wiced_http_server_register_callbacks" href="group__http__server.html#ga05350201c912d1ae0fc9973146292f97"/>
+          <topic label="wiced_http_server_start" href="group__http__server.html#ga929aab424697a99a51d0a147cb422b50"/>
+          <topic label="wiced_http_server_stop" href="group__http__server.html#ga43d54c0f625681aaa57db60d0b8c2fdf"/>
+          <topic label="wiced_https_server_start" href="group__http__server.html#ga6ccddd317ba602d50b145e3e43ca26ce"/>
+          <topic label="wiced_https_server_stop" href="group__http__server.html#ga124c0435817d9419786f79b4e9d26f32"/>
+        </topic>
+      </topic>
+      <topic label="Gedday" href="group__gedday.html">
+        <topic label="gedday_add_dynamic_text_record" href="group__gedday.html#gad14f25c408d5e328476192f677ee12f2"/>
+        <topic label="gedday_add_service" href="group__gedday.html#gaddb5f0e2a395822cb71a492f5524e09c"/>
+        <topic label="gedday_deinit" href="group__gedday.html#ga27ceed8f55c33bc3d9f0b6d927187ae0"/>
+        <topic label="gedday_discover_service" href="group__gedday.html#ga488f236a3016d5e48dd0aee5981989af"/>
+        <topic label="gedday_get_hostname" href="group__gedday.html#ga5cb02333d106834f8e993aef65326703"/>
+        <topic label="gedday_init" href="group__gedday.html#gac4380fda84dfee7593f61fe140296ef1"/>
+        <topic label="gedday_remove_service" href="group__gedday.html#ga4b54655c0ec94ce5d353b2887d214741"/>
+        <topic label="gedday_text_record_create" href="group__gedday.html#ga6c3b46299343c639161726b1232d64b6"/>
+        <topic label="gedday_text_record_delete" href="group__gedday.html#ga0bf3fb868cf00b2768818a41732338be"/>
+        <topic label="gedday_text_record_get_string" href="group__gedday.html#ga08e9097e0147448ccb0775e6111d4ac8"/>
+        <topic label="gedday_text_record_set_key_value_pair" href="group__gedday.html#gad2398fc18fe0b7ea325891e22e3d488b"/>
+        <topic label="gedday_update_ip" href="group__gedday.html#ga2bffcc8bae5ed992b464839564f9d5bd"/>
+        <topic label="gedday_update_ipv6" href="group__gedday.html#gab7d170140de220b860d2c6e5f96d946f"/>
+        <topic label="gedday_update_service" href="group__gedday.html#ga403fc0f5470e7b899e8324e66cbbc4fb"/>
+      </topic>
+      <topic label="CoAP" href="group__coap.html">
+        <topic label="CoAP Client" href="group__coap__client.html">
+          <topic label="wiced_coap_client_deinit" href="group__coap__client.html#ga3f408a1266c8da6a2a84722e294f9cb9"/>
+          <topic label="wiced_coap_client_get" href="group__coap__client.html#gac0ed4978ccbab2d40668ccfd8fd679cb"/>
+          <topic label="wiced_coap_client_init" href="group__coap__client.html#ga59a50dfbc4fe1875b24a04b19a1f708e"/>
+          <topic label="wiced_coap_client_observe" href="group__coap__client.html#gad0834e0643f38d816eceaec96651a4c3"/>
+          <topic label="wiced_coap_client_post" href="group__coap__client.html#ga254b47c6dc93a34a1bd63e33692f3971"/>
+        </topic>
+        <topic label="CoAP Server" href="group__coap__server.html">
+          <topic label="wiced_coap_server_add_service" href="group__coap__server.html#gaf8af52b5a128c7dc7d75ad799c4bf628"/>
+          <topic label="wiced_coap_server_deinit" href="group__coap__server.html#ga52dd5fdf3bd8a5d8a6274230fea79a3e"/>
+          <topic label="wiced_coap_server_delete_service" href="group__coap__server.html#gab5be4f4afa13fe9d415cf7dc1f85b859"/>
+          <topic label="wiced_coap_server_init" href="group__coap__server.html#gacc993b4da22b33afb1dca947486d60c7"/>
+          <topic label="wiced_coap_server_send_response" href="group__coap__server.html#gacb8d274b27254437ba6f948ed409b0ce"/>
+          <topic label="wiced_coap_server_start" href="group__coap__server.html#ga48e20cec17e1629c677ac1915dcca3fb"/>
+          <topic label="wiced_coap_server_stop" href="group__coap__server.html#ga57654963d27396711750be11037a7fa1"/>
+        </topic>
+      </topic>
+    </topic>
+    <topic label="Wi-Fi (802.11) functions" href="group__wifi.html">
+      <topic label="WiFi Connectivity initialization and de-initialization" href="group__wificonn.html">
+        <topic label="wiced_wlan_connectivity_deinit" href="group__wificonn.html#gadfbdb5739e5429cd0f57ca16ebd0f0e9"/>
+        <topic label="wiced_wlan_connectivity_init" href="group__wificonn.html#gaae32ca07e0d56854d5af1b237e327f43"/>
+        <topic label="wiced_wlan_connectivity_resume_after_deep_sleep" href="group__wificonn.html#ga53f7211cb7f3b9e2087b1d41b04d8e0c"/>
+      </topic>
+      <topic label="WiFi Join, Scan and Halt Functions" href="group__wifijoin.html">
+        <topic label="wiced_scan_result_callback_t" href="group__wifijoin.html#gafac4f8ef2db7c161c3a5c26da130d9b9"/>
+        <topic label="wiced_get_bss_info" href="group__wifijoin.html#gaa590628ee1795e08a056575cd0c51eb8"/>
+        <topic label="wiced_status_result" href="group__wifijoin.html#gac49fb5331d3bcb25b3d5bb05ca8c3db1"/>
+        <topic label="wiced_wifi_join_adhoc" href="group__wifijoin.html#gaa8864942c5e9d27110474d36a17c6813"/>
+        <topic label="wiced_wifi_join_halt" href="group__wifijoin.html#ga18df9c4f493caa7676fe0da5263408eb"/>
+        <topic label="wiced_wifi_join_specific" href="group__wifijoin.html#gac2de15c158740caf7dfb7c320b268c75"/>
+        <topic label="wiced_wifi_scan_disable" href="group__wifijoin.html#ga0301d8b10d8c5eeaa67ad6fc153f1c01"/>
+        <topic label="wiced_wifi_scan_networks" href="group__wifijoin.html#ga4e058d74fb992af5396eff59755cbde0"/>
+        <topic label="wiced_wifi_scan_networks_ex" href="group__wifijoin.html#ga3af075fbc2e2d7dc55358239bd31b57c"/>
+        <topic label="wwd_wifi_abort_scan" href="group__wifijoin.html#gad9fa0101ba3dc9c109efcf1b0fbc5978"/>
+        <topic label="wwd_wifi_get_scan_params" href="group__wifijoin.html#gabf20a381e57b012a93c100191d2c2044"/>
+        <topic label="wwd_wifi_join" href="group__wifijoin.html#ga98b6496c948e66fbe025e2cdf37c83e6"/>
+        <topic label="wwd_wifi_join_halt" href="group__wifijoin.html#ga236f60a88b82940806828907ae268ee2"/>
+        <topic label="wwd_wifi_join_is_ready_to_halt" href="group__wifijoin.html#ga9783a18a8fa44991890c0f3a7244cab4"/>
+        <topic label="wwd_wifi_join_specific" href="group__wifijoin.html#ga60ff74dd22580d9e0d8bc0f8f2854318"/>
+        <topic label="wwd_wifi_leave" href="group__wifijoin.html#ga3594031531f7467dea26e2e7058d0a84"/>
+        <topic label="wwd_wifi_scan" href="group__wifijoin.html#ga5710b3b371df1f82c7661df6b53689b6"/>
+        <topic label="wwd_wifi_set_scan_params" href="group__wifijoin.html#ga84e9450ad3019e212bc560ed05dcb093"/>
+        <topic label="wwd_wifi_set_scan_suppress" href="group__wifijoin.html#ga86b3b1a0995e64dea6a391fcce665aa7"/>
+      </topic>
+      <topic label="WiFi Protected Setup" href="group__wifiwps.html">
+        <topic label="wiced_wps_enrollee" href="group__wifiwps.html#gac9fb59d0bc733fcd1b09966679d09de4"/>
+        <topic label="wiced_wps_registrar" href="group__wifiwps.html#ga4da6aaf6d704cbcf1680a64c66f5eb0b"/>
+      </topic>
+      <topic label="WiFi Utility Functions" href="group__wifiutilities.html">
+        <topic label="convert_security_type_to_string" href="group__wifiutilities.html#ga3addd184a1de8fce02972acfe2be56a4"/>
+        <topic label="print_scan_result" href="group__wifiutilities.html#ga7b527c076d639bb680abdf778440406c"/>
+        <topic label="wiced_wifi_add_custom_ie" href="group__wifiutilities.html#ga0c3070ff8afcbb032e7cff4028335442"/>
+        <topic label="wiced_wifi_disable_11n_support" href="group__wifiutilities.html#ga1abaa350307b3a899c8faee44138cc0c"/>
+        <topic label="wiced_wifi_down" href="group__wifiutilities.html#gae19c10a152e91de9c890f9ec7577b9d6"/>
+        <topic label="wiced_wifi_find_ap" href="group__wifiutilities.html#gae6b0c4a36d630b6e37281b56247df914"/>
+        <topic label="wiced_wifi_get_channel" href="group__wifiutilities.html#gad72f83a5aee4aed6445c05dcb5121405"/>
+        <topic label="wiced_wifi_get_counters" href="group__wifiutilities.html#ga5415f30189a5bb9b59a70139339c294e"/>
+        <topic label="wiced_wifi_get_ht_mode" href="group__wifiutilities.html#ga9ef1cc81ca80172f5ea1570159f5e0ec"/>
+        <topic label="wiced_wifi_get_listen_interval" href="group__wifiutilities.html#ga767abadefd7b4fb622f246a52f82e205"/>
+        <topic label="wiced_wifi_get_mac_address" href="group__wifiutilities.html#ga14ec63a891ae26032e740f4a80a75eee"/>
+        <topic label="wiced_wifi_get_roam_trigger" href="group__wifiutilities.html#ga9bc3e1db22b7061b32d17cf76c237cd8"/>
+        <topic label="wiced_wifi_get_roam_trigger_per_band" href="group__wifiutilities.html#ga7f6d3ee94b258e20dd76d68e03ed9a00"/>
+        <topic label="wiced_wifi_remove_custom_ie" href="group__wifiutilities.html#ga9bb711c12af20b83e526ac6824c72e7a"/>
+        <topic label="wiced_wifi_set_ht_mode" href="group__wifiutilities.html#ga71c66de30a028dccc7f0b70ec78d702f"/>
+        <topic label="wiced_wifi_set_listen_interval" href="group__wifiutilities.html#gac333a8f41afe622c7ae4f9d7dd205070"/>
+        <topic label="wiced_wifi_set_listen_interval_assoc" href="group__wifiutilities.html#ga9010d4e1de47c23ab4c5dc0dc84032d0"/>
+        <topic label="wiced_wifi_set_roam_trigger" href="group__wifiutilities.html#ga939c79b9893b7bfc94e8c91664029ed1"/>
+        <topic label="wiced_wifi_set_roam_trigger_per_band" href="group__wifiutilities.html#ga8d89ad3fb7e4aa1bd40e37c148b1cea3"/>
+        <topic label="wiced_wifi_up" href="group__wifiutilities.html#ga00a6dfccec8120774fec0eca6f6266ee"/>
+        <topic label="wwd_channel_to_wl_band" href="group__wifiutilities.html#ga81df5c31b646d0a4955585d11158a716"/>
+        <topic label="wwd_get_bss_index" href="group__wifiutilities.html#gabb972c6229cebcd713d50f305a724163"/>
+        <topic label="wwd_get_counters" href="group__wifiutilities.html#ga5364364a46b6e17f34f82b10a3e60b69"/>
+        <topic label="wwd_get_phyrate_log" href="group__wifiutilities.html#ga49d8b8be435e96394369832d95b00391"/>
+        <topic label="wwd_get_phyrate_log_size" href="group__wifiutilities.html#ga75962d6a6ca20f64477875bb9a6cd66f"/>
+        <topic label="wwd_get_phyrate_statistics_counters" href="group__wifiutilities.html#gab3d2227fd2704c71f0bae2fa13af109d"/>
+        <topic label="wwd_log_event" href="group__wifiutilities.html#ga5e4ac1f48961649aa86da48a57e589da"/>
+        <topic label="wwd_phyrate_log" href="group__wifiutilities.html#gae9eee2244ecdc7ef5766ab9548db441a"/>
+        <topic label="wwd_reset_statistics_counters" href="group__wifiutilities.html#ga688cb043d3f464234001a7140ecdc747"/>
+        <topic label="wwd_wifi_deauth_all_associated_client_stas" href="group__wifiutilities.html#ga94a035e91ede70337156f9ea146b5a81"/>
+        <topic label="wwd_wifi_deauth_sta" href="group__wifiutilities.html#gadeafd9a93640b2f87fb1763cc267e6f9"/>
+        <topic label="wwd_wifi_edcf_ac_params_print" href="group__wifiutilities.html#ga7749b756f7f47b4a1b17a3fa42f24c5d"/>
+        <topic label="wwd_wifi_get_acparams_sta" href="group__wifiutilities.html#ga0d6fd3401a88174009e6296add6efa86"/>
+        <topic label="wwd_wifi_get_and_cache_mac_address" href="group__wifiutilities.html#gaa3fb8c3b0481cf8b4ebedfaffbfa6ce6"/>
+        <topic label="wwd_wifi_get_ap_client_rssi" href="group__wifiutilities.html#gaf711036149889f283d2d9668bee86460"/>
+        <topic label="wwd_wifi_get_cap" href="group__wifiutilities.html#ga8b39616d62e107dd152cd44cdcdd5b44"/>
+        <topic label="wwd_wifi_get_cca_for_channel" href="group__wifiutilities.html#gaeb323ff427203eac282abcf443e8f984"/>
+        <topic label="wwd_wifi_get_ccode" href="group__wifiutilities.html#ga1ea59e9e68a4420653bda9177692937e"/>
+        <topic label="wwd_wifi_get_channel" href="group__wifiutilities.html#gaa0550e6c448567dc56439d41ecf04fa9"/>
+        <topic label="wwd_wifi_get_channels" href="group__wifiutilities.html#gae1a56e2f33828e10e5c1904389805713"/>
+        <topic label="wwd_wifi_get_clm_version" href="group__wifiutilities.html#ga329aede6ac9d0e2ca407c9ef95bd499a"/>
+        <topic label="wwd_wifi_get_counters" href="group__wifiutilities.html#ga61db44b48fa72740ce53b413fb1109d0"/>
+        <topic label="wwd_wifi_get_ht_mode" href="group__wifiutilities.html#gaefaffdcff7686cd849f4b0098149a08e"/>
+        <topic label="wwd_wifi_get_listen_interval" href="group__wifiutilities.html#ga80bf84de6a350d1c1b4625cb1c737f0d"/>
+        <topic label="wwd_wifi_get_mac_address" href="group__wifiutilities.html#ga294b2f8e6aca0cd7360084bde3483954"/>
+        <topic label="wwd_wifi_get_max_associations" href="group__wifiutilities.html#gad7703fa6ab96f2499582b9a500aeef6b"/>
+        <topic label="wwd_wifi_get_noise" href="group__wifiutilities.html#ga87bd331d127d07db0524cd8f174bb0a5"/>
+        <topic label="wwd_wifi_get_preferred_association_band" href="group__wifiutilities.html#gafa48be517fd7662928534731648bb770"/>
+        <topic label="wwd_wifi_get_rate" href="group__wifiutilities.html#ga7841be22eb3644c61c34a92a1fb387fc"/>
+        <topic label="wwd_wifi_get_roam_delta" href="group__wifiutilities.html#gaea5e2efa6e0310be378f5bee34e9b850"/>
+        <topic label="wwd_wifi_get_roam_delta_per_band" href="group__wifiutilities.html#ga37dd9fe76fd530c2fb1df5e2f2fe5181"/>
+        <topic label="wwd_wifi_get_roam_scan_period" href="group__wifiutilities.html#ga37d999aaa5aeace9f8390cba3718613c"/>
+        <topic label="wwd_wifi_get_roam_trigger" href="group__wifiutilities.html#ga976968fd1d353e0dbc0d4782d6bea88d"/>
+        <topic label="wwd_wifi_get_roam_trigger_per_band" href="group__wifiutilities.html#ga3084855de59756496c19709f0aaf5380"/>
+        <topic label="wwd_wifi_get_rssi" href="group__wifiutilities.html#ga93ab65a87925690c76b7d780ce9a7ab4"/>
+        <topic label="wwd_wifi_get_supplicant_eapol_key_timeout" href="group__wifiutilities.html#ga989c5672f805791d4ffd1bc3d0b74a28"/>
+        <topic label="wwd_wifi_get_supported_band_list" href="group__wifiutilities.html#ga99f8621cba614463676f68c40f540404"/>
+        <topic label="wwd_wifi_get_tx_power" href="group__wifiutilities.html#ga253e3e3606558ac706dd2b7fa91fefee"/>
+        <topic label="wwd_wifi_get_wifi_memuse" href="group__wifiutilities.html#gab97e4ad4e4b1844e5f1bc714ae000f4a"/>
+        <topic label="wwd_wifi_get_wifi_version" href="group__wifiutilities.html#ga9913ae594bf806e7ad4f2f367f3d4042"/>
+        <topic label="wwd_wifi_is_ready_to_transceive" href="group__wifiutilities.html#gaea7af036487e9c33034baadc8f89e222"/>
+        <topic label="wwd_wifi_link_update" href="group__wifiutilities.html#ga74f4128a3f5ca3054b3e0b2546bb4250"/>
+        <topic label="wwd_wifi_manage_custom_ie" href="group__wifiutilities.html#gacab7e42198d96b7e9e1356d0e31248c0"/>
+        <topic label="wwd_wifi_p2p_is_go_up" href="group__wifiutilities.html#ga5ab9de1c176462fb735e7f9b0b6ba7d7"/>
+        <topic label="wwd_wifi_p2p_set_go_is_up" href="group__wifiutilities.html#gafe1c086f99a7328054ffbeebfbc6523a"/>
+        <topic label="wwd_wifi_prioritize_acparams" href="group__wifiutilities.html#ga0f6b692cd6d5aa4cd49a62e41b451151"/>
+        <topic label="wwd_wifi_register_link_update_callback" href="group__wifiutilities.html#ga833221ba4736e932ac89e158a7d9a7df"/>
+        <topic label="wwd_wifi_register_multicast_address" href="group__wifiutilities.html#gab0d95df881bda8deaaaac384cf5b723d"/>
+        <topic label="wwd_wifi_register_multicast_address_for_interface" href="group__wifiutilities.html#ga916807f29b549bb87d7f4610cc20ff3c"/>
+        <topic label="wwd_wifi_select_antenna" href="group__wifiutilities.html#gacd3848e04b1f67aa6f43d31668da1161"/>
+        <topic label="wwd_wifi_send_action_frame" href="group__wifiutilities.html#gab35512f806603abbedf3416ef6fc9e72"/>
+        <topic label="wwd_wifi_send_csa" href="group__wifiutilities.html#ga76c2e015d4108f05063f005c0c58ae35"/>
+        <topic label="wwd_wifi_set_11n_support" href="group__wifiutilities.html#ga11f2b2552c1578ce219cb515890eff39"/>
+        <topic label="wwd_wifi_set_ampdu_parameters" href="group__wifiutilities.html#gaa2b3d57a800151359caeb90a2549bde3"/>
+        <topic label="wwd_wifi_set_block_ack_window_size" href="group__wifiutilities.html#gaf106ec8ae832f63df4c17fa8957ed7c8"/>
+        <topic label="wwd_wifi_set_ccode" href="group__wifiutilities.html#gad9acb9939583bba0e48029af62775fd8"/>
+        <topic label="wwd_wifi_set_channel" href="group__wifiutilities.html#ga483324ebbcb51694e61aa48626a40afa"/>
+        <topic label="wwd_wifi_set_custom_country_code" href="group__wifiutilities.html#ga2f3dd27f03aad4adac7b9f8fdc7de713"/>
+        <topic label="wwd_wifi_set_down" href="group__wifiutilities.html#ga771ff37490938bb919418e07e12ee14a"/>
+        <topic label="wwd_wifi_set_fw_cmd_debug_mode" href="group__wifiutilities.html#ga150bdaf03d8e96aee97de65d8363b483"/>
+        <topic label="wwd_wifi_set_ht_mode" href="group__wifiutilities.html#ga8d7202fe005db5c6da195e8901b3888a"/>
+        <topic label="wwd_wifi_set_legacy_rate" href="group__wifiutilities.html#ga49fa41d7115327980d9d155a89e32bd8"/>
+        <topic label="wwd_wifi_set_listen_interval" href="group__wifiutilities.html#gaa4fb957a60481c66a6f04d003cff03c6"/>
+        <topic label="wwd_wifi_set_listen_interval_assoc" href="group__wifiutilities.html#gab71b83743998b209ab19fcc9637b2ab3"/>
+        <topic label="wwd_wifi_set_mac_address" href="group__wifiutilities.html#gad190460eaca6e3b88dc128ffbceb1ed8"/>
+        <topic label="wwd_wifi_set_mcs_rate" href="group__wifiutilities.html#ga695c91535030267e91f28ca63d364aa8"/>
+        <topic label="wwd_wifi_set_preferred_association_band" href="group__wifiutilities.html#ga2b16949b4d39f021c3dfcbf9af1c8457"/>
+        <topic label="wwd_wifi_set_roam_delta" href="group__wifiutilities.html#ga8e67776b79eae2b7eeb85b31306aba36"/>
+        <topic label="wwd_wifi_set_roam_delta_per_band" href="group__wifiutilities.html#ga7da9e83686c03359f6f8ea48029f90e7"/>
+        <topic label="wwd_wifi_set_roam_scan_period" href="group__wifiutilities.html#gad47d3264769ed2f72db90bb22ad88502"/>
+        <topic label="wwd_wifi_set_roam_trigger" href="group__wifiutilities.html#ga0932b54d5d4573aa820cccfd69b58400"/>
+        <topic label="wwd_wifi_set_roam_trigger_per_band" href="group__wifiutilities.html#ga4969ebcf95f4e2a3233728b60e257d79"/>
+        <topic label="wwd_wifi_set_supplicant_eapol_key_timeout" href="group__wifiutilities.html#gaf51185a8b8f27ec9e14fbf39a4b642bf"/>
+        <topic label="wwd_wifi_set_tx_power" href="group__wifiutilities.html#ga04a55105f2cc5296100ab5aa022ef062"/>
+        <topic label="wwd_wifi_set_up" href="group__wifiutilities.html#ga3bc909a9b8de3dafe1baf36c9288b4dc"/>
+        <topic label="wwd_wifi_turn_off_roam" href="group__wifiutilities.html#ga9d8e406d4ffaebd75c366f743a0c0025"/>
+        <topic label="wwd_wifi_unregister_multicast_address" href="group__wifiutilities.html#gadbbc2aa503d061e70aab02ffb1b0ea66"/>
+        <topic label="wwd_wifi_unregister_multicast_address_for_interface" href="group__wifiutilities.html#ga248e15b0b211b802252edc8c1e8fa95e"/>
+        <topic label="wwd_wifi_update_tos_map" href="group__wifiutilities.html#ga63748e99f3d8d1d65b4c46e7a303f059"/>
+      </topic>
+      <topic label="WiFi Soft AP" href="group__wifisoftap.html">
+        <topic label="wiced_stop_ap" href="group__wifisoftap.html#ga563657210072e0630139c89960fe0a0d"/>
+        <topic label="wiced_wifi_get_ap_client_rssi" href="group__wifisoftap.html#gacb2f44ab5aeb790d5a1c0116e86db20c"/>
+        <topic label="wiced_wifi_get_ap_info" href="group__wifisoftap.html#gaa49b6363af17e9cfebd61960a3512ce7"/>
+        <topic label="wiced_wifi_get_associated_client_list" href="group__wifisoftap.html#gae4431e4f32510a05b23443ad1b16fec7"/>
+        <topic label="wiced_wifi_is_sta_link_up" href="group__wifisoftap.html#ga6e83b8570122c8dd36a31c1fb5d05001"/>
+        <topic label="wiced_wifi_register_softap_event_handler" href="group__wifisoftap.html#gab16dcf459642169520ecf50a38870f3e"/>
+        <topic label="wiced_wifi_start_ap_with_custom_ie" href="group__wifisoftap.html#gab65820715c9c79172d978e938e3bba26"/>
+        <topic label="wiced_wifi_unregister_softap_event_handler" href="group__wifisoftap.html#gad482437dc22c49670d054d8b45d600d9"/>
+        <topic label="wwd_wifi_ap_init" href="group__wifisoftap.html#ga44328ddd044ebfe4a8252e37243aee10"/>
+        <topic label="wwd_wifi_ap_up" href="group__wifisoftap.html#gaca2425eed5e382909c680c82edd6ded5"/>
+        <topic label="wwd_wifi_start_ap" href="group__wifisoftap.html#ga7dc450bc0cabe5ec9335975b1fac1cd3"/>
+        <topic label="wwd_wifi_stop_ap" href="group__wifisoftap.html#ga72bb3e705af7c78ac302d931ae7113ea"/>
+      </topic>
+      <topic label="WiFi Radio Resource Management" href="group__wifirrm.html">
+        <topic label="wiced_wifi_register_rrm_event_handler" href="group__wifirrm.html#ga1159a82aa6bc8ed0ba932a0023f06e9b"/>
+        <topic label="wiced_wifi_unregister_rrm_event_handler" href="group__wifirrm.html#ga1a5d46afcefb6328739b20a93570eda2"/>
+      </topic>
+      <topic label="WiFi Neighborhood Area Networking" href="group__wifinan.html">
+        <topic label="wiced_nan_config_disable" href="group__wifinan.html#ga797add78b2c8f1d6e3d3f3a371520060"/>
+        <topic label="wiced_nan_config_enable" href="group__wifinan.html#gaafa64e6c007896f29c12d48bcc445f3d"/>
+        <topic label="wiced_wifi_register_nan_event_handler" href="group__wifinan.html#gafa93ec98adb533a5339bc0cc4f3a0907"/>
+        <topic label="wiced_wifi_unregister_nan_event_handler" href="group__wifinan.html#ga2fb347d77bcd735b393187e3c0b5bd78"/>
+        <topic label="wwd_nan_config_band" href="group__wifinan.html#ga079f33d956fd732edf56f82281c13d7c"/>
+        <topic label="wwd_nan_config_clear_counters" href="group__wifinan.html#gafbb39a7b55fed9aa2d44bf6a6e2f847e"/>
+        <topic label="wwd_nan_config_cluster_id" href="group__wifinan.html#ga13356c47389d0918618ed865cd6cf1c3"/>
+        <topic label="wwd_nan_config_device_state" href="group__wifinan.html#ga42bb5f2bb89d4fa398e013c1170a3a35"/>
+        <topic label="wwd_nan_config_disable" href="group__wifinan.html#ga43f4005460120e5877a3299da9db9e10"/>
+        <topic label="wwd_nan_config_discover_window_length" href="group__wifinan.html#gaad815f69d16952dff7081540bb1d5c2b"/>
+        <topic label="wwd_nan_config_discovery_beacon_interval" href="group__wifinan.html#ga43dcf7cba72dd72c3f74bc9f1fce269f"/>
+        <topic label="wwd_nan_config_enable" href="group__wifinan.html#gaf7b2e5c786e0404133e19ebb9028f8be"/>
+        <topic label="wwd_nan_config_get_count" href="group__wifinan.html#gaf1d60231311c6a825edf61485dd66838"/>
+        <topic label="wwd_nan_config_get_status" href="group__wifinan.html#ga4a1f7079716de1ba6a4b29463ac50fea"/>
+        <topic label="wwd_nan_config_hop_count" href="group__wifinan.html#gad104211b8428da6da6f0b4435b1e3779"/>
+        <topic label="wwd_nan_config_hop_limit" href="group__wifinan.html#ga0c8fb569c8a21511fedc2c0adcfa8cb5"/>
+        <topic label="wwd_nan_config_interface_address" href="group__wifinan.html#ga383628e69820889882fc51530f3bdafb"/>
+        <topic label="wwd_nan_config_oui" href="group__wifinan.html#ga3f0bd1de71be3e98a2ecee6f03380acc"/>
+        <topic label="wwd_nan_config_rssi_threshold" href="group__wifinan.html#gaa947d6113d9b03da4d8837ecdcf398ee"/>
+        <topic label="wwd_nan_config_service_discovery_frame_tx_time" href="group__wifinan.html#gabf0b33a598c7ef1fbcd25880e21bd524"/>
+        <topic label="wwd_nan_config_service_id_beacon" href="group__wifinan.html#ga38adf46f32b3cbdb846bff2214cf2da1"/>
+        <topic label="wwd_nan_config_set_chanspec" href="group__wifinan.html#gaea002c8075aa2a5be7277fe7f9902120"/>
+        <topic label="wwd_nan_config_stop_beacon_transmit" href="group__wifinan.html#gaa7929dbe2be4ca39b12589a11a6ea186"/>
+        <topic label="wwd_nan_config_warmup_time" href="group__wifinan.html#ga2cadf3b703cba0b0b02030afe04e2eb6"/>
+        <topic label="wwd_nan_election_host_enable" href="group__wifinan.html#ga5d07054b190c91d75a57968d1eb35418"/>
+        <topic label="wwd_nan_election_join" href="group__wifinan.html#ga3e6ae43053e58922a5189d8982bf9d8c"/>
+        <topic label="wwd_nan_election_merge" href="group__wifinan.html#ga42a3473007a60a8567388800f98b6f58"/>
+        <topic label="wwd_nan_election_metric_config" href="group__wifinan.html#ga339d233791ea1313774424f8c33fef2f"/>
+        <topic label="wwd_nan_election_metric_state_get" href="group__wifinan.html#ga1def84e52503b57cb3f5ada8a7ccbe06"/>
+        <topic label="wwd_nan_election_stop" href="group__wifinan.html#gadaf12381727b5305fb3c7cd00a6ee53e"/>
+        <topic label="wwd_nan_sd_cancel_publish" href="group__wifinan.html#ga7912c6a5d227c85a00629c60c2e7ffdf"/>
+        <topic label="wwd_nan_sd_cancel_subscribe" href="group__wifinan.html#gafc6fcfd4118f73ce7448d89dcc2ed964"/>
+        <topic label="wwd_nan_sd_publish" href="group__wifinan.html#gabc05b58ecbbd0e5626aa89dfb08da075"/>
+        <topic label="wwd_nan_sd_publish_list" href="group__wifinan.html#gab45123afa89b46b9cdae1d45c906324c"/>
+        <topic label="wwd_nan_sd_subscribe" href="group__wifinan.html#ga2fc11eb6383d766c4812266754f2c011"/>
+        <topic label="wwd_nan_sd_subscribe_list" href="group__wifinan.html#ga3455af6e98b5666839a61fafb46da2c2"/>
+        <topic label="wwd_nan_sd_transmit" href="group__wifinan.html#gae4573504def1f4749e30776a0c5e489c"/>
+        <topic label="wwd_nan_sync_timeslot_release" href="group__wifinan.html#ga3c2c2ec81cd7ea805afec5750a0de65b"/>
+        <topic label="wwd_nan_sync_timeslot_reserve" href="group__wifinan.html#gaca7526463c0b40486b5a5addaad23a2f"/>
+      </topic>
+      <topic label="WiFi (Preferred Network Offload)" href="group__wifipno.html">
+        <topic label="wiced_wifi_pno_start" href="group__wifipno.html#ga2719d624b63296ba841780041dce018f"/>
+        <topic label="wiced_wifi_pno_stop" href="group__wifipno.html#ga1a8d91d4f7d154e3d202a4359d9563b9"/>
+        <topic label="wiced_wifi_register_pno_callback" href="group__wifipno.html#ga8d8a0c15a90950f57516568ed9e587fb"/>
+        <topic label="wwd_wifi_pno_add_network" href="group__wifipno.html#ga36134b04a8593265032be8e83dd0e0b8"/>
+        <topic label="wwd_wifi_pno_clear" href="group__wifipno.html#ga4783c02028eea96538079c3a9b3312b4"/>
+        <topic label="wwd_wifi_pno_start" href="group__wifipno.html#ga56bb7cc1805406f4348bb948f6655e12"/>
+        <topic label="wwd_wifi_pno_stop" href="group__wifipno.html#ga10c20d27af541838d0b7b51e8501d475"/>
+      </topic>
+      <topic label="WiFi Power Saving functions" href="group__wifipowersave.html">
+        <topic label="wiced_wifi_disable_powersave" href="group__wifipowersave.html#gab3f0bfdd53168dd21af3182c54244b61"/>
+        <topic label="wiced_wifi_disable_powersave_interface" href="group__wifipowersave.html#ga096caf679a3411560cc579496a53e6b3"/>
+        <topic label="wiced_wifi_enable_powersave" href="group__wifipowersave.html#ga261fe02752907ee6366c032690f2041f"/>
+        <topic label="wiced_wifi_enable_powersave_interface" href="group__wifipowersave.html#gacfed335cd0ea5d6baa07ed827e452013"/>
+        <topic label="wiced_wifi_enable_powersave_with_throughput" href="group__wifipowersave.html#ga6d75a5852c8b691fa6a3fc332b2ba629"/>
+        <topic label="wiced_wifi_enable_powersave_with_throughput_interface" href="group__wifipowersave.html#ga21e4eebd9fbab39b857b513819c06f07"/>
+        <topic label="wwd_wifi_disable_powersave" href="group__wifipowersave.html#ga89db0c712cf49c29da518d2963f83d9b"/>
+        <topic label="wwd_wifi_disable_powersave_interface" href="group__wifipowersave.html#ga7338241d96dbf45d849d7d31c2503452"/>
+        <topic label="wwd_wifi_enable_powersave" href="group__wifipowersave.html#ga7fd993df650c72c942b408b2fedcbd4d"/>
+        <topic label="wwd_wifi_enable_powersave_interface" href="group__wifipowersave.html#ga996a081167d611224d21d5ba172e4557"/>
+        <topic label="wwd_wifi_enable_powersave_with_throughput" href="group__wifipowersave.html#ga591e7d9b14f57f66c83c6b8ada9a3105"/>
+        <topic label="wwd_wifi_enable_powersave_with_throughput_interface" href="group__wifipowersave.html#gac981737813676c1d85cf748c85e4f1c4"/>
+        <topic label="wwd_wifi_get_powersave_interface" href="group__wifipowersave.html#ga3af3892bb2acf0034a553f2717a1d1f4"/>
+      </topic>
+      <topic label="Packet Filter functions" href="group__packet-filter.html">
+        <topic label="wiced_wifi_add_packet_filter" href="group__packet-filter.html#gaccde954ad8062557bbc552cd98960aa2"/>
+        <topic label="wiced_wifi_clear_packet_filter_stats" href="group__packet-filter.html#gaee66c5f88e0da220af730e47fce240a6"/>
+        <topic label="wiced_wifi_disable_packet_filter" href="group__packet-filter.html#ga8cb3cae8e30685a3fc0e695762a2c310"/>
+        <topic label="wiced_wifi_enable_packet_filter" href="group__packet-filter.html#gaa921ac8801dff4bf960fc90fe06eace9"/>
+        <topic label="wiced_wifi_get_packet_filter_mask_and_pattern" href="group__packet-filter.html#ga6c47b198a02a78dc7acc2edfe51013b8"/>
+        <topic label="wiced_wifi_get_packet_filter_stats" href="group__packet-filter.html#gad5b6d087b9564f8eb2cc28df7b468479"/>
+        <topic label="wiced_wifi_get_packet_filters" href="group__packet-filter.html#ga9ca62073939b06952b775b00273e9df9"/>
+        <topic label="wiced_wifi_remove_packet_filter" href="group__packet-filter.html#ga02107bff3584f268b3136cb7ba4ca1e1"/>
+        <topic label="wiced_wifi_set_packet_filter_mode" href="group__packet-filter.html#ga9b8ba658fe7f0a9c785622b1765e7a1f"/>
+      </topic>
+      <topic label="Wifi-BT communication functions" href="group__wifi-bt-comm.html">
+        <topic label="wiced_wifi_get_gci_mask" href="group__wifi-bt-comm.html#gaa604ef21b4cb9141bf63ef352b80ea82"/>
+        <topic label="wiced_wifi_send_gci_mailbox_message" href="group__wifi-bt-comm.html#ga733995e720ba2193ef133ab7e10037b9"/>
+        <topic label="wiced_wifi_set_gci_mask" href="group__wifi-bt-comm.html#gadea9f51527624219e75dfb9210d4bf19"/>
+      </topic>
+      <topic label="Keep-Alive functions" href="group__keep-alive.html">
+        <topic label="wiced_wifi_add_keep_alive" href="group__keep-alive.html#ga4677589f4f71014dea16509948db664c"/>
+        <topic label="wiced_wifi_disable_keep_alive" href="group__keep-alive.html#gaa0e6a27fa74455807fc3a8d08725b177"/>
+        <topic label="wiced_wifi_get_keep_alive" href="group__keep-alive.html#gab24f8e5b9761afb70753ada6b63f9bcd"/>
+      </topic>
+      <topic label="WiFi Deep Sleep Functions" href="group__wifideepsleep.html">
+        <topic label="wiced_wifi_deep_sleep_get_status_string" href="group__wifideepsleep.html#gaf71c47fb78dd734137e58ad1486905cc"/>
+        <topic label="wiced_wifi_ds1_config" href="group__wifideepsleep.html#ga9b60d0fbc0435d1a0496445355a57f36"/>
+        <topic label="wiced_wifi_ds1_disable" href="group__wifideepsleep.html#ga649cba35fcb8cbd936a1532facbf2bad"/>
+        <topic label="wiced_wifi_ds1_enable" href="group__wifideepsleep.html#ga7a167dd10046ee4ff339b193e70d4986"/>
+        <topic label="wiced_wifi_ds1_notify_link_change" href="group__wifideepsleep.html#gadd7b64a721ba1e9d47e4c63997d3c5e9"/>
+        <topic label="wiced_wifi_ds1_set_complete_callback" href="group__wifideepsleep.html#ga14f5aff279f0dac04a705b0160fa6a57"/>
+        <topic label="wiced_wifi_enter_ds1" href="group__wifideepsleep.html#ga5f71e3a67b1a1a09240c394e24a77bdb"/>
+        <topic label="wiced_wifi_enter_ds1_debug" href="group__wifideepsleep.html#ga68b652401ad748b6fec82c7f178eef5d"/>
+        <topic label="wiced_wifi_wake_ds1" href="group__wifideepsleep.html#gab11ac00d1fb3637a7cadd2e3da16178b"/>
+      </topic>
+      <topic label="802.11K (Radio Measurement) APIs" href="group__wifi11k.html">
+        <topic label="wiced_rrm_report_callback_t" href="group__wifi11k.html#ga120b85127b2270a67a3c4e27e1798f57"/>
+        <topic label="wwd_wifi_get_radio_resource_management_capabilities" href="group__wifi11k.html#ga4703564f43652a8ace091cd6b29e20ba"/>
+        <topic label="wwd_wifi_radio_resource_management_beacon_req" href="group__wifi11k.html#gaab3b228c55c3dab29b75f3390d65afbd"/>
+        <topic label="wwd_wifi_radio_resource_management_channel_load_req" href="group__wifi11k.html#ga8b1f055a9e3d0f2307cf1ac6fc117a1b"/>
+        <topic label="wwd_wifi_radio_resource_management_frame_req" href="group__wifi11k.html#ga45da5633fae3162919ebf9dd8aad8e53"/>
+        <topic label="wwd_wifi_radio_resource_management_link_management_req" href="group__wifi11k.html#gaa70f7062e4cbbaed8090556354607ed2"/>
+        <topic label="wwd_wifi_radio_resource_management_neighbor_add_neighbor" href="group__wifi11k.html#gac29f2d520f3b1c8963299c58780c6a5d"/>
+        <topic label="wwd_wifi_radio_resource_management_neighbor_del_neighbor" href="group__wifi11k.html#ga51c797d5d607256388beec2dca1160f4"/>
+        <topic label="wwd_wifi_radio_resource_management_neighbor_list" href="group__wifi11k.html#ga3698b834fd4c98569be9ea663ecd3a3c"/>
+        <topic label="wwd_wifi_radio_resource_management_neighbor_req" href="group__wifi11k.html#gae0bc98416a5fdee6dc2a02528a3947bd"/>
+        <topic label="wwd_wifi_radio_resource_management_noise_req" href="group__wifi11k.html#ga37f8304af745a27c3f7316f032ed8d20"/>
+        <topic label="wwd_wifi_radio_resource_management_stat_req" href="group__wifi11k.html#ga5b31f5f9b39985c3a78838595365a2b9"/>
+        <topic label="wwd_wifi_set_radio_resource_management_capabilities" href="group__wifi11k.html#gad775bed8c7c9f4a9bf744e5da566686c"/>
+      </topic>
+      <topic label="802.11R(Fast BSS Transition) APIs" href="group__wifi11r.html">
+        <topic label="wwd_wifi_fast_bss_transition_capabilities" href="group__wifi11r.html#ga0856e87ccb9ca840211507fab13d1d22"/>
+        <topic label="wwd_wifi_fast_bss_transition_over_distribution_system" href="group__wifi11r.html#ga7a359db5af5259ef99372367baaf98fc"/>
+      </topic>
+      <topic label="Wi-Fi MESH Networking Functions" href="group__wifimesh.html">
+        <topic label="wwd_join_mesh" href="group__wifimesh.html#gac4a9cc702e887b5e856ab7fbd742b9f9"/>
+        <topic label="wwd_mesh_filter" href="group__wifimesh.html#gabc6c421f393d8466e6eedda104a30ccd"/>
+        <topic label="wwd_mesh_status" href="group__wifimesh.html#gab152d64d8b0dd4ea2706ab462ae9d910"/>
+        <topic label="wwd_set_mesh_auth_proto" href="group__wifimesh.html#ga197cbde95a81c3e6dccbb8aeaa7a93e8"/>
+        <topic label="wwd_set_mesh_auto_peer" href="group__wifimesh.html#ga34658c48c2cca1995640f28ab50b1f9e"/>
+        <topic label="wwd_set_mesh_channel" href="group__wifimesh.html#gaacf1500e9210577f730a33c6522cbae8"/>
+        <topic label="wwd_set_mesh_mcast_rebroadcast" href="group__wifimesh.html#ga2bf1aa8609f8eef4ffbab5b91172766b"/>
+        <topic label="wwd_set_mesh_security" href="group__wifimesh.html#ga984e25d74130b0ca7101fc80676a6456"/>
+        <topic label="wwd_wifi_get_flags" href="group__wifimesh.html#ga4e038f93b7f1e37b548423d209e883fc"/>
+        <topic label="wwd_wifi_is_mesh_enabled" href="group__wifimesh.html#gabfc238f6869488460ff892fe44a7b370"/>
+        <topic label="wwd_wifi_is_mesh_mcast_rebroadcast_enabled" href="group__wifimesh.html#ga26d7abe861d306d82fddb3191f26afd7"/>
+        <topic label="wwd_wifi_set_flags" href="group__wifimesh.html#gaa31b8091b0282784e667e9f99f23d3ae"/>
+      </topic>
+      <topic label="WiFi (802.11) P2P connection functions" href="group__connection__manager.html">
+        <topic label="connection_get_settings" href="group__connection__manager.html#ga91e63b8be8ac88d167cc36a45520a542"/>
+        <topic label="connection_get_status" href="group__connection__manager.html#ga45d89e21abc67850eb438a95079bcdf9"/>
+        <topic label="connection_kill" href="group__connection__manager.html#gaf3f91bbad8c22145826e366152f10a2c"/>
+        <topic label="connection_killall" href="group__connection__manager.html#ga1af9ed67abbce5b95ca102593619d4e7"/>
+        <topic label="connection_launch" href="group__connection__manager.html#ga4c67f53e894aadfe6e6742fd376e0439"/>
+        <topic label="connection_register_p2p_result_callback" href="group__connection__manager.html#ga4fbbed03d5bc29c2c506e764a2b8a228"/>
+        <topic label="connection_set_settings" href="group__connection__manager.html#ga96af7acff7e827b39c87d6191715fe07"/>
+      </topic>
+    </topic>
+    <topic label="Bluetooth" href="group__wicedbt.html">
+      <topic label="Audio/Video" href="group__wicedbt__av.html">
+        <topic label="Audio/Video-related Transport Protocols" href="group__wicedbt__av__protocols.html">
+          <topic label="A/V Distribution Transport Protocol" href="group__wicedbt__avdtp.html">
+            <topic label="wiced_bt_avdt_close_req" href="group__wicedbt__avdtp.html#ga3349fc3439418d3334619d53b325d26e"/>
+            <topic label="wiced_bt_avdt_config_rsp" href="group__wicedbt__avdtp.html#gab3093a7fca8a7a3a4738639dfbe69821"/>
+            <topic label="wiced_bt_avdt_connect_req" href="group__wicedbt__avdtp.html#gab606ba402595af510c4c822745a6a275"/>
+            <topic label="wiced_bt_avdt_create_stream" href="group__wicedbt__avdtp.html#gabaebb3696d6fb552456694a7a49dd0ad"/>
+            <topic label="wiced_bt_avdt_delay_report" href="group__wicedbt__avdtp.html#ga33fc0ec5c717f6fb62a661df18922e9c"/>
+            <topic label="wiced_bt_avdt_deregister" href="group__wicedbt__avdtp.html#ga26adfdafb186be341a443b5a6fabb0c0"/>
+            <topic label="wiced_bt_avdt_disconnect_req" href="group__wicedbt__avdtp.html#ga1239000590e61a2c0340a32f00e937ed"/>
+            <topic label="wiced_bt_avdt_discover_req" href="group__wicedbt__avdtp.html#gab1ebc68bfe7be883125709f2f3199ba9"/>
+            <topic label="wiced_bt_avdt_get_all_cap_req" href="group__wicedbt__avdtp.html#ga958bc5e981f0075392325c2c35118efe"/>
+            <topic label="wiced_bt_avdt_get_cap_req" href="group__wicedbt__avdtp.html#gab9db5a36d394ebffb3e84d2dcc5b0251"/>
+            <topic label="wiced_bt_avdt_get_l2cap_channel" href="group__wicedbt__avdtp.html#ga9fb7623c7a9dd28f943277094d9be447"/>
+            <topic label="wiced_bt_avdt_get_signal_channel" href="group__wicedbt__avdtp.html#ga574a454d68cfcc3a6a99b848622d2cf0"/>
+            <topic label="wiced_bt_avdt_open_req" href="group__wicedbt__avdtp.html#ga9bfa823c10d9a5d7ad01707c0d049cf5"/>
+            <topic label="wiced_bt_avdt_reconfig_req" href="group__wicedbt__avdtp.html#ga126fb459b3366a2bb503ac97bd82fb80"/>
+            <topic label="wiced_bt_avdt_reconfig_rsp" href="group__wicedbt__avdtp.html#ga8eb88316b32fa9d3f36339deadcb6088"/>
+            <topic label="wiced_bt_avdt_register" href="group__wicedbt__avdtp.html#ga45e71e96ac67cfffc9ed91bac6325992"/>
+            <topic label="wiced_bt_avdt_remove_stream" href="group__wicedbt__avdtp.html#gad298d8a4d6142243bf9a4e2ad62392fd"/>
+            <topic label="wiced_bt_avdt_security_req" href="group__wicedbt__avdtp.html#gafe5f559efdb92c9fd6973cc9c61997d6"/>
+            <topic label="wiced_bt_avdt_security_rsp" href="group__wicedbt__avdtp.html#gaf5191f686f163cecd7fb77f55cf880a8"/>
+            <topic label="wiced_bt_avdt_security_set_scms" href="group__wicedbt__avdtp.html#ga7a17bf8757f7de4e566d2272b2655fd0"/>
+            <topic label="wiced_bt_avdt_send_report" href="group__wicedbt__avdtp.html#gae9792a65032a95f425b920f9db877d48"/>
+            <topic label="wiced_bt_avdt_set_media_buf" href="group__wicedbt__avdtp.html#gaf57223fd9ba6d1d0958a031f24b16a58"/>
+            <topic label="wiced_bt_avdt_start_req" href="group__wicedbt__avdtp.html#ga6ae1a4bdead78a96980f49037d2a8246"/>
+            <topic label="wiced_bt_avdt_start_resp" href="group__wicedbt__avdtp.html#ga54cf593b90541780aadf9834635a4638"/>
+            <topic label="wiced_bt_avdt_suspend_req" href="group__wicedbt__avdtp.html#ga387bd1c1553672c8666f2b290ca6f11e"/>
+            <topic label="wiced_bt_avdt_update_stream" href="group__wicedbt__avdtp.html#ga5c40986cb691f41e2993bae91276097d"/>
+            <topic label="wiced_bt_avdt_write_req" href="group__wicedbt__avdtp.html#gac777414649db9badafc4477afccd55bd"/>
+          </topic>
+        </topic>
+        <topic label="Audio/Video Helper Functions" href="group__wicedbt__av__helper.html">
+          <topic label="A2DP Helper Functions" href="group__wicedbt__av__a2d__helper.html">
+            <topic label="A2D_BAD_ALLOC_MTHD" href="group__wicedbt__av__a2d__helper.html#gad192d339d80f88f0ab96ce1d5d1be313"/>
+            <topic label="A2D_BAD_BIT_RATE" href="group__wicedbt__av__a2d__helper.html#ga653486795f9a5c0765c51760939d9992"/>
+            <topic label="A2D_BAD_BLOCK_LEN" href="group__wicedbt__av__a2d__helper.html#gab32a5584267f6873c2c5440985b501c4"/>
+            <topic label="A2D_BAD_CH_MODE" href="group__wicedbt__av__a2d__helper.html#ga401963ade490e24f0d41bc705c604565"/>
+            <topic label="A2D_BAD_CHANNEL" href="group__wicedbt__av__a2d__helper.html#ga722b146cea0bd9be7c6e2ffa2d43c2a1"/>
+            <topic label="A2D_BAD_CODEC_TYPE" href="group__wicedbt__av__a2d__helper.html#ga993c5e5412998d6c3ccc603155cbaee6"/>
+            <topic label="A2D_BAD_CP_FORMAT" href="group__wicedbt__av__a2d__helper.html#ga19a0537dd304b8302061d7ab0e616618"/>
+            <topic label="A2D_BAD_CP_TYPE" href="group__wicedbt__av__a2d__helper.html#gadc53a25f1e62cdf7c52f9785383d5f5f"/>
+            <topic label="A2D_BAD_LAYER" href="group__wicedbt__av__a2d__helper.html#ga783c8401e79dc865b6389f7a7eb309e3"/>
+            <topic label="A2D_BAD_MAX_BITPOOL" href="group__wicedbt__av__a2d__helper.html#ga15b07c709f8fa5a4de09273e55b335cf"/>
+            <topic label="A2D_BAD_MIN_BITPOOL" href="group__wicedbt__av__a2d__helper.html#ga69f01c7970813dd88f9dcb820819423a"/>
+            <topic label="A2D_BAD_OBJ_TYPE" href="group__wicedbt__av__a2d__helper.html#gaee99dbb6080782e83424bec9e8d2cdbf"/>
+            <topic label="A2D_BAD_SAMP_FREQ" href="group__wicedbt__av__a2d__helper.html#gad99941b8ac79bfb97c8df36c9275e3bb"/>
+            <topic label="A2D_BAD_SUBBANDS" href="group__wicedbt__av__a2d__helper.html#ga5e6ad2137e606d96462fe95f9ebbc86d"/>
+            <topic label="A2D_BUSY" href="group__wicedbt__av__a2d__helper.html#gabf393fe616585a9ae694a5e89b8c5d76"/>
+            <topic label="A2D_FAIL" href="group__wicedbt__av__a2d__helper.html#gaef35e6f44545251f6d51491ee5c6c65b"/>
+            <topic label="A2D_INVALID_PARAMS" href="group__wicedbt__av__a2d__helper.html#ga08d274cdcddd0cfcd99eec5d74f0e457"/>
+            <topic label="A2D_NS_ALLOC_MTHD" href="group__wicedbt__av__a2d__helper.html#gad205a7298217a5394dab10db8003efb2"/>
+            <topic label="A2D_NS_BIT_RATE" href="group__wicedbt__av__a2d__helper.html#gaa6a1e0bed19c7df95e0249e825947807"/>
+            <topic label="A2D_NS_CH_MODE" href="group__wicedbt__av__a2d__helper.html#ga79c33dc162a9a5c1b83a090467ef2cb0"/>
+            <topic label="A2D_NS_CHANNEL" href="group__wicedbt__av__a2d__helper.html#gacb050bae5f1841338bc9a5a96a552457"/>
+            <topic label="A2D_NS_CODEC_TYPE" href="group__wicedbt__av__a2d__helper.html#ga3343e92a14dbe667f5f95dd6d04b7ae9"/>
+            <topic label="A2D_NS_CRC" href="group__wicedbt__av__a2d__helper.html#ga1fbf5986433a5cab32b25f3d0d97d49d"/>
+            <topic label="A2D_NS_LAYER" href="group__wicedbt__av__a2d__helper.html#gab0f9fd9b7433900a7aaade60038b7dca"/>
+            <topic label="A2D_NS_MAX_BITPOOL" href="group__wicedbt__av__a2d__helper.html#gaf5324a235680a5852f96d2b7da6a15ba"/>
+            <topic label="A2D_NS_MIN_BITPOOL" href="group__wicedbt__av__a2d__helper.html#gaf8e16acafb90b14702ab70df0536bfb0"/>
+            <topic label="A2D_NS_MPF" href="group__wicedbt__av__a2d__helper.html#ga27c7bd1b816f77599b8870c23cefcc03"/>
+            <topic label="A2D_NS_OBJ_TYPE" href="group__wicedbt__av__a2d__helper.html#ga09f90c5988806e80d82cb42ca1b3d3ad"/>
+            <topic label="A2D_NS_SAMP_FREQ" href="group__wicedbt__av__a2d__helper.html#ga1817eb31fc3570f8b3620d2469645bda"/>
+            <topic label="A2D_NS_SUBBANDS" href="group__wicedbt__av__a2d__helper.html#ga712033edb3e7765b3f69d92286cee0b2"/>
+            <topic label="A2D_NS_VBR" href="group__wicedbt__av__a2d__helper.html#ga1f7b4cc16b7087cf4f6f74460c5be62b"/>
+            <topic label="A2D_SUCCESS" href="group__wicedbt__av__a2d__helper.html#ga235b873e3a932294d4cc304eee0a6507"/>
+            <topic label="A2D_WRONG_CODEC" href="group__wicedbt__av__a2d__helper.html#ga37a6d7bf1b3ae2bd9dc887ec71e9a6b1"/>
+            <topic label="wiced_bt_a2d_status_t" href="group__wicedbt__av__a2d__helper.html#ga6a78ee8aece921283d90e5a721436925"/>
+            <topic label="wiced_bt_a2d_bits_set" href="group__wicedbt__av__a2d__helper.html#ga8ccbe103977bb96a5e441d382fdfd92c"/>
+          </topic>
+          <topic label="AVRCP Helper Functions" href="group__wicedbt__avrc__helper.html">
+            <topic label="wiced_bt_avrc_bld_command" href="group__wicedbt__avrc__helper.html#gae6ba21548528d4347c9262f68f0cb6fd"/>
+            <topic label="wiced_bt_avrc_bld_response" href="group__wicedbt__avrc__helper.html#ga71a7c234ef5f18cac79a145d80e52b84"/>
+            <topic label="wiced_bt_avrc_close" href="group__wicedbt__avrc__helper.html#ga20865c922791e758eec3a77f33364b3c"/>
+            <topic label="wiced_bt_avrc_close_browse" href="group__wicedbt__avrc__helper.html#ga2df5f8c057a702967322a410658fb503"/>
+            <topic label="wiced_bt_avrc_msg_req" href="group__wicedbt__avrc__helper.html#ga53b2c1c77fbd774aadeda6808417c3ba"/>
+            <topic label="wiced_bt_avrc_open" href="group__wicedbt__avrc__helper.html#gade6b9f60a9d2a4bb6e3df798ba4fefbe"/>
+            <topic label="wiced_bt_avrc_open_browse" href="group__wicedbt__avrc__helper.html#gac1219ab8e90216bd8b923af3b62380d5"/>
+            <topic label="wiced_bt_avrc_parse_command" href="group__wicedbt__avrc__helper.html#ga37cf649b6af0e1e0490255a0fa381e17"/>
+            <topic label="wiced_bt_avrc_parse_response" href="group__wicedbt__avrc__helper.html#gadd50cdff96ce504d5e955f249a35564b"/>
+            <topic label="wiced_bt_avrc_pass_cmd" href="group__wicedbt__avrc__helper.html#gaa4bc3f7062695799d225888b3e3bd997"/>
+            <topic label="wiced_bt_avrc_pass_rsp" href="group__wicedbt__avrc__helper.html#ga81a16be1b555d5c1612fcc027beacdf0"/>
+            <topic label="wiced_bt_avrc_set_buffer_pool" href="group__wicedbt__avrc__helper.html#ga03792e04a91002c307c684f529aca4d6"/>
+            <topic label="wiced_bt_avrc_sub_cmd" href="group__wicedbt__avrc__helper.html#gaf5328ba7ec2cb429b0ba936f6a5a4a0e"/>
+            <topic label="wiced_bt_avrc_unit_cmd" href="group__wicedbt__avrc__helper.html#gab272eb157462febcc3d0cfc32d51141a"/>
+            <topic label="wiced_bt_avrc_vendor_cmd" href="group__wicedbt__avrc__helper.html#ga30a8db76c42eb57b53467131975e528e"/>
+            <topic label="wiced_bt_avrc_vendor_rsp" href="group__wicedbt__avrc__helper.html#ga24b0e07817d7456c52dc0e500c59c787"/>
+          </topic>
+        </topic>
+        <topic label="Profiles" href="group__wicedbt__av__profiles.html">
+          <topic label="Advanced Audio Profile (A2DP) Sink" href="group__wicedbt__a2dp.html">
+            <topic label="wiced_bt_a2dp_codec_info_list_t" href="structwiced__bt__a2dp__codec__info__list__t.html">
+              <topic label="count" href="structwiced__bt__a2dp__codec__info__list__t.html#a20302e2c99a60d3f612dba57e3f6333b"/>
+              <topic label="info" href="structwiced__bt__a2dp__codec__info__list__t.html#a15ad38a53196e37cdd2036bac0a4bff6"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_config_data_t" href="structwiced__bt__a2dp__config__data__t.html">
+              <topic label="codec_capabilities" href="structwiced__bt__a2dp__config__data__t.html#a835a5142d3486d8f8b3dd6aaa1882a1d"/>
+              <topic label="feature_mask" href="structwiced__bt__a2dp__config__data__t.html#a7baa5f2f3ee37a58dff2f9732aa14410"/>
+              <topic label="p_param" href="structwiced__bt__a2dp__config__data__t.html#abc63638364ad26bd4e8bd13c71cd8223"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_audio_data_t" href="structwiced__bt__a2dp__sink__audio__data__t.html">
+              <topic label="m_pt" href="structwiced__bt__a2dp__sink__audio__data__t.html#a8e8371dbef14d8c53785c0033fb72687"/>
+              <topic label="p_pkt" href="structwiced__bt__a2dp__sink__audio__data__t.html#aebb16fbf3ca243bb9e07b9b03630b243"/>
+              <topic label="seq_num" href="structwiced__bt__a2dp__sink__audio__data__t.html#a98d07458cfe1557cbc2a1b1b2310b428"/>
+              <topic label="timestamp" href="structwiced__bt__a2dp__sink__audio__data__t.html#ab20b0c7772544cf5d318507f34231fbe"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_status_t" href="structwiced__bt__a2dp__sink__status__t.html">
+              <topic label="bd_addr" href="structwiced__bt__a2dp__sink__status__t.html#a32720070bf9bf7f271fcb08f9354f4da"/>
+              <topic label="handle" href="structwiced__bt__a2dp__sink__status__t.html#af242d6e3b6108ea75e1eb236e94c8240"/>
+              <topic label="result" href="structwiced__bt__a2dp__sink__status__t.html#aaee9578b774434bb1970bf77a548f0cb"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_start_t" href="structwiced__bt__a2dp__sink__start__t.html">
+              <topic label="handle" href="structwiced__bt__a2dp__sink__start__t.html#af242d6e3b6108ea75e1eb236e94c8240"/>
+              <topic label="label" href="structwiced__bt__a2dp__sink__start__t.html#a6abd170e74558ffbdb4fdfb852dbfe0c"/>
+              <topic label="result" href="structwiced__bt__a2dp__sink__start__t.html#aaee9578b774434bb1970bf77a548f0cb"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_codec_config_t" href="structwiced__bt__a2dp__sink__codec__config__t.html">
+              <topic label="codec" href="structwiced__bt__a2dp__sink__codec__config__t.html#a199dfcedd0fc028b7548052db2d3b049"/>
+              <topic label="handle" href="structwiced__bt__a2dp__sink__codec__config__t.html#af242d6e3b6108ea75e1eb236e94c8240"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_event_data_t" href="unionwiced__bt__a2dp__sink__event__data__t.html">
+              <topic label="codec_config" href="unionwiced__bt__a2dp__sink__event__data__t.html#abf70649ff72618bbc008da881aa52229"/>
+              <topic label="connect" href="unionwiced__bt__a2dp__sink__event__data__t.html#a9c3555fc549d370822fc70fc3d873efd"/>
+              <topic label="disconnect" href="unionwiced__bt__a2dp__sink__event__data__t.html#a7c7c1d407116fec2c5d098583ad3d9c1"/>
+              <topic label="start_cfm" href="unionwiced__bt__a2dp__sink__event__data__t.html#a60902ba8c5fa090151be707faa139f7a"/>
+              <topic label="start_ind" href="unionwiced__bt__a2dp__sink__event__data__t.html#a55cf87bdee780601a8a756e30352fc36"/>
+              <topic label="suspend" href="unionwiced__bt__a2dp__sink__event__data__t.html#a5e51dacc24e7f8ff231b08ab9224d891"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_control_cb_t" href="group__wicedbt__a2dp.html#gad55c1bb7ada1a4b0aa92ba8ee9d81423"/>
+            <topic label="wiced_bt_a2dp_sink_data_cb_t" href="group__wicedbt__a2dp.html#ga756023d78d3ef6de9ead196587251523"/>
+            <topic label="wiced_bt_a2dp_sink_event_t" href="group__wicedbt__a2dp.html#ga37267e6370fe394c7b4b73b784839c25">
+              <topic label="WICED_BT_A2DP_SINK_CONNECT_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a727ce023169c312b73c5f0e9ed68b9bc"/>
+              <topic label="WICED_BT_A2DP_SINK_DISCONNECT_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a95dc4f142653580512f3c5f1f8b566df"/>
+              <topic label="WICED_BT_A2DP_SINK_START_IND_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a326a44e218c71139f090bf7e64edafb3"/>
+              <topic label="WICED_BT_A2DP_SINK_START_CFM_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25ae53eff4e80ef52bd625b01c5b602b531"/>
+              <topic label="WICED_BT_A2DP_SINK_SUSPEND_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25aad4eb2336a7b88d26716cdca516ec9cf"/>
+              <topic label="WICED_BT_A2DP_SINK_CODEC_CONFIG_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a58e21ec023504dd9d6f02dfc36eac3d8"/>
+            </topic>
+            <topic label="wiced_bt_a2dp_sink_feature_mask_t" href="group__wicedbt__a2dp.html#gaca8a4ead269e36a1c58c15c32d558628">
+              <topic label="WICED_BT_A2DP_SINK_FEAT_PROTECT" href="group__wicedbt__a2dp.html#ggaca8a4ead269e36a1c58c15c32d558628a2b67317a7bb2a1f094df52121ace5e51"/>
+              <topic label="WICED_BT_A2DP_SINK_FEAT_DELAY_RPT" href="group__wicedbt__a2dp.html#ggaca8a4ead269e36a1c58c15c32d558628a5ff7aaa3a220a04dbb98a75a1eb9639c"/>
+            </topic>
+            <topic label="wiced_bt_a2d_bld_sbc_info" href="group__wicedbt__a2dp.html#ga3ac42153512bea435afc160a5f38e834"/>
+            <topic label="wiced_bt_a2d_bld_sbc_mpl_hdr" href="group__wicedbt__a2dp.html#gaa67f965fce30c36fea4d87552aaa170b"/>
+            <topic label="wiced_bt_a2d_pars_sbc_info" href="group__wicedbt__a2dp.html#ga612847aeb5600eb2f506293ab10a20f3"/>
+            <topic label="wiced_bt_a2d_pars_sbc_mpl_hdr" href="group__wicedbt__a2dp.html#gaa6c278e58119cb58c4e2572bb12fa42d"/>
+            <topic label="wiced_bt_a2d_sbc_chk_fr_init" href="group__wicedbt__a2dp.html#ga2f7be66871476b08d1072024e3aac784"/>
+            <topic label="wiced_bt_a2d_sbc_descramble" href="group__wicedbt__a2dp.html#ga97c294adaf1a468c69bf1a232c035468"/>
+            <topic label="wiced_bt_a2dp_sink_connect" href="group__wicedbt__a2dp.html#gabd9b838fdf2bc172cadf53279c10c3b5"/>
+            <topic label="wiced_bt_a2dp_sink_deinit" href="group__wicedbt__a2dp.html#gae517c0643780262dcf401fdeb4585b57"/>
+            <topic label="wiced_bt_a2dp_sink_disconnect" href="group__wicedbt__a2dp.html#ga0828c47a1dd8cb9780755839b0a75ccb"/>
+            <topic label="wiced_bt_a2dp_sink_init" href="group__wicedbt__a2dp.html#gad0f5eef5828fe9b2641507b6e8852df9"/>
+            <topic label="wiced_bt_a2dp_sink_lrac_switch_get" href="group__wicedbt__a2dp.html#ga922a31f344d5fcbbd6bcae8cc5e177f6"/>
+            <topic label="wiced_bt_a2dp_sink_lrac_switch_set" href="group__wicedbt__a2dp.html#ga53363f0be0ad8a9b4dd0ca74aeaca40f"/>
+            <topic label="wiced_bt_a2dp_sink_mute_audio" href="group__wicedbt__a2dp.html#ga88234861ec64c0b7e1b7c9d6667a3ca8"/>
+            <topic label="wiced_bt_a2dp_sink_register_data_cback" href="group__wicedbt__a2dp.html#gadb6c1854f777550c13d6841aa78a58a0"/>
+            <topic label="wiced_bt_a2dp_sink_send_delay_report" href="group__wicedbt__a2dp.html#gad318b0a7b30513fb454ba2c2a8362e20"/>
+            <topic label="wiced_bt_a2dp_sink_send_start_response" href="group__wicedbt__a2dp.html#gae2314335724d3a2cfc0b41da442eff1c"/>
+            <topic label="wiced_bt_a2dp_sink_start" href="group__wicedbt__a2dp.html#ga5c3a9ef12c30d3ab765a6f2b2608bae9"/>
+            <topic label="wiced_bt_a2dp_sink_suspend" href="group__wicedbt__a2dp.html#ga332a99805237dbd32105c9c59659312f"/>
+            <topic label="wiced_bt_a2dp_sink_update_route_config" href="group__wicedbt__a2dp.html#gae42006edc579a4b5a4d4f91bad807a76"/>
+          </topic>
+          <topic label="Hands Free Profile (HFP)" href="group__wicedbt__hfp.html">
+            <topic label="wiced_bt_hfp_hf_call_data_t" href="structwiced__bt__hfp__hf__call__data__t.html">
+              <topic label="active_call_present" href="structwiced__bt__hfp__hf__call__data__t.html#ab5ac39ee60ed1af77edf6efa1877e8c3"/>
+              <topic label="held_call_present" href="structwiced__bt__hfp__hf__call__data__t.html#af8074b3a75ea9ff5e5f144a0897bd7ba"/>
+              <topic label="setup_state" href="structwiced__bt__hfp__hf__call__data__t.html#a033ff63fbf30b9a69627a1ab6365f1be"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_volume_data_t" href="structwiced__bt__hfp__hf__volume__data__t.html">
+              <topic label="level" href="structwiced__bt__hfp__hf__volume__data__t.html#abbb6c7c49508c1ac374683f2d1159e08"/>
+              <topic label="type" href="structwiced__bt__hfp__hf__volume__data__t.html#a006d30bae5930aecd393d057bc28a32b"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_config_data_t" href="structwiced__bt__hfp__hf__config__data__t.html">
+              <topic label="feature_mask" href="structwiced__bt__hfp__hf__config__data__t.html#a189c73780bc5c8a8d79348e3f2acb303"/>
+              <topic label="mic_volume" href="structwiced__bt__hfp__hf__config__data__t.html#a786c2735cc05af45019163abaab081db"/>
+              <topic label="num_server" href="structwiced__bt__hfp__hf__config__data__t.html#ad0e05f7553790819f3b20ae1bd9fcbec"/>
+              <topic label="scn" href="structwiced__bt__hfp__hf__config__data__t.html#a7c4cb7114e95a1a07a9e7cbdb2b7f6d1"/>
+              <topic label="speaker_volume" href="structwiced__bt__hfp__hf__config__data__t.html#afc031d693bf451a41f97492e9363012f"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_clip_data_t" href="structwiced__bt__hfp__hf__clip__data__t.html">
+              <topic label="caller_num" href="structwiced__bt__hfp__hf__clip__data__t.html#a364a239497ab3f02a20c9f5e56c4d200"/>
+              <topic label="type" href="structwiced__bt__hfp__hf__clip__data__t.html#a1d127017fb298b889f4ba24752d08b8e"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_event_data_t" href="structwiced__bt__hfp__hf__event__data__t.html">
+              <topic label="ag_feature_flags" href="structwiced__bt__hfp__hf__event__data__t.html#a1d19e4528dea0f5bb4e72133c47f3d83"/>
+              <topic label="at_result_code" href="structwiced__bt__hfp__hf__event__data__t.html#a30461de9fa954e264df019ce074b62aa"/>
+              <topic label="battery_level" href="structwiced__bt__hfp__hf__event__data__t.html#a3c0aee7bfb6e464e575c6fe45ebf9b86"/>
+              <topic label="call_data" href="structwiced__bt__hfp__hf__event__data__t.html#ada52e669bb84073fe1408f517c5a11b4"/>
+              <topic label="clip" href="structwiced__bt__hfp__hf__event__data__t.html#a3d710b22f20004a29d5590d4939864d5"/>
+              <topic label="conn_state" href="structwiced__bt__hfp__hf__event__data__t.html#adc5c276ad340be894578f4a96eca11bc"/>
+              <topic label="inband_ring" href="structwiced__bt__hfp__hf__event__data__t.html#a109a3bbce7030e005ce0289b2735f25e"/>
+              <topic label="remote_address" href="structwiced__bt__hfp__hf__event__data__t.html#a1252b629812e9f236882b51657e7231a"/>
+              <topic label="rssi" href="structwiced__bt__hfp__hf__event__data__t.html#afb67d818cd76cce8057affabcb1979a6"/>
+              <topic label="service_state" href="structwiced__bt__hfp__hf__event__data__t.html#ae7ff7bb192e77bcb20ddcb8a0dcd877b"/>
+              <topic label="service_type" href="structwiced__bt__hfp__hf__event__data__t.html#ab6730e1ea613a01dbd91254fd033185c"/>
+              <topic label="volume" href="structwiced__bt__hfp__hf__event__data__t.html#a31371970be003e3bf69ace0480faf7dc"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf.h" href="wiced__bt__hfp__hf_8h.html"/>
+            <topic label="wiced_bt_hfp_hf_event_cb_t" href="group__wicedbt__hfp.html#ga200b3fc22b74686de434ba36ca8d723f"/>
+            <topic label="wiced_bt_hfp_ag_supported_features_t" href="group__wicedbt__hfp.html#ga698ff5e28045678d476c6ac3e1c3a9d2">
+            </topic>
+            <topic label="wiced_bt_hfp_hf_call_action_t" href="group__wicedbt__hfp.html#gaeebed2d8b4e824634c470ceb3fba3886">
+              <topic label="WICED_BT_HFP_HF_CALL_ACTION_DIAL" href="group__wicedbt__hfp.html#ggaeebed2d8b4e824634c470ceb3fba3886acf61488bed518cca9db5a1178bd8b42a"/>
+              <topic label="WICED_BT_HFP_HF_CALL_ACTION_ANSWER" href="group__wicedbt__hfp.html#ggaeebed2d8b4e824634c470ceb3fba3886ace9210dd6586e160565620ba893b1bb3"/>
+              <topic label="WICED_BT_HFP_HF_CALL_ACTION_HANGUP" href="group__wicedbt__hfp.html#ggaeebed2d8b4e824634c470ceb3fba3886a11a730f28f732264bbc6a4ae95d8a899"/>
+              <topic label="WICED_BT_HFP_HF_CALL_ACTION_HOLD_0" href="group__wicedbt__hfp.html#ggaeebed2d8b4e824634c470ceb3fba3886aa342395a1c1dfcb7f7360f6fd87c033c"/>
+              <topic label="WICED_BT_HFP_HF_CALL_ACTION_HOLD_1" href="group__wicedbt__hfp.html#ggaeebed2d8b4e824634c470ceb3fba3886ada47bd0babaffb8cd54dad2503950031"/>
+              <topic label="WICED_BT_HFP_HF_CALL_ACTION_HOLD_2" href="group__wicedbt__hfp.html#ggaeebed2d8b4e824634c470ceb3fba3886a3c3aaa1a7056a1e96fad4130dae111d4"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_callsetup_state_t" href="group__wicedbt__hfp.html#ga1a6a3f746c4ba8c515caf93a03ea91ef">
+              <topic label="WICED_BT_HFP_HF_CALLSETUP_STATE_IDLE" href="group__wicedbt__hfp.html#gga1a6a3f746c4ba8c515caf93a03ea91efac9b0182b54e0581562d340dfb8bb0626"/>
+              <topic label="WICED_BT_HFP_HF_CALLSETUP_STATE_INCOMING" href="group__wicedbt__hfp.html#gga1a6a3f746c4ba8c515caf93a03ea91efa2e1a4adcfa363a6f41d42dfc028f5506"/>
+              <topic label="WICED_BT_HFP_HF_CALLSETUP_STATE_DIALING" href="group__wicedbt__hfp.html#gga1a6a3f746c4ba8c515caf93a03ea91efac9c169116d07495b7c798d974da06e4a"/>
+              <topic label="WICED_BT_HFP_HF_CALLSETUP_STATE_ALERTING" href="group__wicedbt__hfp.html#gga1a6a3f746c4ba8c515caf93a03ea91efacbdf9a4e0be9a7d86387eca9a17db8f9"/>
+              <topic label="WICED_BT_HFP_HF_CALLSETUP_STATE_WAITING" href="group__wicedbt__hfp.html#gga1a6a3f746c4ba8c515caf93a03ea91efa19f0960af368227f4dc1cea9d0f65ebc"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_connection_state_t" href="group__wicedbt__hfp.html#gace33c1c1188090c4d1ece1ce9123a1c7">
+              <topic label="WICED_BT_HFP_HF_STATE_DISCONNECTED" href="group__wicedbt__hfp.html#ggace33c1c1188090c4d1ece1ce9123a1c7acf16364c217222012531819dc9e19b8f"/>
+              <topic label="WICED_BT_HFP_HF_STATE_CONNECTED" href="group__wicedbt__hfp.html#ggace33c1c1188090c4d1ece1ce9123a1c7accb0a8464dba232296ba4586a5779955"/>
+              <topic label="WICED_BT_HFP_HF_STATE_SLC_CONNECTED" href="group__wicedbt__hfp.html#ggace33c1c1188090c4d1ece1ce9123a1c7a284494ea5787581d276e416ea10bcdb5"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_event_t" href="group__wicedbt__hfp.html#ga4fe00fa848152020909729f50ee07504">
+              <topic label="WICED_BT_HFP_HF_CONNECTION_STATE_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504a600fd993e0b9597a10fae183ee9533ea"/>
+              <topic label="WICED_BT_HFP_HF_AG_FEATURE_SUPPORT_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504af9f10ded2dd0240df3b3f81cc2094aef"/>
+              <topic label="WICED_BT_HFP_HF_SERVICE_STATE_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504aec233ee9a0c01a48f369427128a90ba5"/>
+              <topic label="WICED_BT_HFP_HF_SERVICE_TYPE_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504a1eb4f8609ff9c58f0355af611bf3d98d"/>
+              <topic label="WICED_BT_HFP_HF_CALL_SETUP_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504a9afa7e0a833ef3a00f1245387b32b3cd"/>
+              <topic label="WICED_BT_HFP_HF_RING_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504aa4d439ba4a050b69c54a66548bbcb7d2"/>
+              <topic label="WICED_BT_HFP_HF_INBAND_RING_STATE_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504af11910aebe21298019fd5dbdcbf4d4a9"/>
+              <topic label="WICED_BT_HFP_HF_RSSI_IND_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504af1d7a60680099d543a821fb86136b630"/>
+              <topic label="WICED_BT_HFP_HF_BATTERY_STATUS_IND_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504a8f2b5c5a866e41e5106b4218bab30478"/>
+              <topic label="WICED_BT_HFP_HF_VOLUME_CHANGE_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504a15c6357446b4288c768aa9b501cdca31"/>
+              <topic label="WICED_BT_HFP_HF_CLIP_IND_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504a76b004cccd3428485d328779097e8410"/>
+              <topic label="WICED_BT_HFP_HF_AT_RESULT_CODE_IND_EVT" href="group__wicedbt__hfp.html#gga4fe00fa848152020909729f50ee07504ac0730d4417d4214d990b476ca6336594"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_inband_ring_state_t" href="group__wicedbt__hfp.html#gaefc3137ceb787ec502a62411336f1aef">
+              <topic label="WICED_BT_HFP_HF_INBAND_RING_DISABLED" href="group__wicedbt__hfp.html#ggaefc3137ceb787ec502a62411336f1aefa0474592dbf4bba4e1e588fafb619facf"/>
+              <topic label="WICED_BT_HFP_HF_INBAND_RING_ENABLED" href="group__wicedbt__hfp.html#ggaefc3137ceb787ec502a62411336f1aefa702079954e9a5246fee02b6014d9bbd5"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_service_state_t" href="group__wicedbt__hfp.html#ga5becf2b81ab9966b180f2ae1a8526872">
+              <topic label="WICED_BT_HFP_HF_SERVICE_STATE_NOT_AVAILABLE" href="group__wicedbt__hfp.html#gga5becf2b81ab9966b180f2ae1a8526872a183d76617de449cf5b7420cd251b6992"/>
+              <topic label="WICED_BT_HFP_HF_SERVICE_STATE_AVAILABLE" href="group__wicedbt__hfp.html#gga5becf2b81ab9966b180f2ae1a8526872a6a158f2ab7f268e9848696f84db4d554"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_service_type_t" href="group__wicedbt__hfp.html#ga31769d2412c71d378f690799a3cb82ec">
+              <topic label="WICED_BT_HFP_HF_SERVICE_TYPE_HOME" href="group__wicedbt__hfp.html#gga31769d2412c71d378f690799a3cb82eca2a9350f1a395fb6d5a8ada608d36703b"/>
+              <topic label="WICED_BT_HFP_HF_SERVICE_TYPE_ROAMING" href="group__wicedbt__hfp.html#gga31769d2412c71d378f690799a3cb82eca654206c70154afe96f4d15719fab93a8"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_supported_features_t" href="group__wicedbt__hfp.html#gad467072c49f3bb8dcf0bc935ffa5d941">
+            </topic>
+            <topic label="wiced_bt_hfp_hf_volume_type_t" href="group__wicedbt__hfp.html#ga27a6ebcebe6385d6d89b5dcb8dd9f08c">
+              <topic label="WICED_BT_HFP_HF_SPEAKER" href="group__wicedbt__hfp.html#gga27a6ebcebe6385d6d89b5dcb8dd9f08ca302ec11e8dd9a3637005b99496944e92"/>
+              <topic label="WICED_BT_HFP_HF_MIC" href="group__wicedbt__hfp.html#gga27a6ebcebe6385d6d89b5dcb8dd9f08caca66be846459f10ba7a2c33ae86f3230"/>
+            </topic>
+            <topic label="wiced_bt_hfp_hf_connect" href="group__wicedbt__hfp.html#ga0df9b2e9221bc93bd5064f1015d3c068"/>
+            <topic label="wiced_bt_hfp_hf_deinit" href="group__wicedbt__hfp.html#ga58fb1fd2f5fc4fd61075117a251c4755"/>
+            <topic label="wiced_bt_hfp_hf_disconnect" href="group__wicedbt__hfp.html#gac09143c4a4fa4bcff974432bddc3bace"/>
+            <topic label="wiced_bt_hfp_hf_init" href="group__wicedbt__hfp.html#ga5ac7509eeaf7a91fe45da31185e482e8"/>
+            <topic label="wiced_bt_hfp_hf_notify_volume" href="group__wicedbt__hfp.html#gaa84408467f48d1a7f2856674a7fd2307"/>
+            <topic label="wiced_bt_hfp_hf_perform_call_action" href="group__wicedbt__hfp.html#gabe5f2dc33b2b3e604f9afae348fb87e4"/>
+            <topic label="wiced_bt_hfp_hf_send_at_cmd" href="group__wicedbt__hfp.html#gaa10e8b085d3e82ec9def57a07a7ada5a"/>
+          </topic>
+          <topic label="Audio/Video Remote Control Protocol (AVRCP)" href="group__wicedbt__avrcp.html">
+            <topic label="wiced_bt_remote_control_add_to_now_playing_cmd" href="group__wicedbt__avrcp.html#ga84430713a55a8bd450503cd36ba25f38"/>
+            <topic label="wiced_bt_remote_control_change_path_cmd" href="group__wicedbt__avrcp.html#ga83a9fad643f1732ed6f38cec118d3f95"/>
+            <topic label="wiced_bt_remote_control_connect" href="group__wicedbt__avrcp.html#gafd14063a686bc51bdccc82bc1de3d191"/>
+            <topic label="wiced_bt_remote_control_deinit" href="group__wicedbt__avrcp.html#gaeb5a01831d11c47434501121a11d46ef"/>
+            <topic label="wiced_bt_remote_control_disconnect" href="group__wicedbt__avrcp.html#gad2ce93bc1be44441596fefe5a5d11de5"/>
+            <topic label="wiced_bt_remote_control_get_element_attr_cmd" href="group__wicedbt__avrcp.html#gafa47be2839402f8f648b5e2a46ed27ed"/>
+            <topic label="wiced_bt_remote_control_get_folder_items_cmd" href="group__wicedbt__avrcp.html#gacbdff4a3fa756d13aa4f134692b17132"/>
+            <topic label="wiced_bt_remote_control_get_item_attributes_cmd" href="group__wicedbt__avrcp.html#gaed284ce9f903748b5e661c1199386471"/>
+            <topic label="wiced_bt_remote_control_get_play_status_cmd" href="group__wicedbt__avrcp.html#ga8d11b0be5882b456f672e67a1b416ae1"/>
+            <topic label="wiced_bt_remote_control_get_player_attrs_text_cmd" href="group__wicedbt__avrcp.html#gafa442dab0232be34fa6110118108af15"/>
+            <topic label="wiced_bt_remote_control_get_player_value_cmd" href="group__wicedbt__avrcp.html#gad9b06cccf2c038ffb040df8db953f0fc"/>
+            <topic label="wiced_bt_remote_control_get_player_values_text_cmd" href="group__wicedbt__avrcp.html#ga46676c61762899b0e9a1a469730c85f6"/>
+            <topic label="wiced_bt_remote_control_init" href="group__wicedbt__avrcp.html#ga9ccc0a9db1e9854351891403aa83f658"/>
+            <topic label="wiced_bt_remote_control_list_player_attrs_cmd" href="group__wicedbt__avrcp.html#ga290f6a64001d3e79bd916ef531798481"/>
+            <topic label="wiced_bt_remote_control_list_player_values_cmd" href="group__wicedbt__avrcp.html#gabc8b1049b4e57d18d8dba008f125d625"/>
+            <topic label="wiced_bt_remote_control_play_item_cmd" href="group__wicedbt__avrcp.html#ga6deb84308126289db777dd2aa4a76555"/>
+            <topic label="wiced_bt_remote_control_search_cmd" href="group__wicedbt__avrcp.html#ga33c7d1589a7d5b71f358eb5111b9e547"/>
+            <topic label="wiced_bt_remote_control_send_pass_through_cmd" href="group__wicedbt__avrcp.html#gadfbcaabe9533764abcf83c17a34252d4"/>
+            <topic label="wiced_bt_remote_control_set_addressed_player_cmd" href="group__wicedbt__avrcp.html#gadcdb320d0e474613c9f793f52c4b5b05"/>
+            <topic label="wiced_bt_remote_control_set_browsed_player_cmd" href="group__wicedbt__avrcp.html#ga7bcd0fa33309dcde8cfcb039d4a2d537"/>
+            <topic label="wiced_bt_remote_control_set_player_value_cmd" href="group__wicedbt__avrcp.html#gaf16c6f13e05806962bb96e2dca6c3adb"/>
+            <topic label="wiced_bt_remote_control_set_volume_cmd" href="group__wicedbt__avrcp.html#ga8b922e12d5302588d50842005890d444"/>
+          </topic>
+        </topic>
+        <topic label="Advanced Audio Profile (A2DP) Sink" href="group__wicedbt__a2dp.html">
+          <topic label="wiced_bt_a2dp_codec_info_list_t" href="structwiced__bt__a2dp__codec__info__list__t.html">
+            <topic label="count" href="structwiced__bt__a2dp__codec__info__list__t.html#a20302e2c99a60d3f612dba57e3f6333b"/>
+            <topic label="info" href="structwiced__bt__a2dp__codec__info__list__t.html#a15ad38a53196e37cdd2036bac0a4bff6"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_config_data_t" href="structwiced__bt__a2dp__config__data__t.html">
+            <topic label="codec_capabilities" href="structwiced__bt__a2dp__config__data__t.html#a835a5142d3486d8f8b3dd6aaa1882a1d"/>
+            <topic label="feature_mask" href="structwiced__bt__a2dp__config__data__t.html#a7baa5f2f3ee37a58dff2f9732aa14410"/>
+            <topic label="p_param" href="structwiced__bt__a2dp__config__data__t.html#abc63638364ad26bd4e8bd13c71cd8223"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_audio_data_t" href="structwiced__bt__a2dp__sink__audio__data__t.html">
+            <topic label="m_pt" href="structwiced__bt__a2dp__sink__audio__data__t.html#a8e8371dbef14d8c53785c0033fb72687"/>
+            <topic label="p_pkt" href="structwiced__bt__a2dp__sink__audio__data__t.html#aebb16fbf3ca243bb9e07b9b03630b243"/>
+            <topic label="seq_num" href="structwiced__bt__a2dp__sink__audio__data__t.html#a98d07458cfe1557cbc2a1b1b2310b428"/>
+            <topic label="timestamp" href="structwiced__bt__a2dp__sink__audio__data__t.html#ab20b0c7772544cf5d318507f34231fbe"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_status_t" href="structwiced__bt__a2dp__sink__status__t.html">
+            <topic label="bd_addr" href="structwiced__bt__a2dp__sink__status__t.html#a32720070bf9bf7f271fcb08f9354f4da"/>
+            <topic label="handle" href="structwiced__bt__a2dp__sink__status__t.html#af242d6e3b6108ea75e1eb236e94c8240"/>
+            <topic label="result" href="structwiced__bt__a2dp__sink__status__t.html#aaee9578b774434bb1970bf77a548f0cb"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_start_t" href="structwiced__bt__a2dp__sink__start__t.html">
+            <topic label="handle" href="structwiced__bt__a2dp__sink__start__t.html#af242d6e3b6108ea75e1eb236e94c8240"/>
+            <topic label="label" href="structwiced__bt__a2dp__sink__start__t.html#a6abd170e74558ffbdb4fdfb852dbfe0c"/>
+            <topic label="result" href="structwiced__bt__a2dp__sink__start__t.html#aaee9578b774434bb1970bf77a548f0cb"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_codec_config_t" href="structwiced__bt__a2dp__sink__codec__config__t.html">
+            <topic label="codec" href="structwiced__bt__a2dp__sink__codec__config__t.html#a199dfcedd0fc028b7548052db2d3b049"/>
+            <topic label="handle" href="structwiced__bt__a2dp__sink__codec__config__t.html#af242d6e3b6108ea75e1eb236e94c8240"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_event_data_t" href="unionwiced__bt__a2dp__sink__event__data__t.html">
+            <topic label="codec_config" href="unionwiced__bt__a2dp__sink__event__data__t.html#abf70649ff72618bbc008da881aa52229"/>
+            <topic label="connect" href="unionwiced__bt__a2dp__sink__event__data__t.html#a9c3555fc549d370822fc70fc3d873efd"/>
+            <topic label="disconnect" href="unionwiced__bt__a2dp__sink__event__data__t.html#a7c7c1d407116fec2c5d098583ad3d9c1"/>
+            <topic label="start_cfm" href="unionwiced__bt__a2dp__sink__event__data__t.html#a60902ba8c5fa090151be707faa139f7a"/>
+            <topic label="start_ind" href="unionwiced__bt__a2dp__sink__event__data__t.html#a55cf87bdee780601a8a756e30352fc36"/>
+            <topic label="suspend" href="unionwiced__bt__a2dp__sink__event__data__t.html#a5e51dacc24e7f8ff231b08ab9224d891"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_control_cb_t" href="group__wicedbt__a2dp.html#gad55c1bb7ada1a4b0aa92ba8ee9d81423"/>
+          <topic label="wiced_bt_a2dp_sink_data_cb_t" href="group__wicedbt__a2dp.html#ga756023d78d3ef6de9ead196587251523"/>
+          <topic label="wiced_bt_a2dp_sink_event_t" href="group__wicedbt__a2dp.html#ga37267e6370fe394c7b4b73b784839c25">
+            <topic label="WICED_BT_A2DP_SINK_CONNECT_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a727ce023169c312b73c5f0e9ed68b9bc"/>
+            <topic label="WICED_BT_A2DP_SINK_DISCONNECT_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a95dc4f142653580512f3c5f1f8b566df"/>
+            <topic label="WICED_BT_A2DP_SINK_START_IND_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a326a44e218c71139f090bf7e64edafb3"/>
+            <topic label="WICED_BT_A2DP_SINK_START_CFM_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25ae53eff4e80ef52bd625b01c5b602b531"/>
+            <topic label="WICED_BT_A2DP_SINK_SUSPEND_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25aad4eb2336a7b88d26716cdca516ec9cf"/>
+            <topic label="WICED_BT_A2DP_SINK_CODEC_CONFIG_EVT" href="group__wicedbt__a2dp.html#gga37267e6370fe394c7b4b73b784839c25a58e21ec023504dd9d6f02dfc36eac3d8"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_sink_feature_mask_t" href="group__wicedbt__a2dp.html#gaca8a4ead269e36a1c58c15c32d558628">
+            <topic label="WICED_BT_A2DP_SINK_FEAT_PROTECT" href="group__wicedbt__a2dp.html#ggaca8a4ead269e36a1c58c15c32d558628a2b67317a7bb2a1f094df52121ace5e51"/>
+            <topic label="WICED_BT_A2DP_SINK_FEAT_DELAY_RPT" href="group__wicedbt__a2dp.html#ggaca8a4ead269e36a1c58c15c32d558628a5ff7aaa3a220a04dbb98a75a1eb9639c"/>
+          </topic>
+          <topic label="wiced_bt_a2d_bld_sbc_info" href="group__wicedbt__a2dp.html#ga3ac42153512bea435afc160a5f38e834"/>
+          <topic label="wiced_bt_a2d_bld_sbc_mpl_hdr" href="group__wicedbt__a2dp.html#gaa67f965fce30c36fea4d87552aaa170b"/>
+          <topic label="wiced_bt_a2d_pars_sbc_info" href="group__wicedbt__a2dp.html#ga612847aeb5600eb2f506293ab10a20f3"/>
+          <topic label="wiced_bt_a2d_pars_sbc_mpl_hdr" href="group__wicedbt__a2dp.html#gaa6c278e58119cb58c4e2572bb12fa42d"/>
+          <topic label="wiced_bt_a2d_sbc_chk_fr_init" href="group__wicedbt__a2dp.html#ga2f7be66871476b08d1072024e3aac784"/>
+          <topic label="wiced_bt_a2d_sbc_descramble" href="group__wicedbt__a2dp.html#ga97c294adaf1a468c69bf1a232c035468"/>
+          <topic label="wiced_bt_a2dp_sink_connect" href="group__wicedbt__a2dp.html#gabd9b838fdf2bc172cadf53279c10c3b5"/>
+          <topic label="wiced_bt_a2dp_sink_deinit" href="group__wicedbt__a2dp.html#gae517c0643780262dcf401fdeb4585b57"/>
+          <topic label="wiced_bt_a2dp_sink_disconnect" href="group__wicedbt__a2dp.html#ga0828c47a1dd8cb9780755839b0a75ccb"/>
+          <topic label="wiced_bt_a2dp_sink_init" href="group__wicedbt__a2dp.html#gad0f5eef5828fe9b2641507b6e8852df9"/>
+          <topic label="wiced_bt_a2dp_sink_lrac_switch_get" href="group__wicedbt__a2dp.html#ga922a31f344d5fcbbd6bcae8cc5e177f6"/>
+          <topic label="wiced_bt_a2dp_sink_lrac_switch_set" href="group__wicedbt__a2dp.html#ga53363f0be0ad8a9b4dd0ca74aeaca40f"/>
+          <topic label="wiced_bt_a2dp_sink_mute_audio" href="group__wicedbt__a2dp.html#ga88234861ec64c0b7e1b7c9d6667a3ca8"/>
+          <topic label="wiced_bt_a2dp_sink_register_data_cback" href="group__wicedbt__a2dp.html#gadb6c1854f777550c13d6841aa78a58a0"/>
+          <topic label="wiced_bt_a2dp_sink_send_delay_report" href="group__wicedbt__a2dp.html#gad318b0a7b30513fb454ba2c2a8362e20"/>
+          <topic label="wiced_bt_a2dp_sink_send_start_response" href="group__wicedbt__a2dp.html#gae2314335724d3a2cfc0b41da442eff1c"/>
+          <topic label="wiced_bt_a2dp_sink_start" href="group__wicedbt__a2dp.html#ga5c3a9ef12c30d3ab765a6f2b2608bae9"/>
+          <topic label="wiced_bt_a2dp_sink_suspend" href="group__wicedbt__a2dp.html#ga332a99805237dbd32105c9c59659312f"/>
+          <topic label="wiced_bt_a2dp_sink_update_route_config" href="group__wicedbt__a2dp.html#gae42006edc579a4b5a4d4f91bad807a76"/>
+        </topic>
+        <topic label="WICED Audio Utilities" href="group__wicedbt__audio__utils.html">
+          <topic label="wiced_bt_audio_config_buffer_t" href="structwiced__bt__audio__config__buffer__t.html">
+            <topic label="audio_codec_buffer_size" href="structwiced__bt__audio__config__buffer__t.html#a8db826fdcd6b7570d16060df7ec541ae"/>
+            <topic label="audio_tx_buffer_size" href="structwiced__bt__audio__config__buffer__t.html#ac6afd2cd2c1082869da008138ce61a58"/>
+            <topic label="role" href="structwiced__bt__audio__config__buffer__t.html#a586d79d0ec374e74848a11aa5e552204"/>
+          </topic>
+          <topic label="wiced_bt_a2dp_statistics_t" href="structwiced__bt__a2dp__statistics__t.html">
+            <topic label="duration" href="structwiced__bt__a2dp__statistics__t.html#a49f89df0e765bee620c337c51d397eff"/>
+            <topic label="packet_ack_stats_table" href="structwiced__bt__a2dp__statistics__t.html#a3613d611fd34a8a9375c8d9e02d3349d"/>
+          </topic>
+          <topic label="wiced_audio_buffer_empty_cback_t" href="group__wicedbt__audio__utils.html#gadd0f597c87ce20ed2b511516de8c92e9"/>
+          <topic label="wiced_audio_suspend_complete_cback_t" href="group__wicedbt__audio__utils.html#ga53767ab5ee3cd959a4ba76b31dba4d75"/>
+          <topic label="wiced_audio_route_t" href="group__wicedbt__audio__utils.html#gab74a6a225513325e42dbda6b0e3a30c7">
+            <topic label="AUDIO_ROUTE_I2S" href="group__wicedbt__audio__utils.html#ggab74a6a225513325e42dbda6b0e3a30c7a9478f95dfe9d96d99984072f29914b27"/>
+            <topic label="AUDIO_ROUTE_UART" href="group__wicedbt__audio__utils.html#ggab74a6a225513325e42dbda6b0e3a30c7aafe4542716a13ed81872292bf8c371d0"/>
+            <topic label="AUDIO_ROUTE_SINE" href="group__wicedbt__audio__utils.html#ggab74a6a225513325e42dbda6b0e3a30c7a6428f31b8cf94319e9c613e952725265"/>
+            <topic label="AUDIO_ROUTE_APP" href="group__wicedbt__audio__utils.html#ggab74a6a225513325e42dbda6b0e3a30c7a8a8a194fb200646fa35b2642e1edd1e3"/>
+            <topic label="AUDIO_ROUTE_COMPRESSED_TRANSPORT" href="group__wicedbt__audio__utils.html#ggab74a6a225513325e42dbda6b0e3a30c7a8e73675db42a0d6d30ed7558f20625a8"/>
+            <topic label="AUDIO_ROUTE_COMPRESSED_APP" href="group__wicedbt__audio__utils.html#ggab74a6a225513325e42dbda6b0e3a30c7afbf66de4599434bebc4c8ffef98b7261"/>
+          </topic>
+          <topic label="wiced_device_role_t" href="group__wicedbt__audio__utils.html#gae50b1d8ef56665ba32a1441ed01dce9d">
+            <topic label="WICED_AUDIO_SOURCE_ROLE" href="group__wicedbt__audio__utils.html#ggae50b1d8ef56665ba32a1441ed01dce9da7fcee7c176050e7463b89add943b48d1"/>
+            <topic label="WICED_AUDIO_SINK_ROLE" href="group__wicedbt__audio__utils.html#ggae50b1d8ef56665ba32a1441ed01dce9da9b19ee50a1b697b4228773315e6183f1"/>
+            <topic label="WICED_HF_ROLE" href="group__wicedbt__audio__utils.html#ggae50b1d8ef56665ba32a1441ed01dce9da51749aa3d83da027416d9c9be12fb915"/>
+          </topic>
+        </topic>
+        <topic label="AVRCP Helper Functions" href="group__wicedbt__avrc__helper.html">
+          <topic label="wiced_bt_avrc_bld_command" href="group__wicedbt__avrc__helper.html#gae6ba21548528d4347c9262f68f0cb6fd"/>
+          <topic label="wiced_bt_avrc_bld_response" href="group__wicedbt__avrc__helper.html#ga71a7c234ef5f18cac79a145d80e52b84"/>
+          <topic label="wiced_bt_avrc_close" href="group__wicedbt__avrc__helper.html#ga20865c922791e758eec3a77f33364b3c"/>
+          <topic label="wiced_bt_avrc_close_browse" href="group__wicedbt__avrc__helper.html#ga2df5f8c057a702967322a410658fb503"/>
+          <topic label="wiced_bt_avrc_msg_req" href="group__wicedbt__avrc__helper.html#ga53b2c1c77fbd774aadeda6808417c3ba"/>
+          <topic label="wiced_bt_avrc_open" href="group__wicedbt__avrc__helper.html#gade6b9f60a9d2a4bb6e3df798ba4fefbe"/>
+          <topic label="wiced_bt_avrc_open_browse" href="group__wicedbt__avrc__helper.html#gac1219ab8e90216bd8b923af3b62380d5"/>
+          <topic label="wiced_bt_avrc_parse_command" href="group__wicedbt__avrc__helper.html#ga37cf649b6af0e1e0490255a0fa381e17"/>
+          <topic label="wiced_bt_avrc_parse_response" href="group__wicedbt__avrc__helper.html#gadd50cdff96ce504d5e955f249a35564b"/>
+          <topic label="wiced_bt_avrc_pass_cmd" href="group__wicedbt__avrc__helper.html#gaa4bc3f7062695799d225888b3e3bd997"/>
+          <topic label="wiced_bt_avrc_pass_rsp" href="group__wicedbt__avrc__helper.html#ga81a16be1b555d5c1612fcc027beacdf0"/>
+          <topic label="wiced_bt_avrc_set_buffer_pool" href="group__wicedbt__avrc__helper.html#ga03792e04a91002c307c684f529aca4d6"/>
+          <topic label="wiced_bt_avrc_sub_cmd" href="group__wicedbt__avrc__helper.html#gaf5328ba7ec2cb429b0ba936f6a5a4a0e"/>
+          <topic label="wiced_bt_avrc_unit_cmd" href="group__wicedbt__avrc__helper.html#gab272eb157462febcc3d0cfc32d51141a"/>
+          <topic label="wiced_bt_avrc_vendor_cmd" href="group__wicedbt__avrc__helper.html#ga30a8db76c42eb57b53467131975e528e"/>
+          <topic label="wiced_bt_avrc_vendor_rsp" href="group__wicedbt__avrc__helper.html#ga24b0e07817d7456c52dc0e500c59c787"/>
+        </topic>
+      </topic>
+      <topic label="Logical Link Control and Adaptation Protocol (L2CAP)" href="group__l2cap.html">
+        <topic label="Data Types" href="group__l2cap__data__types.html">
+          <topic label="wiced_bt_l2cap_fcr_options_t" href="structwiced__bt__l2cap__fcr__options__t.html">
+            <topic label="max_pdu_size" href="structwiced__bt__l2cap__fcr__options__t.html#add797ddd90631faa8bfab7f2a2d64feb"/>
+            <topic label="max_transmit" href="structwiced__bt__l2cap__fcr__options__t.html#a20e2f30d3a43119c202b846b59857fed"/>
+            <topic label="mode" href="structwiced__bt__l2cap__fcr__options__t.html#a37e90f5e3bd99fac2021fb3a326607d4"/>
+            <topic label="monitor_timeout" href="structwiced__bt__l2cap__fcr__options__t.html#a7d5bbcc5df03f910a06308ffd17ce9dd"/>
+            <topic label="rtrans_timeout" href="structwiced__bt__l2cap__fcr__options__t.html#ab354c08b88768cc329bd7f108898f83b"/>
+            <topic label="tx_window_size" href="structwiced__bt__l2cap__fcr__options__t.html#ab8ea6988c9f3c859dd1740aa5a933e85"/>
+          </topic>
+          <topic label="wiced_bt_l2cap_cfg_information_t" href="structwiced__bt__l2cap__cfg__information__t.html">
+            <topic label="fcr" href="structwiced__bt__l2cap__cfg__information__t.html#a79260bc462661a6777bfb56c589aa39f"/>
+            <topic label="fcr_present" href="structwiced__bt__l2cap__cfg__information__t.html#a60affc11fe43fcba461a70fd7998c0e4"/>
+            <topic label="fcs" href="structwiced__bt__l2cap__cfg__information__t.html#a551cefcd48f2a929589e54d67f029107"/>
+            <topic label="fcs_present" href="structwiced__bt__l2cap__cfg__information__t.html#af120110b06f7e8e2881a049aec7d9606"/>
+            <topic label="flags" href="structwiced__bt__l2cap__cfg__information__t.html#a1e87af3c18a2fd36c61faf89949bdc3f"/>
+            <topic label="flush_timeout" href="structwiced__bt__l2cap__cfg__information__t.html#ac6d3bda95d9217e5d7eb5a8ecbf383de"/>
+            <topic label="flush_timeout_present" href="structwiced__bt__l2cap__cfg__information__t.html#a990864342c8e6cda4da298ec12692c29"/>
+            <topic label="mtu" href="structwiced__bt__l2cap__cfg__information__t.html#a2997a8aa5758871f81608a28ce97b796"/>
+            <topic label="mtu_present" href="structwiced__bt__l2cap__cfg__information__t.html#abbaeeb5c73c83f1848345548b8391cc7"/>
+            <topic label="qos" href="structwiced__bt__l2cap__cfg__information__t.html#a39cc0aefc2e65bb121fa1b0caa824b20"/>
+            <topic label="qos_present" href="structwiced__bt__l2cap__cfg__information__t.html#abc6659ec70c7f1bdb753f9b721c9be41"/>
+            <topic label="result" href="structwiced__bt__l2cap__cfg__information__t.html#abfd24350fd0f519cf2cc67a7827ab6fa"/>
+          </topic>
+          <topic label="wiced_bt_l2cap_ertm_information_t" href="structwiced__bt__l2cap__ertm__information__t.html">
+            <topic label="allowed_modes" href="structwiced__bt__l2cap__ertm__information__t.html#ace35506a5e91a707f9ffaadf3a2152ba"/>
+            <topic label="fcr_rx_pool_id" href="structwiced__bt__l2cap__ertm__information__t.html#a2f9bc26540f738bbceca1708b9459107"/>
+            <topic label="fcr_tx_pool_id" href="structwiced__bt__l2cap__ertm__information__t.html#a7b28777f548461dd9f1aaa4b891774c7"/>
+            <topic label="preferred_mode" href="structwiced__bt__l2cap__ertm__information__t.html#ab7da7db3a6fba0b430cc8e84bccc24c6"/>
+            <topic label="user_rx_pool_id" href="structwiced__bt__l2cap__ertm__information__t.html#a97f2b1a7aaa9e6aef6fa8e8a8fc362f3"/>
+            <topic label="user_tx_pool_id" href="structwiced__bt__l2cap__ertm__information__t.html#a81201043f8a91750cc2c0f2e4dc5ca4f"/>
+          </topic>
+          <topic label="L2C_INVALID_PSM" href="group__l2cap__data__types.html#ga526c4ea340fa1eadc1301b3080b6bb41"/>
+          <topic label="L2CAP_BLE_COC_SDU_OFFSET" href="group__l2cap__data__types.html#ga2dbbfb547c0c6bdf80988cb14f716982"/>
+          <topic label="L2CAP_BLE_CONN_MIN_OFFSET" href="group__l2cap__data__types.html#gaab983f0794fe13006d98d29538aa1307"/>
+          <topic label="L2CAP_BROADCAST_MIN_OFFSET" href="group__l2cap__data__types.html#ga21a82bdfd45b292cf3421c064ca7874d"/>
+          <topic label="L2CAP_CHNL_DATA_RATE_HIGH" href="group__l2cap__data__types.html#gac06ed7eaf7673ef0f0db83b51e298bf0"/>
+          <topic label="L2CAP_CHNL_PRIORITY_HIGH" href="group__l2cap__data__types.html#ga73086018293c0ddf6a844dde6a1a0938"/>
+          <topic label="L2CAP_DATAWRITE_FAILED" href="group__l2cap__data__types.html#ga15f1fc2aed25d306166cca74bf8608f8"/>
+          <topic label="L2CAP_DEFAULT_BLE_CB_POOL_ID" href="group__l2cap__data__types.html#ga6d778e008613bbc073549e6cb1ce8e47"/>
+          <topic label="L2CAP_DIRECTION_DATA_SINK" href="group__l2cap__data__types.html#ga9a92c8eac5d4f355e1c23a4e50b3263f"/>
+          <topic label="L2CAP_DIRECTION_DATA_SOURCE" href="group__l2cap__data__types.html#ga231caf03d9b763494440d7f9efbbc493"/>
+          <topic label="L2CAP_DIRECTION_IGNORE" href="group__l2cap__data__types.html#gac7a3b394ac54946914f2287f4f3bc38f"/>
+          <topic label="L2CAP_FCR_CHAN_OPT_BASIC" href="group__l2cap__data__types.html#ga09573a4b41ed7cbefaf7fa14869a4079"/>
+          <topic label="L2CAP_FLUSH_CHANNELS_ALL" href="group__l2cap__data__types.html#gadd0b467a62dacef2efdca88ded777ba8"/>
+          <topic label="L2CAP_FLUSHABLE_MASK" href="group__l2cap__data__types.html#gabe8a54b9dce954e44f79274c050d4d96"/>
+          <topic label="L2CAP_MINIMUM_OFFSET" href="group__l2cap__data__types.html#ga393b58267d11d569c394b326b3350412"/>
+          <topic label="L2CAP_PING_RESULT_NO_LINK" href="group__l2cap__data__types.html#ga4e8e4a2973a1f1a2e7220b4a95d1efda"/>
+          <topic label="L2CAP_PING_RESULT_NO_RESPONSE" href="group__l2cap__data__types.html#gab412c5740493977b7aeca5816120519f"/>
+          <topic label="L2CAP_PING_RESULT_OK" href="group__l2cap__data__types.html#ga9e5612c1b7888cb1a969861fdb7faf0b"/>
+          <topic label="L2CAP_PRIORITY_NORMAL" href="group__l2cap__data__types.html#ga9c3380c72b9ed68837e360435744eab3"/>
+          <topic label="L2CAP_ROLE_ALLOW_SWITCH" href="group__l2cap__data__types.html#gaabfdc8c8aaca18681f322353b098a611"/>
+          <topic label="L2CAP_ROLE_DISALLOW_SWITCH" href="group__l2cap__data__types.html#ga5f0bc551ede392bc1d6fe42361d94c84"/>
+          <topic label="L2CAP_ROLE_SLAVE" href="group__l2cap__data__types.html#gae552fb2592a3026e38d98e92cd8fec10"/>
+          <topic label="MINIMIUM_DYNAMIC_LE_PSM" href="group__l2cap__data__types.html#ga09d2c46b10a813c41302e5389e314bbe"/>
+        </topic>
+        <topic label="API Functions" href="group__l2cap__api__functions.html">
+          <topic label="wiced_bt_l2cap_allocate_psm" href="group__l2cap__api__functions.html#ga6cf452fa369a74b725afe2bf2917abbb"/>
+          <topic label="wiced_bt_l2cap_cancel_ble_connect_req" href="group__l2cap__api__functions.html#ga28268b114d35484254e29696a165f72a"/>
+          <topic label="wiced_bt_l2cap_connect_req" href="group__l2cap__api__functions.html#gacde05b0107e2d06bc85d144100751cf3"/>
+          <topic label="wiced_bt_l2cap_data_write" href="group__l2cap__api__functions.html#ga2cd224a6bc467d85d853540f8abdec5e"/>
+          <topic label="wiced_bt_l2cap_deregister" href="group__l2cap__api__functions.html#ga4c7c609b52d8cc676006e7a9fc28f8f5"/>
+          <topic label="wiced_bt_l2cap_disconnect_req" href="group__l2cap__api__functions.html#gacdd50150646f5c2b687cc631c10086f8"/>
+          <topic label="wiced_bt_l2cap_disconnect_rsp" href="group__l2cap__api__functions.html#ga65566b353208f4de37cc91625a4abcbf"/>
+          <topic label="wiced_bt_l2cap_enable_update_ble_conn_params" href="group__l2cap__api__functions.html#ga84c66f4df107063ddb0adc482b5491ae"/>
+          <topic label="wiced_bt_l2cap_ertm_connect_req" href="group__l2cap__api__functions.html#ga73269955273cc7aace17539843b8489a"/>
+          <topic label="wiced_bt_l2cap_ertm_enable" href="group__l2cap__api__functions.html#ga775fccf29157fa62d30389fea8a4e703"/>
+          <topic label="wiced_bt_l2cap_flow_control" href="group__l2cap__api__functions.html#ga742bb079aba66487a86cee6e309681ef"/>
+          <topic label="wiced_bt_l2cap_flush_channel" href="group__l2cap__api__functions.html#ga62269df07fdeca67e86b7b5dd36a725d"/>
+          <topic label="wiced_bt_l2cap_get_bdaddrby_handle" href="group__l2cap__api__functions.html#gaebb8e6a7ac8add5164c86871af99747e"/>
+          <topic label="wiced_bt_l2cap_get_ble_conn_role" href="group__l2cap__api__functions.html#ga9b246f3663cee7a53e788c47172413d9"/>
+          <topic label="wiced_bt_l2cap_get_chnl_fcr_mode" href="group__l2cap__api__functions.html#ga0c11cd1ed947e93099670907c5cf353d"/>
+          <topic label="wiced_bt_l2cap_get_current_config" href="group__l2cap__api__functions.html#ga4d963f266263672e7a672c27a21cc711"/>
+          <topic label="wiced_bt_l2cap_get_disconnect_reason" href="group__l2cap__api__functions.html#ga7cde6f0bce9273012fd1e7ceb30b83cb"/>
+          <topic label="wiced_bt_l2cap_get_peer_features" href="group__l2cap__api__functions.html#gae099861fe24b11a8f99029410190f120"/>
+          <topic label="wiced_bt_l2cap_le_connect_req" href="group__l2cap__api__functions.html#ga9503e3b4d2f214cfa79dc6c3fec4efd9"/>
+          <topic label="wiced_bt_l2cap_le_connect_rsp" href="group__l2cap__api__functions.html#ga99f378f0387c81d5b24923f8ac033b9c"/>
+          <topic label="wiced_bt_l2cap_le_data_write" href="group__l2cap__api__functions.html#ga32081364e41b54bb0bbf562824e57193"/>
+          <topic label="wiced_bt_l2cap_le_deregister" href="group__l2cap__api__functions.html#ga9166cfd9f8619d2ecb2414d6ba3df7b7"/>
+          <topic label="wiced_bt_l2cap_le_determ_secur_rsp" href="group__l2cap__api__functions.html#ga933b228e0a888ef7eb7671a2b3b7bccd"/>
+          <topic label="wiced_bt_l2cap_le_disconnect_req" href="group__l2cap__api__functions.html#gad6cc529f5a1a6359daf1c0da80b5dc0a"/>
+          <topic label="wiced_bt_l2cap_le_disconnect_rsp" href="group__l2cap__api__functions.html#ga29435ef069ceca748a5c1e67c00799d0"/>
+          <topic label="wiced_bt_l2cap_le_get_peer_mtu" href="group__l2cap__api__functions.html#ga97495805945b9075eec788d99a1ce8c4"/>
+          <topic label="wiced_bt_l2cap_le_register" href="group__l2cap__api__functions.html#gabb9bbb21599fb9142db5ce68179c8369"/>
+          <topic label="wiced_bt_l2cap_le_set_user_congestion" href="group__l2cap__api__functions.html#gab1458bd4cd6e5234b615d3311917bd92"/>
+          <topic label="wiced_bt_l2cap_register" href="group__l2cap__api__functions.html#ga3c33ee7a4034a4dbdb33d527f42f6606"/>
+          <topic label="wiced_bt_l2cap_set_acl_priority" href="group__l2cap__api__functions.html#gac1053b5aa5412818516097c8295f90d1"/>
+          <topic label="wiced_bt_l2cap_set_acl_priority_ext" href="group__l2cap__api__functions.html#ga3c2e5eaaa0b399dbdbebbc41a07fb8e4"/>
+          <topic label="wiced_bt_l2cap_set_chnl_flushability" href="group__l2cap__api__functions.html#ga04cf5fd660b163ba8bbaa82d01e36871"/>
+          <topic label="wiced_bt_l2cap_set_desire_role" href="group__l2cap__api__functions.html#ga1be60582ea9b01e00b5441d8bfe2f279"/>
+          <topic label="wiced_bt_l2cap_set_flush_timeout" href="group__l2cap__api__functions.html#ga4c55891bf59c40eee6e8d809e1c6e76a"/>
+          <topic label="wiced_bt_l2cap_set_idle_timeout" href="group__l2cap__api__functions.html#gaff27f5b67e8050fe84916d3a67006a50"/>
+          <topic label="wiced_bt_l2cap_set_idle_timeout_by_bd_addr" href="group__l2cap__api__functions.html#gaecbc344d5c60addbe1307ea11e64b09d"/>
+          <topic label="wiced_bt_l2cap_set_trace_level" href="group__l2cap__api__functions.html#gae063bb78235a75f6c9439a73bd4ca12f"/>
+          <topic label="wiced_bt_l2cap_set_tx_priority" href="group__l2cap__api__functions.html#gab898add922fd24505677d647683edcdd"/>
+          <topic label="wiced_bt_l2cap_update_ble_conn_params" href="group__l2cap__api__functions.html#gacfa5536d207a4b9bb796e31ad37b09b6"/>
+        </topic>
+      </topic>
+      <topic label="Device Management" href="group__wicedbt___device_management.html">
+        <topic label="BLE (Bluetooth Low Energy)" href="group__btm__ble__api__functions.html">
+          <topic label="wiced_bt_ble_check_advertising_data" href="group__btm__ble__api__functions.html#ga8d62204cf6ab289f977215c08d5864ca"/>
+          <topic label="wiced_bt_ble_clear_white_list" href="group__btm__ble__api__functions.html#ga0b5e961cacea2b8efab9e9df400765c8"/>
+          <topic label="wiced_bt_ble_data_signature" href="group__btm__ble__api__functions.html#ga1745ec7401f09c80ec5aecbacc9c0002"/>
+          <topic label="wiced_bt_ble_get_current_advert_mode" href="group__btm__ble__api__functions.html#ga0ba60f6bd5a99be06f8ddd879da9b248"/>
+          <topic label="wiced_bt_ble_get_current_scan_state" href="group__btm__ble__api__functions.html#ga397017f8e317d9c93785e719d7ca07cf"/>
+          <topic label="wiced_bt_ble_get_security_state" href="group__btm__ble__api__functions.html#gaa3a12d9312cb8bac5e7eb7033aedda8c"/>
+          <topic label="wiced_bt_ble_get_white_list_size" href="group__btm__ble__api__functions.html#gae8aa6c1c586d20f60f2723970edbebdf"/>
+          <topic label="wiced_bt_ble_observe" href="group__btm__ble__api__functions.html#gaead34268d19ff7ea316c687d15714ee9"/>
+          <topic label="wiced_bt_ble_read_adv_tx_power" href="group__btm__ble__api__functions.html#ga5711b9e8d972866dcb34df1de514d461"/>
+          <topic label="wiced_bt_ble_scan" href="group__btm__ble__api__functions.html#gac2aa0e611a70b09bfc6c4c48b99abb95"/>
+          <topic label="wiced_bt_ble_security_grant" href="group__btm__ble__api__functions.html#ga0b37ac40ea844f4aa5966d7baa90df6d"/>
+          <topic label="wiced_bt_ble_set_adv_tx_power" href="group__btm__ble__api__functions.html#ga811914e23a15a8e25b36685e5c84a0fe"/>
+          <topic label="wiced_bt_ble_set_background_connection_type" href="group__btm__ble__api__functions.html#gafd00c59332fb49892049d915769a2f5f"/>
+          <topic label="wiced_bt_ble_set_raw_advertisement_data" href="group__btm__ble__api__functions.html#gaae3d0cb41723569d53cb8a22fa8cb902"/>
+          <topic label="wiced_bt_ble_set_raw_scan_response_data" href="group__btm__ble__api__functions.html#ga575e3d625d0ae6ddae781a855ba538a2"/>
+          <topic label="wiced_bt_ble_update_advertising_white_list" href="group__btm__ble__api__functions.html#ga5edbbefb348b6ac757c7b98c5c7461ea"/>
+          <topic label="wiced_bt_ble_update_background_connection_device" href="group__btm__ble__api__functions.html#gad7f505c3aff3493b571ee9bd8e3983a7"/>
+          <topic label="wiced_bt_ble_update_scanner_filter_policy" href="group__btm__ble__api__functions.html#ga524efdcf8f398f3bdfe71081d3882d06"/>
+          <topic label="wiced_bt_ble_update_scanner_white_list" href="group__btm__ble__api__functions.html#gabdb60d361b6a6527e0f02bfb4cd61138"/>
+          <topic label="wiced_bt_ble_verify_signature" href="group__btm__ble__api__functions.html#ga771629322c842c541611d928ad128a40"/>
+          <topic label="wiced_bt_start_advertisements" href="group__btm__ble__api__functions.html#ga90a7b45015280a2dcef73a5be07cd561"/>
+          <topic label="wiced_btm_ble_update_advertisement_filter_policy" href="group__btm__ble__api__functions.html#gaed7a2250e3d40e66a23167febfbbebd4"/>
+        </topic>
+        <topic label="BR/EDR (Bluetooth Basic Rate / Enhanced Data Rate)" href="group__wicedbt__bredr.html">
+          <topic label="wiced_bt_cancel_inquiry" href="group__wicedbt__bredr.html#ga43c56d1d7a8b08e7766817fc798b7067"/>
+          <topic label="wiced_bt_dev_cancel_sniff_mode" href="group__wicedbt__bredr.html#ga092191cdfade11d9ba5d97a9810a540d"/>
+          <topic label="wiced_bt_dev_read_local_addr" href="group__wicedbt__bredr.html#gab6a09117d2fa6f4b31d8bfb9aa4d382c"/>
+          <topic label="wiced_bt_dev_read_rssi" href="group__wicedbt__bredr.html#gafea954a02935ce3dfa5409ff40e25ae3"/>
+          <topic label="wiced_bt_dev_read_tx_power" href="group__wicedbt__bredr.html#ga48a580210a970a52c39fca816ccfd0d7"/>
+          <topic label="wiced_bt_dev_register_connection_status_change" href="group__wicedbt__bredr.html#ga06312613214e2e1b01da2e837f4f6d05"/>
+          <topic label="wiced_bt_dev_register_vendor_specific_event" href="group__wicedbt__bredr.html#gad182fdda1e591a66160f310ed1095267"/>
+          <topic label="wiced_bt_dev_set_advanced_connection_params" href="group__wicedbt__bredr.html#gaab8ab36f338fdadd7405f28fe6d03d7c"/>
+          <topic label="wiced_bt_dev_set_connectability" href="group__wicedbt__bredr.html#gaf555928b7af1c2ed27adf10289f3999c"/>
+          <topic label="wiced_bt_dev_set_discoverability" href="group__wicedbt__bredr.html#ga20d55a9ce0486637305e5cb09eb86765"/>
+          <topic label="wiced_bt_dev_set_sniff_mode" href="group__wicedbt__bredr.html#gaf533e2a68506fc637f9fee8da186f2e2"/>
+          <topic label="wiced_bt_dev_set_sniff_subrating" href="group__wicedbt__bredr.html#gae25ed058e78ce94a0884a6d62d1d1b8e"/>
+          <topic label="wiced_bt_dev_vendor_specific_command" href="group__wicedbt__bredr.html#gaff614aad7be8ad5bde22d36351fac720"/>
+          <topic label="wiced_bt_dev_write_eir" href="group__wicedbt__bredr.html#ga08b1a111be46bb1341db8329a98ba2c2"/>
+          <topic label="wiced_bt_start_inquiry" href="group__wicedbt__bredr.html#ga2c8467b8c65ef23d30ea28649b13094f"/>
+        </topic>
+        <topic label="Security" href="group__btm__sec__api__functions.html">
+          <topic label="wiced_bt_dev_confirm_req_reply" href="group__btm__sec__api__functions.html#gafc9a54cc8cf09e7f9c42c9a24ce9df97"/>
+          <topic label="wiced_bt_dev_pass_key_req_reply" href="group__btm__sec__api__functions.html#ga6c0d114b3e9c02f0f139106065d0fc91"/>
+          <topic label="wiced_bt_dev_pin_code_reply" href="group__btm__sec__api__functions.html#ga25d190c6dec75838e2ae09d5db385ad7"/>
+          <topic label="wiced_bt_dev_read_local_oob_data" href="group__btm__sec__api__functions.html#gab58690ef6801533d17516e4a4a2ce457"/>
+          <topic label="wiced_bt_dev_remote_oob_data_reply" href="group__btm__sec__api__functions.html#ga044c342a9dae8be624d64761d0016001"/>
+          <topic label="wiced_bt_dev_sec_bond" href="group__btm__sec__api__functions.html#ga2e41482216a1a152e3ecaf1c17d5e93f"/>
+          <topic label="wiced_bt_dev_sec_bond_cancel" href="group__btm__sec__api__functions.html#ga4a977184563090cb94394b7da1f09760"/>
+          <topic label="wiced_bt_dev_send_key_press_notif" href="group__btm__sec__api__functions.html#gad12b350f7c723d95b5a0303beb1a8940"/>
+          <topic label="wiced_bt_dev_set_encryption" href="group__btm__sec__api__functions.html#ga828fe3d842b9923e408a10b87ae8fb69"/>
+          <topic label="wiced_bt_smp_create_local_sc_oob_data" href="group__btm__sec__api__functions.html#gafce580b6606202828f9dfb1893cc30f4"/>
+          <topic label="wiced_bt_smp_sc_oob_reply" href="group__btm__sec__api__functions.html#gae2882a01b03b99c30ef16059305a449d"/>
+        </topic>
+        <topic label="wiced_bt_dev_read_oob_data" href="group__wicedbt___device_management.html#ga41a38c0723bea818a4ae42c5e83f3367"/>
+      </topic>
+      <topic label="Generic Attribute (GATT)" href="group__wicedbt__gatt.html">
+        <topic label="Server" href="group__server__api__functions.html">
+          <topic label="wiced_bt_gatt_db_init" href="group__server__api__functions.html#ga59b17644aead98f94a2cab805107cb90"/>
+          <topic label="wiced_bt_gatt_send_indication" href="group__server__api__functions.html#ga9c1293b04258393f7e8e5201ca215c21"/>
+          <topic label="wiced_bt_gatt_send_notification" href="group__server__api__functions.html#gabe6e79a8df2dd04b926d2316b79fdc42"/>
+          <topic label="wiced_bt_gatt_send_response" href="group__server__api__functions.html#ga9e6f8d1b4d1d89d728355687991e8a49"/>
+        </topic>
+        <topic label="Client" href="group__client__api__functions.html">
+          <topic label="wiced_bt_gatt_configure_mtu" href="group__client__api__functions.html#ga863866fde2dd782ac75e6e2a8d9e1b54"/>
+          <topic label="wiced_bt_gatt_send_discover" href="group__client__api__functions.html#ga8722b77f04059ec175a7c7d0ad9c4267"/>
+          <topic label="wiced_bt_gatt_send_execute_write" href="group__client__api__functions.html#ga36c050144ea12b23a47127728885044d"/>
+          <topic label="wiced_bt_gatt_send_indication_confirm" href="group__client__api__functions.html#ga94264be7ef5db78240986fa702e6eefe"/>
+          <topic label="wiced_bt_gatt_send_read" href="group__client__api__functions.html#gae9f461e84e9cfd188d0dcf31982cf940"/>
+          <topic label="wiced_bt_gatt_send_write" href="group__client__api__functions.html#ga1e8c83cd289240692f4610a1012688b3"/>
+        </topic>
+        <topic label="Common" href="group__common__api__functions.html">
+          <topic label="wiced_bt_gatt_bredr_connect" href="group__common__api__functions.html#ga06cf5e460bfd5a37cbfcb77e2e41aded"/>
+          <topic label="wiced_bt_gatt_cancel_connect" href="group__common__api__functions.html#gac384524f7e61172da9eb0beb764ed46d"/>
+          <topic label="wiced_bt_gatt_disconnect" href="group__common__api__functions.html#ga15d5aff42e22c934fbbde1a7a2680ff6"/>
+          <topic label="wiced_bt_gatt_le_connect" href="group__common__api__functions.html#gab44b8568a7e3d887d034e4e4d0277bc0"/>
+          <topic label="wiced_bt_gatt_listen" href="group__common__api__functions.html#ga7aee6dd1256d097cc5a006fc02532263"/>
+          <topic label="wiced_bt_gatt_register" href="group__common__api__functions.html#ga4957d5c9ddc93abbcaac2c3bded135c9"/>
+        </topic>
+        <topic label="GattDB" href="group__gattdb__api__functions.html">
+          <topic label="wiced_bt_gattdb_get_attribute_uuid" href="group__gattdb__api__functions.html#ga877d48da4bfe8fa5c52a75d76b6932da"/>
+          <topic label="wiced_bt_gattdb_get_attribute_value_uuid16" href="group__gattdb__api__functions.html#ga11e5889a5c9a918bb8852527f41d1012"/>
+          <topic label="wiced_bt_gattdb_get_charcteristic_descriptor_handle" href="group__gattdb__api__functions.html#gab67ee0bb9c35b004296031b7edb0209d"/>
+          <topic label="wiced_bt_gattdb_get_handle" href="group__gattdb__api__functions.html#gabba2ffae8e57ab3035d2fa2b8b167223"/>
+          <topic label="wiced_bt_gattdb_next_entry" href="group__gattdb__api__functions.html#ga66c9d67c8068bfe3a82a74fe2fcbda5d"/>
+        </topic>
+      </topic>
+      <topic label="HIDD over BR/EDR" href="group__hidd__api__functions.html">
+        <topic label="wiced_bt_hidd_connect" href="group__hidd__api__functions.html#ga70a04efe90cd77c0674b0ccd4e63fc0f"/>
+        <topic label="wiced_bt_hidd_deregister" href="group__hidd__api__functions.html#ga5c94f1b4148e280ef468aa0416f37856"/>
+        <topic label="wiced_bt_hidd_disconnect" href="group__hidd__api__functions.html#gaba93d54acfe397e2ddfde34f297df865"/>
+        <topic label="wiced_bt_hidd_hand_shake" href="group__hidd__api__functions.html#gac249b70140a5fac61badd59a60d3f1f3"/>
+        <topic label="wiced_bt_hidd_register" href="group__hidd__api__functions.html#ga0c53727230b715ab5c46d2ca746e3faa"/>
+        <topic label="wiced_bt_hidd_send_data" href="group__hidd__api__functions.html#ga120f4c0d6b5da8d9362f99706304bd18"/>
+        <topic label="wiced_bt_hidd_set_power_mgmt_params" href="group__hidd__api__functions.html#gaa661ba2c182a0a092af56377577d3ac1"/>
+        <topic label="wiced_bt_hidd_virtual_unplug" href="group__hidd__api__functions.html#gaa5c41bb8cadb7312cd2aef3e1ba718ed"/>
+      </topic>
+      <topic label="HIDD over BLE" href="group__hidd__le__api__functions.html">
+        <topic label="wiced_bt_hidd_ble_connect" href="group__hidd__le__api__functions.html#gacbc8314ead7e828d7c234b58b5dc0ffc"/>
+        <topic label="wiced_bt_hidd_ble_deregister" href="group__hidd__le__api__functions.html#ga672e1553ad37f15154a652f517532298"/>
+        <topic label="wiced_bt_hidd_ble_disconnect" href="group__hidd__le__api__functions.html#gaa0258a09b8f5c0ac0f1ca48c632e009d"/>
+        <topic label="wiced_bt_hidd_ble_hand_shake" href="group__hidd__le__api__functions.html#ga3ed9254f6dbd21ef7f78d1c1c5c0ed4a"/>
+        <topic label="wiced_bt_hidd_ble_init" href="group__hidd__le__api__functions.html#ga64d21ae279e18f7995335368e28eca30"/>
+        <topic label="wiced_bt_hidd_ble_register" href="group__hidd__le__api__functions.html#gaba040485cf67bb5625f513267bc597ad"/>
+        <topic label="wiced_bt_hidd_ble_rsp_get_protocol" href="group__hidd__le__api__functions.html#ga15cac5011d944cbb3b9901194c08410f"/>
+        <topic label="wiced_bt_hidd_ble_send_report" href="group__hidd__le__api__functions.html#gae55324d88c783d9f651d5692b3309ccc"/>
+        <topic label="wiced_bt_hidd_ble_set_rsp_map_info" href="group__hidd__le__api__functions.html#gace57eb7ed90f966fdf14aeab1bdeb3ff"/>
+      </topic>
+      <topic label="RFCOMM" href="group__rfcomm__api__functions.html">
+        <topic label="wiced_bt_rfcomm_check_connection" href="group__rfcomm__api__functions.html#gaf369ef8ee13c0b2e8b652e9569b67ab9"/>
+        <topic label="wiced_bt_rfcomm_control" href="group__rfcomm__api__functions.html#ga417a74cdea9648969a1d28cb403cf0d3"/>
+        <topic label="wiced_bt_rfcomm_create_connection" href="group__rfcomm__api__functions.html#ga0acf439d7bfa3540fe1f682e28a3ea15"/>
+        <topic label="wiced_bt_rfcomm_flow_control" href="group__rfcomm__api__functions.html#ga87bbfb9c882d8080fef5f63e2ad256c0"/>
+        <topic label="wiced_bt_rfcomm_remove_connection" href="group__rfcomm__api__functions.html#gae609bc27a6207cea08e5017ffb2940b5"/>
+        <topic label="wiced_bt_rfcomm_set_buffer_pool" href="group__rfcomm__api__functions.html#ga3dd8d91b02a0da9f89a24800b7d3acdd"/>
+        <topic label="wiced_bt_rfcomm_set_data_callback" href="group__rfcomm__api__functions.html#ga97f7d4487a4a57230cc81ca9c290884d"/>
+        <topic label="wiced_bt_rfcomm_set_event_callback" href="group__rfcomm__api__functions.html#ga24bb1a535b5a5b430dcc286bb32f79ac"/>
+        <topic label="wiced_bt_rfcomm_set_event_mask" href="group__rfcomm__api__functions.html#gad4241f1a332dbd4d03bbc8ce75cfa839"/>
+        <topic label="wiced_bt_rfcomm_write_data" href="group__rfcomm__api__functions.html#gac4330247825786dae1aad701982f92cf"/>
+      </topic>
+      <topic label="Synchronous Connection Oriented (SCO) Channel" href="group__sco__api__functions.html">
+        <topic label="wiced_bt_sco_accept_connection" href="group__sco__api__functions.html#ga83660a1991ae23ee3238746ee435ec1c"/>
+        <topic label="wiced_bt_sco_create_as_acceptor" href="group__sco__api__functions.html#gaba857121768256e41d47bb56eab560b8"/>
+        <topic label="wiced_bt_sco_create_as_initiator" href="group__sco__api__functions.html#gafacf232e89b97b708f1dd81d5075a2d2"/>
+        <topic label="wiced_bt_sco_get_buffer_pool" href="group__sco__api__functions.html#gac1a575e1f4a25cef94bbdea262ff0207"/>
+        <topic label="wiced_bt_sco_remove" href="group__sco__api__functions.html#ga0fba642e9f6ed365e385457be01e4e15"/>
+        <topic label="wiced_bt_sco_set_buffer_pool" href="group__sco__api__functions.html#gaced951bc6cb861b70f8e880240a295f8"/>
+        <topic label="wiced_bt_sco_set_data_callback" href="group__sco__api__functions.html#ga72b8061ce4bf5253638d362950e106e9"/>
+        <topic label="wiced_bt_sco_write_data" href="group__sco__api__functions.html#ga4a4b7fa10f5590d1c3275585fd73992e"/>
+      </topic>
+      <topic label="Service Discovery (SDP)" href="group__sdp__api__functions.html">
+        <topic label="wiced_bt_sdp_cancel_service_search" href="group__sdp__api__functions.html#ga38a40844fb093f62e15b575fc2ee9d79"/>
+        <topic label="wiced_bt_sdp_db_init" href="group__sdp__api__functions.html#ga9ff957528a6a267cd6f86b34207aad48"/>
+        <topic label="wiced_bt_sdp_find_attribute_in_db" href="group__sdp__api__functions.html#ga93ef8423d650b07ecff3436c9a6661c5"/>
+        <topic label="wiced_bt_sdp_find_attribute_in_rec" href="group__sdp__api__functions.html#gaf9012e1247f2655a5f747036e56beb6c"/>
+        <topic label="wiced_bt_sdp_find_profile_version_in_rec" href="group__sdp__api__functions.html#gace9edd7986d7ba988d2adb36382b801e"/>
+        <topic label="wiced_bt_sdp_find_protocol_list_elem_in_rec" href="group__sdp__api__functions.html#gaf668f96c4db71777024e80595b090e3d"/>
+        <topic label="wiced_bt_sdp_find_protocol_lists_elem_in_rec" href="group__sdp__api__functions.html#gad55f05d5b61cce7b7e4b06fae09e1048"/>
+        <topic label="wiced_bt_sdp_find_service_in_db" href="group__sdp__api__functions.html#ga7078f5df0992da0764391acc1a3a078a"/>
+        <topic label="wiced_bt_sdp_find_service_uuid_in_db" href="group__sdp__api__functions.html#ga51e94dac64cbccbf61e595a35c2e0b16"/>
+        <topic label="wiced_bt_sdp_find_service_uuid_in_rec" href="group__sdp__api__functions.html#ga60aea2ea871cd226c6f24c575d06d5b2"/>
+        <topic label="wiced_bt_sdp_init_discovery_db" href="group__sdp__api__functions.html#gade46d3c05e78c3a80fa4c4ec914ca1b9"/>
+        <topic label="wiced_bt_sdp_service_search_attribute_request" href="group__sdp__api__functions.html#gaa01618e4e78c7c727722d3ed3837d9b2"/>
+        <topic label="wiced_bt_sdp_service_search_request" href="group__sdp__api__functions.html#ga094936fae3882434d5904be599843e54"/>
+      </topic>
+      <topic label="Framework" href="group__wicedbt___framework.html">
+        <topic label="wiced_bt_stack_deinit" href="group__wicedbt___framework.html#gaa7ee2ece60f1e4d174e85167c85377c7"/>
+        <topic label="wiced_bt_stack_init" href="group__wicedbt___framework.html#ga5ffccad07a041f9f18a6d2f132d4edf5"/>
+      </topic>
+    </topic>
+    <topic label="WICED Multimedia" href="group__multimedia.html">
+      <topic label="WICED Audio API" href="group__audio.html">
+        <topic label="wiced_audio_buffer_platform_event" href="group__audio.html#ga55602f3ca90f8f923cd253bc6085633f"/>
+        <topic label="wiced_audio_buffer_platform_get_periods" href="group__audio.html#gaf2241eb04539191ee64f6fae4b35f32d"/>
+        <topic label="wiced_audio_configure" href="group__audio.html#ga821b0e6776ddd0a5c7449c47a61180b4"/>
+        <topic label="wiced_audio_create_buffer" href="group__audio.html#ga23a146a59ac630a02b482eb77f1c9837"/>
+        <topic label="wiced_audio_deinit" href="group__audio.html#ga4cfacab02f1356706b058312c27c7817"/>
+        <topic label="wiced_audio_device_ioctl" href="group__audio.html#ga508d5f9f48713c2a30d2f97322c0a950"/>
+        <topic label="wiced_audio_get_buffer" href="group__audio.html#gafa7132437bab227f0ca09474ca6ccd55"/>
+        <topic label="wiced_audio_get_current_buffer_weight" href="group__audio.html#gaeb2839d6789abdab4b054938f6a687e6"/>
+        <topic label="wiced_audio_get_current_hw_pointer" href="group__audio.html#ga6708338a54183d88b40e6654f6cdbeb3"/>
+        <topic label="wiced_audio_get_latency" href="group__audio.html#ga1fa4d11f90d5f1d74997c43a8693c2c6"/>
+        <topic label="wiced_audio_get_volume_range" href="group__audio.html#gaf5cf2362a141d6a17b599fa3b1431948"/>
+        <topic label="wiced_audio_init" href="group__audio.html#ga4da68574bdf6f063d4ddc0818de35553"/>
+        <topic label="wiced_audio_release_buffer" href="group__audio.html#ga45402b9e61e39752d736e84fd08b1ea4"/>
+        <topic label="wiced_audio_set_pll_fractional_divider" href="group__audio.html#ga3f99ce5cb6777ac3a567ebbe87e66641"/>
+        <topic label="wiced_audio_set_volume" href="group__audio.html#gaec9f3cb8c3f6edce9a25a9a737a93a3b"/>
+        <topic label="wiced_audio_start" href="group__audio.html#gaa9c999b6e8d0c6cc8b2f02816f11d278"/>
+        <topic label="wiced_audio_stop" href="group__audio.html#ga07b18178b3f7bc630020ce52bf4caa4c"/>
+        <topic label="wiced_audio_update_period_size" href="group__audio.html#ga9edd988f7486a46a0e7f0054ea2cf1a7"/>
+        <topic label="wiced_audio_wait_buffer" href="group__audio.html#gaa0f0bce1ca2ca613e163ae31668cf440"/>
+        <topic label="wiced_register_audio_device" href="group__audio.html#ga5bf0d6a0eacfdd48cf9cbd0818b0c330"/>
+        <topic label="bits_per_sample" href="group__audio.html#gaa65c89fa8336bfdc4f8d916d9d415a9f"/>
+        <topic label="channels" href="group__audio.html#ga0057a7f2eb00a01a4b11243fd5bf2f8d"/>
+        <topic label="frame_size" href="group__audio.html#ga1b4d71f97d8a8c4756c31fbcc81706cc"/>
+        <topic label="sample_rate" href="group__audio.html#ga2fba55d9442e7dba4623825cd737e520"/>
+        <topic label="volume" href="group__audio.html#ga14cc77262954756b30c251feabce7ea6"/>
+      </topic>
+    </topic>
+    <topic label="Deep-sleep related functions" href="group__initconf.html">
+      <topic label="wiced_deep_sleep_ticks_since_enter" href="group__initconf.html#ga4529e242d4a1d77dca2468f10625a76a"/>
+      <topic label="wiced_resume_after_deep_sleep" href="group__initconf.html#gaf8812bc084c5bf5806332309974fb4be"/>
+    </topic>
+    <topic label="Powersave" href="group__mcupowersave.html">
+      <topic label="wiced_platform_mcu_disable_powersave" href="group__mcupowersave.html#ga34fe239525f225671f0f8f68d572a159"/>
+      <topic label="wiced_platform_mcu_enable_powersave" href="group__mcupowersave.html#ga93a241845568c5d3cb6ba4ce84330b33"/>
+    </topic>
+    <topic label="Time management functions" href="group__time.html">
+      <topic label="wiced_time_convert_iso8601_to_utc_ms" href="group__time.html#gadd1bb0c346e7381ff9ab85d9e0547b41"/>
+      <topic label="wiced_time_convert_utc_ms_to_iso8601" href="group__time.html#ga5a24b798b2e8464b1082d38f5f500acf"/>
+      <topic label="wiced_time_get_iso8601_time" href="group__time.html#gaad6cbc907c2a94af709ada0429eca9e4"/>
+      <topic label="wiced_time_get_time" href="group__time.html#gad40d6fbefbaccc2704025e3eab71175f"/>
+      <topic label="wiced_time_get_utc_time" href="group__time.html#ga475d5b24019b0442adbe040fc0364f38"/>
+      <topic label="wiced_time_get_utc_time_ms" href="group__time.html#ga6cb8f318feec83df490d4d9133dcc9b7"/>
+      <topic label="wiced_time_set_time" href="group__time.html#ga8fbe6848e718cde07e4dfbdf628d493e"/>
+      <topic label="wiced_time_set_utc_time_ms" href="group__time.html#ga52316804057d4e0786fd11ff3b72ba67"/>
+    </topic>
+    <topic label="WICED Utilities" href="group__utilities.html">
+      <topic label="Helper functions" href="group__helper.html">
+        <topic label="double_to_string" href="group__helper.html#gac8fafd73c16f96370bdf1425f41d266b"/>
+        <topic label="float_to_string" href="group__helper.html#gae538a69a38bec5c11ca544680ed1588a"/>
+        <topic label="format_wep_keys" href="group__helper.html#gac31f6892890398b2c8bfc981aa0aaa87"/>
+        <topic label="generic_string_to_unsigned" href="group__helper.html#gac6351c7d93601dbfad54f3df9dd9ec2c"/>
+        <topic label="hexchar_to_nibble" href="group__helper.html#ga4e4f2d830c9902f21cfc84cd94917cd6"/>
+        <topic label="is_digit_str" href="group__helper.html#ga6270066f3fa85756d53caf5f6f252788"/>
+        <topic label="match_string_with_wildcard_pattern" href="group__helper.html#ga71a47ebff102207c7788da5da716837a"/>
+        <topic label="nibble_to_hexchar" href="group__helper.html#gabfd739293890f22a071bd4bb6da5075d"/>
+        <topic label="signed64_to_decimal_string" href="group__helper.html#ga5f9942c66b1dd9b6c7bdbfce3a4fa62d"/>
+        <topic label="signed_to_decimal_string" href="group__helper.html#ga8db7077990eb9caa180e037a2c3a066d"/>
+        <topic label="string_append_two_digit_hex_byte" href="group__helper.html#ga91a3cc9afd315262f8a4756bd4bf96a7"/>
+        <topic label="string_to_signed" href="group__helper.html#ga824387fc8b76af65e5ab31dbc6976631"/>
+        <topic label="string_to_unsigned" href="group__helper.html#ga3ddc3092585272a8e3b1fca7e0e9795d"/>
+        <topic label="strncasestr" href="group__helper.html#gad9f6c62f305873d76c823980ca6b1dae"/>
+        <topic label="strnstrn" href="group__helper.html#ga14ec0f19a48dbf093afa0aaa675abff2"/>
+        <topic label="unsigned64_to_decimal_string" href="group__helper.html#ga1179f439236f685fb16a8668a13101c8"/>
+        <topic label="unsigned_to_decimal_string" href="group__helper.html#gaf2d945b8b3ef2fa61e7a842672b808eb"/>
+        <topic label="unsigned_to_hex_string" href="group__helper.html#ga79d130e08a23e05ad0a7ec77204994e5"/>
+        <topic label="wiced_ether_ntoa" href="group__helper.html#ga13535d826592a243c5eadfe0e8c2ef03"/>
+      </topic>
+      <topic label="Logging" href="group__log.html">
+        <topic label="wiced_log_get_facility_level" href="group__log.html#ga549aaf0a733023349f900e7d02cbf06e"/>
+        <topic label="wiced_log_init" href="group__log.html#gafa2932d281d0b3239c5f45490e16e175"/>
+        <topic label="wiced_log_msg" href="group__log.html#gae890cdbfb252eb27144cef8bc5880532"/>
+        <topic label="wiced_log_printf" href="group__log.html#ga522a66903f8607a541edba98153b344e"/>
+        <topic label="wiced_log_set_all_levels" href="group__log.html#ga791f1381be52312bc92cd510bf464193"/>
+        <topic label="wiced_log_set_facility_level" href="group__log.html#ga0714178cf917ed1834fb67dae01982e3"/>
+        <topic label="wiced_log_set_platform_output" href="group__log.html#ga23f9e384c1d3c6d61783bb77654ffa35"/>
+        <topic label="wiced_log_set_platform_time" href="group__log.html#ga07d7f10da473137561f037dc41dca221"/>
+        <topic label="wiced_log_shutdown" href="group__log.html#ga024e5f8064322c1bf833c68f6b67e1ec"/>
+        <topic label="wiced_log_vprintf" href="group__log.html#gacdeaac92a88352636c39fae34fb16174"/>
+      </topic>
+      <topic label="Base64" href="group__base64.html">
+        <topic label="base64_decode" href="group__base64.html#ga137800cee20e4de35bad80d9a207148f"/>
+        <topic label="base64_encode" href="group__base64.html#ga900351246b417ca6faab998bba3cc817"/>
+        <topic label="is_base64_space" href="group__base64.html#ga7d4eea6f7fd7cc830acf912723d77de5"/>
+      </topic>
+    </topic>
+  </topic>
+  <topic label="Globals" href="globals.html">
+    <topic label="All" href="globals.html">
+      <topic label="a" href="globals.html"/>
+      <topic label="b" href="globals_b.html"/>
+      <topic label="c" href="globals_c.html"/>
+      <topic label="d" href="globals_d.html"/>
+      <topic label="e" href="globals_e.html"/>
+      <topic label="f" href="globals_f.html"/>
+      <topic label="g" href="globals_g.html"/>
+      <topic label="h" href="globals_h.html"/>
+      <topic label="i" href="globals_i.html"/>
+      <topic label="l" href="globals_l.html"/>
+      <topic label="m" href="globals_m.html"/>
+      <topic label="n" href="globals_n.html"/>
+      <topic label="o" href="globals_o.html"/>
+      <topic label="p" href="globals_p.html"/>
+      <topic label="r" href="globals_r.html"/>
+      <topic label="s" href="globals_s.html"/>
+      <topic label="t" href="globals_t.html"/>
+      <topic label="u" href="globals_u.html"/>
+      <topic label="v" href="globals_v.html"/>
+      <topic label="w" href="globals_w.html"/>
+    </topic>
+    <topic label="Functions" href="globals_func.html">
+      <topic label="c" href="globals_func.html"/>
+      <topic label="h" href="globals_func_h.html"/>
+      <topic label="m" href="globals_func_m.html"/>
+      <topic label="p" href="globals_func_p.html"/>
+      <topic label="r" href="globals_func_r.html"/>
+      <topic label="t" href="globals_func_t.html"/>
+      <topic label="w" href="globals_func_w.html"/>
+    </topic>
+    <topic label="Variables" href="globals_vars.html"/>
+    <topic label="Typedefs" href="globals_type.html"/>
+    <topic label="Enumerations" href="globals_enum.html"/>
+    <topic label="Enumerator" href="globals_eval.html">
+      <topic label="a" href="globals_eval.html"/>
+      <topic label="b" href="globals_eval_b.html"/>
+      <topic label="c" href="globals_eval_c.html"/>
+      <topic label="d" href="globals_eval_d.html"/>
+      <topic label="e" href="globals_eval_e.html"/>
+      <topic label="f" href="globals_eval_f.html"/>
+      <topic label="g" href="globals_eval_g.html"/>
+      <topic label="h" href="globals_eval_h.html"/>
+      <topic label="i" href="globals_eval_i.html"/>
+      <topic label="n" href="globals_eval_n.html"/>
+      <topic label="o" href="globals_eval_o.html"/>
+      <topic label="p" href="globals_eval_p.html"/>
+      <topic label="r" href="globals_eval_r.html"/>
+      <topic label="s" href="globals_eval_s.html"/>
+      <topic label="t" href="globals_eval_t.html"/>
+      <topic label="v" href="globals_eval_v.html"/>
+      <topic label="w" href="globals_eval_w.html"/>
+    </topic>
+    <topic label="Macros" href="globals_defs.html">
+      <topic label="a" href="globals_defs.html"/>
+      <topic label="b" href="globals_defs_b.html"/>
+      <topic label="e" href="globals_defs_e.html"/>
+      <topic label="g" href="globals_defs_g.html"/>
+      <topic label="h" href="globals_defs_h.html"/>
+      <topic label="i" href="globals_defs_i.html"/>
+      <topic label="m" href="globals_defs_m.html"/>
+      <topic label="p" href="globals_defs_p.html"/>
+      <topic label="r" href="globals_defs_r.html"/>
+      <topic label="s" href="globals_defs_s.html"/>
+      <topic label="w" href="globals_defs_w.html"/>
+    </topic>
+  </topic>
+</toc>

@@ -1,0 +1,107 @@
+----------------------------------
+
+NXP Software Content Register
+
+Package: Plug&Trust SW
+Version: 03.00.05_apache2
+
+-----------------------------------
+
+HostLib
+- Name: HostLib
+- Version: 03.00.01
+- License: Apache-2.0
+- Format: source code
+- Description: Contains communication protocol stack, A71CH/SE050/SE051 APIs, etc.
+- Origin: Copyright 2020 NXP
+- Location: \hostlib
+
+Demos
+- Name: Demos
+- Version: 02.17.00
+- License: Apache-2.0
+- Format: source code
+- Description: Contains examples using A71CH/SE050/SE051.
+- Origin: Copyright 2020 NXP
+- Location: \demos
+
+PyCli
+- Name: PyCli
+- Version: 03.00.05
+- License: Apache-2.0
+- Format: source code
+- Description: Python based command line tool to access secure element.
+- Origin: Copyright 2020 NXP
+- Location: \pycli
+
+SSS Apis
+- Name: SSS
+- Version: 03.04.00
+- License: Apache-2.0
+- Format: source code
+- Description: Contains the **SSS APIs** interface to the Application Layer.
+- Origin: Copyright 2020 NXP
+- Location: \sss
+
+Amazon FreeRTOS
+- Name: Amazon FreeRTOS
+- Version: 202002.00
+- License: MIT License
+- Format: source code
+- Description: FreeRTOS stack.
+- Origin: Copyright (C) 2017 Amazon.com, Inc. or its affiliates
+- Location: \ext\amazon-freertos
+
+Mbed Crypto
+- Name: Mbed Crypto
+- Version: 2.20.0
+- License: Apache 2.0
+- Format: source code
+- Description: Mbed Crypto stack.
+- Origin: Copyright (C) 2006-2015, ARM Limited
+- Location: \ext\mbed-crypto
+
+MbedTLS
+- Name: MbedTLS
+- Version: 2.16.2
+- License: Apache 2.0
+- Format: source code
+- Description: MbedTLS stack.
+- Origin: Copyright (C) 2006-2015, ARM Limited
+- Location: \ext\mbedtls
+
+Open62541
+- Name: Open62541
+- Version: 
+- License: Mozilla Public License Version 2.0; Creative Commons CCZero 1.0 Universal
+- Format: source code
+- Description: OPC-UA implementation stack
+- Origin: \ext\open62541\AUTHORS
+- Location: \ext\open62541
+
+openssl
+- Name: openssl
+- Version: OpenSSL 1.1.1d  10 Sep 2019
+- License: OpenSSL License
+- Format: Binary (Windows)
+- Description: Openssl stack Libraries (Windows)
+- Origin: Copyright (c) 1998-2019 The OpenSSL Project.
+- Location: \ext\openssl
+
+paho mqtt
+- Name: paho mqtt
+- Version: 1.3.5
+- License: Eclipse Public License - v 2.0
+- Format: source code
+- Description: paho mqtt stack
+- Origin:
+- Location: \ext\paho.mqtt.c
+
+unity
+- Name: unity
+- Version:
+- License: MIT License
+- Format: source code
+- Description: unity code
+- Origin: Copyright (c) 2007-14 Mike Karlesky, Mark VanderVoord, Greg Williams
+- Location: \ext\unity

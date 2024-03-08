@@ -1,0 +1,469 @@
+
+.. _cmake-option-Applet:
+
+Applet
+==========================
+
+.. option:: Applet
+
+    The Secure Element Applet
+
+    You can compile host library for different Applets listed below.
+    Please note, some of these Applets may be for NXP Internal use only.
+
+    ``-DApplet=None``: Compiling without any Applet Support
+
+    ``-DApplet=A71CH``: A71CH (ECC)
+
+
+
+
+
+    ``-DApplet=SE05X_A``: SE050 Type A (ECC)
+
+    ``-DApplet=SE05X_B``: SE050 Type B (RSA)
+
+    ``-DApplet=SE05X_C``: SE050 (Super set of A + B)
+
+
+
+
+
+
+.. _cmake-option-SE05X_Ver:
+
+SE05X_Ver
+=============================
+
+.. option:: SE05X_Ver
+
+    SE05X Applet version.
+
+    Selection of Applet version 03_XX enables SE050 features.
+    Selection of Applet version 06_00 enables SE051 features.
+
+
+    ``-DSE05X_Ver=03_XX``: SE050
+
+    ``-DSE05X_Ver=06_00``: SE051
+
+
+.. _cmake-option-Host:
+
+Host
+========================
+
+.. option:: Host
+
+    Host where the software stack is running
+
+    e.g. Windows, PC Linux, Embedded Linux, Kinetis like embedded platform
+
+    ``-DHost=Darwin``: OS X / Macintosh
+
+    ``-DHost=PCLinux32``: PC/Laptop Linux with 32bit libraries
+
+    ``-DHost=PCLinux64``: PC/Laptop Linux with 64bit libraries
+
+    ``-DHost=PCWindows``: PC/Laptop Windows
+
+    ``-DHost=Cygwin``: Using Cygwin
+
+    ``-DHost=frdmk64f``: Embedded Kinetis Freedom K64F
+
+    ``-DHost=evkmimxrt1060``: Embedded Kinetis i.MX RT 1060
+
+    ``-DHost=lpcxpresso55s``: Embedded LPCXpresso55s (No demarcation of secure/non-secure world)
+
+    ``-DHost=lpcxpresso55s_ns``: Non Secure world of LPCXpresso55s
+
+    ``-DHost=lpcxpresso55s_s``: Secure world of LPCXpresso55s
+
+    ``-DHost=iMXLinux``: Embedded Linux on i.MX
+
+    ``-DHost=Raspbian``: Embedded Linux on RaspBerry PI
+
+    ``-DHost=Android``: Android
+
+
+
+
+.. _cmake-option-SMCOM:
+
+SMCOM
+=========================
+
+.. option:: SMCOM
+
+    Communication Interface
+
+    How the host library communicates to the Secure Element.
+    This may be directly over an I2C interface on embedded platform.
+    Or sometimes over Remote protocol like JRCP_V1 / JRCP_V2 / VCOM from PC.
+
+    ``-DSMCOM=None``: Not using any Communication layer
+
+    ``-DSMCOM=JRCP_V2``: Socket Interface New Implementation
+
+    ``-DSMCOM=JRCP_V1``: Socket Interface Old Implementation.
+        This is the interface used from Host PC when when we run jrcpv1_server
+        from the linux PC.
+
+    ``-DSMCOM=VCOM``: Virtual COM Port
+
+    ``-DSMCOM=SCI2C``: Smart Card I2C for A71CH and A71CH
+
+    ``-DSMCOM=T1oI2C``: T=1 over I2C for SE050
+
+
+
+
+
+
+
+
+
+    ``-DSMCOM=PCSC``: CCID PC/SC reader interface
+
+
+.. _cmake-option-HostCrypto:
+
+HostCrypto
+==============================
+
+.. option:: HostCrypto
+
+    Counterpart Crypto on Host
+
+    What is being used as a cryptographic library on the host.
+    As of now only OpenSSL / mbedTLS is supported
+
+    ``-DHostCrypto=MBEDTLS``: Use mbedTLS as host crypto
+
+    ``-DHostCrypto=MBEDCRYPTO``: Use mbed-crypto as host crypto
+        Required for ARM-PSA / TF-M
+
+    ``-DHostCrypto=OPENSSL``: Use OpenSSL as host crypto
+
+    ``-DHostCrypto=User``: User Implementation of Host Crypto
+        e.g. Files at ``sss/src/user/crypto`` have low level AES/CMAC primitives.
+        The files at ``sss/src/user`` use those primitives.
+        This becomes an example for users with their own AES Implementation
+        This then becomes integration without mbedTLS/OpenSSL for SCP03 / AESKey.
+
+        .. note:: ECKey abstraction is not implemented/available yet.
+
+    ``-DHostCrypto=None``: NO Host Crypto
+        Note, this is unsecure and only provided for experimentation
+        on platforms that do not have an mbedTLS PORT
+        Many :ref:`sssftr-control` have to be disabled to have a valid build.
+
+
+.. _cmake-option-RTOS:
+
+RTOS
+========================
+
+.. option:: RTOS
+
+    Choice of Operating system
+
+    Default would mean nothing special.
+    i.e. Without any RTOS on embedded system, or default APIs on PC/Linux
+
+    ``-DRTOS=Default``: No specific RTOS. Either bare matal on embedded system or native linux or Windows OS
+
+    ``-DRTOS=FreeRTOS``: Free RTOS for embedded systems
+
+
+.. _cmake-option-mbedTLS_ALT:
+
+mbedTLS_ALT
+===============================
+
+.. option:: mbedTLS_ALT
+
+    ALT Engine implementation for mbedTLS
+
+    When set to None, mbedTLS would not use ALT Implementation to connect to / use Secure Element.
+    This needs to be set to SSS for Cloud Demos over SSS APIs
+
+    ``-DmbedTLS_ALT=SSS``: Use SSS Layer ALT implementation
+
+    ``-DmbedTLS_ALT=A71CH``: Legacy implementation
+
+    ``-DmbedTLS_ALT=None``: Not using any mbedTLS_ALT
+
+        When this is selected, cloud demos can not work with mbedTLS
+
+
+.. _cmake-option-SCP:
+
+SCP
+=======================
+
+.. option:: SCP
+
+    Secure Channel Protocol
+
+    In case we enable secure channel to Secure Element, which interface to be used.
+
+    ``-DSCP=None``
+
+    ``-DSCP=SCP03_SSS``: Use SSS Layer for SCP.  Used for SE050 family.
+
+    ``-DSCP=SCP03_HostCrypto``: Use Host Crypto Layer for SCP03. Legacy implementation. Used for older demos of A71CH Family.
+
+
+.. _cmake-option-FIPS:
+
+FIPS
+========================
+
+.. option:: FIPS
+
+    Enable or disable FIPS
+
+    This selection mostly impacts tests, and generally not the actual Middleware
+
+    ``-DFIPS=None``: NO FIPS
+
+    ``-DFIPS=SE050``: SE050 IC FIPS
+
+
+
+
+
+
+.. _cmake-option-SE05X_Auth:
+
+SE05X_Auth
+==============================
+
+.. option:: SE05X_Auth
+
+    SE050 Authentication
+
+    This settings is used by examples to connect using various options
+    to authenticate with the Applet.
+    The SE05X_Auth options can be changed for KSDK Demos and Examples.
+    To change SE05X_Auth option follow below steps.
+    Set flag ``SSS_HAVE_SCP_SCP03_SSS`` to 1 and Reset flag ``SSS_HAVE_SCP_NONE`` to 0.
+    To change SE05X_Auth option other than ``None`` and  ``PlatfSCP03``,
+    execute se05x_Delete_and_test_provision.exe in order to provision the Authentication Key.
+    To change SE05X_Auth option to ``ECKey`` or ``ECKey_PlatfSCP03``,
+    Set additional flag ``SSS_HAVE_HOSTCRYPTO_ANY`` to 1.
+
+    ``-DSE05X_Auth=None``: Use the default session (i.e. session less) login
+
+    ``-DSE05X_Auth=UserID``: Do User Authentication with UserID
+
+    ``-DSE05X_Auth=PlatfSCP03``: Use Platform SCP for connection to SE
+
+    ``-DSE05X_Auth=AESKey``: Do User Authentication with AES Key
+        Earlier this was called AppletSCP03
+
+    ``-DSE05X_Auth=ECKey``: Do User Authentication with EC Key
+        Earlier this was called FastSCP
+
+    ``-DSE05X_Auth=UserID_PlatfSCP03``: UserID and PlatfSCP03
+
+    ``-DSE05X_Auth=AESKey_PlatfSCP03``: AESKey and PlatfSCP03
+
+    ``-DSE05X_Auth=ECKey_PlatfSCP03``: ECKey and PlatfSCP03
+
+
+.. _cmake-option-A71CH_AUTH:
+
+A71CH_AUTH
+==============================
+
+.. option:: A71CH_AUTH
+
+    A71CH Authentication
+
+    This settings is used by SSS-API based examples to connect using either plain or authenticated to the A71CH.
+
+    ``-DA71CH_AUTH=None``: Plain communication, not authenticated or encrypted
+
+    ``-DA71CH_AUTH=SCP03``: SCP03 enabled
+
+
+.. _cmake-option-Log:
+
+Log
+=======================
+
+.. option:: Log
+
+    Logging
+
+    ``-DLog=Default``: Default Logging
+
+    ``-DLog=Verbose``: Very Verbose logging
+
+    ``-DLog=Silent``: Totally silent logging
+
+
+
+
+.. _cmake-option-CMAKE_BUILD_TYPE:
+
+CMAKE_BUILD_TYPE
+====================================
+
+.. option:: CMAKE_BUILD_TYPE
+
+    See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
+
+    For embedded builds, this choices sets optimization levels.
+    For MSVC builds, build type is selected from IDE As well
+
+    ``-DCMAKE_BUILD_TYPE=Debug``: For developer
+
+    ``-DCMAKE_BUILD_TYPE=Release``: Optimization enabled and debug symbols removed
+
+    ``-DCMAKE_BUILD_TYPE=RelWithDebInfo``: Optimization enabled but with debug symbols
+
+    ``-DCMAKE_BUILD_TYPE=``: Empty Allowed
+
+
+
+.. _sssftr-control:
+
+Feature Control
+=========================
+
+Using these options, you can enable/disable individual features.
+
+See :numref:`ftr-file-reduce-code-size` :ref:`ftr-file-reduce-code-size`
+for details on it's usage and relevance.
+
+.. option:: SSSFTR_SE05X_AES
+
+    SE05X Secure Element : Symmetric AES
+
+.. option:: SSSFTR_SE05X_ECC
+
+    SE05X Secure Element : Elliptic Curve Cryptography
+
+.. option:: SSSFTR_SE05X_RSA
+
+    SE05X Secure Element : RSA
+
+.. option:: SSSFTR_SE05X_KEY_SET
+
+    SE05X Secure Element : KEY operations : SET Key
+
+.. option:: SSSFTR_SE05X_KEY_GET
+
+    SE05X Secure Element : KEY operations : GET Key
+
+.. option:: SSSFTR_SE05X_AuthECKey
+
+    SE05X Secure Element : Authenticate via ECKey
+
+.. option:: SSSFTR_SE05X_AuthSession
+
+    SE05X Secure Element : Allow creation of user/authenticated session.
+
+    If the intended deployment only uses Platform SCP
+    Or it is a pure session less integration, this can
+    save some code size.
+
+.. option:: SSSFTR_SE05X_CREATE_DELETE_CRYPTOOBJ
+
+    SE05X Secure Element : Allow creation/deletion of Crypto Objects
+
+    If disabled, new Crytpo Objects are neither created and
+    old/existing Crypto Objects are not deleted.
+    It is assumed that during provisioning phase, the required
+    Crypto Objects are pre-created or they are never going to
+    be needed.
+
+.. option:: SSSFTR_SW_AES
+
+    Software : Symmetric AES
+
+.. option:: SSSFTR_SW_ECC
+
+    Software : Elliptic Curve Cryptography
+
+.. option:: SSSFTR_SW_RSA
+
+    Software : RSA
+
+.. option:: SSSFTR_SW_KEY_SET
+
+    Software : KEY operations : SET Key
+
+.. option:: SSSFTR_SW_KEY_GET
+
+    Software : KEY operations : GET Key
+
+.. option:: SSSFTR_SW_TESTCOUNTERPART
+
+    Software : Used as a test counterpart
+
+    e.g. Major part of the mebdTLS SSS layer is purely used for
+    testing of Secure Element implementation, and can be avoided
+    fully during many production scenarios.
+
+
+
+
+.. _deprecated-defines:
+
+Deprecated Defines
+========================
+
+Keept and for time being for backwards compatibility.  They will be removed in
+some future release.
+
+
+
+- ``WithApplet_SE05X`` is renamed to ``SSS_HAVE_APPLET_SE05X_IOT``
+- ``WithApplet_SE050_A`` is renamed to ``SSS_HAVE_APPLET_SE05X_A``
+- ``WithApplet_SE050_B`` is renamed to ``SSS_HAVE_APPLET_SE05X_B``
+- ``WithApplet_SE050_C`` is renamed to ``SSS_HAVE_APPLET_SE05X_C``
+- ``SSS_HAVE_SE050_A`` is renamed to ``SSS_HAVE_APPLET_SE05X_A``
+- ``SSS_HAVE_SE050_B`` is renamed to ``SSS_HAVE_APPLET_SE05X_B``
+- ``SSS_HAVE_SE050_C`` is renamed to ``SSS_HAVE_APPLET_SE05X_C``
+- ``SSS_HAVE_SE05X`` is renamed to ``SSS_HAVE_APPLET_SE05X_IOT``
+- ``SSS_HAVE_SE`` is renamed to ``SSS_HAVE_APPLET``
+- ``SSS_HAVE_LOOPBACK`` is renamed to ``SSS_HAVE_APPLET_LOOPBACK``
+- ``SSS_HAVE_ALT`` is renamed to ``SSS_HAVE_MBEDTLS_ALT``
+- ``WithApplet_None`` is renamed to ``SSS_HAVE_APPLET_NONE``
+- ``SSS_HAVE_None`` is renamed to ``SSS_HAVE_APPLET_NONE``
+- ``WithApplet_A71CH`` is renamed to ``SSS_HAVE_APPLET_A71CH``
+- ``SSS_HAVE_A71CH`` is renamed to ``SSS_HAVE_APPLET_A71CH``
+- ``WithApplet_A71CL`` is renamed to ``SSS_HAVE_APPLET_A71CL``
+- ``SSS_HAVE_A71CL`` is renamed to ``SSS_HAVE_APPLET_A71CL``
+- ``WithApplet_A71CH_SIM`` is renamed to ``SSS_HAVE_APPLET_A71CH_SIM``
+- ``SSS_HAVE_A71CH_SIM`` is renamed to ``SSS_HAVE_APPLET_A71CH_SIM``
+- ``WithApplet_SE05X_A`` is renamed to ``SSS_HAVE_APPLET_SE05X_A``
+- ``SSS_HAVE_SE05X_A`` is renamed to ``SSS_HAVE_APPLET_SE05X_A``
+- ``WithApplet_SE05X_B`` is renamed to ``SSS_HAVE_APPLET_SE05X_B``
+- ``SSS_HAVE_SE05X_B`` is renamed to ``SSS_HAVE_APPLET_SE05X_B``
+- ``WithApplet_SE05X_C`` is renamed to ``SSS_HAVE_APPLET_SE05X_C``
+- ``SSS_HAVE_SE05X_C`` is renamed to ``SSS_HAVE_APPLET_SE05X_C``
+- ``WithApplet_SE05X_L`` is renamed to ``SSS_HAVE_APPLET_SE05X_L``
+- ``SSS_HAVE_SE05X_L`` is renamed to ``SSS_HAVE_APPLET_SE05X_L``
+- ``WithApplet_LoopBack`` is renamed to ``SSS_HAVE_APPLET_LOOPBACK``
+- ``SSS_HAVE_LoopBack`` is renamed to ``SSS_HAVE_APPLET_LOOPBACK``
+- ``SSS_HAVE_MBEDTLS`` is renamed to ``SSS_HAVE_HOSTCRYPTO_MBEDTLS``
+- ``SSS_HAVE_MBEDCRYPTO`` is renamed to ``SSS_HAVE_HOSTCRYPTO_MBEDCRYPTO``
+- ``SSS_HAVE_OPENSSL`` is renamed to ``SSS_HAVE_HOSTCRYPTO_OPENSSL``
+- ``SSS_HAVE_USER`` is renamed to ``SSS_HAVE_HOSTCRYPTO_USER``
+- ``SSS_HAVE_NONE`` is renamed to ``SSS_HAVE_HOSTCRYPTO_NONE``
+- ``SSS_HAVE_ALT_SSS`` is renamed to ``SSS_HAVE_MBEDTLS_ALT_SSS``
+- ``SSS_HAVE_ALT_A71CH`` is renamed to ``SSS_HAVE_MBEDTLS_ALT_A71CH``
+- ``SSS_HAVE_ALT_NONE`` is renamed to ``SSS_HAVE_MBEDTLS_ALT_NONE``
+- ``SSS_HAVE_SE05X_Auth_None`` is renamed to ``SSS_HAVE_SE05X_AUTH_NONE``
+- ``SSS_HAVE_SE05X_Auth_UserID`` is renamed to ``SSS_HAVE_SE05X_AUTH_USERID``
+- ``SSS_HAVE_SE05X_Auth_PlatfSCP03`` is renamed to ``SSS_HAVE_SE05X_AUTH_PLATFSCP03``
+- ``SSS_HAVE_SE05X_Auth_AESKey`` is renamed to ``SSS_HAVE_SE05X_AUTH_AESKEY``
+- ``SSS_HAVE_SE05X_Auth_ECKey`` is renamed to ``SSS_HAVE_SE05X_AUTH_ECKEY``
+- ``SSS_HAVE_SE05X_Auth_UserID_PlatfSCP03`` is renamed to ``SSS_HAVE_SE05X_AUTH_USERID_PLATFSCP03``
+- ``SSS_HAVE_SE05X_Auth_AESKey_PlatfSCP03`` is renamed to ``SSS_HAVE_SE05X_AUTH_AESKEY_PLATFSCP03``
+- ``SSS_HAVE_SE05X_Auth_ECKey_PlatfSCP03`` is renamed to ``SSS_HAVE_SE05X_AUTH_ECKEY_PLATFSCP03``
