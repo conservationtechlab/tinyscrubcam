@@ -86,8 +86,6 @@ To avoid any conflicts with system-wide packages and ensure a consistent develop
      pip3 install -r requirements.txt
      ```
 
-Remember to activate the virtual environment whenever you work on this project to keep your dependencies organized and isolated from the global Python environment.
-
 ## Conclusion
 
 By following these instructions, you should have TinyScrubCam set up and ready for wildlife detection. The use of a virtual environment for Python ensures that all dependencies are managed effectively, providing a smooth development and deployment process.

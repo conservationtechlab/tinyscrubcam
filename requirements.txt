@@ -1,1 +1,6 @@
 Pillow==9.1.1
+hidapi
+pyusb
+pyserial
+progress
+hexformat
