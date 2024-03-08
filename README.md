@@ -18,7 +18,7 @@ Follow these steps to set up and run your TinyScrubCam device:
 Begin by cloning the TinyScrubCam repository to your local machine:
 
 ```sh
-git clone <https://github.com/conservationtechlab/tinyscrubcam.git>
+git clone https://github.com/conservationtechlab/tinyscrubcam.git
 ```
 
 ### Prepare the Build Environment
