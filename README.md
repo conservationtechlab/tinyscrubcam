@@ -81,7 +81,7 @@ To avoid any conflicts with system-wide packages and ensure a consistent develop
      ```
 
 4. **Install Dependencies**:
-   - With the virtual environment activated, install the required Python packages (if any are specified in your project):
+   - With the virtual environment activated, install the required Python packages:
      ```sh
      pip3 install -r requirements.txt
      ```
