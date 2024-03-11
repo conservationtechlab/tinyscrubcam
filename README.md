@@ -86,6 +86,16 @@ To avoid any conflicts with system-wide packages and ensure a consistent develop
      pip3 install -r requirements.txt
      ```
 
+## View the images stored on the TinyScrubCam
+
+1. **Plug the coral micro to a linux system computer**
+2. **On Chrome, open the url**
+     ```sh
+     10.10.10.1
+     ```
+- Note that only linux computers can view the images through this web streaming.
+- Chrome is a preferred browser for viewing the images, other browsers could have JSON issues.
+- The website provides functionalities such as deleting all the images from the server and saving all the images as a zip file. Those should provide an easy way to use the device and manage all the data.
 ## Conclusion
 
 By following these instructions, you should have TinyScrubCam set up and ready for wildlife detection. The use of a virtual environment for Python ensures that all dependencies are managed effectively, providing a smooth development and deployment process.
