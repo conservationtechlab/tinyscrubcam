@@ -63,15 +63,6 @@ constexpr char kModelPath[] =
 // An area of memory to use for input, output, and intermediate arrays.
 constexpr int kTensorArenaSize = 8 * 1024 * 1024;
 STATIC_TENSOR_ARENA_IN_SDRAM(tensor_arena, kTensorArenaSize);
-
-PwmPinConfig pin_a_config{.duty_cycle = 20, 
-                            .frequency = 1000, 
-                            .pin_setting = PwmPinSettingFor(PwmPin::k10)};
-PwmPinConfig pin_b_config{.duty_cycle = 80,
-                            .frequency = 1000,
-                            .pin_setting = PwmPinSettingFor(PwmPin::k9)};
-std::vector<PwmPinConfig> configs = {pin_a_config, pin_b_config};
-
 bool DetectFromCamera(tflite::MicroInterpreter* interpreter, int model_width,
                       int model_height,
                       std::vector<tensorflow::Object>* results,
@@ -377,7 +368,7 @@ int GetNextImageIndex(const std::string& baseFilename) {
 }
 
 
-bool Record(const std::string& baseFilename) {
+bool Record(const std::string& baseFilename, const std::vector<uint8>& image) {
   lfs_info fileInfo;
 
   int index = GetNextImageIndex(baseFilename);
@@ -387,7 +378,7 @@ bool Record(const std::string& baseFilename) {
 
   if (lfs_stat(Lfs(), filePath, &fileInfo) < 0) {
     printf("Image file does not exist. Capturing and saving a new image.\r\n");
-    std::vector<uint8_t> jpegData = CaptureFrameJPEG();
+    std::vector<uint8_t> jpegData = image;
     if (jpegData.empty()) {
       printf("Failed to capture an image.\r\n");
       return false;
@@ -441,12 +432,7 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
     if (results.size() == 0) {
       printf("No result detected!\r\n");
     } else{
-      Record(namePrediction);
-      // // sound the pwm
-      // PwmEnable(configs);
-      // vTaskDelay(pdMS_TO_TICKS(1000));
-      // PwmDisable(configs);
-      // vTaskDelay(pdMS_TO_TICKS(1000));
+      Record(namePrediction, image);
 
       coralmicro::GpioSet(coralmicro::Gpio::kAA, true);
       vTaskDelay(pdMS_TO_TICKS(10000));
@@ -531,14 +517,6 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
   http_server.AddUriHandler(UriHandler);
   UseHttpServer(&http_server);
 
-  // while (true) {
-  //   printf("pwm run! \r\n");
-  //   PwmEnable(configs);
-  //   vTaskDelay(pdMS_TO_TICKS(1000));
-  //   PwmDisable(configs);
-  //   vTaskDelay(pdMS_TO_TICKS(1000));
-  // }
-
   // Initialize kAA (pin A1) as output to the amplifier
   GpioSetMode(coralmicro::Gpio::kAA, coralmicro::GpioMode::kOutput);
   coralmicro::GpioSet(coralmicro::Gpio::kAA, false);
@@ -562,8 +540,3 @@ extern "C" void app_main(void* param) {
   (void)param;
   coralmicro::Main();
 }
-
-// extern "C" void vApplicationIdleHook(void) {
-//   printf("---------------------Application goes into idle mode");
-//   asm volatile (" WFI \n");
-// }
