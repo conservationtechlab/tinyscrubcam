@@ -377,9 +377,8 @@ int GetNextImageIndex(const std::string& baseFilename) {
 
 /// @brief Function to record an image to the filesystem
 /// @param baseFilename The base filename for the images
-/// @param image The image data to save
 /// @return bool True if the image was saved successfully, false otherwise
-bool Record(const std::string& baseFilename, const std::vector<uint8>& image) {
+bool Record(const std::string& baseFilename) {
   lfs_info fileInfo;
 
   // Get the next available image index for naming the image file
@@ -390,7 +389,7 @@ bool Record(const std::string& baseFilename, const std::vector<uint8>& image) {
   // Check if the image file already exists
   if (lfs_stat(Lfs(), filePath, &fileInfo) < 0) {
     printf("Image file does not exist. Capturing and saving a new image.\r\n");
-    std::vector<uint8_t> jpegData = image;
+    std::vector<uint8_t> jpegData = CaptureFrameJPEG();
     if (jpegData.empty()) {
       printf("Failed to capture an image.\r\n");
       return false;
@@ -447,7 +446,7 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
     if (results.size() == 0) {
       printf("No result detected!\r\n");
     } else{ // If objects are detected, record the image
-      Record(namePrediction, &image);
+      Record(namePrediction);
 	  // Turn on the speaker for 10 seconds
       coralmicro::GpioSet(coralmicro::Gpio::kAA, true);
       vTaskDelay(pdMS_TO_TICKS(10000));
