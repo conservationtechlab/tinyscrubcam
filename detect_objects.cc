@@ -97,6 +97,40 @@ bool DetectFromCamera(tflite::MicroInterpreter* interpreter, int model_width,
   return true;
 }
 
+void DetectRpc(struct jsonrpc_request* r) {
+  printf("Function DetectRpc is called!");
+  auto* interpreter =
+      static_cast<tflite::MicroInterpreter*>(r->ctx->response_cb_data);
+  auto* input_tensor = interpreter->input_tensor(0);
+  int model_height = input_tensor->dims->data[1];
+  int model_width = input_tensor->dims->data[2];
+  std::vector<uint8> image(model_height * model_width *
+                           CameraFormatBpp(CameraFormat::kRgb));
+  std::vector<tensorflow::Object> results;
+  if (DetectFromCamera(interpreter, model_width, model_height, &results,
+                       &image)) {
+    if (!results.empty()) {
+      const auto& result = results[0];
+      jsonrpc_return_success(
+          r,
+          "{%Q: %d, %Q: %d, %Q: %V, %Q: {%Q: %d, %Q: %g, %Q: %g, %Q: %g, "
+          "%Q: %g, %Q: %g}}",
+          "width", model_width, "height", model_height, "base64_data",
+          image.size(), image.data(), "detection", "id", result.id, "score",
+          result.score, "xmin", result.bbox.xmin, "xmax", result.bbox.xmax,
+          "ymin", result.bbox.ymin, "ymax", result.bbox.ymax);
+      return;
+    } else {
+      printf("No detection!\r\n");
+    }
+    jsonrpc_return_success(r, "{%Q: %d, %Q: %d, %Q: %V, %Q: None}", "width",
+                           model_width, "height", model_height, "base64_data",
+                           image.size(), image.data(), "detection");
+    return;
+  }
+  jsonrpc_return_error(r, -1, "Failed to detect image from camera.", nullptr);
+}
+
 /// @brief Function to convert a vector of image file paths to a JSON string
 /// @param imageFiles A vector of image file paths
 /// @return std::string A JSON string containing the image file paths
@@ -498,6 +532,12 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
   // Starting Camera.
   CameraTask::GetSingleton()->SetPower(true);
   CameraTask::GetSingleton()->Enable(CameraMode::kTrigger);
+  printf("Initializing detection server...\r\n");
+  jsonrpc_init(nullptr, &interpreter);
+  jsonrpc_export("detect_from_camera", DetectRpc);
+  UseHttpServer(new JsonRpcHttpServer);
+  printf("Detection server ready!\r\n");
+
 
   // create the /dir directory for images
   printf("Checking if '/dir' directory exists. \r\n");
