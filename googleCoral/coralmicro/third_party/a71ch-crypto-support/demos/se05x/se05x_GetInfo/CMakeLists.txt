@@ -1,0 +1,41 @@
+#
+# Copyright 2019,2020 NXP
+# SPDX-License-Identifier: Apache-2.0
+#
+#
+
+PROJECT(se05x_GetInfo)
+
+FILE(
+    GLOB
+    files
+    *.c
+)
+
+ADD_EXECUTABLE(${PROJECT_NAME} ${KSDK_STARTUP_FILE} ${files})
+
+TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/sss/ex/inc)
+
+TARGET_LINK_LIBRARIES(
+    ${PROJECT_NAME}
+    ex_common
+    SSS_APIs
+)
+
+CREATE_BINARY(${PROJECT_NAME})
+
+IF(
+    CMAKE_BUILD_TYPE
+    STREQUAL
+    "Release"
+)
+    COPY_TO_SOURCEDIR(
+        ${PROJECT_NAME}
+        binaries/ex
+        ${SMCOM}
+    )
+ENDIF()
+
+IF(WithHost_LinuxLike)
+    INSTALL(TARGETS ${PROJECT_NAME} DESTINATION bin)
+ENDIF()

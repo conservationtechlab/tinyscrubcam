@@ -1,3 +1,0 @@
-click
-cryptography==2.6.1
-func-timeout

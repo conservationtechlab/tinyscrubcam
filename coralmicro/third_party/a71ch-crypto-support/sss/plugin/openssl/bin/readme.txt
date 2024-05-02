@@ -1,1 +1,0 @@
-File to ensure this directory is created (to contain OpenSSL engine shared library)

@@ -1,1 +1,0 @@
-../../../../../../libs/camera/camera.h
