@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/testlib/test_lib.cc" "coralmicro/libs/testlib/CMakeFiles/libs_testlib.dir/test_lib.cc.obj" "gcc" "coralmicro/libs/testlib/CMakeFiles/libs_testlib.dir/test_lib.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/testlib/test_lib.cc" "coralmicro/libs/testlib/CMakeFiles/libs_testlib.dir/test_lib.cc.obj" "gcc" "coralmicro/libs/testlib/CMakeFiles/libs_testlib.dir/test_lib.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

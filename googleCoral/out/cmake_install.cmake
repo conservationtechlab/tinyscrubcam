@@ -1,4 +1,4 @@
-# Install script for directory: /home/gracejin/Desktop/tiny_scrubcam
+# Install script for directory: /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objdump")
+  set(CMAKE_OBJDUMP "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/gracejin/Desktop/tiny_scrubcam/out/coralmicro/cmake_install.cmake")
+  include("/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/out/coralmicro/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/gracejin/Desktop/tiny_scrubcam/out/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/out/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

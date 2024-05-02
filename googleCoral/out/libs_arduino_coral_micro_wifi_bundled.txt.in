@@ -29,8 +29,8 @@ $<TARGET_FILE:libs_base-m7_wifi>
 $<TARGET_FILE:libs_nxp_rt1176-sdk_wiced>
 $<TARGET_FILE:libs_nxp_rt1176-sdk_sdmmc>
 $<TARGET_FILE:edgefast_bluetooth_internal>
-prebuilt:/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/framework/SecLib/lib_crypto_m7.a
-prebuilt:/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_core.a
-prebuilt:/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_gatt.a
-prebuilt:/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_protocol.a
-prebuilt:/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_util.a
+prebuilt:/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/framework/SecLib/lib_crypto_m7.a
+prebuilt:/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_core.a
+prebuilt:/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_gatt.a
+prebuilt:/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_protocol.a
+prebuilt:/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/wireless/ethermind/bluetooth/private/lib/mcux/default/ble/cm7f/gcc/libethermind_ble_util.a

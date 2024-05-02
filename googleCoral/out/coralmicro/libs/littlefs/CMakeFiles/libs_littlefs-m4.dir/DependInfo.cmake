@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.c" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.c.obj" "gcc" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.c.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.c" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.c.obj" "gcc" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.c.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.c" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.c.obj" "gcc" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs.c.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.c" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.c.obj" "gcc" "coralmicro/libs/littlefs/CMakeFiles/libs_littlefs-m4.dir/__/__/third_party/nxp/rt1176-sdk/middleware/littlefs/lfs_util.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

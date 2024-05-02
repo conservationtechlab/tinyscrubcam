@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/console_m7.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/console_m7.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/console_m7.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/gpio.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/gpio.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/gpio.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/main_freertos_ums.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/main_freertos_ums.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/main_freertos_ums.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/random.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/random.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/random.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/reset.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/reset.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/reset.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/tempsense.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/tempsense.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/tempsense.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/timer.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/timer.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/timer.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/utils.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/utils.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/utils.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/console_m7.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/console_m7.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/console_m7.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/gpio.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/gpio.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/gpio.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/main_freertos_ums.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/main_freertos_ums.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/main_freertos_ums.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/random.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/random.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/random.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/reset.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/reset.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/reset.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/tempsense.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/tempsense.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/tempsense.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/timer.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/timer.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/timer.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/utils.cc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/utils.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-ums_freertos.dir/utils.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

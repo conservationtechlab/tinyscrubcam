@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/http_server.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/http_server_handlers.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server_handlers.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server_handlers.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/http_server.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/http_server_handlers.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server_handlers.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m7_http_server.dir/http_server_handlers.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

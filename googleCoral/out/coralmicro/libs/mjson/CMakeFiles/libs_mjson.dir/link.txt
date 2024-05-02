@@ -1,1 +1,1 @@
-/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-ar rcsP liblibs_mjson.a CMakeFiles/libs_mjson.dir/__/__/third_party/mjson/src/mjson.c.obj
+/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-ar rcsP liblibs_mjson.a CMakeFiles/libs_mjson.dir/__/__/third_party/mjson/src/mjson.c.obj

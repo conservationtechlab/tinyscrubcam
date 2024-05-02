@@ -1,4 +1,4 @@
-# Install script for directory: /home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/nxp/rt1176-sdk/edgefast_bluetooth
+# Install script for directory: /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/nxp/rt1176-sdk/edgefast_bluetooth
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/toolchain-linux/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objdump")
+  set(CMAKE_OBJDUMP "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-objdump")
 endif()
 

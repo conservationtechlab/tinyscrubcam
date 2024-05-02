@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/filesystem.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/filesystem.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/filesystem.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/reset.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/reset.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/reset.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/utils.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/utils.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/utils.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/usb/usb_device_task.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/usb/usb_device_task.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/usb/usb_device_task.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/apps/elf_loader/elf_loader.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/elf_loader.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/elf_loader.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/apps/elf_loader/usb_data.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/usb_data.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/usb_data.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/filesystem.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/filesystem.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/filesystem.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/reset.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/reset.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/reset.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/utils.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/utils.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/base/utils.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/usb/usb_device_task.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/usb/usb_device_task.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/__/__/libs/usb/usb_device_task.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/apps/elf_loader/elf_loader.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/elf_loader.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/elf_loader.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/apps/elf_loader/usb_data.cc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/usb_data.cc.obj" "gcc" "coralmicro/apps/elf_loader/CMakeFiles/elf_loader.dir/usb_data.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

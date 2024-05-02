@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/tpu/usb_host_edgetpu.c" "coralmicro/libs/tpu/CMakeFiles/libs_usb_host_edgetpu_bm.dir/usb_host_edgetpu.c.obj" "gcc" "coralmicro/libs/tpu/CMakeFiles/libs_usb_host_edgetpu_bm.dir/usb_host_edgetpu.c.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/tpu/usb_host_edgetpu.c" "coralmicro/libs/tpu/CMakeFiles/libs_usb_host_edgetpu_bm.dir/usb_host_edgetpu.c.obj" "gcc" "coralmicro/libs/tpu/CMakeFiles/libs_usb_host_edgetpu_bm.dir/usb_host_edgetpu.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

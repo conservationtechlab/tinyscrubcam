@@ -42,6 +42,9 @@
 // Note: A lot of labels are missing from the coco17 dataset and are replaced 
 // with "No_matching_result" 
 // (Check research/object_detection/data/mscoco_label_map.pbtxt)
+
+bool debugFlag = false;
+
 const char* labels[] = {
     "person", "bicycle", "car", "motorcycle", "airplane",
     "bus", "train", "truck", "boat", "traffic_light",
@@ -98,7 +101,9 @@ bool DetectFromCamera(tflite::MicroInterpreter* interpreter, int model_width,
 }
 
 void DetectRpc(struct jsonrpc_request* r) {
-  printf("Function DetectRpc is called!");
+  if(debugFlag){
+    printf("Function DetectRpc is called!");
+  }
   auto* interpreter =
       static_cast<tflite::MicroInterpreter*>(r->ctx->response_cb_data);
   auto* input_tensor = interpreter->input_tensor(0);
@@ -121,7 +126,9 @@ void DetectRpc(struct jsonrpc_request* r) {
           "ymin", result.bbox.ymin, "ymax", result.bbox.ymax);
       return;
     } else {
+      if(debugFlag){
       printf("No detection!\r\n");
+      }
     }
     jsonrpc_return_success(r, "{%Q: %d, %Q: %d, %Q: %V, %Q: None}", "width",
                            model_width, "height", model_height, "base64_data",
@@ -154,38 +161,53 @@ HttpServer::Content ServeImageList() {
   std::vector<std::string> imageFiles; 
   lfs_dir_t dir;
   lfs_info info;
-
+  if(debugFlag){
   printf("Opening /dir to list images...\r\n");
+  }
 
   // Open the directory
   if (lfs_dir_open(Lfs(), &dir, "/dir") >= 0) {
+    if(debugFlag){
     printf("Directory /dir opened successfully.\r\n");
+    }
 
     // Read directory entries
     while (lfs_dir_read(Lfs(), &dir, &info) > 0) {
       // Check if the entry is a file
       if (info.type == LFS_TYPE_REG) {
         std::string fileName = info.name;
+        if(debugFlag){
         printf("Found image file: %s\r\n", fileName.c_str());
+        }
         imageFiles.push_back(fileName);
       }
     }
 
     // Close the directory
     lfs_dir_close(Lfs(), &dir);
+    if(debugFlag){
     printf("Directory /dir closed.\r\n");
+    }
   } else {
+    if(debugFlag){
     printf("Failed to open directory /dir.\r\n");
+    }
   }
 
+  if(debugFlag){
   printf("Generating JSON response...\r\n");
+  }
   std::string jsonResponse = ConvertToJson(imageFiles);
+  if(debugFlag){
   printf("JSON Response: %s\r\n", jsonResponse.c_str());
+  }
 
   std::vector<uint8_t> responseData(jsonResponse.begin(), jsonResponse.end());
   // only for debugging purpose
   std::string responseStr(responseData.begin(), responseData.end());
+  if(debugFlag){
   printf("responseData as string: %s\r\n", responseStr.c_str());
+  }
   return responseData;
 }
 
@@ -205,8 +227,9 @@ HttpServer::Content ServeImage(const char* uri) {
 HttpServer::Content DeleteAllImagesInDir() {
   lfs_dir_t dir;
   lfs_info info;
-
+  if(debugFlag){
   printf("Opening /dir to delete images... \r\n");
+  }
 
   // JSON response messages to indicate success or failure
   std::string success_response = "{\"status\":\"success\", \"message\":\"All images have been successfully deleted.\"}";
@@ -214,17 +237,25 @@ HttpServer::Content DeleteAllImagesInDir() {
 
   // Open the directory
   if (lfs_dir_open(Lfs(), &dir, "/dir") >= 0) {
+    if(debugFlag){
     printf("Directory /dir opened successfully! \r\n");
+    }
     // Read directory entries
     while (lfs_dir_read(Lfs(), &dir, &info) > 0) {
       // Check if the entry is a file and delete it
       if (info.type == LFS_TYPE_REG) {
         char filePath[256];
+        if(1){
         snprintf(filePath, sizeof(filePath), "/dir/%s", info.name);
+        }
         if (lfs_remove(Lfs(), filePath) == LFS_ERR_OK) {
+          if(debugFlag){
           printf("Deleted file: %s\r\n", filePath);
+          }
         } else {
+          if(debugFlag){
           printf("Failed to delete file %s\r\n", filePath);
+          }
           std::vector<uint8_t> fail_responseData(fail_response.begin(), fail_response.end());
           return fail_responseData;
         }
@@ -232,11 +263,15 @@ HttpServer::Content DeleteAllImagesInDir() {
     }
     // Close the directory
     lfs_dir_close(Lfs(), &dir);
+    if(debugFlag){
     printf("Directory /dir closed after deletion process. \r\n");
+    }
     std::vector<uint8_t> success_responseData(success_response.begin(), success_response.end());
     return success_responseData;
   } else { // Failed to open directory
+  if(debugFlag){
     printf("Failed to open directory /dir\r\n");
+  }
     std::vector<uint8_t> fail_responseData(fail_response.begin(), fail_response.end());
     return fail_responseData;
   }
@@ -248,9 +283,13 @@ constexpr char kCameraStreamUrlPrefix[] = "/dir/image.jpg";
 /// @param uri The URI of the HTTP request
 /// @return HttpServer::Content The response data for the HTTP request
 HttpServer::Content UriHandler(const char* uri) {
+  if(debugFlag){
   printf("Received HTTP request for URI: %s\r\n", uri);
+  }
   if (StrEndsWith(uri, "index.shtml") || StrEndsWith(uri, "Image_view.html")) {
+    if(debugFlag){
     printf("Requesting the index page....\r\n");
+    }
     // Serve the HTML page for displaying the saved image
     return std::string(kIndexFileName);
   } else if (StrEndsWith(uri, "/image-list")) {
@@ -260,7 +299,9 @@ HttpServer::Content UriHandler(const char* uri) {
   } else if (StrEndsWith(uri, "/delete-all-images")) {
     return DeleteAllImagesInDir();
   }else {
+    if(debugFlag){
     printf("URI not recognitzed.\r\n");
+    }
   }
   return {};
 }
@@ -283,22 +324,31 @@ void PrintDirectory(lfs_dir_t* dir, const char* path, int num_tabs) {
       continue;
     }
     for (int i = 0; i < num_tabs; ++i) {// Print tabs for indentation
+    if(debugFlag){
       printf("\t");
     }
+    }
 
+  if(debugFlag){
     printf("%s", info.name);	
-
+  }
 	// Check if the entry is a directory
     if (info.type == LFS_TYPE_DIR) {
       char subpath[LFS_NAME_MAX];
+      if(debugFlag){
       printf("/\r\n");
+      }
       lfs_dir_t subdir;	
+      if(1){
       snprintf(subpath, LFS_NAME_MAX, "%s/%s", path, info.name);
+      }
       CHECK(lfs_dir_open(Lfs(), &subdir, subpath) >= 0);
       PrintDirectory(&subdir, subpath, num_tabs + 1);
       CHECK(lfs_dir_close(Lfs(), &subdir) >= 0);
     } else {
+      if(debugFlag){
       printf("\t\t%ld\r\n", info.size);
+      }
     }
   }
 }
@@ -308,9 +358,13 @@ void PrintDirectory(lfs_dir_t* dir, const char* path, int num_tabs) {
 void PrintFilesystemContents() {
   lfs_dir_t root;
   CHECK(lfs_dir_open(Lfs(), &root, "/") >= 0);
+  if(debugFlag){
   printf("Printing filesystem:\r\n");
+  }
   PrintDirectory(&root, "", 0);
+  if(debugFlag){
   printf("Finished printing filesystem.\r\n");
+  }
   CHECK(lfs_dir_close(Lfs(), &root) >= 0);
 }
 
@@ -320,7 +374,9 @@ void PrintFilesystemContents() {
 bool Mkdir(const char* path) {
   int ret = lfs_mkdir(Lfs(), path);
   if (ret == LFS_ERR_EXIST) {
+    if(debugFlag){
     printf("Error dir exists");
+    }
     return false;
   }
   return (ret == LFS_ERR_OK);
@@ -370,7 +426,9 @@ std::vector<uint8_t> CaptureFrameJPEG () {
   // Get a frame from the camera
   CameraTask::GetSingleton()-> Trigger();
   if (!CameraTask::GetSingleton()->GetFrame({fmt})) {
+    if(debugFlag){
     printf("Unable to get frame from camera\r\n");
+    }
     return {};
   }
   // Compress the frame to JPEG format
@@ -389,7 +447,9 @@ int GetNextImageIndex(const std::string& baseFilename) {
     int maxIndex = 0;
 
     char pattern[100];
+    if(1){
     std::snprintf(pattern, sizeof(pattern), "%s_%%d.jpg", baseFilename.c_str());
+    }
 
     if (lfs_dir_open(Lfs(), &dir, "/dir") >= 0) {
         while (lfs_dir_read(Lfs(), &dir, &info) > 0) {
@@ -418,24 +478,36 @@ bool Record(const std::string& baseFilename) {
   // Get the next available image index for naming the image file
   int index = GetNextImageIndex(baseFilename);
   char filePath[100]; 
+  if(1){
   std::snprintf(filePath, sizeof(filePath), "/dir/%s_%d.jpg", baseFilename.c_str(), index);
+  }
 
   // Check if the image file already exists
   if (lfs_stat(Lfs(), filePath, &fileInfo) < 0) {
+    if(debugFlag){
     printf("Image file does not exist. Capturing and saving a new image.\r\n");
+    }
     std::vector<uint8_t> jpegData = CaptureFrameJPEG();
     if (jpegData.empty()) {
+      if(debugFlag){
       printf("Failed to capture an image.\r\n");
+      }
       return false;
     }
     // Save the image to the filesystem
     if (!WriteToFile(filePath, jpegData.data(), jpegData.size())) {
+      if(debugFlag){
       printf("Failed to save the image.\r\n");
+      }
       return false;
     }
+    if(debugFlag){
     printf("Image saved successfully!\r\n");
+    }
   } else {
+    if(debugFlag){
     printf("Image file already exists. Skipping image capture.\r\n");
+    }
   }
   PrintFilesystemContents();
   return true;
@@ -445,7 +517,9 @@ bool Record(const std::string& baseFilename) {
 /// @brief Function to establish a server to detect objects from the camera feed
 /// @param interpreter The TensorFlow Lite interpreter
 void DetectConsole(tflite::MicroInterpreter* interpreter) {
+  if(debugFlag){
   printf("DetectConsole runs!\r\n");
+  }
   // Get the input tensor
   auto* input_tensor = interpreter->input_tensor(0);
   int model_height = input_tensor->dims->data[1];
@@ -457,6 +531,7 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
   if (DetectFromCamera(interpreter, model_width, model_height, &results,
                        &image)) {
     std::string namePrediction = "";
+    int idFound = 0;
     for (const auto& object : results) {
       int id = object.id; // Accessing the ID of the detected object
       float score = object.score; // Accessing the score
@@ -467,46 +542,64 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
       float ymax = object.bbox.ymax;
       // Now you can use the id, score, and bounding box as needed
       // For example, printing them:
+      if(debugFlag){
       printf("Detected object ID: %d, Label: %s, Score: %f, BBox: [%f, %f, %f, %f]\r\n",
             id, labels[id], score, xmin, ymin, xmax, ymax);
+      }
       
       if (!namePrediction.empty()) {
         namePrediction += "_";
       }
       namePrediction += labels[id];
+      idFound = id;
     }
   
     // If no objects are detected, print a message
     if (results.size() == 0) {
-      printf("No result detected!\r\n");
+      printf("Nothing\r\n");
     } else{ // If objects are detected, record the image
       Record(namePrediction);
 	  // Turn on the speaker for 10 seconds
       coralmicro::GpioSet(coralmicro::Gpio::kAA, true);
       vTaskDelay(pdMS_TO_TICKS(10000));
       coralmicro::GpioSet(coralmicro::Gpio::kAA, false);
+
+      coralmicro::GpioSet(coralmicro::Gpio::kAB, true);
+      vTaskDelay(pdMS_TO_TICKS(10000));
+      printf("Detected: %s\r\n", labels[idFound]);
+      vTaskDelay(pdMS_TO_TICKS(180000));
+      coralmicro::GpioSet(coralmicro::Gpio::kAB, false);
+
     }
   } else {
+    if(debugFlag){
     printf("Failed to detect image from camera.\r\n");
+    }
   }
 }
 
 [[noreturn]] void Main() {
+  if(debugFlag){
   printf("Detection Camera Example!\r\n");
+  }
   // Turn on Status LED to show the board is on.
-  LedSet(Led::kStatus, true);
+  LedSet(Led::kStatus, false);
 
   // Load the model
   std::vector<uint8_t> model;
   if (!LfsReadFile(kModelPath, &model)) {
+    if(debugFlag){
     printf("ERROR: Failed to load %s\r\n", kModelPath);
+    }
     vTaskSuspend(nullptr);
   }
 
   // Initialize the Edge TPU
   auto tpu_context = EdgeTpuManager::GetSingleton()->OpenDevice();
   if (!tpu_context) {
+    if(debugFlag){
     printf("ERROR: Failed to get EdgeTpu context\r\n");
+    }
     vTaskSuspend(nullptr);
   }
   // Register custom op
@@ -521,39 +614,57 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
                                        tensor_arena, kTensorArenaSize,
                                        &error_reporter);
   if (interpreter.AllocateTensors() != kTfLiteOk) {
+    if(debugFlag){
     printf("ERROR: AllocateTensors() failed\r\n");
+    }
     vTaskSuspend(nullptr);
   }
   if (interpreter.inputs().size() != 1) {
+    if(debugFlag){
     printf("ERROR: Model must have only one input tensor\r\n");
+    }
     vTaskSuspend(nullptr);
   }
 
   // Starting Camera.
   CameraTask::GetSingleton()->SetPower(true);
   CameraTask::GetSingleton()->Enable(CameraMode::kTrigger);
+  if(debugFlag){
   printf("Initializing detection server...\r\n");
+  }
   jsonrpc_init(nullptr, &interpreter);
   jsonrpc_export("detect_from_camera", DetectRpc);
   UseHttpServer(new JsonRpcHttpServer);
+  if(debugFlag){
   printf("Detection server ready!\r\n");
+  }
 
 
   // create the /dir directory for images
+  if(debugFlag){
   printf("Checking if '/dir' directory exists. \r\n");
+  }
   if (!LfsDirExists("/dir")) {
+    if(debugFlag){
     printf("'/dir' directory doesn't exist. Creating directory. \r\n");
+    }
     if (!Mkdir("/dir")) {
+      if(debugFlag){
       printf("Failed to create '/dir' directory.\r\n");
+      }
     } else {
+      if(debugFlag){
       printf("'/dir' directory created successfully.\r\n");
+      }
     }
   }
 
   // host on the specific usb_ip
   std::string usb_ip;
   if (GetUsbIpAddress(&usb_ip)) {
+    if(debugFlag){
     printf("Serving on http://%s\r\n", usb_ip.c_str());
+    }
   }
 
   // Start an HTTP server on USB
@@ -583,5 +694,7 @@ void DetectConsole(tflite::MicroInterpreter* interpreter) {
 }  // namespace coralmicro
 extern "C" void app_main(void* param) {
   (void)param;
+  coralmicro::GpioSetMode(coralmicro::Gpio::kAB, coralmicro::GpioMode::kOutput);
+  coralmicro::GpioSet(coralmicro::Gpio::kAB, false);
   coralmicro::Main();
 }

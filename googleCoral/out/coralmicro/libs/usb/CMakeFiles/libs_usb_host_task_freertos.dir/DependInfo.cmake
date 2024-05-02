@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/usb/usb_host_task.cc" "coralmicro/libs/usb/CMakeFiles/libs_usb_host_task_freertos.dir/usb_host_task.cc.obj" "gcc" "coralmicro/libs/usb/CMakeFiles/libs_usb_host_task_freertos.dir/usb_host_task.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/usb/usb_host_task.cc" "coralmicro/libs/usb/CMakeFiles/libs_usb_host_task_freertos.dir/usb_host_task.cc.obj" "gcc" "coralmicro/libs/usb/CMakeFiles/libs_usb_host_task_freertos.dir/usb_host_task.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

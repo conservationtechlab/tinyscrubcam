@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/camera/camera.cc" "coralmicro/libs/camera/CMakeFiles/libs_camera_freertos-m4.dir/camera.cc.obj" "gcc" "coralmicro/libs/camera/CMakeFiles/libs_camera_freertos-m4.dir/camera.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/camera/camera.cc" "coralmicro/libs/camera/CMakeFiles/libs_camera_freertos-m4.dir/camera.cc.obj" "gcc" "coralmicro/libs/camera/CMakeFiles/libs_camera_freertos-m4.dir/camera.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

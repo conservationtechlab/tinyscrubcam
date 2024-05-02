@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/detect_objects.cc" "CMakeFiles/detect_objects_http_usb.dir/detect_objects.cc.obj" "gcc" "CMakeFiles/detect_objects_http_usb.dir/detect_objects.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/detect_objects.cc" "CMakeFiles/detect_objects_http_usb.dir/detect_objects.cc.obj" "gcc" "CMakeFiles/detect_objects_http_usb.dir/detect_objects.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

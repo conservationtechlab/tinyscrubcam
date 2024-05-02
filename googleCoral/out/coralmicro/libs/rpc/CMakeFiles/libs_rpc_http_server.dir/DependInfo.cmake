@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/rpc/rpc_http_server.cc" "coralmicro/libs/rpc/CMakeFiles/libs_rpc_http_server.dir/rpc_http_server.cc.obj" "gcc" "coralmicro/libs/rpc/CMakeFiles/libs_rpc_http_server.dir/rpc_http_server.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/rpc/rpc_http_server.cc" "coralmicro/libs/rpc/CMakeFiles/libs_rpc_http_server.dir/rpc_http_server.cc.obj" "gcc" "coralmicro/libs/rpc/CMakeFiles/libs_rpc_http_server.dir/rpc_http_server.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/console_m4.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/console_m4.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/console_m4.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/filesystem.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/filesystem.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/filesystem.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/gpio.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/gpio.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/gpio.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/ipc.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/ipc_m4.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc_m4.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc_m4.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/led.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/led.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/led.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/main_freertos_m4.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/main_freertos_m4.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/main_freertos_m4.cc.obj.d"
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/libs/base/timer.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/timer.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/timer.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/console_m4.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/console_m4.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/console_m4.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/filesystem.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/filesystem.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/filesystem.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/gpio.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/gpio.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/gpio.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/ipc.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/ipc_m4.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc_m4.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/ipc_m4.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/led.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/led.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/led.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/main_freertos_m4.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/main_freertos_m4.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/main_freertos_m4.cc.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/libs/base/timer.cc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/timer.cc.obj" "gcc" "coralmicro/libs/base/CMakeFiles/libs_base-m4_freertos.dir/timer.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

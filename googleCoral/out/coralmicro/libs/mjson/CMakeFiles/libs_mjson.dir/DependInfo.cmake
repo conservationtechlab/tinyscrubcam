@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/mjson/src/mjson.c" "coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/__/__/third_party/mjson/src/mjson.c.obj" "gcc" "coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/__/__/third_party/mjson/src/mjson.c.obj.d"
+  "/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/mjson/src/mjson.c" "coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/__/__/third_party/mjson/src/mjson.c.obj" "gcc" "coralmicro/libs/mjson/CMakeFiles/libs_mjson.dir/__/__/third_party/mjson/src/mjson.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

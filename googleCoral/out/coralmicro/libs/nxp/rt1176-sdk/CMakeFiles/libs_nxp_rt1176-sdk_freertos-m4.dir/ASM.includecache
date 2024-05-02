@@ -6,5 +6,5 @@
 
 #IncludeRegexTransform: 
 
-/home/gracejin/Desktop/tiny_scrubcam/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/gcc/startup_MIMXRT1176_cm4.S
+/Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/nxp/rt1176-sdk/devices/MIMXRT1176/gcc/startup_MIMXRT1176_cm4.S
 
