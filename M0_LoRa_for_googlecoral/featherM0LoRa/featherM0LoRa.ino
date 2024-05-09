@@ -68,7 +68,7 @@ void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 static const u1_t PROGMEM APPKEY[16] = { 0xF1, 0xFE, 0x10, 0x99, 0x90, 0xEF, 0x91, 0x8E, 0x0F, 0x81, 0x8B, 0x8D, 0xF6, 0x87, 0xDF, 0x61 };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
-static uint8_t mydata[50] = "";
+static uint8_t mydata[15] = "";
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
@@ -300,7 +300,7 @@ void setup() {
         Serial.println(receivedString); // Print the received line
         
         // Copy the contents of receivedString into mydata, ensuring it fits within the array bounds
-        if (receivedString.length() < 50) {
+        if (receivedString.length() < 15) {
             receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
         } else {
             // Handle the case where the received string is too long
