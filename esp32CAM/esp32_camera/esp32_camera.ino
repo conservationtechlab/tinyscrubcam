@@ -28,6 +28,7 @@
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 
 #include "esp_camera.h"
+#include <esp_deep_sleep.h>
 
 // Select camera model - find more camera models in camera_pins.h file here
 // https://github.com/espressif/arduino-esp32/blob/master/libraries/ESP32/examples/Camera/CameraWebServer/camera_pins.h
@@ -36,6 +37,7 @@
 #define CAMERA_MODEL_AI_THINKER // Has PSRAM
 
 #define DEBUG_FLAG 0
+#define PIRSENSOR 3
 
 #if defined(CAMERA_MODEL_ESP_EYE)
 #define PWDN_GPIO_NUM    -1
@@ -130,12 +132,15 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
 /**
 * @brief      Arduino setup function
 */
+
+void wakeUp() {
+  Serial.println("Woke Up");
+}
+
 void setup()
 {
     // put your setup code here, to run once:
     Serial.begin(115200);
-    pinMode(2, OUTPUT); // Set the pin as an output
-    digitalWrite(2, LOW); // Write the pin to a LOW state
     //comment out the below line to start inference immediately after upload
     while (!Serial);
     Serial.println("Edge Impulse Inferencing Demo");
@@ -153,6 +158,8 @@ void setup()
     ei_printf("\nStarting continious inference in 2 seconds...\n");
     }
     ei_sleep(2000);
+    pinMode(PIRSENSOR, INPUT);
+    attachInterrupt(digitalPinToInterrupt(PIRSENSOR), wakeUp, RISING);
 }
 
 /**
