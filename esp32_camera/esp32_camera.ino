@@ -43,9 +43,9 @@ int pictureNumber = 0;
 #define CAMERA_MODEL_AI_THINKER // Has PSRAM
 
 #define DEBUG_FLAG 0
-// #define PIRSENSOR 0
-// #define LORAENABLE 3
-// #define SPEAKERENABLE 4
+#define PIRSENSOR 4
+#define LORAENABLE 3
+
 
 #if defined(CAMERA_MODEL_ESP_EYE)
 #define PWDN_GPIO_NUM    -1
@@ -198,33 +198,13 @@ void loop()
   }
 }
 
-// // void playSound(){
-// //   digitalWrite(SPEAKERENABLE, HIGH);
-// //   delay(10000);
-// //   digitalWrite(SPEAKERENABLE, LOW);
-// // }
-
-// // void sendDataLoRa(const char* input){
-// //   digitalWrite(LORAENABLE, HIGH);
-// //   delay(10000);
-// //   Serial.println(input);
-// //   delay(180000);
-// //   digitalWrite(LORAENABLE, LOW);
-// // }
-
-// void activateTinyScrubCam(const char* input){
-//   // digitalWrite(SPEAKERENABLE, HIGH);
-//   digitalWrite(LORAENABLE, HIGH);
-//   delay(10000);
-//   // digitalWrite(SPEAKERENABLE, LOW);
-//   Serial.println(input);
-//   delay(180000);
-//   digitalWrite(LORAENABLE, LOW);
-// }
-
-// void recordImageInSD(){
-
-// }
+void activateTinyScrubCam(const char* input){
+  digitalWrite(LORAENABLE, HIGH);
+  delay(10000);
+  Serial.println(input);
+  delay(180000);
+  digitalWrite(LORAENABLE, LOW);
+}
 
 void tenSecCapture(){
   startTime = millis();
