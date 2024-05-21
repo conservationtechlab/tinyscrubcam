@@ -1,0 +1,1 @@
+libs_nxp_rt1176-sdk-mbedtls;libs_nxp_rt1176-sdk_freertos;libs_nxp_rt1176-sdk-mcmgr_m7;libs_usb_device_task_freertos;libs_msc_ums_freertos;libs_audio_freertos;libs_camera_freertos;libs_pmic_freertos;libs_littlefs;libs_nxp_rt1176-sdk_lwip;libs_nxp_rt1176-sdk_lwip_httpd

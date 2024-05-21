@@ -1,0 +1,21 @@
+GENERATE_XML           = YES
+GENERATE_HTML          = NO
+GENERATE_LATEX         = NO
+OUTPUT_DIRECTORY       = _build
+XML_OUTPUT             = xml
+SORT_GROUP_NAMES       = YES
+EXTRACT_ALL            = YES
+INPUT_FILTER           = ./doxygenate.sh
+INPUT                  = ../libs/ \
+                         ../third_party/tflite-micro/tensorflow/lite/micro/ \
+                         ../third_party/tflite-micro/tensorflow/lite/schema/ \
+                         ../arduino/cores/arduino/SocketClient.h \
+                         ../arduino/cores/arduino/SocketServer.h \
+                         ../arduino/libraries/ \
+                         ../third_party/nxp/rt1176-sdk/middleware/edgefast_bluetooth/include/
+
+EXCLUDE                = ../libs/tpu/edgetpu_driver.h
+FILE_PATTERNS          = *.h
+RECURSIVE              = YES
+EXAMPLE_PATH           = ../examples/ \
+                         ../arduino/libraries/

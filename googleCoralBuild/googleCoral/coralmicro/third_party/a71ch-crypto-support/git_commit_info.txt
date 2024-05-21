@@ -1,0 +1,57 @@
+commit 3d0b545f438fcb00f98832af64d35244f2381150
+Author: Marc Masschelein <marc.masschelein@nxp.com>
+Date:   Wed Nov 4 20:29:49 2020 +0100
+
+    Review comments Sujay & Giuseppe fixed
+
+diff --git a/SW_Content_Register.txt b/SW_Content_Register.txt
+index 96ab1c2..d4f3c81 100644
+--- a/SW_Content_Register.txt
++++ b/SW_Content_Register.txt
+@@ -67,16 +67,16 @@ MbedTLS
+ - License: Apache 2.0
+ - Format: source code
+ - Description: MbedTLS stack.
+-- Origin:
++- Origin: Copyright (C) 2006-2015, ARM Limited
+ - Location: \ext\mbedtls
+ 
+ Open62541
+ - Name: Open62541
+-- Version:
+-- License: Apache 2.0
++- Version: 
++- License: Mozilla Public License Version 2.0; Creative Commons CCZero 1.0 Universal
+ - Format: source code
+ - Description: OPC-UA implementation stack
+-- Origin: Copyright (C) 2006-2015, ARM Limited
++- Origin: \ext\open62541\AUTHORS
+ - Location: \ext\open62541
+ 
+ openssl
+diff --git a/exhaledocs/doc/changes/v03_00_05.rst b/exhaledocs/doc/changes/v03_00_05.rst
+index 834bb3a..30f2f11 100644
+--- a/exhaledocs/doc/changes/v03_00_05.rst
++++ b/exhaledocs/doc/changes/v03_00_05.rst
+@@ -76,7 +76,7 @@ The following modules or directories are not part of the Apache2 licensed packag
+ - ``hostlib/hostlib/vcom`` Microcontroller side vcom driver
+ - ``nxp_iot_agent`` EdgeLock 2GO Agent library and examples
+ - ``semslite`` SEMS Lite Agent library and examples
+-- ``sss/plugin/ps``
++- ``sss/plugin/psa``
+ 
+ 
+ In a addition a subset of source files and scripts are now released under an Apache2 license instead of an NXP
+diff --git a/exhaledocs/doc/index.rst b/exhaledocs/doc/index.rst
+index 7fc45b2..1e89f50 100644
+--- a/exhaledocs/doc/index.rst
++++ b/exhaledocs/doc/index.rst
+@@ -27,7 +27,7 @@
+ 
+     The contents of this package is a subset of the regular Plug & Trust Middleware Package.
+     NXP developed components and source files only available under a proprietary NXP license have been
+-    removed from this package (e.g. ``NXP EdgeLock 2GO Agent`` and ``SEMS Lite Agent`` ).
++    removed from this package (e.g. ``NXP EdgeLock 2GO Agent``, ``SEMS Lite Agent``, ... ).
+     A more complete list of components and directories removed can be found in :ref:`se05x_content_diff_apache2`
+ 
+ 

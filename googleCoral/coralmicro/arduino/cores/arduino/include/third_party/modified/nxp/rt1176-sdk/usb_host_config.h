@@ -1,1 +1,0 @@
-../../../../../../../../third_party/modified/nxp/rt1176-sdk/usb_host_config.h

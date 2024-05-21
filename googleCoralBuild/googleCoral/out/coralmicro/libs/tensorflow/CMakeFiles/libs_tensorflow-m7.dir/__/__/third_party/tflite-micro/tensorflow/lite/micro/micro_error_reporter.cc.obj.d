@@ -1,0 +1,29 @@
+coralmicro/libs/tensorflow/CMakeFiles/libs_tensorflow-m7.dir/__/__/third_party/tflite-micro/tensorflow/lite/micro/micro_error_reporter.cc.obj: \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_error_reporter.cc \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_error_reporter.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstdarg \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/c++config.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/os_defines.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/cpu_defines.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/pstl/pstl_config.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/tflite-micro/tensorflow/lite/core/api/error_reporter.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/compatibility.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/cstdint \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdint-gcc.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/new \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/exception \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/exception.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/exception_ptr.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/exception_defines.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/cxxabi_init_exception.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/typeinfo \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/hash_bytes.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/nested_exception.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/move.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/bits/concept_check.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/toolchain-mac/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/c++/9.3.1/type_traits \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/debug_log.h \
+ /Users/vnz/Desktop/TinyScrubCam/tinyscrubcam/googleCoral/coralmicro/third_party/tflite-micro/tensorflow/lite/micro/micro_string.h
