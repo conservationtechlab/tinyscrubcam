@@ -50,6 +50,7 @@
 # define FILLMEIN (#dont edit this, edit the lines that use FILLMEIN)
 #endif
 
+#define SPEAKERENABLE 13
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
@@ -276,6 +277,9 @@ void setup() {
     Serial1.begin(115200);
     Serial.println(F("Starting"));
 
+    pinMode(SPEAKERENABLE, OUTPUT);
+    digitalWrite(SPEAKERENABLE, HIGH);
+
     #ifdef VCC_ENABLE
     // For Pinoccio Scout boards
     pinMode(VCC_ENABLE, OUTPUT);
@@ -294,22 +298,23 @@ void setup() {
 
     // Start job (sending automatically starts OTAA too)
     while (1) {
-    if (Serial1.available() > 0) { // Check if data is available to read
-        String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
-        Serial.print("Received: ");
-        Serial.println(receivedString); // Print the received line
-        
-        // Copy the contents of receivedString into mydata, ensuring it fits within the array bounds
-        if (receivedString.length() < 15) {
-            receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
-        } else {
-            // Handle the case where the received string is too long
-            Serial.println("Received string is too long to fit in mydata array!");
-            // You might want to implement some error handling here
-        }
-        
-        break;
-    }
+      if (Serial1.available() > 0) { // Check if data is available to read
+          digitalWrite(SPEAKERENABLE,LOW);
+          String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
+          Serial.print("Received: ");
+          Serial.println(receivedString); // Print the received line
+          
+          // Copy the contents of receivedString into mydata, ensuring it fits within the array bounds
+          if (receivedString.length() < 15) {
+              receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
+          } else {
+              // Handle the case where the received string is too long
+              Serial.println("Received string is too long to fit in mydata array!");
+              // You might want to implement some error handling here
+          }
+          
+          break;
+      }
 }
     
     do_send(&sendjob);

@@ -28,7 +28,13 @@
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 
 #include "esp_camera.h"
-#include <esp_deep_sleep.h>
+#include "FS.h"
+#include "SD_MMC.h"
+#include <EEPROM.h>
+
+#define EEPROM_SIZE 1
+
+int pictureNumber = 0;
 
 // Select camera model - find more camera models in camera_pins.h file here
 // https://github.com/espressif/arduino-esp32/blob/master/libraries/ESP32/examples/Camera/CameraWebServer/camera_pins.h
@@ -37,7 +43,9 @@
 #define CAMERA_MODEL_AI_THINKER // Has PSRAM
 
 #define DEBUG_FLAG 0
-#define PIRSENSOR 3
+#define PIRSENSOR 4
+#define LORAENABLE 3
+
 
 #if defined(CAMERA_MODEL_ESP_EYE)
 #define PWDN_GPIO_NUM    -1
@@ -133,16 +141,21 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
 * @brief      Arduino setup function
 */
 
-void wakeUp() {
-  Serial.println("Woke Up");
-}
+bool sleeping = true;
+unsigned long startTime;
 
 void setup()
 {
     // put your setup code here, to run once:
     Serial.begin(115200);
+
+    pinMode(PIRSENSOR, INPUT_PULLUP);
+    pinMode(LORAENABLE, OUTPUT);
+
+    digitalWrite(LORAENABLE, LOW);
+
     //comment out the below line to start inference immediately after upload
-    while (!Serial);
+    // while (!Serial);
     Serial.println("Edge Impulse Inferencing Demo");
     if (ei_camera_init() == false) {
       if(DEBUG_FLAG){
@@ -158,8 +171,18 @@ void setup()
     ei_printf("\nStarting continious inference in 2 seconds...\n");
     }
     ei_sleep(2000);
-    pinMode(PIRSENSOR, INPUT);
-    attachInterrupt(digitalPinToInterrupt(PIRSENSOR), wakeUp, RISING);
+
+  if(!SD_MMC.begin()){
+    Serial.println("SD Card Mount Failed");
+    return;
+  }
+ 
+  uint8_t cardType = SD_MMC.cardType();
+  if(cardType == CARD_NONE){
+    Serial.println("No SD Card attached");
+    return;
+  }
+
 }
 
 /**
@@ -169,7 +192,29 @@ void setup()
 */
 void loop()
 {
+  if(digitalRead(PIRSENSOR) == HIGH){
+    tenSecCapture();
+  }
+}
 
+void activateTinyScrubCam(const char* input){
+  digitalWrite(LORAENABLE, HIGH);
+  delay(10000);
+  Serial.println(input);
+  delay(180000);
+  digitalWrite(LORAENABLE, LOW);
+}
+
+void tenSecCapture(){
+  startTime = millis();
+
+  while (millis() - startTime < 10000) { // Run for 10 seconds
+    makeCapture();
+  }
+}
+
+void makeCapture(){
+    Serial.println("Capturing");
     // instead of wait_ms, we'll wait on the signal, this allows threads to cancel us...
     if (ei_sleep(5) != EI_IMPULSE_OK) {
         return;
@@ -224,14 +269,46 @@ void loop()
         if(DEBUG_FLAG){
         ei_printf("    %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\n", bb.label, bb.value, bb.x, bb.y, bb.width, bb.height);
         }
-        Serial.println(bb.label);
-        digitalWrite(2, HIGH); // Write the pin to a LOW state
+
+        camera_fb_t *fb = esp_camera_fb_get();
+
+        if (!fb) {
+          if(DEBUG_FLAG){
+            ei_printf("Camera capture failed\n");
+          }
+            return;
+        }
+
+        EEPROM.begin(EEPROM_SIZE);
+        pictureNumber = EEPROM.read(0) + 1;
+        String path = "/picture" + String(pictureNumber) +".jpg";
+        fs::FS &fs = SD_MMC; 
+        Serial.printf("Picture file name: %s\n", path.c_str());
+
+        File file = fs.open(path.c_str(), FILE_WRITE);
+        if(!file){
+          Serial.println("Failed to open file in writing mode");
+        } 
+        else {
+          file.write(fb->buf, fb->len); // payload (image), payload length
+          Serial.printf("Saved file to path: %s\n", path.c_str());
+          EEPROM.write(0, pictureNumber);
+          EEPROM.commit();
+        }
+        file.close();
+
+        EEPROM.write(0, pictureNumber);
+        EEPROM.commit();
+
+        esp_camera_fb_return(fb);
+        activateTinyScrubCam(bb.label);
+        
     }
     if (!bb_found) {
       if(DEBUG_FLAG){
         ei_printf("    No objects found\n");
       }
-      Serial.println("None");
+      // Serial.println("None");
     }
 #else
     for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
@@ -329,6 +406,7 @@ void ei_camera_deinit(void) {
  * @retval     false if not initialised, image captured, rescaled or cropped failed
  *
  */
+
 bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf) {
     bool do_resize = false;
 
@@ -338,6 +416,8 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
       }
         return false;
     }
+
+    //https://randomnerdtutorials.com/esp32-cam-take-photo-save-microsd-card/
 
     camera_fb_t *fb = esp_camera_fb_get();
 
