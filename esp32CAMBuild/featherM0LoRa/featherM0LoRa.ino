@@ -271,8 +271,8 @@ void do_send(osjob_t* j){
 
 void setup() {
     delay(5000);
-    while (! Serial)
-        ;
+    // while (! Serial)
+    //     ;
     Serial.begin(9600);
     Serial1.begin(115200);
     Serial.println(F("Starting"));

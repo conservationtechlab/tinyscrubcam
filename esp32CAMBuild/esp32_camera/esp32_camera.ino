@@ -32,7 +32,7 @@
 #include "SD_MMC.h"
 #include <EEPROM.h>
 
-#define EEPROM_SIZE 1
+#define EEPROM_SIZE 5
 
 int pictureNumber = 0;
 
