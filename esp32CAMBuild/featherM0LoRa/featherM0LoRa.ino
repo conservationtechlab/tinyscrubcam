@@ -102,10 +102,10 @@ const lmic_pinmap lmic_pins = {
 // /!\ By default Feather 32u4's pin 6 and DIO1 are not connected. Please 
 // ensure they are connected.
 const lmic_pinmap lmic_pins = {
-    .nss = 8,
+    .nss = 18,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 4,
-    .dio = {7, 6, LMIC_UNUSED_PIN},
+    .rst = 23,
+    .dio = {26, 33, 32},
     .rxtx_rx_active = 0,
     .rssi_cal = 8,              // LBT cal for the Adafruit Feather 32U4 LoRa, in dB
     .spi_freq = 1000000,

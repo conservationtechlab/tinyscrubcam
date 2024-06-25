@@ -58,11 +58,12 @@ Future implementations should look into putting the ESP32CAM into deep sleep, I 
 
 So the two things I mentioned:
 
-1. Deep Sleep for ESP32CAM instead of constant looping (look into Adafruit Sleepydog)
+1. Deep Sleep for ESP32CAM instead of constant looping (look into ESP32 Deep Sleep)
 2. Bidirectional communication between boards
 
 ## Debugging
 
 1. You might face an issue where the speaker doesn't play, make sure to buy a proper mp3 player and format it in FAT32. Some cheaply made mp3 players may come in the box broken
-2. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue.
-3. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
+2. Also try grounding IO2 as this is for play next and I found by doing this when the mp3 player is powered on that it plays the file and you don't need to do it again. This is only for new mp3 players.
+3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue.
+4. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
