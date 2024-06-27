@@ -2,7 +2,7 @@
 
 ## Hardware Circuit Diagram -
 
-![image](./images/ESP32CAMDIAGRAM.png)
+![image](./images/esp32Diagram.png)
 
 ## What is TinyScrubCAM?
 
@@ -72,7 +72,18 @@ So the two things I mentioned:
 ## Pinouts
 
 ESP32CAM:
-![image](./images/esp32Pins.webp)
+![image](./images/esp32PinOut.webp)
 
 MP3 Player:
-![image](./images/mp3Pins.png)
+![image](./images/mp3PinOut.png)
+
+## PIR Adjustment
+
+![image](./images/adjustDistance.jpeg)
+![image](./images/adjustDelay.jpeg)
+
+## Power Consumption
+
+![image](./images/power.png)
+![image](./images/power1.png)
+![image](./images/power2.png)
