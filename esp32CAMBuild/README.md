@@ -6,7 +6,7 @@
 
 ## What is TinyScrubCAM?
 
-TinyScrubCAM is a low power consumption device that has been through different iterations. It started as a RaspPi running motion detection sensors and cameras. This version consumed too much power, the whole point of TinyScrubCAM is to be a long lasting animal deterrant. Whenever a animal of interest is caught in our cameras point of view it should play a sound on a speaker in hopes of making the animal flee. To make TinyScrubCAM low powered, we switched over to using microcontroller powered by battery. We used hardware interrupts to essentially keep our microcontroller draining as little power as possible until the moment that the PIR sensor is triggered which will activate sound and capture an image to the SD card, which will be used to train more machine learning models on local species of animals.
+TinyScrubCAM is a low power consumption device that has been through different iterations. It started as a RaspPi running motion detection sensors and cameras. This version consumed too much power, the whole point of TinyScrubCAM is to be a long lasting animal deterrant. Whenever a animal of interest is caught in our cameras point of view it should play a sound on a speaker in hopes of making the animal flee. To make TinyScrubCAM low powered, we switched over to using microcontrollers powered by battery. Specifically the Google Coral, ESP32, and Feather M0s. We used hardware interrupts to essentially keep our microcontroller draining as little power as possible until the moment that the PIR sensor is triggered which will activate sound and capture an image to the SD card, which will be used to train more machine learning models on local species of animals.
 
 ## Clone the Repository
 
@@ -54,16 +54,25 @@ This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communica
 
 ## Optimization/Issues/Future Implementation
 
-Future implementations should look into putting the ESP32CAM into deep sleep, I tried but the interrupt didn't work properly and would often go straight back to sleep everytime it is triggered. GPIO pinout is very limited on the ESP32CAM, I didn't use the complete left side facing the camera, because those are data lines for the SDCARD, I think it might create some issues using those pins. Although I was able to use one without issue for the PIR Sensor. Since ESP32CAM only sends data to featherboard and not back, I had to implement the 3 minute window. Which means if the radio takes 4 minutes to send, it will just be shut off. Another implementation for this could be to make them speak back and forth to one another, I didn't do this because in my debugging I was limited because of the data lines, you can attempt to use the data lines and see if it affects anything. So this implementation would essentially be, ESP32CAM sends the serial data to featherboard, then wait for serial input, feather board will send it over lora, then send over serial that it is finished, then the ESP32CAM will be done and wait for another PIR detection, this way every single detection will be sent. Although, after the current fixes I made after writing this, I was able to get very strong, with better antennas, reliable transmission. It would only take from 30secs to a minute meaning the whole 2 minutes after it is completely doing nothing. Although the 3 minute window is the best implementation since it gives leeway for errors in the field, longer distances, etc.
+Future implementations should look into ~~putting the ESP32CAM into deep sleep, I tried but the interrupt didn't work properly and would often go straight back to sleep everytime it is triggered.~~ GPIO pinout is very limited on the ESP32CAM, I didn't use the complete left side facing the camera, because those are data lines for the SDCARD, I think it might create some issues using those pins. Although I was able to use one without issue for the PIR Sensor. Since ESP32CAM only sends data to featherboard and not back, I had to implement the 3 minute window. Which means if the radio takes 4 minutes to send, it will just be shut off. Another implementation for this could be to make them speak back and forth to one another, I didn't do this because in my debugging I was limited because of the data lines, you can attempt to use the data lines and see if it affects anything. So this implementation would essentially be, ESP32CAM sends the serial data to featherboard, then wait for serial input, feather board will send it over lora, then send over serial that it is finished, then the ESP32CAM will be done and wait for another PIR detection, this way every single detection will be sent. Although, after the current fixes I made after writing this, I was able to get very strong, with better antennas, reliable transmission. It would only take from 30secs to a minute meaning the whole 2 minutes after it is completely doing nothing. Although the 3 minute window is the best implementation since it gives leeway for errors in the field, longer distances, etc.
 
 So the two things I mentioned:
 
-1. Deep Sleep for ESP32CAM instead of constant looping (look into ESP32 Deep Sleep)
+1. ~~Deep Sleep for ESP32CAM instead of constant looping (look into ESP32 Deep Sleep)~~ [EDIT: This has been fixed 6/27/24]
+
 2. Bidirectional communication between boards
 
 ## Debugging
 
-1. You might face an issue where the speaker doesn't play, make sure to buy a proper mp3 player and format it in FAT32. Some cheaply made mp3 players may come in the box broken
+1. You might face an issue where the speaker doesn't play, make sure to buy a proper mp3 player and format an sdcard in FAT32. Some cheaply made mp3 players may come in the box broken
 2. Also try grounding IO2 as this is for play next and I found by doing this when the mp3 player is powered on that it plays the file and you don't need to do it again. This is only for new mp3 players.
 3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue.
 4. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
+
+## Pinouts
+
+ESP32CAM:
+![image](./images/esp32Pins.webp)
+
+MP3 Player:
+![image](./images/mp3Pins.png)

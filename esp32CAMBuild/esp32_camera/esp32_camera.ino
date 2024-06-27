@@ -31,6 +31,7 @@
 #include "FS.h"
 #include "SD_MMC.h"
 #include <EEPROM.h>
+#include "esp_sleep.h"
 
 #define EEPROM_SIZE 5
 
@@ -183,6 +184,9 @@ void setup()
     return;
   }
 
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_4, 1);
+  esp_light_sleep_start();
+
 }
 
 /**
@@ -192,9 +196,11 @@ void setup()
 */
 void loop()
 {
-  if(digitalRead(PIRSENSOR) == HIGH){
-    tenSecCapture();
-  }
+  esp_light_sleep_start();
+  tenSecCapture();
+  // if(digitalRead(PIRSENSOR) == HIGH){
+  //   tenSecCapture();
+  // }
 }
 
 void activateTinyScrubCam(const char* input){
