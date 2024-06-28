@@ -45,7 +45,7 @@ This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communica
 
 ## How does it work?
 
-1. Your ESP32CAM is always on. It is running a loop, looking for a detection on the PIRSENSOR, by doing this instead of sleep like in the google coral version it makes more sensitive/reliable PIR detection, tradeoff being power consumption.
+1. The ESP32CAM turns on and immediately goes into light sleep mode. It uses a PIR sensor to trigger it to turn on and make an analysis.
 2. Once a detection is made, your ESP32CAM will capture 10secs worth of pictures, running analysis on each one.
 3. If the model finds something, it will save that image, turn on the featherboard. Wait 10 seconds to give it time to power and play the speaker.
 4. On enable, Featherboard will activate the speaker, then wait for serial data.
