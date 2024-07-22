@@ -6,6 +6,10 @@ Different version of featherM0LoRa since Bob's implementation wouldn't work with
 
 This file is the car detection for testing
 
+## featherM0LoRa
+
+Thie file is for uploading to the featherboard for lora communication
+
 ## esp32camera
 
 This is the current file for cougar detection
@@ -17,7 +21,3 @@ Libraries to upload to esp32cam, make sure to replace the libraries in the ardui
 ## featherLibs
 
 Libraries to upload to featherboard, make sure to replace the libraries in the arduino directory
-
-## featherM0LoRa
-
-Thie file is for uploading to the featherboard for lora communication
