@@ -66,6 +66,8 @@ So the things I mentioned:
 
 3. Light sleep gives an issue where after the board sleeps it will corrupt the images when writing to the sdcard. Light sleep works normally but this issue happens. Light sleep consumes way less power image saving doesn't seem to work though. Saves about 50mA on rest. I have tried reinitalizing the sd card each time the board wakes up but no success.
 
+4. Improve on the edge impulse, need more training data
+
 ## Debugging
 
 1. You might face an issue where the speaker doesn't play, make sure to try a short press by quickly grounding the play pin or ADKEY_1 before soldering in the component. Only have to do this once when a mp3 player is new because they aren't programmed to do anything yet
