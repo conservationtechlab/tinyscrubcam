@@ -45,6 +45,7 @@ int pictureNumber = 0;
 #define DEBUG_FLAG 0
 #define PIRSENSOR 4
 #define LORAENABLE 3
+#define NIGHTENABLE 16
 
 
 #if defined(CAMERA_MODEL_ESP_EYE)
@@ -151,6 +152,7 @@ void setup()
 
     pinMode(PIRSENSOR, INPUT_PULLUP);
     pinMode(LORAENABLE, OUTPUT);
+    pinMode(NIGHTENABLE, OUTPUT);
 
     digitalWrite(LORAENABLE, LOW);
 
@@ -193,7 +195,9 @@ void setup()
 void loop()
 {
   if(digitalRead(PIRSENSOR) == HIGH){
+    digitalWrite(NIGHTENABLE, HIGH);
     tenSecCapture();
+    digitalWrite(NIGHTENABLE, LOW);
   }
 }
 
@@ -233,6 +237,8 @@ void makeCapture(){
     ei::signal_t signal;
     signal.total_length = EI_CLASSIFIER_INPUT_WIDTH * EI_CLASSIFIER_INPUT_HEIGHT;
     signal.get_data = &ei_camera_get_data;
+
+    
 
     if (ei_camera_capture((size_t)EI_CLASSIFIER_INPUT_WIDTH, (size_t)EI_CLASSIFIER_INPUT_HEIGHT, snapshot_buf) == false) {
         if(DEBUG_FLAG){
@@ -279,9 +285,10 @@ void makeCapture(){
             return;
         }
 
+        if(saveDetectionImage){
         EEPROM.begin(EEPROM_SIZE);
         pictureNumber = EEPROM.read(0) + 1;
-        String path = "/picture" + String(pictureNumber) +".jpg";
+        String path = "/detected" + String(pictureNumber) +".jpg";
         fs::FS &fs = SD_MMC; 
         Serial.printf("Picture file name: %s\n", path.c_str());
 
@@ -301,6 +308,8 @@ void makeCapture(){
         EEPROM.commit();
 
         esp_camera_fb_return(fb);
+        }
+
         activateTinyScrubCam(bb.label);
         
     }
@@ -427,6 +436,31 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
       }
         return false;
     }
+
+    if(!saveDetectionImage){
+        EEPROM.begin(EEPROM_SIZE);
+        pictureNumber = EEPROM.read(0) + 1;
+        String path = "/capturing" + String(pictureNumber) +".jpg";
+        fs::FS &fs = SD_MMC; 
+        Serial.printf("Picture file name: %s\n", path.c_str());
+
+        File file = fs.open(path.c_str(), FILE_WRITE);
+        if(!file){
+          Serial.println("Failed to open file in writing mode");
+        } 
+        else {
+          file.write(fb->buf, fb->len); // payload (image), payload length
+          Serial.printf("Saved file to path: %s\n", path.c_str());
+          EEPROM.write(0, pictureNumber);
+          EEPROM.commit();
+        }
+        file.close();
+
+        EEPROM.write(0, pictureNumber);
+        EEPROM.commit();
+
+        esp_camera_fb_return(fb);
+        }
 
    bool converted = fmt2rgb888(fb->buf, fb->len, PIXFORMAT_JPEG, snapshot_buf);
 
