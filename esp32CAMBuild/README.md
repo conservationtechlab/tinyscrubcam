@@ -75,6 +75,14 @@ So the things I mentioned:
 3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue. You can upload an empty sketch and it will show up again on the MACOS
 4. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
 
+## Disclaimer
+
+- Nightmode consumes 340mA more per trigger
+- Solar Panel charged 0.345V per hour
+- Libraries are located on the repository, make sure to copy paste those files into "/Arduino/libraries"
+
+![image](./images/path.png)
+
 ## Pinouts
 
 ESP32CAM:
