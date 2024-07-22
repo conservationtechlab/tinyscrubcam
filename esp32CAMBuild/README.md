@@ -10,7 +10,7 @@ TinyScrubCAM is a low power consumption device that has been through different i
 
 ## Clone the Repository
 
-Begin by cloning the TinyScrubCam repository to your local machine:
+Begin by cloning the TinyScrubCam repository to your local machine (currently in a branch since it is not merged with main):
 
 ```sh
 git clone https://github.com/conservationtechlab/tinyscrubcam.git
@@ -31,6 +31,8 @@ git clone https://github.com/conservationtechlab/tinyscrubcam.git
 4. At time of writing it is at version 4.1.1 (May 31, 2024)
 5. In the MCCI config file make sure to change it to the correct region, it is US915 by default.
 6. Setup complete!
+
+# MCCI Library is needed for compiling for the featherboard/lora, you need to delete this library and swap it with the esp32cam library to be able to upload to the esp32cam
 
 ## How to run?
 
@@ -54,19 +56,21 @@ This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communica
 
 ## Optimization/Issues/Future Implementation
 
-Future implementations should look into ~~putting the ESP32CAM into deep sleep, I tried but the interrupt didn't work properly and would often go straight back to sleep everytime it is triggered.~~ GPIO pinout is very limited on the ESP32CAM, I didn't use the complete left side facing the camera, because those are data lines for the SDCARD, I think it might create some issues using those pins. Although I was able to use one without issue for the PIR Sensor. Since ESP32CAM only sends data to featherboard and not back, I had to implement the 3 minute window. Which means if the radio takes 4 minutes to send, it will just be shut off. Another implementation for this could be to make them speak back and forth to one another, I didn't do this because in my debugging I was limited because of the data lines, you can attempt to use the data lines and see if it affects anything. So this implementation would essentially be, ESP32CAM sends the serial data to featherboard, then wait for serial input, feather board will send it over lora, then send over serial that it is finished, then the ESP32CAM will be done and wait for another PIR detection, this way every single detection will be sent. Although, after the current fixes I made after writing this, I was able to get very strong, with better antennas, reliable transmission. It would only take from 30secs to a minute meaning the whole 2 minutes after it is completely doing nothing. Although the 3 minute window is the best implementation since it gives leeway for errors in the field, longer distances, etc.
+Future implementations should look into ~~putting the ESP32CAM into deep sleep, I tried but the interrupt didn't work properly and would often go straight back to sleep everytime it is triggered.~~ I GPIO pinout is very limited on the ESP32CAM, I didn't use the complete left side facing the camera, because those are data lines for the SDCARD, I think it might create some issues using those pins. ~~Although I was able to use one without issue for the PIR Sensor.~~ I was able to use GPIO4 which is an sdcard pin because that pin is for the LED on the physical board. Since ESP32CAM only sends data to featherboard and not back, I had to implement the 3 minute window. Which means if the radio takes 4 minutes to send, it will just be shut off. Another implementation for this could be to make them speak back and forth to one another, I didn't do this because in my debugging I was limited because of the data lines, you can attempt to use the data lines and see if it affects anything. So this implementation would essentially be, ESP32CAM sends the serial data to featherboard, then wait for serial input, feather board will send it over lora, then send over serial that it is finished, then the ESP32CAM will be done and wait for another PIR detection, this way every single detection will be sent. Although, after the current fixes I made after writing this, I was able to get very strong, with better antennas, reliable transmission. It would only take from 30secs to a minute meaning the whole 2 minutes after it is completely doing nothing. Although the 3 minute window is the best implementation since it gives leeway for errors in the field, longer distances, etc.
 
-So the two things I mentioned:
+So the things I mentioned:
 
 1. ~~Deep Sleep for ESP32CAM instead of constant looping (look into ESP32 Deep Sleep)~~ [EDIT: This has been fixed 6/27/24]
 
 2. Bidirectional communication between boards
 
+3. Light sleep gives an issue where after the board sleeps it will corrupt the images when writing to the sdcard. Light sleep works normally but this issue happens. Light sleep consumes way less power image saving doesn't seem to work though. Saves about 50mA on rest. I have tried reinitalizing the sd card each time the board wakes up but no success.
+
 ## Debugging
 
-1. You might face an issue where the speaker doesn't play, make sure to buy a proper mp3 player and format an sdcard in FAT32. Some cheaply made mp3 players may come in the box broken
+1. You might face an issue where the speaker doesn't play, make sure to try a short press by quickly grounding the play pin or ADKEY_1 before soldering in the component. Only have to do this once when a mp3 player is new because they aren't programmed to do anything yet
 2. Also try grounding IO2 as this is for play next and I found by doing this when the mp3 player is powered on that it plays the file and you don't need to do it again. This is only for new mp3 players.
-3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue.
+3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue. You can upload an empty sketch and it will show up again on the MACOS
 4. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
 
 ## Pinouts
