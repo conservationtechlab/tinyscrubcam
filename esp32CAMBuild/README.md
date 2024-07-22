@@ -38,21 +38,22 @@ git clone https://github.com/conservationtechlab/tinyscrubcam.git
 
 This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communicate over LoRaWAN, sending pings whenever an animal is detected.
 
-1. Follow the Circuit Diagram to setup hardware
-2. Upload the code in esp32CAMBuild/featherM0LoRa into the featherboard
-3. Upload the code in esp32CAMBuild/esp32_camera to the ESP32CAM
+1. Upload the code in esp32CAMBuild/featherM0LoRa into the featherboard
+2. Upload the code in esp32CAMBuild/esp32_camera to the ESP32CAM
+3. Follow the Circuit Diagram to setup hardware
 4. To do this you must connect io0 and ground and connect 5V, GND, RX, TX to a USB adapter, or if you have the ESP32CAM uploading board it will be plug and play.
 5. After uploading, make sure to click reset on the back of the ESP32CAM, to run the program
 6. You are ready to use your camera trap!
 
 ## How does it work?
 
-1. The ESP32CAM turns on and immediately goes into light sleep mode. It uses a PIR sensor to trigger it to turn on and make an analysis.
-2. Once a detection is made, your ESP32CAM will capture 10secs worth of pictures, running analysis on each one.
-3. If the model finds something, it will save that image, turn on the featherboard. Wait 10 seconds to give it time to power and play the speaker.
-4. On enable, Featherboard will activate the speaker, then wait for serial data.
-5. The ESP32CAM will then print to serial the detection it made e.g. "cougar" and the featherboard will then send this data over LoRa
-6. If it doesn't find anything, it will go back to the loop where it is waiting for a detection
+1. ~~The ESP32CAM turns on and immediately goes into light sleep mode. It uses a PIR sensor to trigger it to turn on and make an analysis.~~
+2. Currently, the ESP32CAM is repeatedly on a cycle of checking for trigger, due to a bug. It doesn't go into any sleep mode
+3. Once a detection is made, your ESP32CAM will capture 10secs worth of pictures, running analysis on each one.
+4. If the model finds something, it will save that image, turn on the featherboard. Wait 10 seconds to give it time to power and play the speaker.
+5. On enable, Featherboard will activate the speaker, then wait for serial data.
+6. The ESP32CAM will then print to serial the detection it made e.g. "cougar" and the featherboard will then send this data over LoRa
+7. If it doesn't find anything, it will go back to the loop where it is waiting for a detection
 
 ## Optimization/Issues/Future Implementation
 
@@ -64,9 +65,11 @@ So the things I mentioned:
 
 2. Bidirectional communication between boards
 
-3. Light sleep gives an issue where after the board sleeps it will corrupt the images when writing to the sdcard. Light sleep works normally but this issue happens. Light sleep consumes way less power image saving doesn't seem to work though. Saves about 50mA on rest. I have tried reinitalizing the sd card each time the board wakes up but no success.
+3. Light sleep gives an issue where after the board sleeps it will corrupt the images when writing to the sdcard. Light sleep works normally but this issue happens. Light sleep consumes way less power, image saving doesn't seem to work though. Saves about 50mA on rest. I have tried reinitalizing the sd card each time the board wakes up but no success.
 
-4. Improve on the edge impulse, need more training data
+4. Improve on the edge impulse, need more training data/ train a model on animals at night
+
+5. Possibily a better PIR sensor, although this PIR sensor does seem to work nicely
 
 ## Debugging
 
