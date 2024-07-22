@@ -24,13 +24,13 @@
 // https://github.com/espressif/arduino-esp32/releases/tag/2.0.4
 
 /* Includes ---------------------------------------------------------------- */
-#include <UCSD-project-1_inferencing.h>
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 
 #include "esp_camera.h"
 #include "FS.h"
 #include "SD_MMC.h"
 #include <EEPROM.h>
+#include "esp_sleep.h"
 
 #define EEPROM_SIZE 5
 
@@ -45,7 +45,6 @@ int pictureNumber = 0;
 #define DEBUG_FLAG 0
 #define PIRSENSOR 4
 #define LORAENABLE 3
-#define NIGHTENABLE 16
 
 
 #if defined(CAMERA_MODEL_ESP_EYE)
@@ -152,7 +151,6 @@ void setup()
 
     pinMode(PIRSENSOR, INPUT_PULLUP);
     pinMode(LORAENABLE, OUTPUT);
-    pinMode(NIGHTENABLE, OUTPUT);
 
     digitalWrite(LORAENABLE, LOW);
 
@@ -185,6 +183,9 @@ void setup()
     return;
   }
 
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_4, 1);
+  esp_light_sleep_start();
+
 }
 
 /**
@@ -194,11 +195,11 @@ void setup()
 */
 void loop()
 {
-  if(digitalRead(PIRSENSOR) == HIGH){
-    digitalWrite(NIGHTENABLE, HIGH);
-    tenSecCapture();
-    digitalWrite(NIGHTENABLE, LOW);
-  }
+  esp_light_sleep_start();
+  tenSecCapture();
+  // if(digitalRead(PIRSENSOR) == HIGH){
+  //   tenSecCapture();
+  // }
 }
 
 void activateTinyScrubCam(const char* input){
