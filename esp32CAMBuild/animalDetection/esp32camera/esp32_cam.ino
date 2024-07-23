@@ -174,7 +174,7 @@ void setup()
     }
     ei_sleep(2000);
 
-  if(!SD_MMC.begin("/sdcard", true)){
+  if(!SD_MMC.begin()){
     Serial.println("SD Card Mount Failed");
     return;
   }

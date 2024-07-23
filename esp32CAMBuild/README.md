@@ -83,6 +83,7 @@ So the things I mentioned:
 - Nightmode consumes 340mA more per trigger
 - Solar Panel charged 0.345V per hour
 - Libraries are located on the repository, make sure to copy paste those files into "/Arduino/libraries"
+- 1 Bit Mode on SD card doesn't save the images
 
 ![image](./images/path.png)
 
