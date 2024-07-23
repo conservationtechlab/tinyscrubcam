@@ -45,7 +45,7 @@ int pictureNumber = 0;
 #define DEBUG_FLAG 0
 #define PIRSENSOR 4
 #define LORAENABLE 3
-#define NIGHTENABLE 16
+#define NIGHTENABLE 13
 
 
 #if defined(CAMERA_MODEL_ESP_EYE)
@@ -174,7 +174,7 @@ void setup()
     }
     ei_sleep(2000);
 
-  if(!SD_MMC.begin()){
+  if(!SD_MMC.begin("/sdcard", true)){
     Serial.println("SD Card Mount Failed");
     return;
   }
@@ -202,6 +202,7 @@ void loop()
 }
 
 void activateTinyScrubCam(const char* input){
+  digitalWrite(NIGHTENABLE, LOW);
   digitalWrite(LORAENABLE, HIGH);
   delay(10000);
   Serial.println(input);

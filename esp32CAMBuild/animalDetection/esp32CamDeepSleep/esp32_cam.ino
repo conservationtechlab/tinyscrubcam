@@ -182,6 +182,9 @@ void setup()
     return;
   }
 
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_4, 1);
+  tenSecCapture();
+  esp_deep_sleep_start();
 }
 
 /**
@@ -191,9 +194,7 @@ void setup()
 */
 void loop()
 {
-  if(digitalRead(PIRSENSOR) == HIGH){
-    tenSecCapture();
-  }
+
 }
 
 void activateTinyScrubCam(const char* input){
