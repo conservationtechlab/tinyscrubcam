@@ -21,6 +21,9 @@ I am using RXD and TXD as GPIO
 ![image](../images/pinout2.png)
 I tried using 1-bit mode but it doesn't save images, but I got off 1-bit mode and it still doesn't save images
 
+![image](../images/pinout3.png)
+![image](../images/pinout4.png)
+
 ## Pins in use
 
 RXD - Used as GPIO to enable featherboard
