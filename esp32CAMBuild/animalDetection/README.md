@@ -26,3 +26,5 @@ I tried using 1-bit mode but it doesn't save images, but I got off 1-bit mode an
 RXD - Used as GPIO to enable featherboard
 TXD - Connected to RX0 to featherboard to send what was captured
 Pin 4 - This is tied to LED but I used as input from PIR
+
+https://randomnerdtutorials.com/esp32-cam-pir-motion-detector-photo-capture/
