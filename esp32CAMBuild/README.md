@@ -4,6 +4,8 @@
 
 ![image](./images/esp32Diagram.png)
 
+For IR light, connect it to TX pin on ESP32CAM only if you are using the night vision version and disconnect the TX pin and the featherboard RX pin/leave unconnected. This removes the ESP32CAM reporting to the featherboard what the model classifies the picture and instead sends a ping of "caught".
+
 ## What is TinyScrubCAM?
 
 TinyScrubCAM is a low power consumption device that has been through different iterations. It started as a RaspPi running motion detection sensors and cameras. This version consumed too much power, the whole point of TinyScrubCAM is to be a long lasting animal deterrant. Whenever a animal of interest is caught in our cameras point of view it should play a sound on a speaker in hopes of making the animal flee. To make TinyScrubCAM low powered, we switched over to using microcontrollers powered by battery. Specifically the Google Coral, ESP32, and Feather M0s. We used hardware interrupts to essentially keep our microcontroller draining as little power as possible until the moment that the PIR sensor is triggered which will activate sound and capture an image to the SD card, which will be used to train more machine learning models on local species of animals.
