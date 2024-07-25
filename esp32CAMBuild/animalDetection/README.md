@@ -4,7 +4,9 @@ Deep sleep seems to work properly, although there is one bug where the esp32 tur
 
 ## esp32camera
 
-~~This is the IR light implemented into one of the GPIOs, currently works but the ML model won't make any detections, in progress of debugging. Seems to be working fine now, ML model seems to be working fine, only thing changed was a data pin for sd card was used so very unsure how that could affect the detections, but after some testing it seems to work fine.~~ Update: images don't save. Possible that IR light might need to be moved to be powered with the Featherboard on boot up. The issue is that we are very limited in gpio pins with the esp32cam
+~~This is the IR light implemented into one of the GPIOs, currently works but the ML model won't make any detections, in progress of debugging. Seems to be working fine now, ML model seems to be working fine, only thing changed was a data pin for sd card was used so very unsure how that could affect the detections, but after some testing it seems to work fine. Update: images don't save. Possible that IR light might need to be moved to be powered with the Featherboard on boot up. The issue is that we are very limited in gpio pins with the esp32cam~~
+
+Update 2: This version should be working now, removed feature for esp32cam to report what it found to the feather board by using the TX pin on esp32cam as an io pin to power the ir light. Still works properly, as this can be used for a single animal.
 
 ## esp32CamWORKING
 

@@ -207,7 +207,6 @@ void activateTinyScrubCam(const char* input){
 
 void tenSecCapture(){
   startTime = millis();
-
   while (millis() - startTime < 10000) { // Run for 10 seconds
     makeCapture();
   }

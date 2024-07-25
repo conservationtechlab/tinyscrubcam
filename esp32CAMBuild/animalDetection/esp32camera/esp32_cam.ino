@@ -45,7 +45,7 @@ int pictureNumber = 0;
 #define DEBUG_FLAG 0
 #define PIRSENSOR 4
 #define LORAENABLE 3
-#define NIGHTENABLE 13
+#define NIGHTENABLE 1
 
 
 #if defined(CAMERA_MODEL_ESP_EYE)
@@ -205,7 +205,7 @@ void activateTinyScrubCam(const char* input){
   digitalWrite(NIGHTENABLE, LOW);
   digitalWrite(LORAENABLE, HIGH);
   delay(10000);
-  Serial.println(input);
+  // Serial.println(input);
   delay(180000);
   digitalWrite(LORAENABLE, LOW);
 }
