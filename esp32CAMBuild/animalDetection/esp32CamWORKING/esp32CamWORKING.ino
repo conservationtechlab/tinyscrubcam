@@ -3,4 +3,4 @@
 #define saveDetectionImage 1
 
 // File for Edge Impulse Model
-#include <UCSD-project-1_inferencing.h>
+#include <Person_Detection_inferencing.h>
