@@ -75,7 +75,7 @@ So the things I mentioned:
 
 ## Debugging
 
-1. You might face an issue where the speaker doesn't play, make sure to try a short press by quickly grounding the play pin or ADKEY_1 before soldering in the component. Only have to do this once when a mp3 player is new because they aren't programmed to do anything yet
+1. You might face an issue where the speaker doesn't play, make sure to try a short press by quickly grounding the play pin or ADKEY_1 before soldering in the component. Only have to do this once when a mp3 player is new because they aren't programmed to do anything yet. I also found that MP3-TF-16P is newer than DF Player Mini and the MP3-TF seems to work for me.
 2. Also try grounding IO2 as this is for play next and I found by doing this when the mp3 player is powered on that it plays the file and you don't need to do it again. This is only for new mp3 players.
 3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue. You can upload an empty sketch and it will show up again on the MACOS
 4. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
@@ -83,9 +83,9 @@ So the things I mentioned:
 ## Disclaimer
 
 - Nightmode consumes 340mA more per trigger
-- Solar Panel charged 0.345V per hour
+- Solar Panel charged 0.345V per hour, also this is on full depletion, the higher our voltage gets the longer it takes to charge
 - Libraries are located on the repository, make sure to copy paste those files into "/Arduino/libraries"
-- 1 Bit Mode on SD card doesn't save the images
+- 1 Bit Mode on SD card doesn't save the images, in attempt to access the sd card gpio pins
 
 ![image](./images/path.png)
 
