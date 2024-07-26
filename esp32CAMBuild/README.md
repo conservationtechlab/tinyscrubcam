@@ -79,6 +79,7 @@ So the things I mentioned:
 2. Also try grounding IO2 as this is for play next and I found by doing this when the mp3 player is powered on that it plays the file and you don't need to do it again. This is only for new mp3 players.
 3. Adafruit Feather M0, may at times become unseen by a MACOS, unsure as to what this issue is, even when putting it into bootloader mode. What I found is usually when I just leave it alone for a bit it'll be findable again, restarting your computer, and also on a Linux computer it never has this issue. You can upload an empty sketch and it will show up again on the MACOS
 4. Also the DEV EUI/APP KEY, are specific to my gateway, so make sure to change these values in your program.
+5. Power ratings have the LED removed from the ESP32CAM, there is no way to turn this led off as it is connected to our used GPIO 4
 
 ## Disclaimer
 
