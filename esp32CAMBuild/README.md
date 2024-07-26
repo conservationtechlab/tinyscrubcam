@@ -42,8 +42,8 @@ This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communica
 
 1. Upload the code in esp32CAMBuild/featherM0LoRa into the featherboard
 2. Upload the code in esp32CAMBuild/esp32_camera to the ESP32CAM
-3. Follow the Circuit Diagram to setup hardware
-4. To do this you must connect io0 and ground and connect 5V, GND, RX, TX to a USB adapter, or if you have the ESP32CAM uploading board it will be plug and play.
+3. To do this you must connect io0 and ground and connect 5V, GND, RX, TX to a USB adapter, or if you have the ESP32CAM uploading board it will be plug and play.
+4. Follow the Circuit Diagram to setup hardware
 5. After uploading, make sure to click reset on the back of the ESP32CAM, to run the program
 6. You are ready to use your camera trap!
 
@@ -61,7 +61,7 @@ This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communica
 
 Future implementations should look into ~~putting the ESP32CAM into deep sleep, I tried but the interrupt didn't work properly and would often go straight back to sleep everytime it is triggered.~~ I GPIO pinout is very limited on the ESP32CAM, I didn't use the complete left side facing the camera, because those are data lines for the SDCARD, I think it might create some issues using those pins. ~~Although I was able to use one without issue for the PIR Sensor.~~ I was able to use GPIO4 which is an sdcard pin because that pin is for the LED on the physical board. Since ESP32CAM only sends data to featherboard and not back, I had to implement the 3 minute window. Which means if the radio takes 4 minutes to send, it will just be shut off. Another implementation for this could be to make them speak back and forth to one another, I didn't do this because in my debugging I was limited because of the data lines, you can attempt to use the data lines and see if it affects anything. So this implementation would essentially be, ESP32CAM sends the serial data to featherboard, then wait for serial input, feather board will send it over lora, then send over serial that it is finished, then the ESP32CAM will be done and wait for another PIR detection, this way every single detection will be sent. Although, after the current fixes I made after writing this, I was able to get very strong, with better antennas, reliable transmission. It would only take from 30secs to a minute meaning the whole 2 minutes after it is completely doing nothing. Although the 3 minute window is the best implementation since it gives leeway for errors in the field, longer distances, etc.
 
-So the things I mentioned:
+Issues List:
 
 1. ~~Deep Sleep for ESP32CAM instead of constant looping (look into ESP32 Deep Sleep)~~ [EDIT: This has been fixed 6/27/24]
 
@@ -73,6 +73,10 @@ So the things I mentioned:
 
 5. Possibily a better PIR sensor, although this PIR sensor does seem to work nicely
 
+6. Since 3 minute window, turn off the featherboard once the ping is made.
+
+7. Can mess around with the 3 minute window for radio, can lower it to 1:30mins
+
 ## Debugging
 
 1. You might face an issue where the speaker doesn't play, make sure to try a short press by quickly grounding the play pin or ADKEY_1 before soldering in the component. Only have to do this once when a mp3 player is new because they aren't programmed to do anything yet. I also found that MP3-TF-16P is newer than DF Player Mini and the MP3-TF seems to work for me.
@@ -83,7 +87,7 @@ So the things I mentioned:
 
 ## Disclaimer
 
-- Nightmode consumes 340mA more per trigger
+- Nightmode/IR light power consumes 340mA more per trigger
 - Solar Panel charged 0.345V per hour, also this is on full depletion, the higher our voltage gets the longer it takes to charge
 - Libraries are located on the repository, make sure to copy paste those files into "/Arduino/libraries"
 - 1 Bit Mode on SD card doesn't save the images, in attempt to access the sd card gpio pins
