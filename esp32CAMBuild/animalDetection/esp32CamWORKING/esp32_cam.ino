@@ -271,6 +271,11 @@ void makeCapture(){
         ei_printf("    %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\n", bb.label, bb.value, bb.x, bb.y, bb.width, bb.height);
         }
 
+        // instead of getting a new image after the first image was taken and had seen a car, try saving the image
+        // that the inference was ran on, I took an image after the inference was positive because I didn't know how to 
+        // pass the data from the camera that the inference was ran on, this might be the issue to why, when testing
+        // the thing of interest is out of frame even though the inference saw the animal
+        
         camera_fb_t *fb = esp_camera_fb_get();
 
         if (!fb) {
