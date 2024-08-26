@@ -1,27 +1,27 @@
 # TinyScrubCAM
 
-## Hardware Circuit Diagram -
-
-![image](./images/esp32Diagram.png)
-
-For IR light, connect it to TX pin on ESP32CAM only if you are using the night vision version and disconnect the TX pin and the featherboard RX pin/leave unconnected. This removes the ESP32CAM reporting to the featherboard what the model classifies the picture and instead sends a ping of "caught".
-
 ## What is TinyScrubCAM?
 
-TinyScrubCAM is a low power consumption device that has been through different iterations. It started as a RaspPi running motion detection sensors and cameras. This version consumed too much power, the whole point of TinyScrubCAM is to be a long lasting animal deterrant. Whenever a animal of interest is caught in our cameras point of view it should play a sound on a speaker in hopes of making the animal flee. To make TinyScrubCAM low powered, we switched over to using microcontrollers powered by battery. Specifically the Google Coral, ESP32, and Feather M0s. We used hardware interrupts to essentially keep our microcontroller draining as little power as possible until the moment that the PIR sensor is triggered which will activate sound and capture an image to the SD card, which will be used to train more machine learning models on local species of animals.
+The main purpose of tinyScrubCam is to allow for rapid detection and alert of species of interest ob a low power device that can transmit information about what it sees when it sees it. There are two versions of this device, 1 with a deterrent, and 1 without a deterrent. The deterrent aspect will play a loud noise from a speaker when a species of interest is detected in hopes of shooing the animal away from protected lands or areas with humans. The non-deterrent version will simply send an alert over LoRa if the animal of interest was seen. The deterrent version does this as well, just with the addition of the sound playing. The purpose of both of these devices is to fill the gap where cellular enabled cell cameras cannot, and ideally decrease the man-power required to monitor protected areas of interest. The current models available for tinyScrubCam were created on EdgeImpulse and can detect either rhinos or mountain lions, but any custom-trained EdgeImpulse model can also be used. These devices can be solar powered for continuous monitoring or used with a battery for a shorter duration. LoRa gateway coverage is needed to recieve the detection alerts. If you have an EarthRanger instance, there are tools for integrating the device alerts onto your instance so you can see the data in real time, where the detection happened. The current device is used during the daytime, but there is an IR version currently undergoing testing and development that will enable detections to continue through the night.
+
+## Materials (alert-only)
+Feather M0 with RFM95 (Adafruit|https://www.adafruit.com/product/3178?utm_sourceyoutube&utm_mediumvideodescrip&utm_campaignnewproductsCartoon&gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKZCIGn54L61ULlrLxffnhwh_xx6Jt_kOjqM2qmDKK6bbU3X-suS_-YaAo5ZEALw_wcB)
+
+
+## Materials (deterrent + alert)
 
 ## Clone the Repository
 
 Begin by cloning the TinyScrubCam repository to your local machine (currently in a branch since it is not merged with main):
 
-```sh
+```
 git clone https://github.com/conservationtechlab/tinyscrubcam.git
 ```
 
 ## Set Up Instruction
 
-1. Install Arduino IDE
-2. Install Adafruit Featherboards
+1. Install Arduino IDE -- tested on Arduino 1.8.19
+2. Install Adafruit Featherboards driver
 
 - Open Preferences or Settings
 - Copy paste this --> https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
@@ -40,26 +40,27 @@ git clone https://github.com/conservationtechlab/tinyscrubcam.git
 
 This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communicate over LoRaWAN, sending pings whenever an animal is detected.
 
-1. Upload the code in esp32CAMBuild/featherM0LoRa into the featherboard
-2. Upload the code in esp32CAMBuild/esp32_camera to the ESP32CAM
-3. To do this you must connect io0 and ground and connect 5V, GND, RX, TX to a USB adapter, or if you have the ESP32CAM uploading board it will be plug and play.
-4. Follow the Circuit Diagram to setup hardware
-5. After uploading, make sure to click reset on the back of the ESP32CAM, to run the program
-6. You are ready to use your camera trap!
+1. If using Chirpstack for LoRa server, create a new device with OTAA enabled, and generate a random DEVEUI, replace the current code in Arduino where the DEVEUI is set with the DEVEUI you just created. We choose the names of our devices based on the location they will be deployed, but feel free to use any naming convention you prefer.
+2. Save the device and generate an APPKEY in the Chirpstack GUI, and replace these values in the respective part in the featherboard code.
+3. Save the device in chirpstack, your arduino code and chirpstack device should now have matching DEVEUI and APPKEY values.
+4. Upload the code in esp32CAMBuild/featherM0LoRa into the featherboard
+5. Delete the MCCI library downloaded for featherboard upload, and download esp32cam library instead, and switch the 'Board' to 'AI Thinker ESP32CAM'
+6. Ensure your EdgeImpulse arduino file is located in your arduino libraries directory, and that the header file that the .ino file where it calls the model is pointing to the correct .h header file in your EdgeImpulse folder.
+7. In that same .ino file where you define the EdgeImpulse model, there is an option to save every image detection is ran on or just the image that identified your detection of interest. To save power, only save the image with a detection.
+8. Using the exposed pins on the ESP32CAM, connect IO0 to GND using a female-female cable. Using your USB TX/RX adapter, connect 5V to 5V, GND to GND, and connect UDR on the ESP32CAM to TX on the USB adapter, and UDT to RX on the USB adapter. You can also use the microusb on your ESP32 cam adapter if you have one instead of a USB TX/RX
+9. Upload the code in esp32CAMBuild/esp32_camera to the ESP32CAM.
+11. After uploading, make sure to click reset on the back of the ESP32CAM, to run the program.
+12. Follow the build instructions to wire all the components together.
+14. You are ready to use your camera trap!
 
 ## How does it work?
 
-1. ~~The ESP32CAM turns on and immediately goes into light sleep mode. It uses a PIR sensor to trigger it to turn on and make an analysis.~~
-2. Currently, the ESP32CAM is repeatedly on a cycle of checking for trigger, due to a bug. It doesn't go into any sleep mode
-3. Once a detection is made, your ESP32CAM will capture 10secs worth of pictures, running analysis on each one.
-4. If the model finds something, it will save that image, turn on the featherboard. Wait 10 seconds to give it time to power and play the speaker.
-5. On enable, Featherboard will activate the speaker, then wait for serial data.
-6. The ESP32CAM will then print to serial the detection it made e.g. "cougar" and the featherboard will then send this data over LoRa
-7. If it doesn't find anything, it will go back to the loop where it is waiting for a detection
-
-## Optimization/Issues/Future Implementation
-
-Future implementations should look into ~~putting the ESP32CAM into deep sleep, I tried but the interrupt didn't work properly and would often go straight back to sleep everytime it is triggered.~~ I GPIO pinout is very limited on the ESP32CAM, I didn't use the complete left side facing the camera, because those are data lines for the SDCARD, I think it might create some issues using those pins. ~~Although I was able to use one without issue for the PIR Sensor.~~ I was able to use GPIO4 which is an sdcard pin because that pin is for the LED on the physical board. Since ESP32CAM only sends data to featherboard and not back, I had to implement the 3 minute window. Which means if the radio takes 4 minutes to send, it will just be shut off. Another implementation for this could be to make them speak back and forth to one another, I didn't do this because in my debugging I was limited because of the data lines, you can attempt to use the data lines and see if it affects anything. So this implementation would essentially be, ESP32CAM sends the serial data to featherboard, then wait for serial input, feather board will send it over lora, then send over serial that it is finished, then the ESP32CAM will be done and wait for another PIR detection, this way every single detection will be sent. Although, after the current fixes I made after writing this, I was able to get very strong, with better antennas, reliable transmission. It would only take from 30secs to a minute meaning the whole 2 minutes after it is completely doing nothing. Although the 3 minute window is the best implementation since it gives leeway for errors in the field, longer distances, etc.
+1. Currently, the ESP32CAM is repeatedly on a cycle of checking for trigger, due to a bug. It doesn't go into any sleep mode
+2. Once a detection is made, your ESP32CAM will capture 10secs worth of pictures, running analysis on each one.
+3. If the model finds something, it will save that image, turn on the featherboard. Wait 10 seconds to give it time to power and play the speaker.
+4. On enable, Featherboard will activate the speaker, then wait for serial data.
+5. The ESP32CAM will then print to serial the detection it made e.g. "cougar" and the featherboard will then send this data over LoRa
+6. If it doesn't find anything, it will go back to the loop where it is waiting for a detection
 
 Issues List:
 
