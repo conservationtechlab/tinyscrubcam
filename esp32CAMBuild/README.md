@@ -6,9 +6,26 @@ The main purpose of tinyScrubCam is to allow for rapid detection and alert of sp
 
 ## Materials (alert-only)
 Feather M0 with RFM95 [Adafruit](https://www.adafruit.com/product/3178?utm_sourceyoutube&utm_mediumvideodescrip&utm_campaignnewproductsCartoon&gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKZCIGn54L61ULlrLxffnhwh_xx6Jt_kOjqM2qmDKK6bbU3X-suS_-YaAo5ZEALw_wcB)
-
+ESP32CAM [Amazon](https://www.amazon.com/Aideepen-ESP32-CAM-Bluetooth-ESP32-CAM-MB-Arduino/dp/B08P2578LV/ref=sr_1_2?dib=eyJ2IjoiMSJ9.de5RlaV2BTD0KvMse_hZfSatSF-0Gc4-XNxdNSLsA5MFeuD5bwnjL02cmxnlfrVCnpnWdfbVDDKhwvrZ80CV3F2JR-xR3HMu6zoynwUXkINfXPESYZhQdN1EMQ4GYdb0pXwPa8fzjcUWRA9Jbt6webNJZVTMkcryYL-0OhsnuB-tOXaZzZ0bOw3yRvA1vTYUYxCLActYs-ucbe7_-YNS700VdndKMeZjF2-KyDLW9k0.C4v5G4PeGizjeLEyKR81FIQk5J9oGS7pAaGdywS-wjw&dib_tag=se&gad_source=1&hvadid=694671650570&hvdev=c&hvexpln=67&hvlocphy=9061206&hvnetw=g&hvocijid=6712508034331281549--&hvqmt=e&hvrand=6712508034331281549&hvtargid=kwd-869814149905&hydadcr=24357_13533826&keywords=ai%2Bthinker%2Besp32%2Bcam&qid=1724692996&sr=8-2&th=1)
+915 OR 868 LoRa antenna (US: 915, Kenya: 868) *Link is for 915 [Amazon](https://www.amazon.com/Antenna-Connector-Meshtastic-Extension-Cable%EF%BC%882/dp/B0CXD93NDY/ref=sr_1_6?crid=3F718JTWK4II5&dib=eyJ2IjoiMSJ9.uA8dYZry8gx-lZsq8QQ3vHZaZvJtHm9QOcY6h6pjNDmAz0dINhS6j2M4WSvUsxdjWMJGl2PfvqRoGtdg1I1KwYYKARTX3zuvAt6udPFtlZoWXDayTkQuQe5tX3ZvG0OtEuCVZqPPFNi3HHFRJv-qL_hrBCVP26BbNQYnRVdFn3cWtEiNqTL89IzyeVYUKohIwYfqCeYdTOBkIwxt95rJQKCfkUlsyVzJcwzeXmmq6ys.ALyMAZbp0uWWp8CftnRvDVlQYYQdF8MHH7jF4t_HHGg&dib_tag=se&keywords=915+lora+antenna&qid=1724694615&sprefix=915+lora+antenn%2Caps%2C155&sr=8-6)
+uFL SMT antenna connector [Adafruit](https://www.adafruit.com/product/1661?gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKYyzDedcPvv0HpoJ_WXSTQrLhYZlhrkDd-_ka2nSC3Syrsaj6Nl9ugaAneAEALw_wcB)
+MicroSD card for image storing (above 16GB is good)
+PIR sensor [Amazon](https://www.amazon.com/HiLetgo-HC-SR501-Infrared-Sensor-Arduino/dp/B07KZW86YR/ref=sr_1_3?dib=eyJ2IjoiMSJ9.zxcyRjj1a2cgLHKDl6EoPHRrom9DR5ePGZAWYFMaiTnoIjbncyTSkELB8bVRGuxMG8SfjiSZWTPZFtlPPRKstOUQirpqD90YfioQTx1ksOq5Z1_K1FvY8Fukb7vSYxJsRSMgFa9bTj3JzdVAt0NHTNtLZ0qgwp3M3UelfnRnRps1c0ztTjF0ogG-Bj53BrDzBBsjox0YGJOAWqcZy6lPGL7YmXJe2Cpg6FRBBTHggWA.GR-eN4UVEjXdAPpTr2GF21zKsC3yr0Qo3vqUhBDYdmw&dib_tag=se&hvadid=616991219252&hvdev=c&hvlocphy=9061206&hvnetw=g&hvqmt=e&hvrand=1798499999749835934&hvtargid=kwd-138490323&hydadcr=24664_13611849&keywords=pir+sensors&qid=1724694728&sr=8-3)
+5V Solar Power Manager [DFRobot](https://www.dfrobot.com/product-1712.html)
+3.7V 2500mAh LiPo Battery [Adafruit](https://www.adafruit.com/product/328?gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKYRmhFey3_bKmWZRm9UTbKs9HFQUOFxvaqq-71vZLzrwjh8dcpQK-EaAnpkEALw_wcB)
+Waterproof Electrical Box [Amazon](https://www.amazon.com/Zulkit-Waterproof-Electrical-Transparent-150x100x70/dp/B07RPNWD47/ref=asc_df_B07RPNWD47/?tag=&linkCode=df0&hvadid=343187910376&hvpos=&hvnetw=g&hvrand=1919809432160343998&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1014218&hvtargid=pla-782235173943&mcid=56b20df8ade6361ab4327a4e41b7ad1b&ref=&adgrpid=69721953515&gclid=CjwKCAiAi6uvBhADEiwAWiyRdnE9mK7nIDk8sscvneNiUXm0ed1LwAL4wxSs8fAuw5eAcR5W9cgtfRoCKnsQAvD_BwE&th=1)
 
 ## Materials (deterrent + alert)
+
+### Stock/Tools
+Soldering Iron
+Solder
+Wires
+Wire Strippers
+Drill/drill press
+Deburrer
+Hot Glue/Super Glue
+M3/M4 plastic standoffs
 
 ## Clone the Repository
 
@@ -52,6 +69,9 @@ This is the ESP32CAM version, utilzing an Adafruit Feather M0 Board to communica
 11. After uploading, make sure to click reset on the back of the ESP32CAM, to run the program.
 12. Follow the build instructions to wire all the components together.
 14. You are ready to use your camera trap!
+
+## Build Instructions
+(esp32cam_deterrent_with_solar.png)
 
 ## How does it work?
 
