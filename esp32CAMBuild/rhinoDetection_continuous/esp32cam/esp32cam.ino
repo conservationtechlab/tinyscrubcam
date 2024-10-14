@@ -91,6 +91,10 @@
 #define EEPROM_SIZE 5
 int pictureNumber = 0;
 
+#define PIRSENSOR 12
+#define INFERENCELED 33
+#define LORA 13
+
 /* Private variables ------------------------------------------------------- */
 static bool debug_nn = false; // Set this to true to see e.g. features generated from the raw signal
 static bool is_initialised = false;
@@ -151,26 +155,28 @@ void setup()
         ei_printf("Camera initialized\r\n");
     }
     //pinMode(LORAENABLE, OUTPUT);
-    //pinMode(PIRSENSOR, INPUT_PULLUP);
+    pinMode(INFERENCELED, OUTPUT);
+    pinMode(LORA, OUTPUT);
+
+    digitalWrite(INFERENCELED, HIGH);
+    digitalWrite(LORA, LOW);
+
     
     //digitalWrite(LORAENABLE, LOW);
 
-    if(!SD_MMC.begin()){
-      Serial.println("SD Card Mount Failed");
-      return;
-      }
+    //if(!SD_MMC.begin()){
+      //Serial.println("SD Card Mount Failed");
+     // return;
+     // }
  
-    uint8_t cardType = SD_MMC.cardType();
-    if(cardType == CARD_NONE){
-      Serial.println("No SD Card attached");
-      return;
-      }
-    else {
-      Serial.println("SD card mount successful");
-      }
-
-    ei_printf("\nStarting continious inference in 2 seconds...\n");
-    ei_sleep(2000);
+    //uint8_t cardType = SD_MMC.cardType();
+    //if(cardType == CARD_NONE){
+      //Serial.println("No SD Card attached");
+      //return;
+     // }
+    //else {
+     // Serial.println("SD card mount successful");
+      //}
 
 }
 
@@ -181,6 +187,23 @@ void setup()
 */
 void loop()
 {
+  pinMode(PIRSENSOR, INPUT_PULLUP);
+  digitalWrite(LORA, LOW);
+  if(digitalRead(PIRSENSOR) == HIGH){
+
+      int startTime;
+      int endTime;
+      startTime = millis();
+      endTime = startTime + 10000;
+      while (endTime > millis()){
+          digitalWrite(INFERENCELED, LOW);
+          makeCapture();
+          digitalWrite(INFERENCELED, HIGH);
+        
+    }
+  }
+}
+void makeCapture(){
    // instead of wait_ms, we'll wait on the signal, this allows threads to cancel us...
     if (ei_sleep(5) != EI_IMPULSE_OK) {
         return;
@@ -234,6 +257,8 @@ void loop()
 
         if (i == 0){
             camera_fb_t *fb = esp_camera_fb_get();
+            SD_MMC.begin();
+            uint8_t cardType = SD_MMC.cardType();
             Serial.println("beginning write to sd card");
             EEPROM.begin(EEPROM_SIZE);
             pictureNumber = EEPROM.read(0) + 1;
@@ -255,6 +280,8 @@ void loop()
 
             EEPROM.write(0, pictureNumber);
             EEPROM.commit();
+            pinMode(LORA, OUTPUT);
+            digitalWrite(LORA, HIGH);
 
             esp_camera_fb_return(fb);
         }
