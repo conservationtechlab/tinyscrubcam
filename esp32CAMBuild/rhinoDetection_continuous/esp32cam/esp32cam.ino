@@ -100,6 +100,8 @@ static bool debug_nn = false; // Set this to true to see e.g. features generated
 static bool is_initialised = false;
 uint8_t *snapshot_buf; //points to the output of the capture
 
+int saveToSDCard = 1; // 1 for yes, 0 for no
+
 static camera_config_t camera_config = {
     .pin_pwdn = PWDN_GPIO_NUM,
     .pin_reset = RESET_GPIO_NUM,
@@ -255,7 +257,7 @@ void makeCapture(){
                 bb.width,
                 bb.height);
 
-        if (i == 0){
+        if (i == 0 && saveToSDCard){
             camera_fb_t *fb = esp_camera_fb_get();
             SD_MMC.begin();
             uint8_t cardType = SD_MMC.cardType();
@@ -280,10 +282,11 @@ void makeCapture(){
 
             EEPROM.write(0, pictureNumber);
             EEPROM.commit();
+            esp_camera_fb_return(fb);
+        }
+        if (i == 0){
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
-
-            esp_camera_fb_return(fb);
         }
     }
 
