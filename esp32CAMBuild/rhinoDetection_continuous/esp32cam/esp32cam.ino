@@ -232,30 +232,32 @@ void loop()
                 bb.width,
                 bb.height);
 
-        camera_fb_t *fb = esp_camera_fb_get();
-        Serial.println("beginning write to sd card");
-        EEPROM.begin(EEPROM_SIZE);
-        pictureNumber = EEPROM.read(0) + 1;
-        String path = "/picture" + String(pictureNumber) +".jpg";
-        fs::FS &fs = SD_MMC; 
-        Serial.printf("Picture file name: %s\n", path.c_str());
+        if (i == 0){
+            camera_fb_t *fb = esp_camera_fb_get();
+            Serial.println("beginning write to sd card");
+            EEPROM.begin(EEPROM_SIZE);
+            pictureNumber = EEPROM.read(0) + 1;
+            String path = "/picture" + String(pictureNumber) +".jpg";
+            fs::FS &fs = SD_MMC; 
+            Serial.printf("Picture file name: %s\n", path.c_str());
 
-        File file = fs.open(path.c_str(), FILE_WRITE);
-        if(!file){
-          Serial.println("Failed to open file in writing mode");
-        } 
-        else {
-          file.write(fb->buf, fb->len); // payload (image), payload length
-          Serial.printf("Saved file to path: %s\n", path.c_str());
-          EEPROM.write(0, pictureNumber);
-          EEPROM.commit();
+            File file = fs.open(path.c_str(), FILE_WRITE);
+            if(!file){
+              Serial.println("Failed to open file in writing mode");
+            } 
+            else {
+              file.write(fb->buf, fb->len); // payload (image), payload length
+              Serial.printf("Saved file to path: %s\n", path.c_str());
+              EEPROM.write(0, pictureNumber);
+              EEPROM.commit();
+            }
+            file.close();
+
+            EEPROM.write(0, pictureNumber);
+            EEPROM.commit();
+
+            esp_camera_fb_return(fb);
         }
-        file.close();
-
-        EEPROM.write(0, pictureNumber);
-        EEPROM.commit();
-
-        esp_camera_fb_return(fb);
     }
 
     // Print the prediction results (classification)
