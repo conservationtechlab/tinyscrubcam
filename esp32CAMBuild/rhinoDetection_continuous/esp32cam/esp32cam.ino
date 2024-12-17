@@ -93,7 +93,7 @@ int pictureNumber = 0;
 
 #define PIRSENSOR 12
 #define INFERENCELED 33
-#define LORA 13
+#define LORA 3
 
 /* Private variables ------------------------------------------------------- */
 static bool debug_nn = false; // Set this to true to see e.g. features generated from the raw signal
@@ -147,6 +147,7 @@ void setup()
 {
     // put your setup code here, to run once:
     Serial.begin(115200);
+    delay(1000);
     //comment out the below line to start inference immediately after upload
     while (!Serial);
     Serial.println("Edge Impulse Inferencing Demo");
@@ -159,6 +160,7 @@ void setup()
     //pinMode(LORAENABLE, OUTPUT);
     pinMode(INFERENCELED, OUTPUT);
     pinMode(LORA, OUTPUT);
+    pinMode(PIRSENSOR, INPUT);
 
     digitalWrite(INFERENCELED, HIGH);
     digitalWrite(LORA, LOW);
@@ -189,8 +191,7 @@ void setup()
 */
 void loop()
 {
-  pinMode(PIRSENSOR, INPUT_PULLUP);
-  digitalWrite(LORA, LOW);
+  pinMode(PIRSENSOR, INPUT);
   if(digitalRead(PIRSENSOR) == HIGH){
 
       int startTime;
@@ -283,12 +284,15 @@ void makeCapture(){
             EEPROM.write(0, pictureNumber);
             EEPROM.commit();
             esp_camera_fb_return(fb);
-        }
-        if (i == 0){
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
+            delay(10000);
+            Serial.println(bb.label);
+            delay(180000);
+            digitalWrite(LORA, LOW);
         }
-    }
+}
+    
 
     // Print the prediction results (classification)
 #else
@@ -445,8 +449,7 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
     return true;
 }
 
-static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr)
-{
+static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr) {
     // we already have a RGB888 buffer, so recalculate offset into pixel index
     size_t pixel_ix = offset * 3;
     size_t pixels_left = length;
@@ -465,6 +468,7 @@ static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr)
     // and done!
     return 0;
 }
+
 
 #if !defined(EI_CLASSIFIER_SENSOR) || EI_CLASSIFIER_SENSOR != EI_CLASSIFIER_SENSOR_CAMERA
 #error "Invalid model for current sensor"
