@@ -1,7 +1,11 @@
-This script can be downloaded onto the ESP32-CAM and
+# Rhino Detection
+
+## Project Description
+
+This project (folder `rhinoDetection_continuous`) can be downloaded onto the ESP32-CAM and
 as is, it will run object detection with a rhino detector
 for 10 seconds once triggered by a PIR sensor, which you
-will know inference is happening by the red light 
+will know inference is happening by the red light
 on the back of the ESP32-CAM turning on. If a rhino
 is detected, it will send a high signal to pin 13, where
 you can connect your feather M0 (not implemented to recieve
