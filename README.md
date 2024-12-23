@@ -5,6 +5,8 @@ TinyScrubCam is an innovative edge-AI device powered by Google Coral Micro, desi
 # Hardware wiring diagram
 ![image](CircuitDiagram.jpg)
 
+Note: The wiring for the MP3 control is not following standard practice. You might want to try out the wiring in the `CircuitDiagram-No-BJT.drawio.png` first. 
+
 ## Description
 
 TinyScrubCam utilizes Google Coral Micro platform to bring AI capabilities to wildlife detection. This approach allows for real-time processing without the need for constant internet connectivity, making wildlife monitoring more accessible and effective.
