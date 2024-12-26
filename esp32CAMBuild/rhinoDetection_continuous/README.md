@@ -1,6 +1,6 @@
 # Rhino Detection
 
-![image](./images/tinyscrubcam.png)
+![image](tinyscrubcam/esp32CAMBuild/images/tinyscrubcam.png)
 
 ## Set-up
 1) Program esp32
