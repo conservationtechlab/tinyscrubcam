@@ -37,6 +37,7 @@
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
+#include <FlashStorage.h>
 
 //
 // For normal use, we require that you edit the sketch to replace FILLMEIN
@@ -78,7 +79,7 @@ static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
-const unsigned TX_INTERVAL = 60;
+const unsigned TX_INTERVAL = 200;
 
 // Pin mapping
 // Adapted for Feather M0 per p.10 of [feather]
@@ -90,6 +91,19 @@ const lmic_pinmap lmic_pins = {
                                     // DIO1 is on JP1-1: is io1 - we connect to GPO6
                                     // DIO1 is on JP5-3: is D2 - we connect to GPO5
 };
+
+const int eeprom_range_size = 10; // Number of slots for wear leveling
+
+// Define a structure to store data
+struct FrameCountData {
+    int frame_count;
+    int write_index;
+};
+
+// Create flash storage for the structure
+FlashStorage(myFlashStorage, FrameCountData);
+
+FrameCountData data; // Structure to hold frame_count and index
 
 void onEvent (ev_t ev) {
     Serial.print(os_getTime());
@@ -183,6 +197,7 @@ void onEvent (ev_t ev) {
 }
 
 void do_send(osjob_t* j){
+    LMIC.seqnoUp = data.frame_count;
     // Check if there is not a current TX/RX job running
     if (LMIC.opmode & OP_TXRXPEND) {
         Serial.println(F("OP_TXRXPEND, not sending"));
@@ -191,17 +206,28 @@ void do_send(osjob_t* j){
         LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0);
         Serial.println(F("Packet queued"));
     }
+    data.frame_count++;
+    myFlashStorage.write(data);
     // Next TX is scheduled after TX_COMPLETE event.
 }
 
 void setup() {
-//    pinMode(13, OUTPUT);
+    digitalWrite(13, HIGH);
     delay(1000);
     //while (!Serial); // wait for Serial to be initialized
     Serial.begin(9600);
     delay(100);
     Serial1.begin(115200);     // per sample code on RF_95 test
     Serial.println(F("Starting"));
+
+    data = myFlashStorage.read();
+
+    // Check if flash is uninitialized (e.g., write_index out of range)
+    if (data.write_index < 0 || data.write_index >= eeprom_range_size) {
+        Serial.println("Flash storage uninitialized. Initializing...");
+        data.frame_count = 20;
+        myFlashStorage.write(data); // Save initial data
+    }
 
     #ifdef VCC_ENABLE
     // For Pinoccio Scout boards
@@ -297,7 +323,8 @@ void setup() {
 
     // Set data rate and transmit power for uplink
     LMIC_setDrTxpow(DR_SF7,14);
-
+    digitalWrite(13, LOW);
+    
     while (1) {
       if (Serial1.available() > 0) { // Check if data is available to read
           String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
@@ -310,6 +337,7 @@ void setup() {
               Serial.println("Out of bounds");
               receivedString = "ERR: Check Cam";
           }
+          
           break;
       }
 }
