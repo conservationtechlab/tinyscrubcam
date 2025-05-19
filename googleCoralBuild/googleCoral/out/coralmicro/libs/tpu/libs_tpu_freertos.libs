@@ -1,0 +1,1 @@
+libs_base-m7_freertos;libs_usb_host_edgetpu_freertos;libs_tpu_task_freertos;libs_tensorflow-m7;libs_FreeRTOS;libs_flatbuffers

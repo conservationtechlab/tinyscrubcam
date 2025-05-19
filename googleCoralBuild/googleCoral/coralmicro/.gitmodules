@@ -1,0 +1,51 @@
+[submodule "third_party/freertos_kernel"]
+	path = third_party/freertos_kernel
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+[submodule "third_party/CMSIS"]
+	path = third_party/CMSIS
+	url = https://github.com/ARM-software/CMSIS_5.git
+[submodule "third_party/nxp/rt1176-sdk"]
+	path = third_party/nxp/rt1176-sdk
+	url = https://github.com/google-coral/coralmicro-rt1176-sdk
+[submodule "third_party/flatbuffers"]
+	path = third_party/flatbuffers
+	url = https://github.com/google/flatbuffers
+[submodule "third_party/gemmlowp"]
+	path = third_party/gemmlowp
+	url = https://github.com/google/gemmlowp
+[submodule "third_party/ruy"]
+	path = third_party/ruy
+	url = https://github.com/google/ruy
+[submodule "third_party/nxp/blhost"]
+	path = third_party/nxp/blhost
+	url = https://github.com/google-coral/coralmicro-blhost
+[submodule "third_party/FreeRTOS_helpers"]
+	path = third_party/FreeRTOS_helpers
+	url = https://github.com/DRNadler/FreeRTOS_helpers
+[submodule "third_party/kissfft"]
+	path = third_party/kissfft
+	url = https://github.com/mborgerding/kissfft
+[submodule "third_party/cyw-bt-patch"]
+	path = third_party/cyw-bt-patch
+	url = https://github.com/murata-wireless/cyw-bt-patch
+[submodule "third_party/ArduinoCore-API"]
+	path = third_party/ArduinoCore-API
+	url = https://github.com/arduino/ArduinoCore-API
+[submodule "third_party/mjson"]
+	path = third_party/mjson
+	url = https://github.com/cesanta/mjson
+[submodule "third_party/curl"]
+	path = third_party/curl
+	url = https://github.com/curl/curl
+[submodule "third_party/coremark"]
+	path = third_party/coremark
+	url = https://github.com/eembc/coremark
+[submodule "third_party/tflite-micro"]
+	path = third_party/tflite-micro
+	url = https://github.com/tensorflow/tflite-micro.git
+[submodule "third_party/a71ch-crypto-support"]
+	path = third_party/a71ch-crypto-support
+	url = https://coral.googlesource.com/a71ch-crypto-support
+[submodule "third_party/littlefs-fuse"]
+	path = third_party/littlefs-fuse
+	url = https://github.com/google-coral/coralmicro-littlefs-fuse

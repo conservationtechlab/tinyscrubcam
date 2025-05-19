@@ -1,0 +1,25 @@
+var group__wicedbt__avrcp =
+[
+    [ "wiced_bt_remote_control_add_to_now_playing_cmd", "group__wicedbt__avrcp.html#ga84430713a55a8bd450503cd36ba25f38", null ],
+    [ "wiced_bt_remote_control_change_path_cmd", "group__wicedbt__avrcp.html#ga83a9fad643f1732ed6f38cec118d3f95", null ],
+    [ "wiced_bt_remote_control_connect", "group__wicedbt__avrcp.html#gafd14063a686bc51bdccc82bc1de3d191", null ],
+    [ "wiced_bt_remote_control_deinit", "group__wicedbt__avrcp.html#gaeb5a01831d11c47434501121a11d46ef", null ],
+    [ "wiced_bt_remote_control_disconnect", "group__wicedbt__avrcp.html#gad2ce93bc1be44441596fefe5a5d11de5", null ],
+    [ "wiced_bt_remote_control_get_element_attr_cmd", "group__wicedbt__avrcp.html#gafa47be2839402f8f648b5e2a46ed27ed", null ],
+    [ "wiced_bt_remote_control_get_folder_items_cmd", "group__wicedbt__avrcp.html#gacbdff4a3fa756d13aa4f134692b17132", null ],
+    [ "wiced_bt_remote_control_get_item_attributes_cmd", "group__wicedbt__avrcp.html#gaed284ce9f903748b5e661c1199386471", null ],
+    [ "wiced_bt_remote_control_get_play_status_cmd", "group__wicedbt__avrcp.html#ga8d11b0be5882b456f672e67a1b416ae1", null ],
+    [ "wiced_bt_remote_control_get_player_attrs_text_cmd", "group__wicedbt__avrcp.html#gafa442dab0232be34fa6110118108af15", null ],
+    [ "wiced_bt_remote_control_get_player_value_cmd", "group__wicedbt__avrcp.html#gad9b06cccf2c038ffb040df8db953f0fc", null ],
+    [ "wiced_bt_remote_control_get_player_values_text_cmd", "group__wicedbt__avrcp.html#ga46676c61762899b0e9a1a469730c85f6", null ],
+    [ "wiced_bt_remote_control_init", "group__wicedbt__avrcp.html#ga9ccc0a9db1e9854351891403aa83f658", null ],
+    [ "wiced_bt_remote_control_list_player_attrs_cmd", "group__wicedbt__avrcp.html#ga290f6a64001d3e79bd916ef531798481", null ],
+    [ "wiced_bt_remote_control_list_player_values_cmd", "group__wicedbt__avrcp.html#gabc8b1049b4e57d18d8dba008f125d625", null ],
+    [ "wiced_bt_remote_control_play_item_cmd", "group__wicedbt__avrcp.html#ga6deb84308126289db777dd2aa4a76555", null ],
+    [ "wiced_bt_remote_control_search_cmd", "group__wicedbt__avrcp.html#ga33c7d1589a7d5b71f358eb5111b9e547", null ],
+    [ "wiced_bt_remote_control_send_pass_through_cmd", "group__wicedbt__avrcp.html#gadfbcaabe9533764abcf83c17a34252d4", null ],
+    [ "wiced_bt_remote_control_set_addressed_player_cmd", "group__wicedbt__avrcp.html#gadcdb320d0e474613c9f793f52c4b5b05", null ],
+    [ "wiced_bt_remote_control_set_browsed_player_cmd", "group__wicedbt__avrcp.html#ga7bcd0fa33309dcde8cfcb039d4a2d537", null ],
+    [ "wiced_bt_remote_control_set_player_value_cmd", "group__wicedbt__avrcp.html#gaf16c6f13e05806962bb96e2dca6c3adb", null ],
+    [ "wiced_bt_remote_control_set_volume_cmd", "group__wicedbt__avrcp.html#ga8b922e12d5302588d50842005890d444", null ]
+];

@@ -1,0 +1,1 @@
+coralmicro/models/testconv1-edgetpu.tflite;coralmicro/models/testconv1-expected-output.bin;coralmicro/models/testconv1-test-input.bin

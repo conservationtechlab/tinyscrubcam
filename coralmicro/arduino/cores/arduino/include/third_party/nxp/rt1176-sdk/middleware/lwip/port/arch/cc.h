@@ -1,1 +1,0 @@
-../../../../../../../../../../../third_party/nxp/rt1176-sdk/middleware/lwip/port/arch/cc.h

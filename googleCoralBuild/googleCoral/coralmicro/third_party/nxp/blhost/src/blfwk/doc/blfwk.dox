@@ -1,0 +1,58 @@
+/*!
+
+@defgroup blfwk Host Bootloader Framework
+@brief Host Bootloader components.
+
+@defgroup bus_pal Bus Pal Transport
+@ingroup blfwk
+@brief Bus Pal transport support.
+ 
+@defgroup host_peripherals Peripherals
+@ingroup blfwk
+@brief Peripheral support.
+
+@defgroup bus_pal_peripheral Bus Pal Peripheral
+@ingroup host_peripherals
+@brief Bus Pal Peripheral.
+
+@defgroup uart_peripheral UART Peripheral
+@ingroup host_peripherals
+@brief UART Peripheral.
+
+@defgroup host_usb_hid_peripheral USB-HID Peripheral
+@ingroup host_peripherals
+@brief USB-HID Peripheral.
+
+@defgroup host_commands Commands
+@ingroup blfwk
+@brief Command support.
+
+@defgroup host_packetizers Packetizers
+@ingroup blfwk
+@brief Packet creation.
+
+@defgroup serial_packetizer Serial Packetizer
+@ingroup host_packetizers
+@brief Serial Packet creation.
+
+@defgroup usb_hid_packetizer USB-HID Packetizer
+@ingroup host_packetizers
+@brief USB-HID Packet creation.
+
+@defgroup logging Logging
+@ingroup blfwk
+@brief Logging support.
+
+@defgroup smart_pointer Smart Pointer
+@ingroup blfwk
+@brief Smart pointer.
+
+@defgroup host_error Error
+@ingroup blfwk
+@brief Errors.
+
+@defgroup host_updater Updater
+@ingroup blfwk
+@brief Updater application support.
+
+*/
