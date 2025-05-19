@@ -7,7 +7,7 @@ tinyscrubcam with a deterrent speaker and IR illimunation with similar features 
 non deterrent version. This version is not as current and has some bugs, but could
 contain some helpful information. 
 
-#LoRa Keys
+# LoRa Keys
 To obtain keys for LoRa transmission, we use Chirpstack as our LoRa server. It's hosted
 at 10.24.17.64:8080. The rhinoDetection_continuous version is the device profile 
 'TinyScrubCam ABP' and the device EUI that has run this code is '4043094992099020'. The
