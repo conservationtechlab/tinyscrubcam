@@ -19,3 +19,9 @@ device profile contains the decoder information for the payload. One would need 
 new device with the device profile mentioned above, and generate the keys needed, and input those
 keys into the feather.ino code in the proper spots. Status of payloads can be seen once the device
 is created and is sending packets in Chirpstack under 'LoRaWAN Frames' and 'Events'.
+
+## Models
+Our code currently depends on being an Arduino Library generated from EdgeImpulse. The rhino
+model entire folder is contained within rhinoDetection_continuous as 'rhinodetection_inferencing'. 
+More models should be generated for SouthWest species so that we can perform more testing here 
+at the Park.
