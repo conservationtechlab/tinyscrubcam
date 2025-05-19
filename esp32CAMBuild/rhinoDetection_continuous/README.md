@@ -22,11 +22,9 @@ as is, it will run object detection with a rhino detector
 for 10 seconds once triggered by a PIR sensor, which you
 will know inference is happening by the red light
 on the back of the ESP32-CAM turning on. If a rhino
-is detected, it will send a high signal to pin 13, where
-you can connect your feather M0 (not implemented to recieve
-that signal yet) or attach an LED to see when it detects something. 
-As is, it will save detection photos to the SD card, and turn the
-red light off/pin 13 light off once it's finished the 10 seconds
-of inference, until it is retriggered by the PIR sensor and it 
-will run inference again. You can modify the inference time and
+is detected, it will save detection photos to the SD card, and send
+a string over serial to the feather to activate a lora
+payload. You can modify the inference time (how long
+the device will analyze photos after being triggered, before it
+stops and waits again for PIR signal if it doesn't see anything) and
 make it so that the photos do not save to the sd card.
