@@ -14,6 +14,5 @@ This file is for sending LoRa messages using the Adafruit Feather M0 LoRa module
    - `dio = {6, 5}`: Digital I/O pins for LoRa module communication.
 - **Serial Communication:** Receives data via the serial port (`Serial1`) for dynamic message updates.
 - **LoRa Events:** Prints detailed event logs to `Serial`.
-- **Transmission Interval:** Configured to 60 seconds, respecting duty cycle limits.
 
 For more details, refer to comments inside of `feather.ino`.
