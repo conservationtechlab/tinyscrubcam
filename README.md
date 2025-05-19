@@ -11,3 +11,6 @@ coral devive. Implementation 2 is currently in development
 ## Implementation 2
 
 ESP32 CAM & Featherboard M0
+
+2 versions are currently in development. A deterrent version, and a non-deterrent alert device. The main code for the non-deterrent version is located in the 
+rhinoDetection_continuous folder within the esp32cam folder. 
