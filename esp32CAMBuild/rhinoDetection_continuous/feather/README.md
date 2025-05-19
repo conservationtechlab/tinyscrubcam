@@ -5,7 +5,7 @@ This file is for sending LoRa messages using the Adafruit Feather M0 LoRa module
 
 ## How it works
    - Sets up parameters (`NWKSKEY`, `APPSKEY`, `DEVADDR`) for ABP and configures transmission data rate and power.
-   - Sends the string `"Rhinos"` or a message received via serial communication to the LoRa network at intervals of 60 seconds (`TX_INTERVAL`).
+   - Sends the string `"Rhinos"` or a message received via serial communication to the LoRa network whenever it recieves serial communication from the ESP32 camera (`TX_INTERVAL`).
    - Monitors and logs LoRa events such as joining, transmitting, and receiving.
 
 ### Key variables
