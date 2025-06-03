@@ -78,6 +78,7 @@ const unsigned TX_INTERVAL = 200; //if doesn't work change back to 60
 // Pin mapping for Adafruit Feather M0 LoRa, etc.
 // /!\ By default Adafruit Feather M0's pin 6 and DIO1 are not connected.
 // Please ensure they are connected.
+#if defined(ARDUINO_SAMD_FEATHER_M0) || defined(ADAFRUIT_FEATHER_M0)
 const lmic_pinmap lmic_pins = {
     .nss = 8,
     .rxtx = LMIC_UNUSED_PIN,
@@ -87,7 +88,7 @@ const lmic_pinmap lmic_pins = {
     .rssi_cal = 8,              // LBT cal for the Adafruit Feather M0 LoRa, in dB
     .spi_freq = 8000000,
 };
-
+#endif
 //const int eeprom_range_size = 10; // Number of slots for wear leveling
 
 // Define a structure to store data
@@ -176,6 +177,14 @@ void onEvent (ev_t ev) {
             break;
         case EV_TXCOMPLETE:
             Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
+              //blink twice if completed
+    digitalWrite(13, HIGH);
+    delay(1000);
+    digitalWrite(13, LOW);
+    delay(1000);
+    digitalWrite(13, HIGH);
+    delay(1000);
+    digitalWrite(13, LOW);
             if (LMIC.txrxFlags & TXRX_ACK)
               Serial.println(F("Received ack"));
             if (LMIC.dataLen) {
@@ -221,6 +230,14 @@ void onEvent (ev_t ev) {
             break;
         case EV_JOIN_TXCOMPLETE:
             Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
+              //blink twice if completed
+    digitalWrite(13, HIGH);
+    delay(5000);
+    digitalWrite(13, LOW);
+    delay(5000);
+    digitalWrite(13, HIGH);
+    delay(5000);
+    digitalWrite(13, LOW);
             break;
 
         default:
@@ -246,8 +263,9 @@ void do_send(osjob_t* j){
 }
 
 void setup() {
-  digitalWrite(13, HIGH);
-    delay(1000); //change back to 5000 if need be
+//digitalWrite(13, HIGH);
+   delay(5000); //change back to 5000 if need be
+digitalWrite(13, LOW);
   while (! Serial);
     Serial.begin(115200);
     Serial.println(F("Starting"));
@@ -276,42 +294,60 @@ void setup() {
 
     LMIC_setLinkCheckMode(0);
     // TTN uses SF9 for its RX2 window.
-   //LMIC.dn2Dr = DR_SF9;
+  // LMIC.dn2Dr = DR_SF9;
     LMIC_setDrTxpow(DR_SF7,14);
     //LMIC_selectSubBand(1);
   // TTN uses SF9 for its RX2 window.
     //LMIC.dn2Dr = DR_SF9; //Consider changing this
 
-    digitalWrite(13, LOW);
+  // digitalWrite(13, LOW);
+ 
 
-     while (1) {
-      if (Serial1.available() > 0) { // Check if data is available to read
-          String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
-          Serial.print("Received: ");
-          Serial.println(receivedString); // print the received line
-          
-          digitalWrite(13, HIGH);
-          delay(2000);
-          digitalWrite(13, LOW);
-          delay(2000);
-
+do  {
+String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
+         Serial.print("Received: ");
+         Serial.println(receivedString); // print the received line
           if (receivedString.length() < 15) {
               receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
           } else {
               Serial.println("Out of bounds");
               receivedString = "ERR: Check Cam";
           }
+} while (Serial1.available() > 0);
+     //while (1) {
+     // if (Serial1.available() > 0) { // Check if data is available to read
+       //   String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
+         // Serial.print("Received: ");
+         // Serial.println(receivedString); // print the received line
           
-          break;
-      }
+         // digitalWrite(13, HIGH);
+         // delay(2000);
+         // digitalWrite(13, LOW);
+          
 
-}
+         // if (receivedString.length() < 15) {
+           //   receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
+         // } else {
+           //   Serial.println("Out of bounds");
+             // receivedString = "ERR: Check Cam";
+         // }
+          
+         // break;
+     // }
+
+//}
 
     // Start job (sending automatically starts OTAA too)
     do_send(&sendjob);
-    digitalWrite(13, HIGH);
-    delay(5000);
-    digitalWrite(13, LOW);
+    //blink twice if completed
+   // digitalWrite(13, HIGH);
+ //   delay(1000);
+  //  digitalWrite(13, LOW);
+  //  delay(1000);
+ //   digitalWrite(13, HIGH);
+ //   delay(1000);
+ //   digitalWrite(13, LOW);
+ 
 }
 
 void loop() {
