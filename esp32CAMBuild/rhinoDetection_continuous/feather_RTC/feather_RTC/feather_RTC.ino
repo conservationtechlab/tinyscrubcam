@@ -45,6 +45,7 @@
 //
 
 
+
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
@@ -62,7 +63,11 @@ void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 static const u1_t PROGMEM APPKEY[16] = {  0xDD, 0x1E, 0x23, 0x79, 0x45, 0x3E, 0x5A, 0xB9, 0x84, 0xF9, 0xC3, 0x78, 0x6F, 0xE1, 0x58, 0xDB };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
-static uint8_t mydata[] = "Rhinos";
+// static uint8_t mydata[] = "Rhino"; //Send message of Rhino
+
+#define MAX_LENGTH 50  // Enough for "pictureXXXX.jpg"
+
+static uint8_t mydata[MAX_LENGTH]; //will now ensure that mydata can handle large number of char
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
@@ -241,7 +246,8 @@ void do_send(osjob_t* j){
         Serial.println(F("OP_TXRXPEND, not sending"));
     } else {
         // Prepare upstream data transmission at the next possible time.
-        LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0);
+        //LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0); //Original
+        LMIC_setTxData2(1, mydata, strlen((char*)mydata), 0); //Doesn't cut down length of string length
         Serial.println(F("Packet queued"));
     }
   // data.frame_count++;
@@ -347,7 +353,7 @@ String receivedString = Serial1.readStringUntil('\n'); // Read until newline cha
        Serial.print("Received: ");
          Serial.println(receivedString); // print the received line
 
-          if (receivedString.length() < 15) {
+          if (receivedString.length() < MAX_LENGTH) {
               receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
                  do_send(&sendjob);
           } else {
