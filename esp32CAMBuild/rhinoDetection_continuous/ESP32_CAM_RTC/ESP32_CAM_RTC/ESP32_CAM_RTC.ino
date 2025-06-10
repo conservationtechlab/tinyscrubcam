@@ -290,7 +290,8 @@ void makeCapture(){
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
             delay(10000);
-            Serial.println(bb.label);
+            Serial.println(path.c_str()); //will print name of picture
+            //Serial.println(bb.label); // Will print Rhino or whatever is value of bb.label
             delay(180000);
             digitalWrite(LORA, LOW);
             //  Serial.println("Done with pic being sent");
