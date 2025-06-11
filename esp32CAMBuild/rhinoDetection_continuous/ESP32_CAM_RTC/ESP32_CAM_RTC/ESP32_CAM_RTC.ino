@@ -290,7 +290,7 @@ void makeCapture(){
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
             delay(10000);
-            Serial.println(path.c_str()); //will print name of picture
+            Serial.println(String(bb.label) + "" + String(bb.value) + "" + path.c_str()); //will print label, accuracy value, and picture label
             //Serial.println(bb.label); // Will print Rhino or whatever is value of bb.label
             delay(180000);
             digitalWrite(LORA, LOW);
@@ -320,7 +320,9 @@ void makeCapture(){
         if (bb.value == 0) {
             continue;
         }
-        ei_printf("  %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\r\n",
+        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n", //%04.2f will make it so 0 will prevent dead space, 4 will make it so you always have 4 bytes of space total 
+                                                                                //with 2 spaces behind the decimal f is a float format
+                                                                                //For codec on chirpstack so it can print message appropriately
                 bb.label,
                 bb.value,
                 bb.x,
