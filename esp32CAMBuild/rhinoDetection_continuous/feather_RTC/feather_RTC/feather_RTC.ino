@@ -35,7 +35,7 @@
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
-//#include <FlashStorage.h>
+
 //
 // For normal use, we require that you edit the sketch to replace FILLMEIN
 // with values assigned by the TTN console. However, for regression tests,
@@ -74,16 +74,8 @@ static osjob_t sendjob;
 // cycle limitations).
 const unsigned TX_INTERVAL = 200; //if doesn't work change back to 60
 
-// Pin mapping
-//
-// Adafruit BSPs are not consistent -- m0 express defs ARDUINO_SAMD_FEATHER_M0,
-// m0 defs ADAFRUIT_FEATHER_M0
-//
-
 // Pin mapping for Adafruit Feather M0 LoRa, etc.
-// /!\ By default Adafruit Feather M0's pin 6 and DIO1 are not connected.
-// Please ensure they are connected.
-//#if defined(ARDUINO_SAMD_FEATHER_M0) || defined(ADAFRUIT_FEATHER_M0)
+
 const lmic_pinmap lmic_pins = {
     .nss = 8,
     .rxtx = LMIC_UNUSED_PIN,
@@ -93,19 +85,7 @@ const lmic_pinmap lmic_pins = {
     .rssi_cal = 8,              // LBT cal for the Adafruit Feather M0 LoRa, in dB
     .spi_freq = 8000000,
 };
-//#endif
-//const int eeprom_range_size = 10; // Number of slots for wear leveling
 
-// Define a structure to store data
-//struct FrameCountData {
-   // int frame_count;
-   // int write_index;
-//};
-
-// Create flash storage for the structure
-//FlashStorage(myFlashStorage, FrameCountData);
-
-//FrameCountData data; // Structure to hold frame_count and index
 
 void printHex2(unsigned v) {
     v &= 0xff;
@@ -164,7 +144,7 @@ void onEvent (ev_t ev) {
             }
             // Disable link check validation (automatically enabled
             // during join, but because slow data rates change max TX
-	    // size, we don't use it in this example.
+      // size, we don't use it in this example.
             LMIC_setLinkCheckMode(0);
             break;
         /*
@@ -250,9 +230,7 @@ void do_send(osjob_t* j){
         LMIC_setTxData2(1, mydata, strlen((char*)mydata), 0); //Doesn't cut down length of string length
         Serial.println(F("Packet queued"));
     }
-  // data.frame_count++;
-   // myFlashStorage.write(data);
-    // Next TX is scheduled after TX_COMPLETE event.
+
 }
 
 void setup() {
@@ -266,15 +244,6 @@ digitalWrite(13, HIGH);
                                 //  BEING ON THE SAME BAUD RATE AS ESP32 CAM
                                 //
     Serial.println(F("Starting"));
-
-   // data = myFlashStorage.read();
-
-       // Check if flash is uninitialized (e.g., write_index out of range)
-   // if (data.write_index < 0 || data.write_index >= eeprom_range_size) {
-       // Serial.println("Flash storage uninitialized. Initializing...");
-        //data.frame_count = 21;
-        //myFlashStorage.write(data); // Save initial data
- //   }
 
     #ifdef VCC_ENABLE
     // For Pinoccio Scout boards
@@ -290,61 +259,13 @@ digitalWrite(13, HIGH);
 
 
     LMIC_setLinkCheckMode(0);
-    // TTN uses SF9 for its RX2 window.
-    //LMIC.dn2Dr = DR_SF9;
     LMIC_setDrTxpow(DR_SF7,14);
     LMIC_selectSubBand(0);
 
 
    digitalWrite(13, LOW);
  
-
-/*do  {
-String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
-       Serial.print("Received: ");
-         Serial.println(receivedString); // print the received line
-
-          if (receivedString.length() < 15) {
-              receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
-                 do_send(&sendjob);
-          } else {
-              Serial.println("Out of bounds");
-              receivedString = "ERR: Check Cam";
-          }
-     
-} while (Serial1.available() > 0);
-
-    while (1) {
-      if (Serial1.available() > 0) { // Check if data is available to read
-          String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
-          Serial.print("Received: ");
-          Serial.println(receivedString); // print the received line
-          
-         digitalWrite(13, HIGH);
-         delay(2000);
-        digitalWrite(13, LOW);
-        delay(2000);
-       digitalWrite(13, HIGH);
-        delay(2000);
-        digitalWrite(13, LOW);
-
-         if (receivedString.length() < 15) {
-              receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
-         } else {
-             Serial.println("Out of bounds");
-             receivedString = "ERR: Check Cam";
-        }
-        break; //original
-     }
-   break; //actually breaks out endless loop
 }
-
-    // Start job (sending automatically starts OTAA too)
-   
-    */
-
-}
-
 void loop() {
     os_runloop_once();
 
