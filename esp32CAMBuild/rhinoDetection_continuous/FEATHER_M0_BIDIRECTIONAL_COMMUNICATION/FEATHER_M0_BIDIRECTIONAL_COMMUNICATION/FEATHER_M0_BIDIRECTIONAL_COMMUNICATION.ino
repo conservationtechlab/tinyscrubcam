@@ -277,7 +277,7 @@ String receivedString = Serial1.readStringUntil('\n'); // Read until newline cha
        Serial.print("Received: ");
          Serial.println(receivedString); // print the received line
 
-          if (receivedString.length() < MAX_LENGTH) {
+          if (receivedString.length() < MAX_LENGTH && receivedString.startsWith("/picture")) {
               receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
                  do_send(&sendjob);
           } else {

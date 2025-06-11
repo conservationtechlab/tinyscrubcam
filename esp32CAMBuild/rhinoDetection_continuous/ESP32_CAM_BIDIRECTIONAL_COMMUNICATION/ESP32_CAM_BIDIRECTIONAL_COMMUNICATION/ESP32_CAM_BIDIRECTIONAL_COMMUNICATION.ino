@@ -301,16 +301,17 @@ void makeCapture(){
             delay(10000);
             Serial.println(path.c_str()); //will print name of picture
             //Serial.println(bb.label); // Will print Rhino or whatever is value of bb.label
+
 unsigned long waitStart = millis();
 unsigned long waitDuration = 180000; // 3 minutes
 bool ackReceived = false;
-//will continue with wait until feather sends info to break it
+//will continue with wait until feather sends acknowledgement to break it
 while (millis() - waitStart < waitDuration) {
   if (FeatherSerial.available()) {
     String input = FeatherSerial.readStringUntil('\n');
     if (input.startsWith("ACK")) {
       Serial.println("ACK received from Feather. Skipping wait.");
-      ackReceived = true;
+      ackReceived = true; //Feather has completed sending the paylaod
       break;
     }
   }
