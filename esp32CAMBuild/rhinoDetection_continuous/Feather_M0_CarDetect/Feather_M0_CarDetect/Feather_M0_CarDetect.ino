@@ -235,9 +235,9 @@ void do_send(osjob_t* j){
 
 void setup() {
 digitalWrite(13, HIGH);
-   delay(15000); //change back to 5000 if need be
+   delay(1000); //change back to 5000 if need be
 
- while (!Serial && millis() < 5000);  // wait up to 5 seconds for Serial
+ //while (!Serial && millis() < 5000);  // wait up to 5 seconds for Serial
     Serial.begin(9600); 
     delay(100);
     Serial1.begin(115200);     // ALLOWS RX AND TX TO BE ABLE TO READ SERIAL1 DATA BY 
@@ -274,7 +274,7 @@ String receivedString = Serial1.readStringUntil('\n'); // Read until newline cha
        Serial.print("Received: ");
          Serial.println(receivedString); // print the received line
 
-          if (receivedString.length() < MAX_LENGTH && receivedString.startsWith("Car")) {
+          if (receivedString.length() < MAX_LENGTH && receivedString.endsWith("jpg")) {
               receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
                  do_send(&sendjob);
           } else {
