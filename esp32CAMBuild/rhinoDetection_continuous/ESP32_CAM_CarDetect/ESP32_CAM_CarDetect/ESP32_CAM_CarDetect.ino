@@ -212,7 +212,7 @@ void loop()
 void makeCapture(){
    // instead of wait_ms, we'll wait on the signal, this allows threads to cancel us...
     if (ei_sleep(5) != EI_IMPULSE_OK) {
-        Serial.println("hello");
+        //Serial.println("hello");
         return;
     }
 
@@ -283,21 +283,22 @@ void makeCapture(){
               EEPROM.write(0, pictureNumber);
               EEPROM.commit();
             }
-           
             file.close();
-            EEPROM.write(0, pictureNumber);
-            EEPROM.commit();
+           EEPROM.write(0, pictureNumber);
+           EEPROM.commit();
             esp_camera_fb_return(fb);
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
             delay(10000);
             //Currently inputting Car is the way of ensuring that irregardless of bb.label value we will get the label Car
             //Although EI is has bb.label as 1 or 0 dependent on the accuracy of the image we just want to classify them as Cars anyway
-            Serial.println("Car" + String(bb.value) + "" + path.c_str()); //will print label, accuracy value, and picture label
+            Serial.println(String(bb.label) + "" + String(bb.value) + "" + path.c_str()); //will print label, accuracy value, and picture label
             //Serial.println(bb.label); // Will print Rhino or whatever is value of bb.label
             delay(180000);
             digitalWrite(LORA, LOW);
-            //  Serial.println("Done with pic being sent");
+            // Serial.println("Done with pic being sent"); 
+           
+     
         }
 }
     
