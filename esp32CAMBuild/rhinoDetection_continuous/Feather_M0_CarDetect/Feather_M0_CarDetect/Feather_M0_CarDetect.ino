@@ -54,18 +54,19 @@ static const u1_t PROGMEM APPEUI[8]= { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]= { 0xF4, 0x69, 0xA3, 0x84, 0xA6, 0xDB, 0x0E, 0x59  };
+static const u1_t PROGMEM DEVEUI[8]= {  0xF4, 0x69, 0xA3, 0x84, 0xA6, 0xDB, 0x0E, 0x59 };
+
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from the TTN console can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = {  0xDD, 0x1E, 0x23, 0x79, 0x45, 0x3E, 0x5A, 0xB9, 0x84, 0xF9, 0xC3, 0x78, 0x6F, 0xE1, 0x58, 0xDB };
+static const u1_t PROGMEM APPKEY[16] = { 0xDD, 0x1E, 0x23, 0x79, 0x45, 0x3E, 0x5A, 0xB9, 0x84, 0xF9, 0xC3, 0x78, 0x6F, 0xE1, 0x58, 0xDB};
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
 // static uint8_t mydata[] = "Rhino"; //Send message of Rhino
 
-#define MAX_LENGTH 50  // Enough for "pictureXXXX.jpg"
+#define MAX_LENGTH 26  // Enough for "Car/pictureXXX.jpg"
 
 static uint8_t mydata[MAX_LENGTH]; //will now ensure that mydata can handle large number of char
 static osjob_t sendjob;
@@ -146,6 +147,8 @@ void onEvent (ev_t ev) {
             // during join, but because slow data rates change max TX
 	    // size, we don't use it in this example.
             LMIC_setLinkCheckMode(0);
+           
+
             break;
         /*
         || This event is defined but not used in the code. No
@@ -220,7 +223,6 @@ void onEvent (ev_t ev) {
 }
 
 void do_send(osjob_t* j){
-  //  LMIC.seqnoUp = data.frame_count;
     // Check if there is not a current TX/RX job running
     if (LMIC.opmode & OP_TXRXPEND) {
         Serial.println(F("OP_TXRXPEND, not sending"));
@@ -274,7 +276,7 @@ String receivedString = Serial1.readStringUntil('\n'); // Read until newline cha
        Serial.print("Received: ");
          Serial.println(receivedString); // print the received line
 
-          if (receivedString.length() < MAX_LENGTH && receivedString.endsWith("jpg")) {
+          if (receivedString.length() < MAX_LENGTH) { //receivedString.endsWith("jpg")
               receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
                  do_send(&sendjob);
           } else {
