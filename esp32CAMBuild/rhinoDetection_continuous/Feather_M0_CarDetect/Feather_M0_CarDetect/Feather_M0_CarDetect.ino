@@ -21,7 +21,7 @@
  * Note: LoRaWAN per sub-band duty-cycle limitation is enforced (1% in
  * g1, 0.1% in g2), but not the TTN fair usage policy (which is probably
  * violated by this sketch when left running for longer)!
-
+ *
  * To use this sketch, first register your application and device with
  * the things network, to set or generate an AppEUI, DevEUI and AppKey.
  * Multiple devices can use the same AppEUI, but each device has its own
@@ -54,26 +54,22 @@ static const u1_t PROGMEM APPEUI[8]= { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]= {  0xF4, 0x69, 0xA3, 0x84, 0xA6, 0xDB, 0x0E, 0x59 };
-
+static const u1_t PROGMEM DEVEUI[8]= { 0xF2,  0xD7,  0x9D,  0xAA,  0xEC,  0xC5,  0x4B, 0xC5 };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from the TTN console can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0xDD, 0x1E, 0x23, 0x79, 0x45, 0x3E, 0x5A, 0xB9, 0x84, 0xF9, 0xC3, 0x78, 0x6F, 0xE1, 0x58, 0xDB};
+static const u1_t PROGMEM APPKEY[16] = { 0xB5, 0xB6, 0xB8, 0xB3, 0xE3, 0x43, 0x34, 0x54, 0xBC, 0x87, 0xC3, 0x69, 0x61, 0xB1, 0x77, 0xD1 };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
-// static uint8_t mydata[] = "Rhino"; //Send message of Rhino
+#define MAX_LENGTH 30  // Enough for "Car/pictureXXX.jpg" or "Rhino/pictureXXX.jpg"
 
-#define MAX_LENGTH 26  // Enough for "Car/pictureXXX.jpg"
-
-static uint8_t mydata[MAX_LENGTH]; //will now ensure that mydata can handle large number of char
+static uint8_t mydata[MAX_LENGTH]; // will now ensure that mydata can handle large number of chars
 static osjob_t sendjob;
 
-// Schedule TX every this many seconds (might become longer due to duty
-// cycle limitations).
-const unsigned TX_INTERVAL = 200; //if doesn't work change back to 60
+// Schedule TX every this many seconds (might become longer due to duty cycle limitations).
+const unsigned TX_INTERVAL = 200; 
 
 // Pin mapping for Adafruit Feather M0 LoRa, etc.
 
@@ -87,12 +83,20 @@ const lmic_pinmap lmic_pins = {
     .spi_freq = 8000000,
 };
 
-
 void printHex2(unsigned v) {
     v &= 0xff;
     if (v < 16)
         Serial.print('0');
     Serial.print(v, HEX);
+}
+
+// New utility to print a buffer as hex string to assist in sending payload
+void printHexBuffer(const uint8_t* buf, size_t len) {
+    for (size_t i = 0; i < len; i++) {
+        if (i != 0) Serial.print(" ");
+        printHex2(buf[i]);
+    }
+    Serial.println();
 }
 
 void onEvent (ev_t ev) {
@@ -113,8 +117,6 @@ void onEvent (ev_t ev) {
             break;
         case EV_JOINING:
             Serial.println(F("EV_JOINING"));
-                  //blink if completed
-
             break;
         case EV_JOINED:
             Serial.println(F("EV_JOINED"));
@@ -145,25 +147,14 @@ void onEvent (ev_t ev) {
             }
             // Disable link check validation (automatically enabled
             // during join, but because slow data rates change max TX
-	    // size, we don't use it in this example.
+            // size, we don't use it in this example.
             LMIC_setLinkCheckMode(0);
-           
-
             break;
-        /*
-        || This event is defined but not used in the code. No
-        || point in wasting codespace on it.
-        ||
-        || case EV_RFU1:
-        ||     Serial.println(F("EV_RFU1"));
-        ||     break;
-        */
         case EV_JOIN_FAILED:
             Serial.println(F("EV_JOIN_FAILED"));
             break;
         case EV_REJOIN_FAILED:
             Serial.println(F("EV_REJOIN_FAILED"));
-            break;
             break;
         case EV_TXCOMPLETE:
             Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
@@ -184,7 +175,6 @@ void onEvent (ev_t ev) {
             Serial.println(F("EV_RESET"));
             break;
         case EV_RXCOMPLETE:
-            // data received in ping slot
             Serial.println(F("EV_RXCOMPLETE"));
             break;
         case EV_LINK_DEAD:
@@ -193,14 +183,6 @@ void onEvent (ev_t ev) {
         case EV_LINK_ALIVE:
             Serial.println(F("EV_LINK_ALIVE"));
             break;
-        /*
-        || This event is defined but not used in the code. No
-        || point in wasting codespace on it.
-        ||
-        || case EV_SCAN_FOUND:
-        ||    Serial.println(F("EV_SCAN_FOUND"));
-        ||    break;
-        */
         case EV_TXSTART:
             Serial.println(F("EV_TXSTART"));
             break;
@@ -208,13 +190,11 @@ void onEvent (ev_t ev) {
             Serial.println(F("EV_TXCANCELED"));
             break;
         case EV_RXSTART:
-            /* do not print anything -- it wrecks timing */
+            // do not print anything -- it wrecks timing
             break;
         case EV_JOIN_TXCOMPLETE:
             Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
-             
             break;
-
         default:
             Serial.print(F("Unknown event: "));
             Serial.println((unsigned) ev);
@@ -227,24 +207,26 @@ void do_send(osjob_t* j){
     if (LMIC.opmode & OP_TXRXPEND) {
         Serial.println(F("OP_TXRXPEND, not sending"));
     } else {
+        size_t payloadLen = strlen((char*)mydata);
+        Serial.print(F("Sending payload (hex): "));
+        printHexBuffer(mydata, payloadLen); //Puts properly sized payload in buffer
+
         // Prepare upstream data transmission at the next possible time.
-        //LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0); //Original
-        LMIC_setTxData2(1, mydata, strlen((char*)mydata), 0); //Doesn't cut down length of string length
+        LMIC_setTxData2(1, mydata, payloadLen, 0);
         Serial.println(F("Packet queued"));
     }
-
 }
 
 void setup() {
-digitalWrite(13, HIGH);
-   delay(1000); //change back to 5000 if need be
+    digitalWrite(13, HIGH);
+    delay(1000); // change back to 5000 if need be
 
- //while (!Serial && millis() < 5000);  // wait up to 5 seconds for Serial
+    while (!Serial && millis() < 5000);  // wait up to 5 seconds for Serial
     Serial.begin(9600); 
     delay(100);
     Serial1.begin(115200);     // ALLOWS RX AND TX TO BE ABLE TO READ SERIAL1 DATA BY 
-                                //  BEING ON THE SAME BAUD RATE AS ESP32 CAM
-                                //
+                               //  BEING ON THE SAME BAUD RATE AS ESP32 CAM
+
     Serial.println(F("Starting"));
 
     #ifdef VCC_ENABLE
@@ -256,33 +238,35 @@ digitalWrite(13, HIGH);
 
     // LMIC init
     os_init();
-    // Reset the MAC state. Session and pending data transfers will be discarded.
+    // Reset the MAC state
     LMIC_reset();
-
 
     LMIC_setLinkCheckMode(0);
     LMIC_setDrTxpow(DR_SF7,14);
     LMIC_selectSubBand(0);
 
-
-   digitalWrite(13, LOW);
- 
+    digitalWrite(13, LOW);
 }
+
 void loop() {
     os_runloop_once();
 
     while (Serial1.available()) { // Check if data is available to read
-String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
-       Serial.print("Received: ");
-         Serial.println(receivedString); // print the received line
+        String receivedString = Serial1.readStringUntil('\n'); // Read until newline character
+        receivedString.trim();  // Remove anything trailing
 
-          if (receivedString.length() < MAX_LENGTH) { //receivedString.endsWith("jpg")
-              receivedString.getBytes(mydata, receivedString.length() + 1); // +1 to include the null terminator
-                 do_send(&sendjob);
-          } else {
-              Serial.println("Out of bounds");
-              receivedString = "ERR: Check Cam";
-          }
+        Serial.print("Received: ");
+        Serial.println(receivedString); // Print the cleaned received line
+
+        if (receivedString.length() < MAX_LENGTH && receivedString.endsWith("jpg")) {
+            // Copy the string into the mydata buffer
+            receivedString.getBytes(mydata, receivedString.length() + 1);
+
+            do_send(&sendjob);  // Send after successful preparation
+        } else {
+            Serial.println("Out of bounds or invalid prefix");
+            
+            memset(mydata, 0, MAX_LENGTH); //Clear or reset mydata on error
+        }
     }
-
 }
