@@ -24,7 +24,6 @@
 // https://github.com/espressif/arduino-esp32/releases/tag/2.0.4
 
 /* Includes ---------------------------------------------------------------- */
-//#include "rhinodetector_inferencing.h"
 #include "CarDetect_inferencing.h"
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 
@@ -148,7 +147,7 @@ void setup()
 {
     // put your setup code here, to run once:
     Serial.begin(115200);
-    delay(1000);
+    delay(10000);
     //comment out the below line to start inference immediately after upload
     //while (!Serial);
     Serial.println("Edge Impulse Inferencing Demo");
@@ -203,7 +202,6 @@ void loop()
       while (endTime > millis()){
           digitalWrite(INFERENCELED, LOW);
           makeCapture();
-          //Serial.println("took a pic"); //Troubleshooting
           digitalWrite(INFERENCELED, HIGH);
        
     }
@@ -212,7 +210,6 @@ void loop()
 void makeCapture(){
    // instead of wait_ms, we'll wait on the signal, this allows threads to cancel us...
     if (ei_sleep(5) != EI_IMPULSE_OK) {
-        //Serial.println("hello"); //troubleshooting
         return;
     }
 
@@ -243,7 +240,7 @@ void makeCapture(){
         return;
     }
 
-// print the predictions
+    // print the predictions
     ei_printf("Predictions (DSP: %d ms., Classification: %d ms., Anomaly: %d ms.): \n",
                 result.timing.dsp, result.timing.classification, result.timing.anomaly);
 
@@ -254,7 +251,8 @@ void makeCapture(){
         if (bb.value == 0) {
             continue;
         }
-        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n",
+        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n", //%04.2f will always have 4 bytes long with 0 
+                                                                               // infront and 2 bytes behind the decimal
                 bb.label,
                 bb.value,
                 bb.x,
@@ -266,7 +264,7 @@ void makeCapture(){
             camera_fb_t *fb = esp_camera_fb_get();
             SD_MMC.begin();
             uint8_t cardType = SD_MMC.cardType();
-          Serial.println("beginning write to sd card");
+            Serial.println("beginning write to sd card");
             EEPROM.begin(EEPROM_SIZE);
             pictureNumber = EEPROM.read(0) + 1;
             String path = "/picture" + String(pictureNumber) +".jpg";
@@ -284,20 +282,16 @@ void makeCapture(){
               EEPROM.commit();
             }
             file.close();
-           EEPROM.write(0, pictureNumber);
-           EEPROM.commit();
+
+            EEPROM.write(0, pictureNumber);
+            EEPROM.commit();
             esp_camera_fb_return(fb);
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
-            delay(10000);
-            //Currently inputting Car is the way of ensuring that irregardless of bb.label value we will get the label Car
-            //Although EI is has bb.label as 1 or 0 dependent on the accuracy of the image we just want to classify them as Cars anyway
+            delay(10000); //10 sec
             Serial.println(String(bb.label) + "" + String(bb.value) + "" + path.c_str()); //will print label, accuracy value, and picture label
-            delay(180000);
+            delay(120000); //2 minutes
             digitalWrite(LORA, LOW);
-            // Serial.println("Done with pic being sent"); //troubleshooting
-           
-     
         }
 }
     
@@ -323,9 +317,8 @@ void makeCapture(){
         if (bb.value == 0) {
             continue;
         }
-        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n", //%04.2f will make it so 0 will prevent dead space, 4 will make it so you always have 4 bytes of space total 
-                                                                                //with 2 spaces behind the decimal f is a float format
-                                                                                //For codec on chirpstack so it can print message appropriately
+        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n", //%04.2f will always have 4 bytes long with 0 
+                                                                               // infront and 2 bytes behind the decimal
                 bb.label,
                 bb.value,
                 bb.x,
