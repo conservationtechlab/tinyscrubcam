@@ -24,7 +24,7 @@
 // https://github.com/espressif/arduino-esp32/releases/tag/2.0.4
 
 /* Includes ---------------------------------------------------------------- */
-#include "rhinodetector_inferencing.h"
+#include "CarDetect_inferencing.h"
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 
 #include "esp_camera.h"
@@ -85,10 +85,27 @@
 #define EI_CAMERA_RAW_FRAME_BUFFER_ROWS           240
 #define EI_CAMERA_FRAME_BYTE_SIZE                 3
 
+/*
+Delete or comment out the below section if not testing with Serial
+
+
+// Temporary testing mode, listen on Serial (USB)
+#define TEST_WITH_MONITOR 1
+
+
+#if TEST_WITH_MONITOR
+  #define InputSerial Serial
+#else
+  #define InputSerial FeatherSerial
+#endif
+
+
+Delete or comment out the above section if not testing with Serial
+*/
+
 #include "FS.h"
 #include "SD_MMC.h"
 #include <EEPROM.h>
-
 #include <HardwareSerial.h>
 //Setting up Feather Serial to communicate on different UART
 HardwareSerial FeatherSerial(2); // Use UART2
@@ -148,15 +165,21 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
 /**
 * @brief      Arduino setup function
 */
+
+
+    bool ackReceived = false;
+    bool ACKsent = false;
+    bool CaptureTaken = false;
+    bool ComDone = false;
+
 void setup()
 {
     // put your setup code here, to run once:
     Serial.begin(115200);
     delay(1000);
-    //Reading serial data from Feather on pin 13
-    FeatherSerial.begin(9600, SERIAL_8N1, 13, -1); // RX = GPIO13, TX unused 
+     //Reading serial data from Feather on pin 13
+    FeatherSerial.begin(115200, SERIAL_8N1, 13, -1); // Baud must match Serial1 on Feather RX = GPIO13, TX unused 
     //baud rate must match feather m0
-    
     //comment out the below line to start inference immediately after upload
     //while (!Serial);
     Serial.println("Edge Impulse Inferencing Demo");
@@ -199,30 +222,16 @@ void setup()
 *
 * @param[in]  debug  Get debug info if true
 */
-void loop()
-{
-  pinMode(PIRSENSOR, INPUT);
-  if(digitalRead(PIRSENSOR) == HIGH){
 
-      int startTime;
-      int endTime;
-      startTime = millis();
-      endTime = startTime + 10000;
-      while (endTime > millis()){
-          digitalWrite(INFERENCELED, LOW);
-          makeCapture();
-          //Serial.println("took a pic"); //Troubleshooting
-          digitalWrite(INFERENCELED, HIGH);
-       
-    }
-  }
-}
+
+
 void makeCapture(){
    // instead of wait_ms, we'll wait on the signal, this allows threads to cancel us...
     if (ei_sleep(5) != EI_IMPULSE_OK) {
-        Serial.println("hello");
+        //Serial.println("hello"); //troubleshooting
         return;
     }
+
 
     snapshot_buf = (uint8_t*)malloc(EI_CAMERA_RAW_FRAME_BUFFER_COLS * EI_CAMERA_RAW_FRAME_BUFFER_ROWS * EI_CAMERA_FRAME_BYTE_SIZE);
 
@@ -262,7 +271,7 @@ void makeCapture(){
         if (bb.value == 0) {
             continue;
         }
-        ei_printf("  %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\r\n",
+        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n",
                 bb.label,
                 bb.value,
                 bb.x,
@@ -299,33 +308,42 @@ void makeCapture(){
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
             delay(10000);
-            Serial.println(path.c_str()); //will print name of picture
-            //Serial.println(bb.label); // Will print Rhino or whatever is value of bb.label
-
-unsigned long waitStart = millis();
-unsigned long waitDuration = 180000; // 3 minutes
-bool ackReceived = false;
-//will continue with wait until feather sends acknowledgement to break it
-while (millis() - waitStart < waitDuration) {
-  if (FeatherSerial.available()) {
-    String input = FeatherSerial.readStringUntil('\n');
-    if (input.startsWith("ACK")) {
-      Serial.println("ACK received from Feather. Skipping wait.");
-      ackReceived = true; //Feather has completed sending the paylaod
-      break;
-    }
-  }
-  delay(10); // Small delay to prevent hogging the CPU
+            CaptureTaken = true;
+            Serial.println(String(bb.label) + "" + String(bb.value) + "" + path.c_str()); //will print label, accuracy value, and picture label
+                unsigned long waitStart = millis();
+                unsigned long waitDuration = 120000; // 2 minutes
+            while (!ackReceived && CaptureTaken && (millis() - waitStart < waitDuration)) {
+               
+            if (FeatherSerial.available()) { //FeatherSerial for integrated test and InputSerial for baord test
+            String input = FeatherSerial.readStringUntil('\n');
+            input.trim();
+                Serial.println("Waiting for ACK"); 
+                delay(5000);
+            if (input.startsWith("ACK") && CaptureTaken) {
+                Serial.println("ACK received from Feather. Skipping wait.");
+                Serial.println("ESP");
+                ackReceived = true;
+                ACKsent = true;
+                CaptureTaken = false;
+                break;
+            }
+            }
+               
+        
+        delay(10); // Small delay to prevent hogging the CPU
 }
-
-if (!ackReceived) {
-  Serial.println("No ACK received. Full wait completed.");
-}
-
+            if (!ackReceived) {
+                 Serial.println("No ACK received. Full wait completed.");
+                }
+            ackReceived = false;
+            ACKsent = false;
+            ComDone = true;
+           
             digitalWrite(LORA, LOW);
-            //  Serial.println("Done with pic being sent");
-        }
+            delay(5000);
+            Serial.println("Done with pic being sent");
 }
+    }
     
 
     // Print the prediction results (classification)
@@ -335,6 +353,7 @@ if (!ackReceived) {
         ei_printf("  %s: ", ei_classifier_inferencing_categories[i]);
         ei_printf("%.5f\r\n", result.classification[i].value);
     }
+
 #endif
 
     // Print anomaly result (if it exists)
@@ -349,7 +368,7 @@ if (!ackReceived) {
         if (bb.value == 0) {
             continue;
         }
-        ei_printf("  %s (%f) [ x: %u, y: %u, width: %u, height: %u ]\r\n",
+        ei_printf("  %s (%04.2f) [ x: %u, y: %u, width: %u, height: %u ]\r\n",
                 bb.label,
                 bb.value,
                 bb.x,
@@ -367,6 +386,7 @@ if (!ackReceived) {
 
 
 }
+
 
 /**
  * @brief   Setup image sensor & start streaming
@@ -507,3 +527,41 @@ static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr) {
 #if !defined(EI_CLASSIFIER_SENSOR) || EI_CLASSIFIER_SENSOR != EI_CLASSIFIER_SENSOR_CAMERA
 #error "Invalid model for current sensor"
 #endif
+void Wait() {
+      if(ComDone) {
+        delay(15000);
+        ComDone = false;
+    }
+}
+
+void loop()
+{
+  Wait();
+  pinMode(PIRSENSOR, INPUT);
+  if(digitalRead(PIRSENSOR) == HIGH){
+
+      int startTime;
+      int endTime;
+      startTime = millis();
+      endTime = startTime + 10000;
+      while (endTime > millis()){
+          digitalWrite(INFERENCELED, LOW);
+          makeCapture();
+          //Serial.println("took a pic"); //Troubleshooting
+          digitalWrite(INFERENCELED, HIGH);
+       
+    }
+  }
+   if (FeatherSerial.available()) { //FeatherSerial for integrated test and InputSerial for baord test
+            String input = FeatherSerial.readStringUntil('\n');
+            input.trim();
+                if (input.startsWith("ACK") && !CaptureTaken) {
+                Serial.println("Got input: " + input);
+                Serial.println("ACK received from Feather when no Capture taken");
+                Serial.println("ESP");
+                Serial.println("Waiting incase there are more empty packets");
+                delay(10000);
+            }
+  
+}
+}
