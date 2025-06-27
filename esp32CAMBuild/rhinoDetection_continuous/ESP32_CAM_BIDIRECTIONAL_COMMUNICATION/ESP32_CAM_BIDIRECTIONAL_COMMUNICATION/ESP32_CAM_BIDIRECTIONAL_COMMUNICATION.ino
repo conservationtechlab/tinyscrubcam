@@ -174,11 +174,8 @@ bool ei_camera_capture(uint32_t img_width, uint32_t img_height, uint8_t *out_buf
 
 void setup()
 {
-    // put your setup code here, to run once:
     Serial.begin(115200);
     delay(1000);
-     //Reading serial data from Feather on pin 13
-    FeatherSerial.begin(115200, SERIAL_8N1, 13, -1); // Baud must match Serial1 on Feather RX = GPIO13, TX unused 
     //baud rate must match feather m0
     //comment out the below line to start inference immediately after upload
     //while (!Serial);
@@ -189,7 +186,6 @@ void setup()
     else {
         ei_printf("Camera initialized\r\n");
     }
-    // Serial.println("hello"); // Troubleshooting
     //pinMode(LORAENABLE, OUTPUT);
     pinMode(INFERENCELED, OUTPUT);
     pinMode(LORA, OUTPUT);
@@ -223,6 +219,36 @@ void setup()
 * @param[in]  debug  Get debug info if true
 */
 
+void loop()
+{
+
+  pinMode(PIRSENSOR, INPUT);
+  if(digitalRead(PIRSENSOR) == HIGH){
+      int startTime;
+      int endTime;
+      startTime = millis();
+      endTime = startTime + 10000;
+      while (endTime > millis()){
+          digitalWrite(INFERENCELED, LOW);
+          makeCapture();
+          digitalWrite(INFERENCELED, HIGH);
+       
+    }
+  }
+  //Looks for stray ACKs may no longer apply after debugging Feather
+   if (FeatherSerial.available()) { //FeatherSerial for integrated test and InputSerial for baord test
+            String input = FeatherSerial.readStringUntil('\n');
+            input.trim();
+                if (input.startsWith("ACK") && !CaptureTaken) {
+                Serial.println("Got input: " + input);
+                Serial.println("ACK received from Feather when no Capture taken");
+                Serial.println("ESP");
+                Serial.println("Waiting incase there are more empty packets");
+                delay(10000);
+            }
+  
+}
+}
 
 
 void makeCapture(){
@@ -280,8 +306,9 @@ void makeCapture(){
                 bb.height);
 
         if (i == 0 && saveToSDCard){
+            pinMode(13, INPUT_PULLUP);  // reset pin 13 before SD use
             camera_fb_t *fb = esp_camera_fb_get();
-            SD_MMC.begin();
+            SD_MMC.begin("/sdcard", true);        // true = 1-bit mode
             uint8_t cardType = SD_MMC.cardType();
             Serial.println("beginning write to sd card");
             EEPROM.begin(EEPROM_SIZE);
@@ -301,17 +328,24 @@ void makeCapture(){
               EEPROM.commit();
             }
             file.close();
-
+            SD_MMC.end();         // Properly shut down SD before using pin 13 for UART2
+            delay(10);
             EEPROM.write(0, pictureNumber);
             EEPROM.commit();
             esp_camera_fb_return(fb);
             pinMode(LORA, OUTPUT);
             digitalWrite(LORA, HIGH);
+             //Reading serial data from Feather on pin 13 which will prevent SD card
+             // file writing but will allow for RX to be used
+            FeatherSerial.begin(115200, SERIAL_8N1, 13, -1); // Baud must match Serial1 on 
+                                                            //Feather RX = GPIO16, TX unused 
             delay(10000);
             CaptureTaken = true;
             Serial.println(String(bb.label) + "" + String(bb.value) + "" + path.c_str()); //will print label, accuracy value, and picture label
                 unsigned long waitStart = millis();
                 unsigned long waitDuration = 120000; // 2 minutes
+
+                //Waits the initial 2 minutes until receiving ACK from Feather
             while (!ackReceived && CaptureTaken && (millis() - waitStart < waitDuration)) {
                
             if (FeatherSerial.available()) { //FeatherSerial for integrated test and InputSerial for baord test
@@ -340,8 +374,11 @@ void makeCapture(){
             ComDone = true;
            
             digitalWrite(LORA, LOW);
-            delay(5000);
+            FeatherSerial.end(); //Stops using pin 13 as RX for UART2
+            pinMode(13, INPUT_PULLUP); // Restore pin 13 for SD card
+            delay(20);
             Serial.println("Done with pic being sent");
+            delay(10000);
 }
     }
     
@@ -527,41 +564,3 @@ static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr) {
 #if !defined(EI_CLASSIFIER_SENSOR) || EI_CLASSIFIER_SENSOR != EI_CLASSIFIER_SENSOR_CAMERA
 #error "Invalid model for current sensor"
 #endif
-void Wait() {
-      if(ComDone) {
-        delay(15000);
-        ComDone = false;
-    }
-}
-
-void loop()
-{
-  Wait();
-  pinMode(PIRSENSOR, INPUT);
-  if(digitalRead(PIRSENSOR) == HIGH){
-
-      int startTime;
-      int endTime;
-      startTime = millis();
-      endTime = startTime + 10000;
-      while (endTime > millis()){
-          digitalWrite(INFERENCELED, LOW);
-          makeCapture();
-          //Serial.println("took a pic"); //Troubleshooting
-          digitalWrite(INFERENCELED, HIGH);
-       
-    }
-  }
-   if (FeatherSerial.available()) { //FeatherSerial for integrated test and InputSerial for baord test
-            String input = FeatherSerial.readStringUntil('\n');
-            input.trim();
-                if (input.startsWith("ACK") && !CaptureTaken) {
-                Serial.println("Got input: " + input);
-                Serial.println("ACK received from Feather when no Capture taken");
-                Serial.println("ESP");
-                Serial.println("Waiting incase there are more empty packets");
-                delay(10000);
-            }
-  
-}
-}
