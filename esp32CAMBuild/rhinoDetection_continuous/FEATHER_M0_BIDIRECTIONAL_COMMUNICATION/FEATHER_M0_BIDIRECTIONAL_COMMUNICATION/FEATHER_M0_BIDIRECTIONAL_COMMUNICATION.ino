@@ -69,9 +69,6 @@ bool first_join = true;
 bool TX_success = false;
 bool carSent = false;
 
-unsigned long lastAckTime = 0;
-unsigned long ackInterval = 10000; // 10 seconds
-
 const lmic_pinmap lmic_pins = {
     .nss = 8,
     .rxtx = LMIC_UNUSED_PIN,
@@ -137,7 +134,7 @@ bool tryRestoreSession() {
     return true;
   }
 
-  Serial.println(F("No valid session found or invalid data, starting OTAA"));
+  Serial.println(F("Not in session, starting OTAA"));
   join = false;
   return false;
 }
@@ -149,18 +146,28 @@ bool ACKSENT() {
         String input = Serial1.readStringUntil('\n');
         input.trim();
 
-        Serial.println("Received: " + input); // Debug print
-
-        if (input.startsWith("ESP")) {
-            espReceived = true;  // Mark that ESP responded
+        Serial.println("Received: " + input); // Print what is being received
+        delay(2500);
+         if (input.startsWith("ESP") && carSent) {
+            espReceived = true;  // When ESP responds stop producing ACK
             Serial.println("ESP acknowledged, stop sending ACK");
     
         }
+        //Only to be used when successful transmission and not receiving ESP
+        if (TX_success && !espReceived) {
+        delay(8000);
+        if (!espReceived) {
+        Serial1.println("ACK");  // Send ACK
+        }
+        else {
+          Serial.println("No ACK needed, ESP received");
+        }  
     }
-    return espReceived;  // Return if ESP was received previously
+    }
+    return espReceived;  // Returns true or false based on reset or ESP being sent
 }
 
-// Call this when TX completes successfully to reset the flag
+// Call this when TX completes to reset ACKSENT
 void resetACK() {
     espReceived = false;
 }
@@ -207,12 +214,12 @@ void onEvent (ev_t ev) {
             break;
         case EV_TXCOMPLETE:
             Serial.println(F("EV_TXCOMPLETE"));
-       
+
             if (LMIC.txrxFlags & TXRX_NACK) {
               Serial.println(F("No ACK received, session may be invalid"));
               
               LMIC_reset();
-
+              
               devNonce++;
               if (devNonce == 0) devNonce = 1;
               devnonce_flash.write(devNonce);
@@ -229,7 +236,10 @@ void onEvent (ev_t ev) {
                 session_flash.write(session);
                 Serial.println(F("Frame counters updated in flash"));
               }
-            TX_success =true;
+              if (carSent) { //Only when car message is given will ACK be sent
+                TX_success =true;
+              }
+            
     }
             
 
@@ -254,6 +264,7 @@ void do_send(osjob_t* j) {
         size_t payloadLen = strlen((char*)mydata);
         Serial.print(F("Sending payload (hex): "));
         printHexBuffer(mydata, payloadLen);
+
         //Print Frame Count
         Serial.print(F("FCntUp before send: "));
         Serial.println(LMIC.seqnoUp);
@@ -268,7 +279,7 @@ void verifySession(osjob_t* j) {
 Serial.println(F("Not joined, starting join"));
 LMIC_startJoining();
 } else {
-    if (!pingsent) { //set to !pingsent if you want to go back to the good progress
+    if (!pingsent) { //Will only allow 1 ping so you don't send too many
     pingsent = true;
    const char *testPayload = "#ping";
     LMIC_setTxData2(1, (uint8_t*)testPayload, strlen(testPayload), 0); //will send ping to verify if connected
@@ -298,13 +309,14 @@ void setup() {
   Serial.print(F("Starting with DevNonce: ")); 
   Serial.println(devNonce);
   
-  LMIC_selectSubBand(0);
+  LMIC_selectSubBand(0); //0 works in Lab
   LMIC_setLinkCheckMode(0);
   LMIC_setDrTxpow(DR_SF7, 14);
   LMIC_startJoining();
   if (!startsent) {
   const char *startPayload = "#starting";
   LMIC_setTxData2(1, (uint8_t*)startPayload, strlen(startPayload), 0);
+  startsent = true;
   }
     //Only try to restore session if absolutely necessary by checking with ping or joining
   bool sessionRestored = tryRestoreSession();
@@ -330,21 +342,17 @@ void loop() {
     Serial.print("Serial Monitor Input: ");
     Serial.println(input);
 
-    if (input.length() < MAX_LENGTH && input.startsWith("car")) {
+    if ((input.length() < MAX_LENGTH) && input.startsWith("car")) {
       input.getBytes(mydata, input.length() + 1);
       do_send(&sendjob);
       carSent = true;
     } 
   }
-      if (TX_success && !espReceived && (millis() - lastAckTime >= ackInterval)) {
-        Serial1.println("ACK");  // Send ACK
-        lastAckTime = millis(); // Reset timer
-    }
-
-    // Simulate TX success event (replace with your actual logic)
+    
     if (carSent && ACKSENT()) {
-        resetACK();  // Reset so next transmission can start fresh
+        resetACK();  // Resets espReceived
         Serial.println("ACK reset");
-        TX_success = false;  // Reset your TX_success flag as well
+        TX_success = false; 
+        carSent =false;
     }
 }
