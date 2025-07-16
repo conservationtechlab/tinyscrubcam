@@ -41,17 +41,17 @@
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
 // 0x70.
-static const u1_t PROGMEM APPEUI[8]= { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPEUI[8]= { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }; //LEAVE AS IS
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8); }
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]= {0xF2,  0xD7,  0x9D,  0xAA,  0xEC,  0xC5,  0x4B, 0xC5};
+static const u1_t PROGMEM DEVEUI[8]= {FILL ME IN };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8); }
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from the TTN console can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0xB5, 0xB6, 0xB8, 0xB3, 0xE3, 0x43, 0x34, 0x54, 0xBC, 0x87, 0xC3, 0x69, 0x61, 0xB1, 0x77, 0xD1 };
+static const u1_t PROGMEM APPKEY[16] = {FILL ME IN };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16); }
 
 #define MAX_LENGTH 30
@@ -59,12 +59,8 @@ void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16); }
 static uint8_t mydata[MAX_LENGTH]; // Enough for "Car/pictureXXX.jpg" or "Rhino/pictureXXX.jpg"
 static osjob_t sendjob;
 
-/*
-Bool flags to check progress throughout code
-*/
+//Bool flags for OTAA communication
 bool join = false;
-bool pingsent = false;
-bool startsent = false;
 bool first_join = true;
 
 const lmic_pinmap lmic_pins = {
@@ -147,7 +143,7 @@ void onEvent (ev_t ev) {
         case EV_JOINED:
             Serial.println(F("EV_JOINED"));
             join = true;
-
+            first_join = false;
             {
               SessionData session;
               session.joined = true;
@@ -172,7 +168,7 @@ void onEvent (ev_t ev) {
             devnonce_flash.write(devNonce);
             Serial.print(F("DevNonce incremented and saved (retry): "));
             Serial.println(devNonce);
-
+            //Attempt joining with new DevNonce
             LMIC_startJoining();
             break;
         case EV_TXCOMPLETE:
@@ -230,27 +226,15 @@ void do_send(osjob_t* j) {
     }
 }
 
-void verifySession(osjob_t* j) {
- if (!join) {
-Serial.println(F("Not joined, starting join"));
-LMIC_startJoining();
-} else {
-    if (!pingsent) { //set to !pingsent if you want to go back to the good progress
-    pingsent = true;
-   const char *testPayload = "#ping";
-    LMIC_setTxData2(1, (uint8_t*)testPayload, strlen(testPayload), 0); //will send ping to verify if connected
-    Serial.println(F("Sent ping to verify session"));
-    }
-  }
-}
 
 void setup() {
   delay(5000);
   Serial.begin(9600);
   delay(100);
   Serial1.begin(115200); //Must be same as ESP32_CAM
+  
   join =false;
-  startsent = false;
+
    // LMIC init
   os_init();
     // Reset the MAC state
@@ -269,11 +253,7 @@ void setup() {
   LMIC_setLinkCheckMode(0);
   LMIC_setDrTxpow(DR_SF7, 14);
   LMIC_startJoining();
-  if (!startsent) {
-  const char *startPayload = "#starting";
-  LMIC_setTxData2(1, (uint8_t*)startPayload, strlen(startPayload), 0);
-  }
-    //Only try to restore session if absolutely necessary by checking with ping or joining
+
   bool sessionRestored = tryRestoreSession();
 
   if (!sessionRestored && first_join) {
@@ -282,7 +262,6 @@ void setup() {
     first_join = false;
   } else {
     Serial.println(F("Session restored, will verify validity after delay"));
-    os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(30), verifySession);
   }
   
 }
