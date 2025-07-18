@@ -59,15 +59,14 @@ void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16); }
 static uint8_t mydata[MAX_LENGTH]; // Enough for "Car/pictureXXX.jpg" or "Rhino/pictureXXX.jpg"
 static osjob_t sendjob;
 
-/*
-Bool flags to check progress throughout code
-*/
+//Bool flags for OTAA communication
 bool join = false;
-bool pingsent = false;
-bool startsent = false;
 bool first_join = true;
 bool TX_success = false;
+
+//Flags for Bidirectional Communication
 bool carSent = false;
+bool espReceived = false;
 
 const lmic_pinmap lmic_pins = {
     .nss = 8,
@@ -139,7 +138,6 @@ bool tryRestoreSession() {
   return false;
 }
 
-bool espReceived = false;
 
 bool ACKSENT() {
     if (TX_success) {  // Read all available data to clear buffer
@@ -239,10 +237,7 @@ void onEvent (ev_t ev) {
               if (carSent) { //Only when car message is given will ACK be sent
                 TX_success =true;
               }
-            
     }
-            
-
             break;
         case EV_TXSTART:
             Serial.println(F("EV_TXSTART"));
@@ -274,19 +269,6 @@ void do_send(osjob_t* j) {
     }
 }
 
-void verifySession(osjob_t* j) {
- if (!join) {
-Serial.println(F("Not joined, starting join"));
-LMIC_startJoining();
-} else {
-    if (!pingsent) { //Will only allow 1 ping so you don't send too many
-    pingsent = true;
-   const char *testPayload = "#ping";
-    LMIC_setTxData2(1, (uint8_t*)testPayload, strlen(testPayload), 0); //will send ping to verify if connected
-    Serial.println(F("Sent ping to verify session"));
-    }
-  }
-}
 
 void setup() {
   delay(5000);
@@ -294,7 +276,7 @@ void setup() {
   delay(100);
   Serial1.begin(115200); //Must be same as ESP32_CAM
   join =false;
-  startsent = false;
+
    // LMIC init
   os_init();
     // Reset the MAC state
@@ -312,22 +294,17 @@ void setup() {
   LMIC_selectSubBand(0); //0 works in Lab
   LMIC_setLinkCheckMode(0);
   LMIC_setDrTxpow(DR_SF7, 14);
-  LMIC_startJoining();
-  if (!startsent) {
-  const char *startPayload = "#starting";
-  LMIC_setTxData2(1, (uint8_t*)startPayload, strlen(startPayload), 0);
-  startsent = true;
-  }
+
+  
     //Only try to restore session if absolutely necessary by checking with ping or joining
   bool sessionRestored = tryRestoreSession();
 
-  if (!sessionRestored && first_join) {
+ if (!sessionRestored && first_join) {
     Serial.println(F("No session restored, starting join immediately"));
-    LMIC_startJoining();
+    LMIC_startJoining();   // ONLY start if not restored
     first_join = false;
   } else {
-    Serial.println(F("Session restored, will verify validity after delay"));
-    os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(30), verifySession);
+    Serial.println(F("Session restored"));
   }
   
 }
