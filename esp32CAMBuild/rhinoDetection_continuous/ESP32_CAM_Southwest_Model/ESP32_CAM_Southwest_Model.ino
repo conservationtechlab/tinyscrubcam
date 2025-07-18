@@ -109,7 +109,7 @@ Delete or comment out the above section if not testing with Serial
 //Setting up Feather Serial to communicate on different UART
 HardwareSerial FeatherSerial(2); // Use UART2
 
-#define EEPROM_SIZE 5
+#define EEPROM_SIZE 6
 int pictureNumber = 0;
 
 #define PIRSENSOR 12
@@ -327,6 +327,8 @@ void makeCapture(){
               EEPROM.commit();
             }
             file.close();
+            EEPROM.write(0, pictureNumber);
+            EEPROM.commit();
             SD_MMC.end();         // Properly shut down SD before using pin 13 for UART2
             delay(10);// small wait required after switching
             esp_camera_fb_return(fb);
