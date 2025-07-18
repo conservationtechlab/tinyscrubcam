@@ -45,16 +45,14 @@ static const u1_t PROGMEM APPEUI[8]= { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8); }
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]= {0xF2,  0xD7,  0x9D,  0xAA,  0xEC,  0xC5,  0x4B, 0xC5};
+static const u1_t PROGMEM DEVEUI[8]= {FILL ME IN};
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8); }
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from the TTN console can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0xB5, 0xB6, 0xB8, 0xB3, 0xE3, 0x43, 0x34, 0x54, 0xBC, 0x87, 0xC3, 0x69, 0x61, 0xB1, 0x77, 0xD1 };
+static const u1_t PROGMEM APPKEY[16] = { FILL ME IN };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16); }
-
-//#define MAX_LENGTH 30  // Enough for "Car/pictureXXX.jpg" or "Rhino/pictureXXX.jpg"
 
 static uint8_t mydata[] = "Hello, World!"; // Buffer for outgoing payload mydata[MAX_LENGTH]
 static osjob_t sendjob;
@@ -271,7 +269,7 @@ void do_send(osjob_t* j){
     if (LMIC.opmode & OP_TXRXPEND) {
         Serial.println(F("OP_TXRXPEND, not sending"));
     } else {
-        // Prepare upstream data transmission at the next possible time.
+        // Prepare data transmission at the next possible time.
         LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0);
         Serial.println(F("Packet queued"));
     }
@@ -279,20 +277,10 @@ void do_send(osjob_t* j){
 }
 
 void setup() {
-    digitalWrite(13, HIGH);
     delay(1000); // wait for stabilization
-
-    while (!Serial && millis() < 5000);  // wait up to 5 seconds for Serial
     Serial.begin(9600); 
  
     Serial.println(F("Starting"));
-
-    #ifdef VCC_ENABLE
-    // For Pinoccio Scout boards
-    pinMode(VCC_ENABLE, OUTPUT);
-    digitalWrite(VCC_ENABLE, HIGH);
-    delay(1000);
-    #endif
 
     // LMIC init
     os_init();
