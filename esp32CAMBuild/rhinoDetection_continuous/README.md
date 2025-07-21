@@ -1,6 +1,6 @@
 # Rhino Detection
+<img width="1194" height="703" alt="Screenshot from 2025-07-21 15-27-27" src="https://github.com/user-attachments/assets/7ea7a73d-b914-437f-aba2-30fc68d6b8c0" />
 
-![image](./images/tinyscrubcam.png)
 
 ## Set-up
 1) Program esp32
