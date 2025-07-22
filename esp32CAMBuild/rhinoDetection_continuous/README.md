@@ -1,5 +1,6 @@
 # Rhino Detection
-<img width="1194" height="703" alt="Screenshot from 2025-07-21 15-27-27" src="https://github.com/user-attachments/assets/7ea7a73d-b914-437f-aba2-30fc68d6b8c0" />
+<img width="1287" height="742" alt="Screenshot from 2025-07-22 11-17-25" src="https://github.com/user-attachments/assets/24bbcbc0-bbce-4639-bf3b-4606830bf39d" />
+
 
 
 ## Set-up
