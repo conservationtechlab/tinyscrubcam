@@ -12,7 +12,7 @@
 2) Program Feather M0
    - Fill in ABP values and register device with your LoRa server
    - Download MCCI LoRaWAN LMIC library by IBM library
-   - Ensure pins io0 and GND are connected (when programming ONLY & running)
+   - Ensure pins io0 and GND are connected (ONLY when running)
    - Ensure config is set to proper region (868 for Africa, 915 for US)
 3) Refer to circuit diagram for wiring.
 4) Insert microsd card to ESP32 CAM before running
@@ -22,4 +22,6 @@
 SageBrush_Detector_inferencing is the Southwest model and works to detect cougars, coyotes, and bobcats.
 You can go to past issues #22, #20 and #19 to see past progress that has led to this branch 
 if you need assistance or more information on how to avoid past mistakes or get up to date on how things work.
+Feather M0 has SubBand function which will allow it to automatically cycle through each SubBand until finding what
+will allow it transmit. ESP32 CAM uses UART2 to communicate with Feather M0 by changing what pin 13 does after writing information onto SD card.
 
