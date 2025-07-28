@@ -156,7 +156,7 @@ bool ACKSENT() {
         delay(2500);
         //Looks for when ESP is sent from ESP32 CAM
          if (input.startsWith("ESP") && msgSent) {
-            espReceived = true;  // When ESP responds stop producing ACK
+            espReceived = true;  // When ESP32 CAM responds stop producing ACK
             Serial.println("ESP acknowledged, stop sending ACK");
     
         }
