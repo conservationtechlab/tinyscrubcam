@@ -1,5 +1,6 @@
 # Southwest model (bobcats, cougars, and coyotes)
-file:///home/conor/Pictures/Screenshots/Screenshot%20from%202025-07-28%2014-47-06.png
+<img width="1208" height="699" alt="Screenshot from 2025-07-28 14-47-06" src="https://github.com/user-attachments/assets/34965b80-d9b1-430a-a839-60fc86dc954f" />
+
 
 
 
