@@ -336,7 +336,7 @@ void makeCapture(){
             digitalWrite(LORA, HIGH);
              //Reading serial data from Feather on pin 13 which will prevent SD card
              // file writing but will allow for RX to be used
-            FeatherSerial.begin(115200, SERIAL_8N1, 13, -1); // Baud must match Serial1 on 
+            FeatherSerial.begin(115200, SERIAL_8N1, 13, -1); // Baud must match Serial1 on Feather 
                                                             //Feather RX = GPIO16, TX unused 
             delay(10000);
             CaptureTaken = true;
