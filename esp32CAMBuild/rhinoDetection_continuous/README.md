@@ -1,5 +1,6 @@
-# Rhino Detection
-<img width="1287" height="742" alt="Screenshot from 2025-07-22 11-17-25" src="https://github.com/user-attachments/assets/24bbcbc0-bbce-4639-bf3b-4606830bf39d" />
+# SouthWest Model
+<img width="1208" height="699" alt="Screenshot from 2025-07-28 14-47-06" src="https://github.com/user-attachments/assets/d70e920f-2fe9-4f71-87ea-3fb8add59fd9" />
+
 
 
 
