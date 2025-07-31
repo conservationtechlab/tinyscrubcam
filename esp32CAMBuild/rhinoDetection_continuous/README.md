@@ -62,11 +62,11 @@ First start by collecting the parts needed:
    
    - 1 4x1 rail for negative connections to ground (5x1 if you want indicator lights)
    
-   - ONLY FOR INDICATOR LIGHTS (3x1 rail for ESP32-CAM to Feather M0 UART connection)
+   - **ONLY FOR INDICATOR LIGHTS** (3x1 rail for ESP32-CAM to Feather M0 UART connection)
    
-   - ONLY FOR INDICATOR LIGHTS (3x1 rail for PIR sensor indicator light)
+   - **ONLY FOR INDICATOR LIGHTS**(3x1 rail for PIR sensor indicator light)
 
--ONLY FOR INDICATOR LIGHTS (best to keep soldering everything now if you intend to have indicator lights)
+-**ONLY FOR INDICATOR LIGHTS** (best to keep soldering everything now if you intend to have indicator lights)
 
    -Insert LEDs into drilled holes on the face plate of the device
    
@@ -90,9 +90,9 @@ First start by collecting the parts needed:
    
    -The soldering board with the possitive and negative connections will also be available for your connections
    
-   -IF YOU ARE USING INDICATOR LIGHTS (follow the connections with the schematic: TX on the Feather must go on the rail along with the pin 13 of the ESP32-CAM and one of the LEDs to the faceplate)
+   -**ONLY FOR INDICATOR LIGHTS** (follow the connections with the schematic: TX on the Feather must go on the rail along with the pin 13 of the ESP32-CAM and one of the LEDs to the faceplate)
 
-   -If YOU ARE USING INDICATOR LIGHTS (PIR sensor middle pin goes to rail, ESP32-CAM pin 12 and the last LED to the faceplate)
+   -**ONLY FOR INDICATOR LIGHTS** (PIR sensor middle pin goes to rail, ESP32-CAM pin 12 and the last LED to the faceplate)
 
 -After completing connections between the devices you can use the hot glue again to glue the battery pack within the battery cartridge
 
