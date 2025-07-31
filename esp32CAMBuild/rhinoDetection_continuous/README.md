@@ -68,13 +68,13 @@ First start by collecting the parts needed:
 
 -**ONLY FOR INDICATOR LIGHTS** (best to keep soldering everything now if you intend to have indicator lights)
 
-   -Insert LEDs into drilled holes on the face plate of the device
+      -Insert LEDs into drilled holes on the face plate of the device
    
-   -You will need to extend the cathode (- or short pin)  and the anode (+ or long pin) to either side of the face plate so it holds in place. This will also assist you in knowing which is possitve and negative for soldering
+      -You will need to extend the cathode (- or short pin)  and the anode (+ or long pin) to either side of the face plate so it holds in place. This will also assist you in knowing which is possitve and negative for soldering
   
-   -Next you will wrap a bare metal wire around the cathodes (- or short pins) of both LEDs. You can now solder this connection between the two LEDS where the wire and the cathode connect
+      -Next you will wrap a bare metal wire around the cathodes (- or short pins) of both LEDs. You can now solder this connection between the two LEDS where the wire and the cathode connect
    
-   -After that you will want to wrap a short male end to end wire (colors help to remember which is what ie. green for the green LED, red for the red LED, and black for ground) onto the remaining anodes of each LED and one for ground.
+      -After that you will want to wrap a short male end to end wire (colors help to remember which is what ie. green for the green LED, red for the red LED, and black for ground) onto the remaining anodes of each LED and one for ground.
 
 -You may need to solder the wires or the tips of the wires of the battery you are using depending on the solar manager inputs (please check if you do before putting away the soldering kit)
 
