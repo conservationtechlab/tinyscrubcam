@@ -29,13 +29,21 @@ will allow it transmit. ESP32 CAM uses UART2 to communicate with Feather M0 by c
 **How to build your own device**
 
 First start by collecting the parts needed:
+
 -Feather M0
+
 -ESP32-CAM
+
 -PIR sensor
+
 -Antenna
+
 -LIPO Batteries
+
 -wires (both female end to end and male end to end)
+
 -DFRobot solar manager
+
 -6V solar panel
 
 **Assembly (with indicator lights)**
@@ -82,4 +90,14 @@ First start by collecting the parts needed:
    
    -The soldering board with the possitive and negative connections will also be available for your connections
    
-   -IF YOU ARE USING INDICATOR LIGHTS (follow the connections on the schematic TX on the Feather must go on the rail along with the pin 13 of the ESP32-CAM
+   -IF YOU ARE USING INDICATOR LIGHTS (follow the connections with the schematic: TX on the Feather must go on the rail along with the pin 13 of the ESP32-CAM and one of the LEDs to the faceplate)
+
+   -If YOU ARE USING INDICATOR LIGHTS (PIR sensor middle pin goes to rail, ESP32-CAM pin 12 and the last LED to the faceplate)
+
+-After completing connections between the devices you can use the hot glue again to glue the battery pack within the battery cartridge
+
+   -Ensure that the connection from the battery charger to the solar manager is established and then begin connecting the solar panel to the appropriate pins to the solar manager
+
+-Once the solar manager is connected then hot glue inside the device
+
+-Check over all connections with the schematic and you should be set to test your device
