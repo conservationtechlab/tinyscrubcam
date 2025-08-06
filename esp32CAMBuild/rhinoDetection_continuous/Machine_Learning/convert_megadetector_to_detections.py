@@ -5,7 +5,7 @@ from PIL import Image
 
 # === CONFIG ===
 species_dirs = ["cougar", "bobcat", "coyote"]
-base_dir = Path("/home/conor/Downloads/Images/Species_Images")
+base_dir = Path("/home/username/Downloads/Images/Species_Images")
 confidence_threshold = 0.2
 
 def process_species_dir(species):
