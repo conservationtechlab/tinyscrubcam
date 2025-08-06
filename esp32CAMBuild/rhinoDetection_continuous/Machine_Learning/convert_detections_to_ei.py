@@ -73,9 +73,9 @@ def convert_cougar_detections_to_ei(megadetector_json_path, images_folder, outpu
 
 # Example usage
 if __name__ == "__main__":
-    megadetector_json = "/home/conor/Downloads/detections_cougar.json"
-    images_dir = "/home/conor/Downloads/Images/Species_Images/cougar"
-    ei_output_dir = "/home/conor/Downloads/Images/Species_Images/cougar/ei_dataset"
+    megadetector_json = "/home/username/Downloads/detections_cougar.json"
+    images_dir = "/home/username/Downloads/Images/Species_Images/cougar"
+    ei_output_dir = "/home/username/Downloads/Images/Species_Images/cougar/ei_dataset"
 
     convert_cougar_detections_to_ei(megadetector_json, images_dir, ei_output_dir)
 
