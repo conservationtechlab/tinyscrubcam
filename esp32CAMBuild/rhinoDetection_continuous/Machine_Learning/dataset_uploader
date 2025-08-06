@@ -6,12 +6,12 @@ from shutil import copy2
 from PIL import Image
 
 species_configs = {
-    "cougar": "/home/conor/Downloads/detections_cougar.json",
-    "bobcat": "/home/conor/Downloads/detections_bobcat.json",
-    "coyote": "/home/conor/Downloads/detections_coyote.json"
+    "cougar": "/home/username/Downloads/detections_cougar.json",
+    "bobcat": "/home/username/Downloads/detections_bobcat.json",
+    "coyote": "/home/username/Downloads/detections_coyote.json"
 }
 
-images_base_dir = Path("/home/conor/Downloads/Images/Species_Images")
+images_base_dir = Path("/home/username/Downloads/Images/Species_Images")
 output_base_dir = images_base_dir / "ei_dataset"
 confidence_threshold = 0.2
 train_split_ratio = 0.8
