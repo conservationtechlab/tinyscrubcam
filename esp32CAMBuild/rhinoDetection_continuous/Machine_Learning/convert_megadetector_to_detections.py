@@ -1,95 +1,60 @@
-import json
 import os
-from pathlib import Path
-from PIL import Image
+import json
+import cv2
+from PytorchWildlife.models import detection as pw_det
 
-# === CONFIG ===
-species_dirs = ["cougar", "bobcat", "coyote"]
-base_dir = Path("/home/username/Downloads/Images/Species_Images")
-confidence_threshold = 0.2
+# Config
+base_image_folder = '/home/conor/Downloads/Temp_Images/tinyscrubcam_project'
+species_folders = ['cougar', 'bobcat', 'coyote']
+max_images_per_species = 4000
+batch_size = 8
 
-def process_species_dir(species):
-    folder = base_dir / species
-    json_path = folder / f"detections_{species}.json"
+# Load the MegaDetectorV6 model
+detector = pw_det.MegaDetectorV6(version="MDV6-yolov10-c")
 
-    if not json_path.exists():
-        print(f"❌ Expected file not found: {json_path}")
-        return
+def chunk_list(lst, chunk_size):
+    for i in range(0, len(lst), chunk_size):
+        yield lst[i:i + chunk_size]
 
-    with open(json_path, 'r') as f:
-        md_data = json.load(f)
+for species in species_folders:
+    folder = os.path.join(base_image_folder, species)
+    print(f"🔍 Processing folder: {folder}")
 
-    entries = []
-    for img_entry in md_data["images"]:
-        full_path = img_entry["file"]
-        filename = os.path.basename(full_path)
-        image_path = folder / filename
+    # Collect paths to image files
+    all_image_paths = [
+        os.path.join(folder, f)
+        for f in os.listdir(folder)
+        if f.lower().endswith(('.jpg', '.jpeg', '.png'))
+    ][:max_images_per_species]
 
-        if not image_path.exists():
-            print(f"⚠️ Missing image: {image_path}")
+    all_results = []
+
+    # Process images in small chunks
+    for chunk_paths in chunk_list(all_image_paths, batch_size):
+        images = []
+        valid_paths = []
+        for path in chunk_paths:
+            img = cv2.imread(path)
+            if img is not None:
+                images.append(img)
+                valid_paths.append(path)
+
+        if not images:
             continue
 
-        try:
-            with Image.open(image_path) as im:
-                width, height = im.size
-        except Exception as e:
-            print(f"❌ Error opening image {image_path}: {e}")
-            continue
+        # Run detection
+        results = detector.batch_image_detection(images, batch_size=len(images))
 
-        for det in img_entry["detections"]:
-            if det["conf"] < confidence_threshold:
-                continue
+        for item, path in zip(results, valid_paths):
+            item['species'] = species
+            item['image_path'] = path
+            all_results.append(item)
 
-            rel_x, rel_y, rel_w, rel_h = det["bbox"]
-            abs_x = int(rel_x * width)
-            abs_y = int(rel_y * height)
-            abs_w = int(rel_w * width)
-            abs_h = int(rel_h * height)
+        print(f"  ✅ Processed {len(valid_paths)} images... (total so far: {len(all_results)})")
 
-            xmin = abs_x
-            ymin = abs_y
-            xmax = abs_x + abs_w
-            ymax = abs_y + abs_h
+    # Save results to JSON
+    output_path = os.path.join(base_image_folder, f'mdv6_results_{species}.json')
+    with open(output_path, 'w') as f:
+        json.dump(all_results, f, indent=2)
 
-            XMin = max(0.0, min(1.0, xmin / width))
-            XMax = max(0.0, min(1.0, xmax / width))
-            YMin = max(0.0, min(1.0, ymin / height))
-            YMax = max(0.0, min(1.0, ymax / height))
-
-            entries.append({
-                "ImageID": filename,
-                "LabelName": species,
-                "Confidence": det["conf"],
-                "XMin": XMin,
-                "XMax": XMax,
-                "YMin": YMin,
-                "YMax": YMax,
-            })
-
-    # Write Open Images CSV per species
-    csv_path = folder / f"{species}_annotations.csv"
-    with open(csv_path, 'w') as csvfile:
-        csvfile.write("ImageID,LabelName,Confidence,XMin,XMax,YMin,YMax\n")
-        for entry in entries:
-            csvfile.write(
-                f"{entry['ImageID']},{entry['LabelName']},{entry['Confidence']:.3f},"
-                f"{entry['XMin']:.6f},{entry['XMax']:.6f},{entry['YMin']:.6f},{entry['YMax']:.6f}\n"
-            )
-
-    print(f"✅ Created CSV for {species}: {csv_path}")
-
-    # Create label_map.json for the species
-    label_map = {species: species}
-    label_map_path = folder / "class-descriptions.csv"
-    with open(label_map_path, "w") as f:
-        json.dump(label_map, f, indent=2)
-    print(f"✅ Created label map for {species}: {label_map_path}")
-
-if __name__ == "__main__":
-    for species in species_dirs:
-        process_species_dir(species)
-
-
-
-
-
+    print(f"✅ Saved results for {species} to {output_path}")
